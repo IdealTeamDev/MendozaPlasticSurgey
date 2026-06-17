@@ -1,0 +1,30 @@
+.blog-related-section {
+  background-color: #fafafa;
+  padding-bottom: 6rem;
+}
+
+.blog-related-header {
+  margin-bottom: 3rem;
+}
+
+.related-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Post card styles are inherited from BlogFeed.css */

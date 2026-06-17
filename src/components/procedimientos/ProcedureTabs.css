@@ -1,0 +1,148 @@
+.proc-tabs-section {
+  background-color: #fafafa;
+  padding: 5rem 0 8rem;
+}
+
+.proc-tabs-header {
+  margin-bottom: 4rem;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.proc-tabs-title {
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .proc-tabs-title { font-size: 1.5rem; }
+}
+
+/* Tabs Nav */
+.proc-tabs-nav-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.proc-tabs-nav {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.proc-tab-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+  padding: 1rem 0;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.proc-tab-btn:hover {
+  color: var(--black);
+}
+
+.proc-tab-btn.active {
+  color: var(--black);
+  font-weight: 500;
+}
+
+.proc-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--black);
+}
+
+/* Tab Content */
+.proc-tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .proc-tab-content {
+    flex-direction: row;
+    gap: 5rem;
+    align-items: center;
+  }
+}
+
+.proc-tab-img-col {
+  flex: 1;
+  width: 100%;
+}
+
+.proc-tab-img-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  aspect-ratio: 4/5;
+  background-color: #eee;
+  /* Stylish clip path similar to design */
+  clip-path: polygon(10% 0, 100% 5%, 95% 100%, 0 95%);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.proc-tab-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  color: #888;
+  font-size: 1rem;
+}
+
+.proc-tab-text-col {
+  flex: 1;
+  width: 100%;
+}
+
+.proc-tab-desc {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 2.5rem;
+}
+
+.proc-pill-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.proc-pill-link {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid var(--black);
+  border-radius: 30px;
+  color: var(--black);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.proc-pill-link:hover {
+  background-color: var(--black);
+  color: var(--white);
+}

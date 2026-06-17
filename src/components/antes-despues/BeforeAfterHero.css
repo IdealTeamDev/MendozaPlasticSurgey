@@ -1,0 +1,140 @@
+.ba-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding-top: 120px;
+  padding-bottom: 8rem;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.ba-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: #222;
+  /* background-image: url('...'); */
+  background-size: cover;
+  background-position: center;
+}
+
+.ba-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+  backdrop-filter: blur(5px);
+}
+
+.ba-hero-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 992px) {
+  .ba-hero-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.ba-hero-content {
+  flex: 1;
+  color: var(--white);
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.ba-hero-title {
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .ba-hero-title { font-size: 3.5rem; }
+}
+
+.ba-hero-btn {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: none;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.ba-hero-btn:hover {
+  opacity: 0.9;
+}
+
+.ba-hero-image-wrapper {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .ba-hero-image-wrapper {
+    justify-content: flex-end;
+  }
+}
+
+.ba-hero-image-card {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 16/9;
+  background-color: #eee;
+  border-radius: 12px;
+  position: relative;
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+.ba-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #555;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.ba-hero-curve {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .ba-hero-curve { height: 150px; }
+}
+
+.ba-hero-curve svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

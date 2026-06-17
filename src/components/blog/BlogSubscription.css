@@ -1,0 +1,127 @@
+.blog-sub-section {
+  position: relative;
+  padding: 5rem 0;
+  background-color: #333;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .blog-sub-section { padding: 6rem 0; }
+}
+
+.blog-sub-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  /* background-image: url('...'); */
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.blog-sub-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+}
+
+.blog-sub-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.blog-sub-content {
+  color: var(--white);
+  max-width: 600px;
+}
+
+.blog-sub-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .blog-sub-title { font-size: 2rem; }
+}
+
+.blog-sub-text {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+
+.blog-sub-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+  .blog-sub-form {
+    flex-direction: row;
+    background-color: var(--white);
+    border-radius: 4px;
+    padding: 4px;
+    gap: 0;
+  }
+}
+
+.blog-sub-form input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+@media (min-width: 576px) {
+  .blog-sub-form input {
+    border-radius: 4px 0 0 4px;
+  }
+}
+
+.blog-sub-form input:focus {
+  outline: none;
+}
+
+.blog-sub-form .submit-btn {
+  background-color: #999; /* Grey button as per design */
+  color: var(--white);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+@media (min-width: 576px) {
+  .blog-sub-form .submit-btn {
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+.blog-sub-form .submit-btn:hover {
+  background-color: #777;
+}

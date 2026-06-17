@@ -1,0 +1,262 @@
+.proc-grid-section {
+  background-color: var(--white);
+  padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .proc-grid-section { padding: 5rem 0 8rem; }
+}
+
+.proc-grid-header {
+  margin-bottom: 4rem;
+}
+
+.proc-grid-title {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .proc-grid-title { font-size: 2.5rem; }
+}
+
+.proc-grid-desc {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.proc-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 992px) {
+  .proc-layout {
+    flex-direction: row;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+}
+
+/* Grilla de Casos */
+.proc-main-content {
+  flex: 1;
+}
+
+.proc-cases-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .proc-cases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.proc-case-card {
+  background-color: #fafafa;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.proc-case-images {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 2/1; /* Two square images side by side */
+}
+
+.proc-case-img-box {
+  flex: 1;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  font-size: 0.8rem;
+  border-right: 1px solid #fff;
+}
+
+.proc-case-img-box:last-child {
+  border-right: none;
+}
+
+.proc-case-info {
+  padding: 1.5rem;
+  background-color: #fafafa;
+}
+
+.proc-case-date {
+  font-size: 0.75rem;
+  color: #888;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.proc-case-number {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.proc-case-desc {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.proc-case-btn {
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.proc-case-btn:hover {
+  opacity: 0.8;
+}
+
+/* Paginación */
+.proc-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pag-btn {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #666;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.pag-btn:hover {
+  border-color: #999;
+}
+
+.pag-btn.active {
+  border-color: var(--black);
+  color: var(--black);
+  font-weight: 600;
+}
+
+.pag-dots {
+  color: #999;
+}
+
+/* Sidebar */
+.proc-sidebar {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .proc-sidebar {
+    width: 300px;
+    position: sticky;
+    top: 120px; /* Offset for fixed navbar */
+  }
+}
+
+.proc-sidebar-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+  padding: 1.5rem;
+}
+
+.sidebar-title {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  color: var(--black);
+}
+
+.sidebar-acc-item {
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-acc-item:last-child {
+  border-bottom: none;
+}
+
+.sidebar-acc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.sidebar-acc-header:hover {
+  color: var(--black);
+}
+
+.sidebar-acc-header svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-acc-item.open .sidebar-acc-header {
+  color: var(--black);
+  font-weight: 500;
+}
+
+.sidebar-acc-item.open .sidebar-acc-header svg {
+  transform: rotate(180deg);
+}
+
+.sidebar-acc-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.sidebar-acc-item.open .sidebar-acc-content {
+  max-height: 200px;
+}
+
+.sidebar-acc-content ul {
+  list-style: none;
+  padding: 0 0 1rem 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.sidebar-acc-content ul li a {
+  text-decoration: none;
+  color: #888;
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
+}
+
+.sidebar-acc-content ul li a:hover {
+  color: var(--black);
+}

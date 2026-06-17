@@ -1,0 +1,245 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 70px; /* Accounts for navbar on mobile */
+  padding-bottom: 2rem;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-top: 80px;
+    padding-bottom: 0;
+  }
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  object-fit: cover;
+  filter: blur(12px) brightness(0.4) grayscale(20%);
+  transform: scale(1.05);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+}
+
+@media (min-width: 1024px) {
+  .hero-overlay {
+    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+  }
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1300px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .hero-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.hero-content {
+  flex: 1;
+  color: var(--white);
+  animation: slideUp 0.8s ease-out forwards;
+  padding-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .hero-content {
+    padding-right: 2rem;
+    padding-top: 0;
+  }
+}
+
+.hero-subtitle {
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+  color: #ddd;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+@media (min-width: 768px) {
+  .hero-title { font-size: 3.5rem; }
+  .hero-subtitle { font-size: 1rem; }
+}
+
+.hero-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #ddd;
+}
+
+@media (min-width: 768px) {
+  .hero-text { font-size: 1.1rem; margin-bottom: 2rem; }
+}
+
+.hero-text strong {
+  font-weight: 600;
+  color: var(--white);
+}
+
+.hero-btn {
+  background-color: var(--white);
+  color: var(--black);
+  border-radius: 6px;
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .hero-btn { padding: 0.8rem 1.8rem; font-size: 1rem; }
+}
+
+.hero-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.hero-card-wrapper {
+  flex: 1.2;
+  display: flex;
+  justify-content: center; /* Center on mobile */
+  position: relative;
+  height: 300px;
+  width: 100%;
+  animation: fadeIn 1s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  .hero-card-wrapper { height: 400px; }
+}
+
+@media (min-width: 1024px) {
+  .hero-card-wrapper { height: 500px; justify-content: flex-end; }
+}
+
+.hero-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 10% 100%, 0 45%, 12% 30%);
+  border-radius: 12px;
+}
+
+@media (min-width: 1024px) {
+  .hero-card { border-radius: 16px; }
+}
+
+@supports (clip-path: polygon(0 0, 0 0, 0 0)) {
+  .hero-card {
+    border-radius: 0;
+  }
+}
+
+.hero-card-img {
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+@media (min-width: 1024px) {
+  .hero-card-img { border-radius: 16px; }
+}
+
+.floating-support-btn {
+  position: fixed; /* Fixed so it stays on screen on mobile and desktop */
+  bottom: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  background-color: #0a0a0a;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+@media (min-width: 768px) {
+  .floating-support-btn { width: 50px; height: 50px; bottom: 30px; right: 30px; }
+}
+
+.floating-support-btn:hover {
+  background-color: #222;
+  transform: scale(1.05);
+}
+
+.headset-icon {
+  position: relative;
+  display: flex;
+}
+
+.headset-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 768px) {
+  .headset-icon svg { width: 24px; height: 24px; }
+}
+
+.headset-icon .dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 6px;
+  height: 6px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  border: 2px solid #0a0a0a;
+}
+
+@media (min-width: 768px) {
+  .headset-icon .dot { width: 8px; height: 8px; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

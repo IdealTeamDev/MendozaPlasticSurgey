@@ -1,0 +1,105 @@
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+  --black: #000000;
+  --white: #ffffff;
+  --primary: #d4af37; /* Gold accent */
+  --secondary: #1a1a1a;
+  --gray-light: #f5f5f5;
+  --gray-dark: #333333;
+  --text-muted: #666666;
+  
+  --font-text: var(--font-text, 'Fahkwang', sans-serif);
+  --font-title: var(--font-title, 'Montserrat', sans-serif);
+  --font-subtitle: 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* If dark mode is supported, we keep mostly the same palette for this specific design, 
+       but you could invert here if desired */
+    --background: #111111;
+    --foreground: #ffffff;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-text);
+  background-color: var(--background);
+  color: var(--foreground);
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-family: var(--font-title);
+}
+
+[class*="subtitle"], [class*="subtext"] {
+  font-family: var(--font-subtitle);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary);
+  color: var(--black);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+}
+
+.btn-outline:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.section-padding {
+  padding: 5rem 0;
+}
+
+.text-center {
+  text-align: center;
+}

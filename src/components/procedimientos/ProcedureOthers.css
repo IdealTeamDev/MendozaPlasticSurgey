@@ -1,0 +1,36 @@
+.proc-others-section {
+  padding: 4rem 0;
+  background-color: var(--white);
+}
+
+.proc-others-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+.proc-others-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.proc-other-pill {
+  display: inline-block;
+  padding: 0.6rem 2rem;
+  border: 1px solid var(--black);
+  border-radius: 30px;
+  color: var(--black);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.proc-other-pill:hover {
+  background-color: var(--black);
+  color: var(--white);
+}

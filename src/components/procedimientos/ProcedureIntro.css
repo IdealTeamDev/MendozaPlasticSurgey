@@ -1,0 +1,131 @@
+.proc-intro-section {
+  padding: 5rem 0;
+  background-color: var(--white);
+}
+
+.proc-intro-layout {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 4rem;
+}
+
+@media (min-width: 992px) {
+  .proc-intro-layout {
+    flex-direction: row;
+    gap: 5rem;
+    align-items: center;
+  }
+}
+
+.proc-intro-text-col {
+  flex: 1;
+}
+
+.proc-intro-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+.proc-intro-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.proc-intro-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.proc-btn-black {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.proc-btn-black:hover {
+  opacity: 0.8;
+}
+
+/* Quick Facts Grid */
+.proc-quick-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  border-left: 2px solid #eee;
+}
+
+@media (min-width: 768px) {
+  .proc-quick-facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-left: none;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+  }
+}
+
+.fact-item {
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .fact-item {
+    padding-left: 1rem;
+    border-left: 1px solid #eee;
+  }
+}
+
+.fact-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.fact-value {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--black);
+}
+
+/* Image Column */
+.proc-intro-img-col {
+  flex: 1;
+}
+
+.proc-intro-img-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  aspect-ratio: 4/5;
+  background-color: #eee;
+  /* Matching the ProcedureTabs clip path shape */
+  clip-path: polygon(10% 0, 100% 5%, 95% 100%, 0 95%);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.proc-intro-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  color: #888;
+}

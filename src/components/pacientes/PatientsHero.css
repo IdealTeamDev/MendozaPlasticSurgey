@@ -1,0 +1,136 @@
+.patients-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px; /* Accounts for navbar */
+  padding-bottom: 5rem;
+  overflow: hidden;
+}
+
+.patients-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #222;
+  /* Add background image here when available */
+  /* background-image: url('/patients-hero-bg.jpg'); */
+  background-size: cover;
+  background-position: center;
+}
+
+.patients-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+  backdrop-filter: blur(5px);
+}
+
+.patients-hero-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .patients-hero-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.patients-hero-content {
+  flex: 1;
+  color: var(--white);
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.patients-hero-subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  color: #ccc;
+  text-transform: uppercase;
+}
+
+.patients-hero-title {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 768px) {
+  .patients-hero-title { font-size: 3rem; }
+  .patients-hero-subtitle { font-size: 0.9rem; margin-bottom: 1.5rem; }
+}
+
+.patients-hero-image-wrapper {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .patients-hero-image-wrapper {
+    justify-content: flex-end;
+  }
+}
+
+.patients-hero-image-card {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16/10;
+  background-color: #eee;
+  border-radius: 12px;
+  position: relative;
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.patients-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #555;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.patients-img {
+  object-fit: cover;
+}
+
+.patients-hero-curve {
+  position: absolute;
+  bottom: -1px; /* Prevent subpixel gap */
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .patients-hero-curve { height: 120px; }
+}
+
+.patients-hero-curve svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

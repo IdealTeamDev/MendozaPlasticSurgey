@@ -1,0 +1,215 @@
+.financing-tabs-section {
+  background-color: #f9f9f9; /* Off-white background based on design */
+  padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .financing-tabs-section { padding: 6rem 0; }
+}
+
+.financing-tabs-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--black);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .financing-tabs-title { font-size: 2rem; }
+}
+
+.financing-tabs-header {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.fin-tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.fin-tab-btn:hover {
+  color: var(--black);
+}
+
+.fin-tab-btn.active {
+  color: var(--black);
+  border-bottom-color: #009688; /* Teal color for CareCredit active state */
+}
+
+.fin-tab-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.cherry-icon {
+  background-color: #1a1a1a;
+  color: white;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carecredit-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.financing-tabs-content {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+@media (min-width: 992px) {
+  .financing-tabs-content {
+    padding: 4rem;
+  }
+}
+
+.fin-tab-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 992px) {
+  .fin-tab-pane {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 5rem;
+  }
+}
+
+.fin-pane-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fin-pane-right {
+  flex: 1.5;
+}
+
+.carecredit-logo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cc-logo-icon {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.cc-green { color: #009688; }
+.cc-teal { color: #006064; }
+
+.cc-sub {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 300;
+  margin-top: -5px;
+}
+
+.cherry-logo-placeholder {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #d11947; /* Cherry red */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cherry-percent {
+  background-color: #d11947;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.fin-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.fin-subtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.fin-list {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.fin-list li {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+.fin-text {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.fin-small-text {
+  font-size: 0.7rem;
+  color: #888;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
+.fin-btn {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+}
+
+.fin-btn:hover {
+  background-color: #333;
+}

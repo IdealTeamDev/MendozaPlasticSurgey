@@ -1,0 +1,105 @@
+.surgeon-details-section {
+  background-color: var(--white);
+  padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .surgeon-details-section { padding: 6rem 0; }
+}
+
+.surgeon-tabs-header {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.surgeon-tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 1rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.surgeon-tab-btn:hover {
+  color: var(--black);
+}
+
+.surgeon-tab-btn.active {
+  color: var(--black);
+  border-bottom-color: var(--black);
+}
+
+.surgeon-tab-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 992px) {
+  .surgeon-tab-pane {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+}
+
+.surgeon-pane-left {
+  flex: 1;
+}
+
+.surgeon-pane-image-card {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-color: #eee;
+  border-radius: 12px;
+  position: relative;
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .surgeon-pane-image-card {
+    aspect-ratio: 4/3;
+  }
+}
+
+.surgeon-pane-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  color: #666;
+}
+
+.surgeon-pane-right {
+  flex: 1.2;
+}
+
+.surgeon-pane-right p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.surgeon-pane-right p:last-child {
+  margin-bottom: 0;
+}
+
+.surgeon-pane-full {
+  width: 100%;
+  text-align: center;
+  padding: 3rem 0;
+  color: #666;
+}

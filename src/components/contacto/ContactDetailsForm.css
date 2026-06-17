@@ -1,0 +1,188 @@
+.contact-details-section {
+  background-color: var(--white);
+  padding: 4rem 0;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .contact-details-section { padding: 6rem 0; }
+}
+
+.contact-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 992px) {
+  .contact-details-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+}
+
+.contact-info-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--black);
+  flex-shrink: 0;
+}
+
+.info-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.info-text h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.5px;
+}
+
+.info-text p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.contact-form-wrapper {
+  flex: 1.2;
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: var(--black);
+  font-weight: 400;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background-color: var(--white);
+  color: var(--black);
+  transition: border-color 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group select {
+  color: #999;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--black);
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none;
+  padding-right: 2rem;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 0.7rem;
+  color: #666;
+}
+
+.error-state .error-input {
+  border-color: #ff4d4f;
+  color: #ff4d4f;
+}
+
+.error-state .error-input::placeholder {
+  color: rgba(255, 77, 79, 0.5);
+}
+
+.error-state .error-msg {
+  color: #ff4d4f;
+  font-size: 0.8rem;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.form-checkbox label {
+  font-size: 0.85rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  opacity: 0.8;
+}

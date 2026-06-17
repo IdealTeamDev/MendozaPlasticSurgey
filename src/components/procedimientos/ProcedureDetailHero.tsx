@@ -1,0 +1,30 @@
+import React from 'react';
+import './ProcedureDetailHero.css';
+
+interface ProcedureDetailHeroProps {
+  title: string;
+  subtitle?: string;
+}
+
+export default function ProcedureDetailHero({ title, subtitle = "PROCEDIMIENTOS" }: ProcedureDetailHeroProps) {
+  return (
+    <section className="proc-detail-hero">
+      <div className="proc-detail-hero-bg">
+        <div className="proc-detail-hero-overlay"></div>
+      </div>
+      
+      <div className="container proc-detail-hero-container">
+        <div className="proc-detail-hero-content">
+          <span className="proc-detail-subtitle">{subtitle}</span>
+          <h1 className="proc-detail-title">{title}</h1>
+        </div>
+      </div>
+
+      <div className="proc-detail-hero-curve">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff" />
+        </svg>
+      </div>
+    </section>
+  );
+}

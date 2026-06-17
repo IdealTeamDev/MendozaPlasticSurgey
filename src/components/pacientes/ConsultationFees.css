@@ -1,0 +1,172 @@
+.consultation-fees-section {
+  position: relative;
+  background-color: var(--white);
+  padding: 4rem 0 6rem;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .consultation-fees-section { padding: 6rem 0 8rem; }
+}
+
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #f7f7f7;
+  z-index: 0;
+}
+
+.shape-left {
+  width: 600px;
+  height: 600px;
+  bottom: -300px;
+  left: -300px;
+}
+
+.shape-right {
+  width: 800px;
+  height: 800px;
+  top: -400px;
+  right: -400px;
+}
+
+.consultation-fees-container {
+  position: relative;
+  z-index: 1;
+}
+
+.consultation-header {
+  margin-bottom: 3rem;
+}
+
+.consultation-subtitle {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #666;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.consultation-title {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: var(--black);
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .consultation-title { font-size: 2.5rem; }
+}
+
+.fees-cards-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.fees-cards {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  width: 100%;
+  snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.fees-cards::-webkit-scrollbar { display: none; }
+
+@media (min-width: 992px) {
+  .fees-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
+    padding: 0;
+  }
+}
+
+.fee-card {
+  background-color: var(--white);
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 2rem;
+  min-width: 280px;
+  scroll-snap-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 992px) {
+  .fee-card {
+    min-width: auto;
+  }
+  .fee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+}
+
+.fee-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background-color: var(--black);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.fee-icon-wrapper svg {
+  width: 24px;
+  height: 24px;
+}
+
+.fee-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+.fee-card-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.policy-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--black);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.policy-link:hover {
+  color: #666;
+}
+
+.fees-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.mobile-only { display: flex; }
+@media (min-width: 992px) { .mobile-only { display: none; } }

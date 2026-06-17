@@ -1,0 +1,91 @@
+.badges-section {
+  padding: 2rem 0;
+  background-color: var(--white);
+}
+
+@media (min-width: 768px) {
+  .badges-section { padding: 3rem 0; }
+}
+
+.badges-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .badges-container {
+    gap: 4rem;
+  }
+}
+
+.badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.badge-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.badge-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+  .badge-placeholder { width: 80px; height: 80px; }
+}
+
+.badge-placeholder.blue {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.badge-placeholder.gold {
+  background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #b38728 100%);
+}
+
+.badge-icon {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.carousel-btn {
+  background: none;
+  border: none;
+  color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.mobile-only {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}

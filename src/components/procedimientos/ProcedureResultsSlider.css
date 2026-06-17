@@ -1,0 +1,119 @@
+.proc-results-section {
+  padding: 4rem 0;
+  background-color: #fafafa;
+}
+
+.proc-results-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 992px) {
+  .proc-results-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 4rem;
+    gap: 5rem;
+  }
+}
+
+.proc-results-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.proc-results-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #888;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.proc-results-title {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: var(--black);
+}
+
+.proc-results-carousel {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.proc-results-images {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.proc-result-img-box {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.proc-result-tag {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  font-size: 0.8rem;
+  font-weight: 500;
+  position: absolute;
+  top: -15px;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.proc-result-img-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background-color: #333;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 0.9rem;
+  overflow: hidden;
+}
+
+.proc-results-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.slider-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.slider-btn:hover {
+  opacity: 0.8;
+}

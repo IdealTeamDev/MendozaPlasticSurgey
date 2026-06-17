@@ -1,0 +1,88 @@
+.surgeon-funfacts-section {
+  background-color: #fafafa;
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .surgeon-funfacts-section { padding: 6rem 0; }
+}
+
+.surgeon-funfacts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 992px) {
+  .surgeon-funfacts-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+  }
+}
+
+.funfacts-left {
+  flex: 1;
+}
+
+.funfacts-subtitle {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: #666;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.funfacts-title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .funfacts-title { font-size: 2.5rem; }
+}
+
+.funfacts-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.funfacts-right {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .funfacts-right {
+    justify-content: flex-end;
+  }
+}
+
+.funfacts-image-card {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 16/9;
+  background-color: #eee;
+  border-radius: 12px;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.funfacts-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  color: #666;
+}

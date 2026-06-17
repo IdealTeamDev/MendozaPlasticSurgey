@@ -1,0 +1,130 @@
+.ba-gallery-section {
+  background-color: #fafafa;
+  padding: 4rem 0 6rem;
+}
+
+@media (min-width: 768px) {
+  .ba-gallery-section { padding: 6rem 0 8rem; }
+}
+
+.ba-gallery-container {
+  max-width: 800px; /* Acordeón se ve más angosto en diseño */
+}
+
+.ba-gallery-header {
+  margin-bottom: 4rem;
+}
+
+.ba-gallery-title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: var(--black);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .ba-gallery-title { font-size: 2.8rem; }
+}
+
+.ba-gallery-desc {
+  font-size: 1rem;
+  color: #555;
+  font-weight: 300;
+}
+
+.ba-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ba-accordion-item {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  overflow: hidden;
+  border: 1px solid #eaeaea;
+  transition: box-shadow 0.3s ease;
+}
+
+.ba-accordion-item:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.ba-accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+.ba-accordion-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.ba-acc-img-wrapper {
+  width: 80px;
+  height: 60px;
+  background-color: #ddd;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.6rem;
+  color: #666;
+  text-align: center;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .ba-acc-img-wrapper {
+    width: 120px;
+    height: 80px;
+    font-size: 0.7rem;
+  }
+}
+
+.ba-acc-title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--black);
+  letter-spacing: 1px;
+}
+
+@media (min-width: 768px) {
+  .ba-acc-title { font-size: 1.3rem; }
+}
+
+.ba-accordion-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--black);
+  transition: transform 0.3s ease;
+}
+
+.ba-accordion-item.open .ba-accordion-icon {
+  transform: rotate(180deg);
+}
+
+.ba-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.ba-accordion-item.open .ba-accordion-content {
+  max-height: 500px; /* Arbitrary large height for expanding */
+}
+
+.ba-accordion-inner {
+  padding: 2rem;
+  border-top: 1px solid #eee;
+  color: #555;
+  background-color: #fafafa;
+}

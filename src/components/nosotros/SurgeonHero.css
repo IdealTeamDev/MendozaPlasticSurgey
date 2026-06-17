@@ -1,0 +1,142 @@
+.surgeon-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding-top: 120px;
+  padding-bottom: 8rem;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.surgeon-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: #222;
+  /* background-image: url('...'); */
+  background-size: cover;
+  background-position: center;
+}
+
+.surgeon-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+  backdrop-filter: blur(5px);
+}
+
+.surgeon-hero-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 992px) {
+  .surgeon-hero-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.surgeon-hero-content {
+  flex: 1;
+  color: var(--white);
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.surgeon-hero-subtitle {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+  color: #ccc;
+  text-transform: uppercase;
+}
+
+.surgeon-hero-title {
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .surgeon-hero-title { font-size: 3.5rem; }
+}
+
+.surgeon-hero-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+  max-width: 450px;
+  font-weight: 300;
+}
+
+.surgeon-hero-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .surgeon-hero-image-wrapper {
+    justify-content: flex-end;
+  }
+}
+
+.surgeon-hero-image-card {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 4/3;
+  background-color: #333;
+  border-radius: 12px;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 75%);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+.surgeon-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #444;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.surgeon-hero-curve {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .surgeon-hero-curve { height: 150px; }
+}
+
+.surgeon-hero-curve svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

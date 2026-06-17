@@ -1,0 +1,165 @@
+.proc-contact-section {
+  position: relative;
+  padding: 6rem 0;
+  background-color: #333; /* Fallback */
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .proc-contact-section { padding: 8rem 0; }
+}
+
+.proc-contact-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #444; /* Placeholder background */
+  z-index: 0;
+}
+
+.proc-contact-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+}
+
+@media (max-width: 991px) {
+  .proc-contact-overlay {
+    background: rgba(255,255,255,0.9);
+  }
+}
+
+.proc-contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 992px) {
+  .proc-contact-container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.proc-contact-left {
+  flex: 1;
+  max-width: 500px;
+}
+
+.proc-contact-title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: var(--black);
+  margin-bottom: 2rem;
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .proc-contact-title { font-size: 2.8rem; }
+}
+
+.proc-contact-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.proc-contact-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.proc-form-card {
+  width: 100%;
+  max-width: 450px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.proc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: var(--white);
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #333;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #999;
+}
+
+.error-text {
+  font-size: 0.75rem;
+  color: #ff4d4f;
+  margin-top: 0.2rem;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.form-checkbox input {
+  margin-top: 0.2rem;
+}
+
+.form-checkbox label {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.submit-btn {
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.submit-btn:hover {
+  opacity: 0.8;
+}
