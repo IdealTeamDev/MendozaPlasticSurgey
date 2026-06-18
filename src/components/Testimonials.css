@@ -1,24 +1,16 @@
 .testimonials {
   background-color: var(--white);
-  overflow: hidden;
+  background-image: url('/quotes-bg.jpg');
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
   padding: 4rem 0;
   position: relative;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .testimonials { padding: 6rem 0; }
-}
-
-.testimonials-bg-quote {
-  position: absolute;
-  top: -50px;
-  right: 5%;
-  font-size: 500px;
-  font-family: serif;
-  color: #f7f7f7;
-  line-height: 1;
-  z-index: 0;
-  user-select: none;
 }
 
 .testimonials-container {
@@ -42,11 +34,13 @@
 }
 
 .stats-title {
+  font-family: var(--font-text, serif);
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 2px;
   margin-bottom: 2rem;
-  color: var(--black);
+  color: var(--black, #000);
+  text-transform: uppercase;
 }
 
 @media (min-width: 1024px) {
@@ -55,35 +49,38 @@
 
 .stats-grid {
   display: flex;
-  gap: 1.5rem;
-  align-items: flex-end;
+  gap: 2.5rem;
+  align-items: stretch;
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
-  border-left: 2px solid var(--black);
-  padding-left: 0.8rem;
+  justify-content: center;
+  border-left: 2px solid var(--black, #000);
+  padding-left: 1.2rem;
 }
 
 .stat-number {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.1;
+  color: var(--black, #000);
+  margin-bottom: 0.3rem;
 }
 
 @media (min-width: 1024px) {
-  .stat-number { font-size: 2rem; }
+  .stat-number { font-size: 2.2rem; }
 }
 
 .stat-label {
-  font-size: 0.8rem;
-  color: #666;
-  font-weight: 300;
+  font-size: 0.95rem;
+  color: #777;
+  font-weight: 400;
 }
 
 @media (min-width: 1024px) {
-  .stat-label { font-size: 0.9rem; }
+  .stat-label { font-size: 1rem; }
 }
 
 .testimonials-right {

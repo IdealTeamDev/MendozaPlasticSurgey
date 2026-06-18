@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import './Footer.css';
@@ -8,55 +10,67 @@ export default function Footer() {
       <div className="container">
         <div className="footer-content">
           
-          <div className="footer-brand">
+          <div className="footer-col-left">
             <div className="footer-logo">
-              <span className="logo-icon">M</span>
-              <span className="logo-text">MENDOZA</span>
+              <span className="logo-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 2L8 22H10.5L6.5 2H3Z" fill="white"/>
+                  <path d="M10 2L15 22H17.5L13.5 2H10Z" fill="white"/>
+                  <path d="M17 2L22 22H24.5L20.5 2H17Z" fill="white"/>
+                </svg>
+              </span>
+              <span className="logo-text">MENDOZA<br/><small>PLASTIC SURGERY</small></span>
             </div>
             <p className="footer-desc">
-              Un enfoque personalizado a la medicina 
-              estética. Con nuestro cirujano plástico,
-              Dr. Delouis R. Mendoza, descubrirás un
-              plan de tratamiento diseñado 
-              especialmente para ti.
+              Buscamos construir relaciones duraderas, basadas en la confianza y el cuidado personalizado. Nos adaptamos a las necesidades de cada paciente con el fin de lograr resultados naturales. Nuestra prioridad es tu satisfacción y bienestar.
             </p>
           </div>
 
-          <div className="footer-links">
-            <Link href="/">INICIO</Link>
-            <Link href="/nosotros">NOSOTROS</Link>
-            <Link href="/procedimientos">PROCEDIMIENTOS</Link>
-            <Link href="/contacto">CONTACTO</Link>
+          <div className="footer-col-middle">
+            <div className="footer-nav">
+              <Link href="/nosotros">ABOUT US</Link>
+              <Link href="/procedimientos">PROCEDURES</Link>
+              <Link href="/contacto">CONTACT</Link>
+            </div>
+            <div className="footer-contact-info">
+              <div className="contact-item">
+                <span className="icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </span>
+                <span>Tel. (+1) 770-545-8373</span>
+              </div>
+              <div className="contact-item">
+                <span className="icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </span>
+                <span>3970 Rogers Bridge Rd, Duluth, GA 30097</span>
+              </div>
+            </div>
           </div>
 
-          <div className="footer-contact">
-            <div className="contact-item">
-              <span className="icon">📞</span>
-              <span>+1 (123) 456-7890</span>
-            </div>
-            <div className="contact-item">
-              <span className="icon">📍</span>
-              <span>1234 Medical Blvd, Suite 100<br/>Houston, TX 77002</span>
-            </div>
-          </div>
-
-          <div className="footer-newsletter">
-            <h4>Suscríbete a nuestro boletín</h4>
-            <div className="newsletter-input">
-              <input type="email" placeholder="Correo electrónico" />
-              <button>→</button>
-            </div>
-            <div className="social-links">
-              <a href="#" className="social-icon">T</a>
-              <a href="#" className="social-icon">I</a>
-              <a href="#" className="social-icon">F</a>
+          <div className="footer-col-right">
+            <h4 className="newsletter-title">Suscríbete a nuestro boletín</h4>
+            <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
+              <input type="email" placeholder="Ingresa tu correo electrónico acá" />
+              <button type="submit">Submit →</button>
+            </form>
+            <div className="social-icons">
+              <a href="#" className="social-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 15.68a6.34 6.34 0 0 0 6.27 6.32 6.32 6.32 0 0 0 6.16-5.45V8a8.21 8.21 0 0 0 5 1.71V6.3a4.23 4.23 0 0 1-2.84-.61z"/></svg>
+              </a>
+              <a href="#" className="social-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="#" className="social-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
             </div>
           </div>
 
         </div>
         
         <div className="footer-bottom">
-          <p>© 2026 Mendoza Plastic Surgery. Todos los derechos reservados.</p>
+          <p>Copyright © 2024 Mendoza Plastic Surgery . All Rights Reserved.</p>
         </div>
       </div>
     </footer>

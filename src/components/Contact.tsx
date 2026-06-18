@@ -6,47 +6,56 @@ import './Contact.css';
 export default function Contact() {
   return (
     <section className="contact section-padding" id="contacto">
+      <div className="contact-bg-shape">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%">
+          <path fill="var(--white)" d="M 0 0 L 100 0 L 100 35 L 60 35 C 45 35, 45 95, 30 95 L 0 95 Z" />
+        </svg>
+      </div>
       <div className="container contact-container">
         
         <div className="contact-info">
-          <h2 className="contact-title">EL CAMBIO QUE QUERÍAS<br/>¡AHORA!</h2>
+          <h2 className="contact-title">
+            <span className="contact-subtitle">¡EL CAMBIO QUE QUIERES ES</span><br/>
+            <span className="contact-title-bold">AHORA!</span>
+          </h2>
           <p className="contact-text">
-            Mendoza Plastic Surgery es la respuesta para las que 
-            quieren verse mejor. Te ofrecemos una atención 
-            personalizada.
+            Reserva tu consulta con el Dr. Mendoza <strong>cirujano plástico en Atlanta</strong> y conoce más sobre tu procedimiento.
           </p>
           <p className="contact-text">
-            No esperes a que pasen los años o más días. Nosotras 
-            tenemos los planes de pago que necesitas. Da un clic y 
-            luce como tú querías.
+            Después de diligenciar el formulario, uno de nuestros asesores se pondrá en contacto contigo para fijar la fecha de tu consulta.
           </p>
         </div>
 
         <div className="contact-form-wrapper">
           <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
             <div className="form-group">
-              <label>Nombre</label>
-              <input type="text" placeholder="Escribe tu nombre" />
+              <label>Nombre*</label>
+              <input type="text" placeholder="Ingresa tu nombre acá" />
             </div>
             <div className="form-group">
-              <label>Correo Electrónico</label>
-              <input type="email" placeholder="Escribe tu correo" />
+              <label>Correo electrónico*</label>
+              <input type="email" placeholder="Ingresa tu correo electrónico acá" />
+            </div>
+            <div className="form-group error-state">
+              <label>Celular*</label>
+              <input type="tel" placeholder="Ingresa tu número de celular acá" className="input-error" />
+              <span className="error-msg">Campo requerido</span>
             </div>
             <div className="form-group">
-              <label>Celular</label>
-              <input type="tel" placeholder="Escribe tu número de celular" />
-            </div>
-            <div className="form-group">
-              <label>Procedimiento de interés</label>
+              <label>Procedimiento deseado*</label>
               <select defaultValue="">
-                <option value="" disabled>Selecciona el procedimiento de interés</option>
+                <option value="" disabled>Selecciona un procedimiento</option>
                 <option value="cuerpo">Cirugía de cuerpo</option>
                 <option value="rostro">Cirugía de rostro</option>
                 <option value="senos">Cirugía de senos</option>
                 <option value="inyectables">Inyectables</option>
               </select>
             </div>
-            <button type="submit" className="btn btn-primary submit-btn">Agendar tu consulta</button>
+            <div className="form-checkbox">
+              <input type="checkbox" id="policy" />
+              <label htmlFor="policy">Acepto política de tratamiento de datos</label>
+            </div>
+            <button type="submit" className="btn submit-btn-black">Agenda tu consulta</button>
           </form>
         </div>
         

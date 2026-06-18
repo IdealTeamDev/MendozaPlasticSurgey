@@ -1,0 +1,82 @@
+.floating-contact-wrapper {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.floating-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.floating-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--white, #fff);
+  color: var(--black, #000);
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 400;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateY(20px) scale(0.9);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.floating-menu-item:hover {
+  background-color: #f8f8f8;
+  transform: scale(1.02) !important;
+}
+
+/* Staggered animation */
+.floating-menu.open .floating-menu-item {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.floating-menu.open .floating-menu-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.floating-menu.open .floating-menu-item:nth-child(2) {
+  transition-delay: 0.0s;
+}
+
+.floating-bubble {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: var(--black, #1a1a1a);
+  color: var(--white, #fff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  cursor: pointer;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-bubble.open {
+  background-color: var(--white, #fff);
+  color: var(--black, #1a1a1a);
+  transform: rotate(90deg);
+}
+
+.floating-bubble svg {
+  transition: all 0.3s ease;
+}

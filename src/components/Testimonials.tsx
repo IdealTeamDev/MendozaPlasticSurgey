@@ -1,10 +1,27 @@
-import React from 'react';
+"use client";
+
+import React, { useRef } from 'react';
 import './Testimonials.css';
 
 export default function Testimonials() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollNext = () => {
+    if (scrollRef.current) {
+      const slideWidth = scrollRef.current.querySelector('.review-card')?.clientWidth || 350;
+      scrollRef.current.scrollBy({ left: slideWidth + 24, behavior: 'smooth' }); // +24 for gap
+    }
+  };
+
+  const scrollPrev = () => {
+    if (scrollRef.current) {
+      const slideWidth = scrollRef.current.querySelector('.review-card')?.clientWidth || 350;
+      scrollRef.current.scrollBy({ left: -(slideWidth + 24), behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="testimonials section-padding" id="resultados">
-      <div className="testimonials-bg-quote">”</div>
       <div className="container testimonials-container">
         
         <div className="testimonials-left">
@@ -26,7 +43,7 @@ export default function Testimonials() {
         </div>
 
         <div className="testimonials-right">
-          <div className="testimonials-cards">
+          <div className="testimonials-cards" ref={scrollRef}>
             <div className="review-card">
               <div className="review-header">
                 <div className="reviewer-avatar m-initial">M</div>
@@ -61,10 +78,10 @@ export default function Testimonials() {
           </div>
           
           <div className="carousel-nav">
-            <button className="nav-btn prev">
+            <button className="nav-btn prev" onClick={scrollPrev} aria-label="Anterior">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
             </button>
-            <button className="nav-btn next">
+            <button className="nav-btn next" onClick={scrollNext} aria-label="Siguiente">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
           </div>

@@ -9,9 +9,12 @@
 
 .procedures-title {
   font-size: 1.5rem;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 2px;
   margin-bottom: 2rem;
+  color: var(--black, #000);
+  text-align: center;
+  text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
@@ -19,13 +22,13 @@
 }
 
 .procedures-card {
-  background-color: var(--secondary);
+  background-color: #1a1a1a;
   background-image: url('/procedures.png');
   background-size: cover;
   background-position: center;
   border-radius: 12px;
-  overflow: visible;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
   color: var(--white);
   position: relative;
   z-index: 1;
@@ -35,36 +38,65 @@
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
+  background-color: rgba(30, 30, 30, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: -1;
 }
 
 .desktop-tabs {
   display: none;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  justify-content: center;
+  position: relative;
+  margin: 3rem 0;
+  padding: 0 4rem;
 }
 
 @media (min-width: 768px) {
   .desktop-tabs { display: flex; }
 }
 
-.tab-btn {
-  flex: 1;
-  background: transparent;
-  color: #999;
-  padding: 1.5rem;
-  font-size: 0.95rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  min-width: 150px;
-  border-bottom: 2px solid transparent;
+.desktop-tabs::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background-color: rgba(255,255,255,0.2);
+  z-index: 1;
 }
 
-.tab-btn:hover { color: var(--white); }
-.tab-btn.active { color: var(--white); border-bottom-color: var(--white); }
+.tab-btn {
+  background: transparent;
+  color: #999;
+  border: none;
+  font-size: 1.1rem;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.tab-btn:hover { color: #fff; }
+
+.tab-btn.active {
+  color: #fff;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #fff;
+  z-index: 3;
+}
 
 .mobile-tabs {
   display: block;
@@ -81,11 +113,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   background: transparent;
   color: var(--white);
   font-size: 1rem;
   letter-spacing: 1px;
+  border: none;
 }
 
 .mobile-dropdown-menu {
@@ -97,8 +130,6 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
-  border-radius: 0 0 8px 8px;
-  overflow: hidden;
 }
 
 .dropdown-item {
@@ -106,6 +137,7 @@
   text-align: left;
   background: transparent;
   color: #ccc;
+  border: none;
   border-bottom: 1px solid #333;
 }
 
@@ -118,46 +150,57 @@
 .procedures-content {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 0 1.5rem 2rem;
   gap: 2rem;
+  animation: fadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (min-width: 768px) {
   .procedures-content {
     flex-direction: row;
     align-items: center;
-    padding: 4rem;
-    gap: 3rem;
+    padding: 0 5% 4rem;
+    gap: 4rem;
   }
 }
 
 .procedures-image {
-  flex: 1;
+  flex: 0 0 100%;
   position: relative;
-  aspect-ratio: 4/5;
+  aspect-ratio: 4/3;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 @media (min-width: 768px) {
-  .procedures-image { aspect-ratio: 4/3; }
+  .procedures-image { 
+    flex: 0 0 45%; 
+    aspect-ratio: 4/3; 
+  }
 }
 
 .proc-img { object-fit: cover; }
 
-.procedures-info { flex: 1; }
+.procedures-info { 
+  flex: 1; 
+}
 
 .procedures-desc {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
-  color: #ccc;
-  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2.5rem;
   font-weight: 300;
 }
 
 @media (min-width: 768px) {
-  .procedures-desc { font-size: 1.05rem; margin-bottom: 2rem; }
+  .procedures-desc { font-size: 1.05rem; }
 }
 
 .procedures-badges {
@@ -170,19 +213,19 @@
 .proc-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1.2rem;
-  border: 1px solid rgba(255,255,255,0.4);
+  gap: 0.75rem;
+  padding: 0.4rem 1.25rem 0.4rem 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 30px;
-  font-size: 0.9rem;
-  font-weight: 300;
+  font-size: 0.95rem;
+  font-weight: 400;
   color: var(--white);
   background-color: transparent;
   transition: all 0.3s ease;
 }
 
 .proc-badge:hover {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-color: var(--white);
 }
 
@@ -190,26 +233,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 24px;
-  height: 24px;
-  background-color: var(--white);
-  color: var(--black);
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 50%;
+  background-color: transparent;
+  color: var(--white);
 }
 
 .proc-badge-icon svg {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
 }
 
 .proc-btn-white {
   background-color: var(--white);
   color: var(--black);
   border-radius: 6px;
-  padding: 0.8rem 1.5rem;
-  font-weight: 600;
+  padding: 0.8rem 2rem;
+  font-weight: 500;
   border: none;
   width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 @media (min-width: 768px) {

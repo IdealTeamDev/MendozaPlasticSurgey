@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -52,18 +52,33 @@
 
 .badges-viewport {
   width: 100%;
-  overflow: hidden;
-  position: relative;
+  max-width: 200px; /* 1 item on mobile */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.badges-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .badges-viewport {
+    max-width: 600px; /* 3 items on desktop */
+  }
 }
 
 .badges-track {
   display: flex;
-  width: 100%;
-  transition: transform 0.5s ease-in-out;
+  width: max-content;
 }
 
 .badge-slide {
-  min-width: 100%;
+  width: 200px;
+  flex-shrink: 0;
+  scroll-snap-align: center;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -64,7 +64,7 @@ export default function Procedures() {
             )}
           </div>
           
-          <div className="procedures-content">
+          <div className="procedures-content" key={activeTab}>
             <div className="procedures-image">
               <Image 
                 src="/procedures.png" 
@@ -95,7 +95,7 @@ export default function Procedures() {
                 </div>
                 <div className="proc-badge">
                   <span className="proc-badge-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="10" r="3"></circle><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"></path></svg>
                   </span>
                   Rostro
                 </div>

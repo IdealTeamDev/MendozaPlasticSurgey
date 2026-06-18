@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: "Clínica de cirugía plástica y tratamientos estéticos liderada por el Dr. Delouis R. Mendoza.",
 };
 
+import FloatingContact from '@/components/FloatingContact';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,6 +30,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${fahkwang.variable} ${montserrat.variable} antialiased`}>
         {children}
+        <FloatingContact />
       </body>
     </html>
   );
