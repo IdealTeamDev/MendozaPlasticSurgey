@@ -15,22 +15,70 @@
   flex-wrap: wrap;
 }
 
+.badges-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 @media (min-width: 768px) {
-  .badges-container {
-    gap: 4rem;
+  .badges-carousel {
+    gap: 2rem;
   }
+}
+
+.carousel-arrow {
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--black);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.carousel-arrow:hover {
+  background: #f0f0f0;
+  border-color: #ccc;
+}
+
+.badges-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.badges-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.badge-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .badge-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .badge-placeholder {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background-color: #eee;
   display: flex;
@@ -43,16 +91,16 @@
 .badge-placeholder::after {
   content: '';
   position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 50%;
 }
 
 @media (min-width: 768px) {
-  .badge-placeholder { width: 80px; height: 80px; }
+  .badge-placeholder { width: 140px; height: 140px; }
 }
 
 .badge-placeholder.blue {
@@ -65,27 +113,15 @@
 
 .badge-icon {
   color: var(--white);
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
-.carousel-btn {
-  background: none;
-  border: none;
+.badge-title {
+  font-size: 1.1rem;
+  font-weight: 500;
   color: var(--black);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  padding: 0;
-}
-
-.mobile-only {
-  display: flex;
-}
-
-@media (min-width: 768px) {
-  .mobile-only {
-    display: none;
-  }
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
 }

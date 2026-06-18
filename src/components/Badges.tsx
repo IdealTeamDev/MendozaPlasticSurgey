@@ -1,28 +1,53 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import './Badges.css';
 
 export default function Badges() {
+  const BADGES = [
+    { id: 1, type: 'blue', icon: 'M', title: 'Top Surgeon' },
+    { id: 2, type: 'gold', icon: '★', title: 'Excellence' },
+    { id: 3, type: 'blue', icon: '1', title: 'Certified' },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % BADGES.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? BADGES.length - 1 : prev - 1));
+  };
+
   return (
     <section className="badges-section">
       <div className="container">
-        <div className="badges-container">
-          <button className="carousel-btn prev-btn mobile-only">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>
+        <div className="badges-carousel">
+          <button className="carousel-arrow prev-arrow" onClick={prevSlide} aria-label="Previous">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
           </button>
-          
-          <div className="badge-item">
-            <div className="badge-placeholder blue">
-              <span className="badge-icon">M</span>
+
+          <div className="badges-viewport">
+            <div 
+              className="badges-track"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {BADGES.map(b => (
+                <div key={b.id} className="badge-slide">
+                  <div className="badge-item">
+                    <div className={`badge-placeholder ${b.type}`}>
+                      <span className="badge-icon">{b.icon}</span>
+                    </div>
+                    <h3 className="badge-title">{b.title}</h3>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="badge-item">
-            <div className="badge-placeholder gold">
-              <span className="badge-icon">★</span>
-            </div>
-          </div>
-          
-          <button className="carousel-btn next-btn mobile-only">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+
+          <button className="carousel-arrow next-arrow" onClick={nextSlide} aria-label="Next">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
         </div>
       </div>

@@ -12,6 +12,7 @@ export default function About() {
               src="/doctor.png" 
               alt="Dr. Delouis R. Mendoza" 
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="about-img" 
             />
             <div className="about-image-logo">

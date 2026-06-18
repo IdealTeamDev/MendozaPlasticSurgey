@@ -6,15 +6,19 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-bg">
-        <Image 
-          src="/team.png" 
-          alt="Clinic Background" 
-          fill 
-          priority 
-          className="hero-bg-img" 
-        />
+        <div className="hero-bg-img"></div>
         <div className="hero-overlay"></div>
       </div>
+      
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <filter id="round-corners">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="in" />
+          </filter>
+        </defs>
+      </svg>
       
       <div className="container hero-container">
         <div className="hero-content">
@@ -35,6 +39,7 @@ export default function Hero() {
               alt="Medical Team" 
               fill
               priority
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="hero-card-img" 
             />
           </div>

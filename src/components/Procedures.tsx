@@ -70,6 +70,7 @@ export default function Procedures() {
                 src="/procedures.png" 
                 alt="Procedimientos" 
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="proc-img" 
               />
             </div>
