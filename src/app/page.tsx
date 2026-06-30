@@ -24,7 +24,7 @@ export default async function Home() {
       <Hero 
         subtitle={acf?.hero_subtitulo}
         title={acf?.hero_titulo}
-        text={acf?.hero_texto}
+        text={acf?.hero_texto || acf?.texto_hero}
         imageUrl={acf?.hero_imagen}
       />
       
