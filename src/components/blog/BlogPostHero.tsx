@@ -7,12 +7,16 @@ interface BlogPostHeroProps {
   date: string;
   readTime: string;
   author: string;
+  imageUrl?: string;
 }
 
-export default function BlogPostHero({ title, category, date, readTime, author }: BlogPostHeroProps) {
+export default function BlogPostHero({ title, category, date, readTime, author, imageUrl }: BlogPostHeroProps) {
   return (
     <section className="blog-post-hero">
-      <div className="blog-post-hero-bg">
+      <div 
+        className="blog-post-hero-bg" 
+        style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}
+      >
         <div className="blog-post-hero-overlay"></div>
       </div>
       
@@ -33,7 +37,7 @@ export default function BlogPostHero({ title, category, date, readTime, author }
 
       <div className="blog-post-hero-curve">
         <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-          <path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#fafafa" />
+          <path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff" />
         </svg>
       </div>
     </section>
