@@ -29,7 +29,7 @@ export default function Contact({ subtitle, titleBold, text }: ContactProps) {
           ) : (
             <>
               <p className="contact-text">
-                Reserva tu consulta con el Dr. Mendoza <strong>cirujano plástico en Atlanta</strong> y conoce más sobre tu procedimiento.
+                Reserva tu consulta con el Dr. Mendoza, cirujano plástico en Atlanta, y conoce más sobre tu procedimiento.
               </p>
               <p className="contact-text">
                 Después de diligenciar el formulario, uno de nuestros asesores se pondrá en contacto contigo para fijar la fecha de tu consulta.

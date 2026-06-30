@@ -17,7 +17,7 @@ export default function About({ subtitle, title, text, imageUrl }: AboutProps) {
           <div className="about-image-mask">
             <Image 
               src={imageUrl || "/doctor.png"} 
-              alt={title || "Dr. Delouis R. Mendoza"} 
+              alt={title || "Dr. Delquis R. Mendoza"} 
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="about-img" 
@@ -29,15 +29,15 @@ export default function About({ subtitle, title, text, imageUrl }: AboutProps) {
         </div>
         
         <div className="about-content">
-          <p className="about-subtitle">{subtitle || 'CIRUJANO PLÁSTICO CERTIFICADO'}</p>
-          <h2 className="about-title">{title || 'DELOUIS R. MENDOZA MS MD'}</h2>
+          <p className="about-subtitle">{subtitle || 'CIRUJANO PLÁSTICO'}</p>
+          <h2 className="about-title">{title || 'DELQUIS R. MENDOZA MS MD'}</h2>
           
           {text ? (
             <div className="about-text" dangerouslySetInnerHTML={{ __html: text }} />
           ) : (
             <div className="about-text">
               <p>
-                El Dr. Delouis Mendoza es un cirujano plástico certificado que se dedica a la 
+                El Dr. Delquis Mendoza es un cirujano plástico que se dedica a la 
                 cirugía estética y reconstructiva. Realizó sus estudios de cirugía general y 
                 especialización en la Universidad de Texas en Galveston, uno de los programas 
                 más reconocidos de la nación.

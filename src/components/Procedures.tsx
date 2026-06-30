@@ -96,26 +96,7 @@ export default function Procedures({ title, procedures }: ProceduresProps) {
                 {activeProc.desc}
               </p>
               
-              <div className="procedures-badges">
-                <div className="proc-badge">
-                  <span className="proc-badge-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
-                  </span>
-                  Senos
-                </div>
-                <div className="proc-badge">
-                  <span className="proc-badge-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                  </span>
-                  Cuerpo
-                </div>
-                <div className="proc-badge">
-                  <span className="proc-badge-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="10" r="3"></circle><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"></path></svg>
-                  </span>
-                  Rostro
-                </div>
-              </div>
+              {/* Removed hardcoded icons as they were incorrect/incomplete */}
               
               <button className="btn proc-btn-white">Conoce más</button>
             </div>

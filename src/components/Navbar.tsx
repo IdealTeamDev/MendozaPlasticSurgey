@@ -49,7 +49,6 @@ const FALLBACK_MENU: MenuItem[] = [
     enlace: '/procedimientos',
     es_desplegable: true,
     sub_menu: [
-      { titulo: 'Todos los procedimientos', enlace: '/procedimientos' },
       { titulo: 'Cirugía de Senos', enlace: '/procedimientos#senos' },
       { titulo: 'Cirugía de Cuerpo', enlace: '/procedimientos#cuerpo' },
       { titulo: 'Cirugía Facial', enlace: '/procedimientos#facial' }

@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Badges from '@/components/Badges';
@@ -7,7 +6,6 @@ import Procedures from '@/components/Procedures';
 import Financing from '@/components/Financing';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
 import { getPageBySlug, getMedia } from '@/lib/wordpress';
 
 export default async function Home() {
@@ -69,8 +67,6 @@ export default async function Home() {
 
   return (
     <main>
-      <Navbar />
-      
       {/* Usamos el componente original y le pasamos los datos de ACF si existen */}
       <Hero 
         subtitle={acf?.hero_subtitulo}
@@ -88,6 +84,8 @@ export default async function Home() {
       
       <Badges badges={resolvedBadges} />
       
+      <Testimonials />
+
       <Procedures 
         title={acf?.procedimientos_titulo}
         procedures={resolvedProcedures}
@@ -98,15 +96,12 @@ export default async function Home() {
         buttonText={acf?.financiamiento_boton}
       />
       
-      <Testimonials />
-      
       <Contact 
         subtitle={acf?.contacto_subtitulo}
         titleBold={acf?.contacto_titulo_bold}
         text={acf?.contacto_texto}
       />
 
-      <Footer />
-    </main>
+      </main>
   );
 }

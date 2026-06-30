@@ -15,8 +15,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Mendoza Plastic Surgery | Dr. Delouis R. Mendoza",
-  description: "Clínica de cirugía plástica y tratamientos estéticos liderada por el Dr. Delouis R. Mendoza.",
+  title: "Mendoza Plastic Surgery | Dr. Delquis R. Mendoza",
+  description: "Clínica de cirugía plástica y tratamientos estéticos liderada por el Dr. Delquis R. Mendoza.",
 };
 
 import FloatingContact from '@/components/FloatingContact';
