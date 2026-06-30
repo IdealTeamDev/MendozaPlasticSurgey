@@ -5,13 +5,13 @@ import "./globals.css";
 const fahkwang = Fahkwang({
   weight: ['300', '400', '500', '600', '700'],
   subsets: ["latin"],
-  variable: "--font-text",
+  variable: "--font-title",
 });
 
 const montserrat = Montserrat({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ["latin"],
-  variable: "--font-title",
+  variable: "--font-text",
 });
 
 export const metadata: Metadata = {
