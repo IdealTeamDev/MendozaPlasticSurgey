@@ -5,12 +5,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import './Procedures.css';
 
+export interface ProcedureSubcategory {
+  nombre: string;
+  enlace: string;
+  iconoUrl: string;
+}
+
 export interface ProcedureItem {
   id: string;
   tabLabel: string;
   desc: string;
   imageUrl: string;
   enlace?: string;
+  subcategorias?: ProcedureSubcategory[];
 }
 
 interface ProceduresProps {
@@ -98,7 +105,22 @@ export default function Procedures({ title, procedures }: ProceduresProps) {
                 {activeProc.desc}
               </p>
               
-              {/* Removed hardcoded icons as they were incorrect/incomplete */}
+              {activeProc.subcategorias && activeProc.subcategorias.length > 0 && (
+                <div className="procedures-badges">
+                  {activeProc.subcategorias.map((sub, idx) => (
+                    <Link href={sub.enlace || '#'} key={idx} className="proc-badge" style={{ textDecoration: 'none', color: 'inherit' }}>
+                      <span className="proc-badge-icon">
+                        {sub.iconoUrl ? (
+                          <img src={sub.iconoUrl} alt={sub.nombre} style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+                        ) : (
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path></svg>
+                        )}
+                      </span>
+                      {sub.nombre}
+                    </Link>
+                  ))}
+                </div>
+              )}
               
               <Link href={activeProc.enlace || '/procedimientos'} className="btn proc-btn-white">
                 Conoce más

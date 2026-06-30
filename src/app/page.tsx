@@ -55,12 +55,33 @@ export default async function Home() {
         } else {
           imageUrl = proc.imagen || '';
         }
+        let subcategorias: any[] = [];
+        if (Array.isArray(proc.subcategorias)) {
+          subcategorias = await Promise.all(
+            proc.subcategorias.map(async (sub: any) => {
+              let iconoUrl = '';
+              if (typeof sub.icono === 'number') {
+                const iconMedia = await getMedia(sub.icono);
+                iconoUrl = iconMedia?.source_url || '';
+              } else {
+                iconoUrl = sub.icono || '';
+              }
+              return {
+                nombre: sub.nombre || '',
+                enlace: sub.enlace || sub.url || '#',
+                iconoUrl: iconoUrl
+              };
+            })
+          );
+        }
+
         return {
           id: `proc-${index}`,
           tabLabel: proc.titulo_pestana || `Procedimiento ${index + 1}`,
           desc: proc.descripcion || '',
           imageUrl: imageUrl,
           enlace: proc.enlace || proc.url || '/procedimientos',
+          subcategorias: subcategorias
         };
       })
     );
