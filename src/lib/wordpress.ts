@@ -42,3 +42,10 @@ export async function getCategoryBySlug(slug: string) {
   const data = await fetchAPI(`/categories?slug=${slug}`);
   return data && data.length > 0 ? data[0] : null;
 }
+
+export async function getMedia(id: number) {
+  if (!id) return null;
+  const data = await fetchAPI(`/media/${id}`);
+  return data;
+}
+

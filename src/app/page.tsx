@@ -8,13 +8,26 @@ import Financing from '@/components/Financing';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import { getPageBySlug } from '@/lib/wordpress';
+import { getPageBySlug, getMedia } from '@/lib/wordpress';
 
 export default async function Home() {
   const wpPage = await getPageBySlug('inicio'); // Ajusta 'inicio' al slug real en WP
 
   // Extraer datos de ACF si existen
   const acf = wpPage?.acf || {};
+
+  // Resolver las imágenes si ACF devuelve IDs numéricos
+  const heroImage = typeof acf?.hero_imagen === 'number' 
+    ? (await getMedia(acf.hero_imagen))?.source_url 
+    : acf?.hero_imagen;
+    
+  const aboutImage = typeof acf?.about_imagen === 'number' 
+    ? (await getMedia(acf.about_imagen))?.source_url 
+    : acf?.about_imagen;
+    
+  const procedimientosImage = typeof acf?.procedimientos_imagen === 'number' 
+    ? (await getMedia(acf.procedimientos_imagen))?.source_url 
+    : acf?.procedimientos_imagen;
 
   return (
     <main>
@@ -25,14 +38,14 @@ export default async function Home() {
         subtitle={acf?.hero_subtitulo}
         title={acf?.hero_titulo}
         text={acf?.hero_texto || acf?.texto_hero}
-        imageUrl={acf?.hero_imagen}
+        imageUrl={heroImage}
       />
       
       <About 
         subtitle={acf?.about_subtitulo}
         title={acf?.about_titulo}
         text={acf?.about_texto}
-        imageUrl={acf?.about_imagen}
+        imageUrl={aboutImage}
       />
       
       <Badges 
@@ -44,7 +57,7 @@ export default async function Home() {
       <Procedures 
         title={acf?.procedimientos_titulo}
         desc={acf?.procedimientos_desc}
-        imageUrl={acf?.procedimientos_imagen}
+        imageUrl={procedimientosImage}
       />
       
       <Financing 
