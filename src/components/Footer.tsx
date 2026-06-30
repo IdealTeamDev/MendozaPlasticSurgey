@@ -18,6 +18,7 @@ interface FooterProps {
 }
 
 export default function Footer({ logoUrl, description, phone, address, socialLinks }: FooterProps) {
+  return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
