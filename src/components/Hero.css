@@ -67,7 +67,7 @@
 @media (min-width: 1024px) {
   .hero-container {
     flex-direction: row;
-    align-items: stretch; /* Make both columns same height */
+    align-items: center; /* Center both divs vertically */
     justify-content: space-between;
   }
 }
@@ -79,10 +79,9 @@
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Pushes top to top, bottom to bottom */
+  justify-content: center; /* Center content block vertically */
   align-items: flex-start; /* Left align */
   text-align: left; /* Left align text */
-  padding-bottom: 1rem; /* Small buffer for the button */
 }
 
 @media (min-width: 1024px) {
