@@ -31,6 +31,11 @@ export async function getPostBySlug(slug: string) {
   return data && data.length > 0 ? data[0] : null;
 }
 
+export async function getProcedureBySlug(slug: string) {
+  const data = await fetchAPI(`/procedimiento?slug=${slug}`);
+  return data && data.length > 0 ? data[0] : null;
+}
+
 // Para la Opción A: Procedimientos como páginas hijas de una página principal.
 export async function getChildPages(parentId: number) {
   const data = await fetchAPI(`/pages?parent=${parentId}`);

@@ -4,12 +4,13 @@ import './ProcedureDetailHero.css';
 interface ProcedureDetailHeroProps {
   title: string;
   subtitle?: string;
+  imageUrl?: string;
 }
 
-export default function ProcedureDetailHero({ title, subtitle = "PROCEDIMIENTOS" }: ProcedureDetailHeroProps) {
+export default function ProcedureDetailHero({ title, subtitle = "PROCEDIMIENTOS", imageUrl }: ProcedureDetailHeroProps) {
   return (
     <section className="proc-detail-hero">
-      <div className="proc-detail-hero-bg">
+      <div className="proc-detail-hero-bg" style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}>
         <div className="proc-detail-hero-overlay"></div>
       </div>
       

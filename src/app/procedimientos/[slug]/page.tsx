@@ -1,6 +1,5 @@
-"use client";
-
-import React, { use } from 'react';
+import React from 'react';
+import { getProcedureBySlug, getMedia } from '@/lib/wordpress';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -18,9 +17,12 @@ import ProcedureFAQ from '@/components/procedimientos/ProcedureFAQ';
 // Option 2 Specific Components
 import ProcedureTreatmentTypes from '@/components/procedimientos/ProcedureTreatmentTypes';
 
-export default function ProcedureDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = use(params);
+export default async function ProcedureDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
   const slug = resolvedParams.slug;
+  
+  const wpProc = await getProcedureBySlug(slug);
+  const acf = wpProc?.acf || {};
   
   // Format title dynamically
   const formatTitle = (str: string) => {
@@ -31,18 +33,52 @@ export default function ProcedureDetailPage({ params }: { params: Promise<{ slug
   // Template Routing Logic
   const isOption2 = slug === 'sueroterapia';
 
+  // Resolve images
+  const heroImage = typeof acf?.hero_imagen === 'number' 
+    ? (await getMedia(acf.hero_imagen))?.source_url 
+    : acf?.hero_imagen;
+
+  const introImage = typeof acf?.intro_imagen === 'number'
+    ? (await getMedia(acf.intro_imagen))?.source_url
+    : acf?.intro_imagen;
+
+  // Resolve Tabs
+  let resolvedTabs = undefined;
+  if (Array.isArray(acf?.detalles_tabs)) {
+    resolvedTabs = acf.detalles_tabs.map((tab: any, index: number) => ({
+      id: `tab-${index}`,
+      label: tab.etiqueta_pestana || `Tab ${index + 1}`,
+      titleSubtitle: tab.titulo_pequeno || '',
+      titleMain: tab.titulo_principal || '',
+      content: tab.contenido || ''
+    }));
+  }
+
+  // Quick Facts
+  const quickFacts = Array.isArray(acf?.quick_facts) ? acf.quick_facts : undefined;
+
   return (
     <main>
       <Navbar />
       
       {/* Hero Header */}
-      <ProcedureDetailHero title={title} subtitle={isOption2 ? "TRATAMIENTOS" : "PROCEDIMIENTOS"} />
+      <ProcedureDetailHero 
+        title={acf?.hero_titulo || title} 
+        subtitle={acf?.hero_subtitulo || (isOption2 ? "TRATAMIENTOS" : "PROCEDIMIENTOS")}
+        imageUrl={heroImage}
+      />
       
       {/* Intro Section - showQuickFacts is false for Option 2 */}
-      <ProcedureIntro showQuickFacts={!isOption2} />
+      <ProcedureIntro 
+        showQuickFacts={!isOption2} 
+        title={acf?.intro_titulo}
+        description={acf?.intro_descripcion}
+        quickFacts={quickFacts}
+        imageUrl={introImage}
+      />
       
       {/* Details Tabs (Present in both) */}
-      <ProcedureDetailsTabs />
+      <ProcedureDetailsTabs tabs={resolvedTabs} />
 
       {/* Conditional Block based on Template */}
       {isOption2 ? (

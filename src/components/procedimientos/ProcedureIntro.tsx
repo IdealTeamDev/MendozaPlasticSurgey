@@ -3,9 +3,24 @@ import './ProcedureIntro.css';
 
 interface ProcedureIntroProps {
   showQuickFacts?: boolean;
+  title?: string;
+  description?: string;
+  quickFacts?: { label: string; value: string }[];
+  imageUrl?: string;
 }
 
-export default function ProcedureIntro({ showQuickFacts = true }: ProcedureIntroProps) {
+export default function ProcedureIntro({ 
+  showQuickFacts = true,
+  title = "LIPOSUCCIÓN EN ATLANTA",
+  description = "La liposucción es una cirugía que busca eliminar excesos de grasa en diferentes áreas del cuerpo...",
+  quickFacts = [
+    { label: "TIPO DE ANESTESIA", value: "Anestesia General" },
+    { label: "RECUPERACIÓN", value: "2 a 4 Semanas" },
+    { label: "TIEMPO DE PROCEDIMIENTO", value: "Depende del Área" },
+    { label: "RESULTADOS", value: "Inmediatos" }
+  ],
+  imageUrl
+}: ProcedureIntroProps) {
   return (
     <section className="proc-intro-section">
       <div className="container">
@@ -14,38 +29,23 @@ export default function ProcedureIntro({ showQuickFacts = true }: ProcedureIntro
           
           {/* Left Column: Text & Facts */}
           <div className="proc-intro-text-col">
-            <h2 className="proc-intro-title">LIPOSUCCIÓN EN ATLANTA</h2>
+            <h2 className="proc-intro-title">{title}</h2>
             
-            <p className="proc-intro-desc">
-              La liposucción es una cirugía que busca eliminar excesos de grasa en diferentes áreas del cuerpo. Se realiza mediante la inserción de una cánula bajo la piel a través de incisiones que se hacen cerca de las áreas donde se localiza la grasa. La grasa se remueve entonces succionándola, dando como resultado un contorno corporal más definido y estilizado.
-            </p>
-            <p className="proc-intro-desc">
-              La liposucción es útil para personas que presentan mucha grasa en algunas partes y poca en otras, lo que distorsiona las proporciones del cuerpo.
-            </p>
+            <div className="proc-intro-desc" dangerouslySetInnerHTML={{ __html: description }}></div>
 
             <div className="proc-intro-actions">
               <button className="btn proc-btn-black">Agenda tu consulta</button>
               <button className="btn proc-btn-black">Financia aquí</button>
             </div>
 
-            {showQuickFacts && (
+            {showQuickFacts && quickFacts && quickFacts.length > 0 && (
               <div className="proc-quick-facts">
-                <div className="fact-item">
-                  <span className="fact-label">TIPO DE ANESTESIA</span>
-                  <span className="fact-value">Anestesia General</span>
-                </div>
-                <div className="fact-item">
-                  <span className="fact-label">RECUPERACIÓN</span>
-                  <span className="fact-value">2 a 4 Semanas</span>
-                </div>
-                <div className="fact-item">
-                  <span className="fact-label">TIEMPO DE PROCEDIMIENTO</span>
-                  <span className="fact-value">Depende del Área</span>
-                </div>
-                <div className="fact-item">
-                  <span className="fact-label">RESULTADOS</span>
-                  <span className="fact-value">Inmediatos</span>
-                </div>
+                {quickFacts.map((fact, index) => (
+                  <div className="fact-item" key={index}>
+                    <span className="fact-label">{fact.label}</span>
+                    <span className="fact-value">{fact.value}</span>
+                  </div>
+                ))}
               </div>
             )}
           </div>
@@ -53,9 +53,13 @@ export default function ProcedureIntro({ showQuickFacts = true }: ProcedureIntro
           {/* Right Column: Image */}
           <div className="proc-intro-img-col">
             <div className="proc-intro-img-wrapper">
-              <div className="proc-intro-img-placeholder">
-                (Foto Liposucción)
-              </div>
+              {imageUrl ? (
+                <img src={imageUrl} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
+              ) : (
+                <div className="proc-intro-img-placeholder">
+                  (Foto del Procedimiento)
+                </div>
+              )}
             </div>
           </div>
 
