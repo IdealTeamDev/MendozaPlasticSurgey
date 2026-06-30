@@ -1,7 +1,14 @@
 import React from 'react';
 import './ContactDetailsForm.css';
 
-export default function ContactDetailsForm() {
+interface ContactDetailsFormProps {
+  location?: string;
+  phone?: string;
+  email?: string;
+  schedule?: string;
+}
+
+export default function ContactDetailsForm({ location, phone, email, schedule }: ContactDetailsFormProps) {
   return (
     <section className="contact-details-section section-padding">
       <div className="container contact-details-container">
@@ -13,7 +20,7 @@ export default function ContactDetailsForm() {
             </div>
             <div className="info-text">
               <h4>UBICACIÓN</h4>
-              <p>3970 Rogers Bridge Rd, Duluth,<br/>GA 30097, Estados Unidos</p>
+              <p dangerouslySetInnerHTML={{ __html: location || '3970 Rogers Bridge Rd, Duluth,<br/>GA 30097, Estados Unidos' }}></p>
             </div>
           </div>
 
@@ -23,7 +30,7 @@ export default function ContactDetailsForm() {
             </div>
             <div className="info-text">
               <h4>TELÉFONO</h4>
-              <p>+1 770-545-8373</p>
+              <p>{phone || '+1 770-545-8373'}</p>
             </div>
           </div>
 
@@ -33,7 +40,7 @@ export default function ContactDetailsForm() {
             </div>
             <div className="info-text">
               <h4>EMAIL</h4>
-              <p>info@mendozoplasticsurgery.com</p>
+              <p>{email || 'info@mendozoplasticsurgery.com'}</p>
             </div>
           </div>
 
@@ -43,7 +50,7 @@ export default function ContactDetailsForm() {
             </div>
             <div className="info-text">
               <h4>HORARIOS</h4>
-              <p>Lun - Vier 9:00 a.m. - 5:00 p.m.</p>
+              <p>{schedule || 'Lun - Vier 9:00 a.m. - 5:00 p.m.'}</p>
             </div>
           </div>
         </div>

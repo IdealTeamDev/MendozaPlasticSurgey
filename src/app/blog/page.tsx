@@ -5,15 +5,26 @@ import BlogHero from '@/components/blog/BlogHero';
 import BlogFeed from '@/components/blog/BlogFeed';
 import BlogSubscription from '@/components/blog/BlogSubscription';
 import BlogCategories from '@/components/blog/BlogCategories';
-import { getPosts } from '@/lib/wordpress';
+import { getPosts, getPageBySlug, getMedia } from '@/lib/wordpress';
 
 export default async function BlogPage() {
   const posts = await getPosts(); // You can pass categoryId if needed
+  
+  const wpPage = await getPageBySlug('blog');
+  const acf = wpPage?.acf || {};
+
+  const heroImage = typeof acf?.hero_imagen === 'number' 
+    ? (await getMedia(acf.hero_imagen))?.source_url 
+    : acf?.hero_imagen;
 
   return (
     <main>
       <Navbar />
-      <BlogHero />
+      <BlogHero 
+        title={acf?.hero_titulo}
+        desc={acf?.hero_texto}
+        imageUrl={heroImage}
+      />
       {posts && posts.length > 0 ? (
         <BlogFeed posts={posts} />
       ) : (

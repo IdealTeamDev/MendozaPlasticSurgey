@@ -3,27 +3,50 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProcedureHero from '@/components/procedimientos/ProcedureHero';
 import ProcedureTabs from '@/components/procedimientos/ProcedureTabs';
-import { getPageBySlug } from '@/lib/wordpress';
+import { getPageBySlug, getMedia } from '@/lib/wordpress';
 
 export default async function ProcedimientosPage() {
   const wpPage = await getPageBySlug('procedimientos');
+  const acf = wpPage?.acf || {};
+
+  const heroImage = typeof acf?.hero_imagen === 'number' 
+    ? (await getMedia(acf.hero_imagen))?.source_url 
+    : acf?.hero_imagen;
+
+  let resolvedTabs: any[] = [];
+  if (Array.isArray(acf?.tabs_lista)) {
+    resolvedTabs = await Promise.all(
+      acf.tabs_lista.map(async (tab: any, index: number) => {
+        let imageUrl = '';
+        if (typeof tab.imagen === 'number') {
+          const media = await getMedia(tab.imagen);
+          imageUrl = media?.source_url || '';
+        } else {
+          imageUrl = tab.imagen || '';
+        }
+        return {
+          id: `tab-${index}`,
+          tabLabel: tab.titulo_pestana || `Tab ${index + 1}`,
+          desc: tab.descripcion || '',
+          imageUrl: imageUrl,
+        };
+      })
+    );
+  }
 
   return (
     <main>
       <Navbar />
       
-      {wpPage ? (
-        <div 
-          className="wp-content-container" 
-          style={{ padding: '4rem 2rem', maxWidth: '1200px', margin: '0 auto', minHeight: '60vh' }}
-          dangerouslySetInnerHTML={{ __html: wpPage.content.rendered }} 
-        />
-      ) : (
-        <>
-          <ProcedureHero />
-          <ProcedureTabs />
-        </>
-      )}
+      <ProcedureHero 
+        title={acf?.hero_titulo}
+        desc={acf?.hero_texto}
+        imageUrl={heroImage}
+      />
+      <ProcedureTabs 
+        title={acf?.tabs_titulo}
+        tabs={resolvedTabs}
+      />
 
       <Footer />
     </main>
