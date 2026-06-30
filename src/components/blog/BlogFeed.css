@@ -115,6 +115,7 @@
   line-height: 1.4;
   margin-bottom: 1.5rem;
   flex: 1;
+  color: var(--black);
 }
 
 .blog-post-btn {
