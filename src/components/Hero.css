@@ -55,8 +55,8 @@
 .hero-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 2rem;
   max-width: 1300px;
   width: 100%;
@@ -67,7 +67,7 @@
 @media (min-width: 1024px) {
   .hero-container {
     flex-direction: row;
-    align-items: center;
+    align-items: stretch; /* Make both columns same height */
     justify-content: space-between;
   }
 }
@@ -79,9 +79,10 @@
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: space-between; /* Pushes top to top, bottom to bottom */
+  align-items: flex-start; /* Left align */
+  text-align: left; /* Left align text */
+  padding-bottom: 1rem; /* Small buffer for the button */
 }
 
 @media (min-width: 1024px) {
