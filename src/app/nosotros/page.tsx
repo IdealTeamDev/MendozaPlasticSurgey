@@ -1,56 +1,26 @@
-"use client";
-
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import SurgeonHero from '@/components/nosotros/SurgeonHero';
-import SurgeonBeforeAfter from '@/components/nosotros/SurgeonBeforeAfter';
-import SurgeonDetails from '@/components/nosotros/SurgeonDetails';
-import SurgeonFunFacts from '@/components/nosotros/SurgeonFunFacts';
-import MedicalCenterHero from '@/components/nosotros/MedicalCenterHero';
-import MedicalCenterDetails from '@/components/nosotros/MedicalCenterDetails';
-import MedicalCenterServices from '@/components/nosotros/MedicalCenterServices';
+import { getPageBySlug } from '@/lib/wordpress';
+import NosotrosClient from './NosotrosClient'; // Extracted client logic
 
 import './nosotros.css';
 
-export default function NosotrosPage() {
-  const [activeTab, setActiveTab] = useState<'surgeon' | 'medical'>('surgeon');
+export default async function NosotrosPage() {
+  const wpPage = await getPageBySlug('nosotros'); // Ajusta 'nosotros' al slug real
 
   return (
     <main className="nosotros-page">
       <Navbar />
       
-      {/* Top Toggle */}
-      <div className="nosotros-toggle-wrapper">
-        <div className="nosotros-toggle">
-          <button 
-            className={`toggle-btn ${activeTab === 'surgeon' ? 'active' : ''}`}
-            onClick={() => setActiveTab('surgeon')}
-          >
-            Surgeon
-          </button>
-          <button 
-            className={`toggle-btn ${activeTab === 'medical' ? 'active' : ''}`}
-            onClick={() => setActiveTab('medical')}
-          >
-            Medical Center
-          </button>
-        </div>
-      </div>
-
-      {activeTab === 'surgeon' ? (
-        <div className="tab-content fade-in">
-          <SurgeonHero />
-          <SurgeonBeforeAfter />
-          <SurgeonDetails />
-          <SurgeonFunFacts />
-        </div>
+      {wpPage ? (
+        <div 
+          className="wp-content-container fade-in" 
+          style={{ padding: '4rem 2rem', maxWidth: '1200px', margin: '0 auto', minHeight: '60vh' }}
+          dangerouslySetInnerHTML={{ __html: wpPage.content.rendered }} 
+        />
       ) : (
-        <div className="tab-content fade-in">
-          <MedicalCenterHero />
-          <MedicalCenterDetails />
-          <MedicalCenterServices />
-        </div>
+        <NosotrosClient />
       )}
 
       <Footer />

@@ -1,42 +1,55 @@
-"use client";
-
-import React, { use } from 'react';
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BlogPostHero from '@/components/blog/BlogPostHero';
-import BlogPostContent from '@/components/blog/BlogPostContent';
 import BlogRelated from '@/components/blog/BlogRelated';
+import { getPostBySlug } from '@/lib/wordpress';
+import { notFound } from 'next/navigation';
 
 // Import BlogFeed CSS to inherit post card and popular widget styles
 import '@/components/blog/BlogFeed.css';
 
-// Mock data fetching based on slug
-const getPostData = (slug: string) => {
-  // In a real app, you would fetch data from CMS based on the slug.
-  return {
-    title: '¿QUÉ PASA CON TU CUERPO DESPUÉS DE UNA ABDOMINOPLASTIA?',
-    category: 'CUERPOS',
-    date: 'Abril 10, 2024',
-    readTime: '5',
-    author: 'Dr. Edgar Mendoza'
-  };
-};
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
-export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = use(params);
-  const postData = getPostData(resolvedParams.slug);
+  if (!post) {
+    notFound();
+  }
+
+  // Extract necessary fields
+  const title = post.title.rendered;
+  const category = 'BLOG'; // Or fetch category dynamically if needed
+  const date = new Date(post.date).toLocaleDateString();
+  const readTime = '5'; // Estimate from word count if possible, or static
+  const author = 'Dr. Edgar Mendoza';
 
   return (
     <main>
       <Navbar />
       <BlogPostHero 
-        title={postData.title}
-        category={postData.category}
-        date={postData.date}
-        readTime={postData.readTime}
-        author={postData.author}
+        title={title}
+        category={category}
+        date={date}
+        readTime={readTime}
+        author={author}
       />
-      <BlogPostContent />
+      
+      {/* We inject the content natively instead of BlogPostContent for dynamic CMS */}
+      <section className="blog-post-content-section section-padding">
+        <div className="container">
+          <div className="blog-post-layout">
+            <div className="blog-post-main">
+              <div 
+                className="wp-content-container" 
+                dangerouslySetInnerHTML={{ __html: post.content.rendered }} 
+              />
+            </div>
+            {/* Sidebar can be added here similar to static layout */}
+          </div>
+        </div>
+      </section>
+
       <BlogRelated />
       <Footer />
     </main>

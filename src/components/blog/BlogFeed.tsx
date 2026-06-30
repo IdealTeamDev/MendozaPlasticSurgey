@@ -2,14 +2,18 @@ import React from 'react';
 import Link from 'next/link';
 import './BlogFeed.css';
 
-const MAIN_POSTS = [
-  { id: 1, slug: 'lipo-360', tag: 'CUERPO', date: 'Abril 10, 2024', title: '¿QUÉ ES UNA LIPO 360? GUÍA BÁSICA' },
-  { id: 2, slug: 'implantes-senos-naturales', tag: 'CUERPO', date: 'Abril 10, 2024', title: '¿CÓMO ESCOGER LOS IMPLANTES DE SENOS NATURALES?' },
-  { id: 3, slug: 'implantes-senos-2', tag: 'SENOS', date: 'Abril 10, 2024', title: '¿CÓMO ESCOGER LOS IMPLANTES DE SENOS NATURALES?' },
-  { id: 4, slug: 'sculptra', tag: 'FACIALES', date: 'Abril 10, 2024', title: 'SCULPTRA: TRATAMIENTO FACIAL PARA REJUVENECIMIENTO' },
-  { id: 5, slug: 'abdominoplastia', tag: 'CUERPO', date: 'Abril 10, 2024', title: '¿QUÉ PASA CON EL CUERPO DESPUÉS DE UNA ABDOMINOPLASTIA?' },
-  { id: 6, slug: 'cirugias-combinadas', tag: 'CUERPO', date: 'Abril 10, 2024', title: 'CIRUGÍAS COMBINADAS: TUMMY TUCK Y LIPOSUCCIÓN' },
-];
+interface Post {
+  id: number;
+  slug: string;
+  date: string;
+  title: { rendered: string };
+  excerpt: { rendered: string };
+  _embedded?: any;
+}
+
+interface BlogFeedProps {
+  posts: Post[];
+}
 
 const POPULAR_POSTS = [
   { id: 1, slug: 'lipo-360', date: 'Abril 10, 2024', title: 'What Is a Lipo 360?' },
@@ -17,7 +21,7 @@ const POPULAR_POSTS = [
   { id: 3, slug: 'implantes-senos-naturales', date: 'Junio 05, 2024', title: '¿Cómo escoger los implantes?' },
 ];
 
-export default function BlogFeed() {
+export default function BlogFeed({ posts }: BlogFeedProps) {
   return (
     <section className="blog-feed-section section-padding">
       <div className="container">
@@ -34,18 +38,19 @@ export default function BlogFeed() {
           {/* Main Feed Column */}
           <div className="blog-main-col">
             <div className="blog-posts-grid">
-              {MAIN_POSTS.map(post => (
+              {posts.map(post => (
                 <div key={post.id} className="blog-post-card">
                   <Link href={`/blog/${post.slug}`} className="blog-post-img-wrapper" style={{display: 'block', textDecoration: 'none'}}>
-                    <span className="blog-post-tag">{post.tag}</span>
+                    <span className="blog-post-tag">BLOG</span>
                     <div className="blog-post-img-placeholder">
+                      {/* Imagen destacada aquí */}
                       (Img Blog)
                     </div>
                   </Link>
                   <div className="blog-post-content">
-                    <span className="blog-post-date">{post.date}</span>
+                    <span className="blog-post-date">{new Date(post.date).toLocaleDateString()}</span>
                     <Link href={`/blog/${post.slug}`} style={{textDecoration: 'none'}}>
-                      <h3 className="blog-post-card-title">{post.title}</h3>
+                      <h3 className="blog-post-card-title" dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h3>
                     </Link>
                     <Link href={`/blog/${post.slug}`}>
                       <button className="btn blog-post-btn">Leer más</button>
