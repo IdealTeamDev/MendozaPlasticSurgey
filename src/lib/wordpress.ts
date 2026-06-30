@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_WORDPRESS_URL || 'https://tudominio.com';
+const API_URL = process.env.NEXT_PUBLIC_WORDPRESS_URL || 'https://mendozaplastic.wpenginepowered.com';
 
 async function fetchAPI(endpoint: string, options = {}) {
   const res = await fetch(`${API_URL}/wp-json/wp/v2${endpoint}`, {
