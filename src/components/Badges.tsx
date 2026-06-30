@@ -3,21 +3,36 @@
 import React, { useRef } from 'react';
 import './Badges.css';
 
-interface BadgesProps {
-  title1?: string;
-  title2?: string;
-  title3?: string;
+export interface BadgeItem {
+  imageUrl?: string;
+  title?: string;
+  type?: string;
+  icon?: string;
 }
 
-export default function Badges({ title1, title2, title3 }: BadgesProps) {
-  const BADGES = [
-    { id: 1, type: 'blue', icon: 'M', title: title1 || 'Top Surgeon' },
-    { id: 2, type: 'gold', icon: '★', title: title2 || 'Excellence' },
-    { id: 3, type: 'blue', icon: '1', title: title3 || 'Certified' },
+interface BadgesProps {
+  badges?: BadgeItem[];
+}
+
+export default function Badges({ badges }: BadgesProps) {
+  const DEFAULT_BADGES: (BadgeItem & { id: number })[] = [
+    { id: 1, type: 'blue', icon: 'M', title: 'Top Surgeon' },
+    { id: 2, type: 'gold', icon: '★', title: 'Excellence' },
+    { id: 3, type: 'blue', icon: '1', title: 'Certified' },
     { id: 4, type: 'gold', icon: '2', title: 'Awarded' },
     { id: 5, type: 'blue', icon: '3', title: 'Trusted' },
     { id: 6, type: 'gold', icon: '4', title: 'Rated' },
   ];
+
+  const badgesToDisplay = badges && badges.length > 0 
+    ? badges.map((b, index) => ({
+        id: index + 1,
+        imageUrl: b.imageUrl,
+        type: b.type || 'blue',
+        icon: b.icon || '★',
+        title: b.title
+      }))
+    : DEFAULT_BADGES;
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -45,13 +60,19 @@ export default function Badges({ title1, title2, title3 }: BadgesProps) {
 
           <div className="badges-viewport" ref={scrollRef}>
             <div className="badges-track">
-              {BADGES.map(b => (
+              {badgesToDisplay.map(b => (
                 <div key={b.id} className="badge-slide">
                   <div className="badge-item">
-                    <div className={`badge-placeholder ${b.type}`}>
-                      <span className="badge-icon">{b.icon}</span>
-                    </div>
-                    <h3 className="badge-title">{b.title}</h3>
+                    {b.imageUrl ? (
+                      <img src={b.imageUrl} alt="Insignia" className="badge-image" style={{ maxWidth: '100%', height: 'auto', maxHeight: '150px', objectFit: 'contain' }} />
+                    ) : (
+                      <>
+                        <div className={`badge-placeholder ${b.type}`}>
+                          <span className="badge-icon">{b.icon}</span>
+                        </div>
+                        {b.title && <h3 className="badge-title">{b.title}</h3>}
+                      </>
+                    )}
                   </div>
                 </div>
               ))}

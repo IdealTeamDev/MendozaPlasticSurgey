@@ -29,6 +29,22 @@ export default async function Home() {
     ? (await getMedia(acf.procedimientos_imagen))?.source_url 
     : acf?.procedimientos_imagen;
 
+  // Resolver insignias (imágenes)
+  let resolvedBadges: { imageUrl: string }[] = [];
+  if (Array.isArray(acf?.badges_list)) {
+    resolvedBadges = await Promise.all(
+      acf.badges_list.map(async (badge: any) => {
+        if (typeof badge.insignia === 'number') {
+          const media = await getMedia(badge.insignia);
+          return { imageUrl: media?.source_url || '' };
+        }
+        return { imageUrl: badge.insignia || '' };
+      })
+    );
+    // Filtrar aquellas que no tengan imagen
+    resolvedBadges = resolvedBadges.filter(b => b.imageUrl !== '');
+  }
+
   return (
     <main>
       <Navbar />
@@ -48,11 +64,7 @@ export default async function Home() {
         imageUrl={aboutImage}
       />
       
-      <Badges 
-        title1={acf?.badges_titulo_1}
-        title2={acf?.badges_titulo_2}
-        title3={acf?.badges_titulo_3}
-      />
+      <Badges badges={resolvedBadges} />
       
       <Procedures 
         title={acf?.procedimientos_titulo}
