@@ -141,11 +141,11 @@
 }
 
 .hero-card-wrapper {
-  flex: 1.5;
+  flex: 2.5; /* Makes it much wider relative to text */
   display: flex;
   justify-content: center; /* Center on mobile */
   position: relative;
-  height: 350px;
+  height: 400px;
   width: 100%;
   animation: fadeIn 1s ease-out 0.5s forwards;
   opacity: 0;
@@ -153,17 +153,19 @@
 }
 
 @media (min-width: 768px) {
-  .hero-card-wrapper { height: 500px; }
+  .hero-card-wrapper { height: 550px; }
 }
 
 @media (min-width: 1024px) {
-  .hero-card-wrapper { height: 600px; justify-content: flex-end; }
+  .hero-card-wrapper { height: 750px; justify-content: flex-end; }
 }
 
 .hero-card {
   position: relative;
   width: 100%;
   height: 100%;
+  clip-path: polygon(1% 0%, 100% 0, 100% 100%, 15% 100%, 15% 25%);
+  filter: url(#round-corners);
 }
 
 .hero-card-img {
