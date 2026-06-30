@@ -41,6 +41,28 @@ export default function Navbar({ logoUrl, menuItems }: NavbarProps) {
     };
   }, [isMenuOpen]);
 
+const FALLBACK_MENU: MenuItem[] = [
+  { titulo: 'Inicio', enlace: '/' },
+  { titulo: 'Nosotros', enlace: '/nosotros' },
+  { 
+    titulo: 'Procedimientos', 
+    enlace: '/procedimientos',
+    es_desplegable: true,
+    sub_menu: [
+      { titulo: 'Todos los procedimientos', enlace: '/procedimientos' },
+      { titulo: 'Cirugía de Senos', enlace: '/procedimientos#senos' },
+      { titulo: 'Cirugía de Cuerpo', enlace: '/procedimientos#cuerpo' },
+      { titulo: 'Cirugía Facial', enlace: '/procedimientos#facial' }
+    ]
+  },
+  { titulo: 'Antes y Después', enlace: '/antes-despues' },
+  { titulo: 'Pacientes', enlace: '/pacientes' },
+  { titulo: 'Blog', enlace: '/blog' },
+  { titulo: 'Contacto', enlace: '/contacto' },
+];
+
+  const finalMenu = menuItems && menuItems.length > 0 ? menuItems : FALLBACK_MENU;
+
   return (
     <header className="navbar">
       <div className="navbar-container">
@@ -55,32 +77,20 @@ export default function Navbar({ logoUrl, menuItems }: NavbarProps) {
         </div>
         
         <nav className="navbar-links">
-          {menuItems && menuItems.length > 0 ? (
-            menuItems.map((item, i) => (
-              item.es_desplegable && item.sub_menu ? (
-                <div className="nav-dropdown" key={i}>
-                  <Link href={item.enlace || '#'} className="has-dropdown">{item.titulo} <span className="arrow">▼</span></Link>
-                  <div className="dropdown-menu">
-                    {item.sub_menu.map((sub, j) => (
-                      <Link href={sub.enlace} key={j}>{sub.titulo}</Link>
-                    ))}
-                  </div>
+          {finalMenu.map((item, i) => (
+            item.es_desplegable && item.sub_menu ? (
+              <div className="nav-dropdown" key={i}>
+                <Link href={item.enlace || '#'} className="has-dropdown">{item.titulo} <span className="arrow">▼</span></Link>
+                <div className="dropdown-menu">
+                  {item.sub_menu.map((sub, j) => (
+                    <Link href={sub.enlace} key={j}>{sub.titulo}</Link>
+                  ))}
                 </div>
-              ) : (
-                <Link href={item.enlace} key={i}>{item.titulo}</Link>
-              )
-            ))
-          ) : (
-            // Fallback default menu
-            <>
-              <Link href="/">Inicio</Link>
-              <Link href="/nosotros">Nosotros</Link>
-              <Link href="/procedimientos">Procedimientos</Link>
-              <Link href="/antes-despues">Antes y Después</Link>
-              <Link href="/blog">Blog</Link>
-              <Link href="/contacto">Contacto</Link>
-            </>
-          )}
+              </div>
+            ) : (
+              <Link href={item.enlace} key={i}>{item.titulo}</Link>
+            )
+          ))}
         </nav>
 
         <div className="navbar-actions">
@@ -117,43 +127,31 @@ export default function Navbar({ logoUrl, menuItems }: NavbarProps) {
         </div>
 
         <div className="mobile-menu-content">
-          {menuItems && menuItems.length > 0 ? (
-            menuItems.map((item, i) => (
-              item.es_desplegable && item.sub_menu ? (
-                <div className="mobile-accordion" key={i}>
-                  <div 
-                    className="mobile-accordion-header"
-                    onClick={() => toggleMenu(`menu-${i}`)}
-                  >
-                    <Link href={item.enlace || '#'} className="mobile-link has-dropdown" onClick={(e) => { e.stopPropagation(); setIsMenuOpen(false); }}>
-                      {item.titulo} <span className={`arrow ${expandedMenu === `menu-${i}` ? 'open' : ''}`}>▼</span>
-                    </Link>
-                  </div>
-                  <div className={`mobile-accordion-body ${expandedMenu === `menu-${i}` ? 'open' : ''}`}>
-                    <div className="accordion-inner">
-                      {item.sub_menu.map((sub, j) => (
-                        <Link href={sub.enlace} key={j} onClick={() => setIsMenuOpen(false)}>{sub.titulo}</Link>
-                      ))}
-                    </div>
+          {finalMenu.map((item, i) => (
+            item.es_desplegable && item.sub_menu ? (
+              <div className="mobile-accordion" key={i}>
+                <div 
+                  className="mobile-accordion-header"
+                  onClick={() => toggleMenu(`menu-${i}`)}
+                >
+                  <Link href={item.enlace || '#'} className="mobile-link has-dropdown" onClick={(e) => { e.stopPropagation(); setIsMenuOpen(false); }}>
+                    {item.titulo} <span className={`arrow ${expandedMenu === `menu-${i}` ? 'open' : ''}`}>▼</span>
+                  </Link>
+                </div>
+                <div className={`mobile-accordion-body ${expandedMenu === `menu-${i}` ? 'open' : ''}`}>
+                  <div className="accordion-inner">
+                    {item.sub_menu.map((sub, j) => (
+                      <Link href={sub.enlace} key={j} onClick={() => setIsMenuOpen(false)}>{sub.titulo}</Link>
+                    ))}
                   </div>
                 </div>
-              ) : (
-                <Link href={item.enlace} className="mobile-link" key={i} onClick={() => setIsMenuOpen(false)}>
-                  {item.titulo}
-                </Link>
-              )
-            ))
-          ) : (
-            // Fallback mobile menu
-            <>
-              <Link href="/" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Inicio</Link>
-              <Link href="/nosotros" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Nosotros</Link>
-              <Link href="/procedimientos" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Procedimientos</Link>
-              <Link href="/antes-despues" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Antes y Después</Link>
-              <Link href="/blog" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Blog</Link>
-              <Link href="/contacto" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Contacto</Link>
-            </>
-          )}
+              </div>
+            ) : (
+              <Link href={item.enlace} className="mobile-link" key={i} onClick={() => setIsMenuOpen(false)}>
+                {item.titulo}
+              </Link>
+            )
+          ))}
         </div>
       </div>
 
