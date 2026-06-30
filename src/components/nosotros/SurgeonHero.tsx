@@ -11,6 +11,7 @@ interface SurgeonHeroProps {
 export default function SurgeonHero({ subtitle, title, desc, imageUrl }: SurgeonHeroProps) {
   return (
     <section className="surgeon-hero">
+      <div className="surgeon-hero-bg">
         <div className="surgeon-hero-overlay"></div>
       </div>
       
