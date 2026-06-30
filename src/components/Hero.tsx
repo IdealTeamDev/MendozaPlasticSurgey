@@ -2,7 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import './Hero.css';
 
-export default function Hero() {
+interface HeroProps {
+  subtitle?: string;
+  title?: string;
+  text?: string; // HTML string from ACF Wysiwyg
+  imageUrl?: string;
+}
+
+export default function Hero({ subtitle, title, text, imageUrl }: HeroProps) {
   return (
     <section className="hero">
       <div className="hero-bg">
@@ -22,20 +29,29 @@ export default function Hero() {
       
       <div className="container hero-container">
         <div className="hero-content">
-          <p className="hero-subtitle">BIENVENIDO A</p>
-          <h1 className="hero-title">MENDOZA PLASTIC<br/>SURGERY</h1>
-          <p className="hero-text">
-            <strong>Te ofrecemos una atención personalizada</strong><br/>
-            y la excelencia quirúrgica para que puedas<br/>
-            sacar lo mejor de ti mismo
-          </p>
+          <p className="hero-subtitle">{subtitle || 'BIENVENIDO A'}</p>
+          {title ? (
+            <h1 className="hero-title" dangerouslySetInnerHTML={{ __html: title }} />
+          ) : (
+            <h1 className="hero-title">MENDOZA PLASTIC<br/>SURGERY</h1>
+          )}
+          
+          {text ? (
+            <div className="hero-text" dangerouslySetInnerHTML={{ __html: text }} />
+          ) : (
+            <p className="hero-text">
+              <strong>Te ofrecemos una atención personalizada</strong><br/>
+              y la excelencia quirúrgica para que puedas<br/>
+              sacar lo mejor de ti mismo
+            </p>
+          )}
           <button className="btn hero-btn">Reserva tu consulta</button>
         </div>
         
         <div className="hero-card-wrapper">
           <div className="hero-card">
             <Image 
-              src="/team.png" 
+              src={imageUrl || "/team.png"} 
               alt="Medical Team" 
               fill
               priority
