@@ -1,13 +1,40 @@
 [
   {
     "type": "post_type",
-    "title": "Casos Clínicos (Antes y Después)",
-    "post_type": "caso",
-    "description": "Casos clínicos de pacientes para galería de antes y después.",
+    "key": "post_type_caso",
+    "title": "Casos Clínicos",
+    "labels": {
+      "name": "Casos Clínicos",
+      "singular_name": "Caso Clínico",
+      "menu_name": "Casos",
+      "all_items": "Todos los Casos",
+      "add_new": "Añadir Nuevo",
+      "add_new_item": "Añadir Nuevo Caso",
+      "edit_item": "Editar Caso",
+      "new_item": "Nuevo Caso",
+      "view_item": "Ver Caso",
+      "view_items": "Ver Casos",
+      "search_items": "Buscar Casos"
+    },
+    "description": "Casos clínicos para galería de antes y después",
     "public": true,
-    "has_archive": true,
+    "show_ui": true,
+    "show_in_menu": true,
+    "show_in_rest": true,
+    "rest_base": "",
+    "rest_controller_class": "WP_REST_Posts_Controller",
+    "menu_icon": "dashicons-images-alt2",
     "supports": ["title", "editor", "thumbnail"],
-    "menu_icon": "dashicons-images-alt2"
+    "has_archive": false,
+    "rewrite": {
+      "slug": "caso",
+      "with_front": true,
+      "pages": true,
+      "feeds": true
+    },
+    "query_var": true,
+    "post_type": "caso",
+    "active": true
   },
   {
     "type": "group",
