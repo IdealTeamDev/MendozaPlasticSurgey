@@ -49,17 +49,7 @@ export default function Navbar({ logoUrl, menuItems }: NavbarProps) {
             {logoUrl ? (
               <img src={logoUrl} alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain' }} />
             ) : (
-              <>
-                <div className="logo-mark">
-                  <span className="line line-1"></span>
-                  <span className="line line-2"></span>
-                  <span className="line line-3"></span>
-                </div>
-                <div className="logo-text-wrapper">
-                  <span className="logo-text">MENDOZA</span>
-                  <span className="logo-subtext">PLASTIC SURGERY</span>
-                </div>
-              </>
+              <img src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain' }} />
             )}
           </Link>
         </div>
@@ -117,17 +107,7 @@ export default function Navbar({ logoUrl, menuItems }: NavbarProps) {
               {logoUrl ? (
                 <img src={logoUrl} alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain' }} />
               ) : (
-                <>
-                  <div className="logo-mark">
-                    <span className="line line-1"></span>
-                    <span className="line line-2"></span>
-                    <span className="line line-3"></span>
-                  </div>
-                  <div className="logo-text-wrapper">
-                    <span className="logo-text">MENDOZA</span>
-                    <span className="logo-subtext">PLASTIC SURGERY</span>
-                  </div>
-                </>
+                <img src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain' }} />
               )}
             </Link>
           </div>
