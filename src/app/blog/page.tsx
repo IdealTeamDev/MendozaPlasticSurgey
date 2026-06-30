@@ -6,7 +6,23 @@ import BlogCategories from '@/components/blog/BlogCategories';
 import { getPosts, getPageBySlug, getMedia } from '@/lib/wordpress';
 
 export default async function BlogPage() {
-  const posts = await getPosts(); // You can pass categoryId if needed
+  const postsData = await getPosts(); // You can pass categoryId if needed
+  
+  const posts = Array.isArray(postsData) ? await Promise.all(postsData.map(async (p: any) => {
+    let imageUrl = null;
+    if (p.featured_media) {
+      const media = await getMedia(p.featured_media);
+      imageUrl = media?.source_url || null;
+    }
+    return {
+      id: p.id,
+      slug: p.slug,
+      date: p.date,
+      title: p.title,
+      excerpt: p.excerpt,
+      imageUrl
+    };
+  })) : [];
   
   const wpPage = await getPageBySlug('blog');
   const acf = wpPage?.acf || {};

@@ -8,6 +8,7 @@ interface Post {
   date: string;
   title: { rendered: string };
   excerpt: { rendered: string };
+  imageUrl?: string | null;
   _embedded?: any;
 }
 
@@ -42,9 +43,12 @@ export default function BlogFeed({ posts }: BlogFeedProps) {
                 <div key={post.id} className="blog-post-card">
                   <Link href={`/blog/${post.slug}`} className="blog-post-img-wrapper" style={{display: 'block', textDecoration: 'none'}}>
                     <span className="blog-post-tag">BLOG</span>
-                    <div className="blog-post-img-placeholder">
-                      {/* Imagen destacada aquí */}
-                      (Img Blog)
+                    <div className="blog-post-img-placeholder" style={{ overflow: 'hidden' }}>
+                      {post.imageUrl ? (
+                        <img src={post.imageUrl} alt={post.title.rendered} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <span>(Img Blog)</span>
+                      )}
                     </div>
                   </Link>
                   <div className="blog-post-content">
