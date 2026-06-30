@@ -45,6 +45,28 @@ export default async function Home() {
     resolvedBadges = resolvedBadges.filter(b => b.imageUrl !== '');
   }
 
+  // Resolver procedimientos
+  let resolvedProcedures: any[] = [];
+  if (Array.isArray(acf?.procedimientos_lista)) {
+    resolvedProcedures = await Promise.all(
+      acf.procedimientos_lista.map(async (proc: any, index: number) => {
+        let imageUrl = '';
+        if (typeof proc.imagen === 'number') {
+          const media = await getMedia(proc.imagen);
+          imageUrl = media?.source_url || '';
+        } else {
+          imageUrl = proc.imagen || '';
+        }
+        return {
+          id: `proc-${index}`,
+          tabLabel: proc.titulo_pestana || `Procedimiento ${index + 1}`,
+          desc: proc.descripcion || '',
+          imageUrl: imageUrl,
+        };
+      })
+    );
+  }
+
   return (
     <main>
       <Navbar />
@@ -68,8 +90,7 @@ export default async function Home() {
       
       <Procedures 
         title={acf?.procedimientos_titulo}
-        desc={acf?.procedimientos_desc}
-        imageUrl={procedimientosImage}
+        procedures={resolvedProcedures}
       />
       
       <Financing 

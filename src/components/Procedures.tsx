@@ -4,39 +4,49 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import './Procedures.css';
 
-interface ProceduresProps {
-  title?: string;
-  desc?: string;
-  imageUrl?: string;
+export interface ProcedureItem {
+  id: string;
+  tabLabel: string;
+  desc: string;
+  imageUrl: string;
 }
 
-const TABS = [
-  { id: 'cuerpo', label: 'CIRUGÍA DE CUERPO' },
-  { id: 'inyectables', label: 'INYECTABLES' },
-  { id: 'tratamientos', label: 'TRATAMIENTOS' },
+interface ProceduresProps {
+  title?: string;
+  procedures?: ProcedureItem[];
+}
+
+const DEFAULT_PROCEDURES: ProcedureItem[] = [
+  { id: 'cuerpo', tabLabel: 'CIRUGÍA DE CUERPO', desc: 'Nos enfocamos en guiar responsablemente a nuestros pacientes en sus procesos de contorno corporal.', imageUrl: '/procedures.png' },
+  { id: 'inyectables', tabLabel: 'INYECTABLES', desc: 'Tratamientos inyectables para rejuvenecimiento facial.', imageUrl: '/procedures.png' },
+  { id: 'tratamientos', tabLabel: 'TRATAMIENTOS', desc: 'Diversos tratamientos estéticos para tu bienestar.', imageUrl: '/procedures.png' },
 ];
 
-export default function Procedures({ title, desc, imageUrl }: ProceduresProps) {
-  const [activeTab, setActiveTab] = useState(TABS[0].id);
+export default function Procedures({ title, procedures }: ProceduresProps) {
+  const activeProcedures = procedures && procedures.length > 0 ? procedures : DEFAULT_PROCEDURES;
+  const [activeTab, setActiveTab] = useState(activeProcedures[0].id);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const activeLabel = TABS.find(t => t.id === activeTab)?.label;
+  const activeProc = activeProcedures.find(p => p.id === activeTab) || activeProcedures[0];
 
   return (
     <section className="procedures section-padding" id="procedimientos">
       <div className="container">
         <h2 className="text-center procedures-title">{title || 'PROCEDIMIENTOS'}</h2>
         
-        <div className="procedures-card">
+        <div 
+          className="procedures-card" 
+          style={{ backgroundImage: `url(${activeProc.imageUrl})` }}
+        >
           {/* Desktop Tabs */}
           <div className="procedures-tabs desktop-tabs">
-            {TABS.map(tab => (
+            {activeProcedures.map(proc => (
               <button 
-                key={tab.id}
-                className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
-                onClick={() => setActiveTab(tab.id)}
+                key={proc.id}
+                className={`tab-btn ${activeTab === proc.id ? 'active' : ''}`}
+                onClick={() => setActiveTab(proc.id)}
               >
-                {tab.label}
+                {proc.tabLabel}
               </button>
             ))}
           </div>
@@ -47,23 +57,23 @@ export default function Procedures({ title, desc, imageUrl }: ProceduresProps) {
               className="mobile-tab-selector"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
-              <span className="current-tab">{activeLabel}</span>
+              <span className="current-tab">{activeProc.tabLabel}</span>
               <span className="menu-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
               </span>
             </button>
             {isDropdownOpen && (
               <div className="mobile-dropdown-menu">
-                {TABS.map(tab => (
+                {activeProcedures.map(proc => (
                   <button 
-                    key={tab.id}
-                    className={`dropdown-item ${activeTab === tab.id ? 'active' : ''}`}
+                    key={proc.id}
+                    className={`dropdown-item ${activeTab === proc.id ? 'active' : ''}`}
                     onClick={() => {
-                      setActiveTab(tab.id);
+                      setActiveTab(proc.id);
                       setIsDropdownOpen(false);
                     }}
                   >
-                    {tab.label}
+                    {proc.tabLabel}
                   </button>
                 ))}
               </div>
@@ -73,8 +83,8 @@ export default function Procedures({ title, desc, imageUrl }: ProceduresProps) {
           <div className="procedures-content" key={activeTab}>
             <div className="procedures-image">
               <Image 
-                src={imageUrl || "/procedures.png"} 
-                alt={title || "Procedimientos"} 
+                src={activeProc.imageUrl || "/procedures.png"} 
+                alt={activeProc.tabLabel} 
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="proc-img" 
@@ -83,7 +93,7 @@ export default function Procedures({ title, desc, imageUrl }: ProceduresProps) {
             
             <div className="procedures-info">
               <p className="procedures-desc">
-                {desc || 'Nos enfocamos en guiar responsablemente a nuestros pacientes en sus procesos de contorno corporal y rejuvenecimiento facial.'}
+                {activeProc.desc}
               </p>
               
               <div className="procedures-badges">
