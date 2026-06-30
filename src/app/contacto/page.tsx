@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import ContactHero from '@/components/contacto/ContactHero';
 import ContactDetailsForm from '@/components/contacto/ContactDetailsForm';
 import ContactMap from '@/components/contacto/ContactMap';
@@ -16,8 +14,6 @@ export default async function ContactoPage() {
 
   return (
     <main>
-      <Navbar />
-      
       <ContactHero 
         subtitle={acf?.hero_subtitulo}
         title={acf?.hero_titulo}
@@ -32,7 +28,6 @@ export default async function ContactoPage() {
       />
       <ContactMap />
 
-      <Footer />
-    </main>
+      </main>
   );
 }

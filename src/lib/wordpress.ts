@@ -54,3 +54,17 @@ export async function getMedia(id: number) {
   return data;
 }
 
+export async function getGlobalOptions() {
+  // ACF Pro exposes options at /acf/v3/options/options if enabled in functions.php
+  const res = await fetch(`${API_URL}/wp-json/acf/v3/options/options`, {
+    next: { revalidate: 60 }
+  });
+  
+  if (!res.ok) {
+    return null;
+  }
+  
+  const json = await res.json();
+  return json?.acf || {};
+}
+

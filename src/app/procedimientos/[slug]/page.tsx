@@ -1,7 +1,5 @@
 import React from 'react';
 import { getProcedureBySlug, getMedia } from '@/lib/wordpress';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 
 // Common Components
 import ProcedureDetailHero from '@/components/procedimientos/ProcedureDetailHero';
@@ -59,8 +57,6 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
 
   return (
     <main>
-      <Navbar />
-      
       {/* Hero Header */}
       <ProcedureDetailHero 
         title={acf?.hero_titulo || title} 
@@ -96,7 +92,6 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
       <ProcedureOthers />
       <ProcedureTestimonials />
       
-      <Footer />
-    </main>
+      </main>
   );
 }

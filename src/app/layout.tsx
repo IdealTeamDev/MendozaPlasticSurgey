@@ -20,16 +20,40 @@ export const metadata: Metadata = {
 };
 
 import FloatingContact from '@/components/FloatingContact';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import { getGlobalOptions, getMedia } from '@/lib/wordpress';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const globalOptions = await getGlobalOptions();
+  
+  // Resolve logo image
+  let logoUrl = null;
+  if (globalOptions?.logo_principal) {
+    logoUrl = typeof globalOptions.logo_principal === 'number' 
+      ? (await getMedia(globalOptions.logo_principal))?.source_url 
+      : globalOptions.logo_principal;
+  }
+
   return (
     <html lang="es">
       <body className={`${fahkwang.variable} ${montserrat.variable} antialiased`}>
+        <Navbar 
+          logoUrl={logoUrl} 
+          menuItems={globalOptions?.menu_principal}
+        />
         {children}
+        <Footer 
+          logoUrl={logoUrl}
+          description={globalOptions?.footer_descripcion}
+          phone={globalOptions?.telefono}
+          address={globalOptions?.direccion}
+          socialLinks={globalOptions?.redes_sociales}
+        />
         <FloatingContact />
       </body>
     </html>

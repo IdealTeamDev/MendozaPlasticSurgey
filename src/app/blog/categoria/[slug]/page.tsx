@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import BlogCategoryHero from '@/components/blog/BlogCategoryHero';
 import BlogFeed from '@/components/blog/BlogFeed';
 import BlogSubscription from '@/components/blog/BlogSubscription';
@@ -25,7 +23,6 @@ export default async function BlogCategoryPage({ params }: { params: Promise<{ s
 
   return (
     <main>
-      <Navbar />
       <BlogCategoryHero categoryTitle={categoryName} />
       
       {posts && posts.length > 0 ? (
@@ -38,7 +35,6 @@ export default async function BlogCategoryPage({ params }: { params: Promise<{ s
       
       <BlogSubscription />
       <BlogCategories />
-      <Footer />
-    </main>
+      </main>
   );
 }

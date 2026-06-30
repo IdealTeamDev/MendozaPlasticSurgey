@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import ProcedureHero from '@/components/procedimientos/ProcedureHero';
 import ProcedureTabs from '@/components/procedimientos/ProcedureTabs';
 import { getPageBySlug, getMedia } from '@/lib/wordpress';
@@ -36,8 +34,6 @@ export default async function ProcedimientosPage() {
 
   return (
     <main>
-      <Navbar />
-      
       <ProcedureHero 
         title={acf?.hero_titulo}
         desc={acf?.hero_texto}
@@ -48,7 +44,6 @@ export default async function ProcedimientosPage() {
         tabs={resolvedTabs}
       />
 
-      <Footer />
-    </main>
+      </main>
   );
 }

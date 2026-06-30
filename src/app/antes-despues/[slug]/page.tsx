@@ -1,8 +1,6 @@
 "use client";
 
 import React, { use } from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import ProcedureGalleryHero from '@/components/antes-despues/ProcedureGalleryHero';
 import ProcedureGalleryGrid from '@/components/antes-despues/ProcedureGalleryGrid';
 import ProcedureContactSection from '@/components/antes-despues/ProcedureContactSection';
@@ -22,11 +20,9 @@ export default function ProcedurePage({ params }: { params: Promise<{ slug: stri
 
   return (
     <main>
-      <Navbar />
       <ProcedureGalleryHero categoryTitle={procedure.category} procedureTitle={procedure.title} />
       <ProcedureGalleryGrid />
       <ProcedureContactSection />
-      <Footer />
-    </main>
+      </main>
   );
 }

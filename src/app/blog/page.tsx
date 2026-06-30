@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import BlogHero from '@/components/blog/BlogHero';
 import BlogFeed from '@/components/blog/BlogFeed';
 import BlogSubscription from '@/components/blog/BlogSubscription';
@@ -19,7 +17,6 @@ export default async function BlogPage() {
 
   return (
     <main>
-      <Navbar />
       <BlogHero 
         title={acf?.hero_titulo}
         desc={acf?.hero_texto}
@@ -34,7 +31,6 @@ export default async function BlogPage() {
       )}
       <BlogSubscription />
       <BlogCategories />
-      <Footer />
-    </main>
+      </main>
   );
 }

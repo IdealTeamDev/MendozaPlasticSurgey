@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import { getPageBySlug } from '@/lib/wordpress';
 import NosotrosClient from './NosotrosClient'; // Extracted client logic
 
@@ -11,8 +9,6 @@ export default async function NosotrosPage() {
 
   return (
     <main className="nosotros-page">
-      <Navbar />
-      
       {wpPage ? (
         <div 
           className="wp-content-container fade-in" 
@@ -23,7 +19,6 @@ export default async function NosotrosPage() {
         <NosotrosClient />
       )}
 
-      <Footer />
-    </main>
+      </main>
   );
 }

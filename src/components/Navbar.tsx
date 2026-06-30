@@ -4,7 +4,19 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import './Navbar.css';
 
-export default function Navbar() {
+interface MenuItem {
+  titulo: string;
+  enlace: string;
+  es_desplegable?: boolean;
+  sub_menu?: { titulo: string; enlace: string }[];
+}
+
+interface NavbarProps {
+  logoUrl?: string | null;
+  menuItems?: MenuItem[];
+}
+
+export default function Navbar({ logoUrl, menuItems }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -34,41 +46,51 @@ export default function Navbar() {
       <div className="navbar-container">
         <div className="navbar-logo">
           <Link href="/">
-            <div className="logo-mark">
-              <span className="line line-1"></span>
-              <span className="line line-2"></span>
-              <span className="line line-3"></span>
-            </div>
-            <div className="logo-text-wrapper">
-              <span className="logo-text">MENDOZA</span>
-              <span className="logo-subtext">PLASTIC SURGERY</span>
-            </div>
+            {logoUrl ? (
+              <img src={logoUrl} alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain' }} />
+            ) : (
+              <>
+                <div className="logo-mark">
+                  <span className="line line-1"></span>
+                  <span className="line line-2"></span>
+                  <span className="line line-3"></span>
+                </div>
+                <div className="logo-text-wrapper">
+                  <span className="logo-text">MENDOZA</span>
+                  <span className="logo-subtext">PLASTIC SURGERY</span>
+                </div>
+              </>
+            )}
           </Link>
         </div>
         
         <nav className="navbar-links">
-          <Link href="/">Inicio</Link>
-          <Link href="/nosotros">Nosotros</Link>
-          <div className="nav-dropdown">
-            <Link href="/procedimientos" className="has-dropdown">Procedimientos <span className="arrow">▼</span></Link>
-            <div className="dropdown-menu">
-              <Link href="/procedimientos">Cuerpo</Link>
-              <Link href="/procedimientos">Senos</Link>
-              <Link href="/procedimientos">Rostro</Link>
-              <Link href="/procedimientos">Inyectables</Link>
-              <Link href="/procedimientos">Tratamientos</Link>
-            </div>
-          </div>
-          <div className="nav-dropdown">
-            <Link href="/pacientes" className="has-dropdown">Pacientes <span className="arrow">▼</span></Link>
-            <div className="dropdown-menu">
-              <Link href="/pacientes">Financiación</Link>
-              <Link href="/pacientes">Compra Epionce</Link>
-            </div>
-          </div>
-          <Link href="/antes-despues">Antes y Después</Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/contacto">Contacto</Link>
+          {menuItems && menuItems.length > 0 ? (
+            menuItems.map((item, i) => (
+              item.es_desplegable && item.sub_menu ? (
+                <div className="nav-dropdown" key={i}>
+                  <Link href={item.enlace || '#'} className="has-dropdown">{item.titulo} <span className="arrow">▼</span></Link>
+                  <div className="dropdown-menu">
+                    {item.sub_menu.map((sub, j) => (
+                      <Link href={sub.enlace} key={j}>{sub.titulo}</Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link href={item.enlace} key={i}>{item.titulo}</Link>
+              )
+            ))
+          ) : (
+            // Fallback default menu
+            <>
+              <Link href="/">Inicio</Link>
+              <Link href="/nosotros">Nosotros</Link>
+              <Link href="/procedimientos">Procedimientos</Link>
+              <Link href="/antes-despues">Antes y Después</Link>
+              <Link href="/blog">Blog</Link>
+              <Link href="/contacto">Contacto</Link>
+            </>
+          )}
         </nav>
 
         <div className="navbar-actions">
@@ -92,15 +114,21 @@ export default function Navbar() {
         <div className="mobile-menu-header">
           <div className="navbar-logo">
             <Link href="/" onClick={() => setIsMenuOpen(false)}>
-              <div className="logo-mark">
-                <span className="line line-1"></span>
-                <span className="line line-2"></span>
-                <span className="line line-3"></span>
-              </div>
-              <div className="logo-text-wrapper">
-                <span className="logo-text">MENDOZA</span>
-                <span className="logo-subtext">PLASTIC SURGERY</span>
-              </div>
+              {logoUrl ? (
+                <img src={logoUrl} alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain' }} />
+              ) : (
+                <>
+                  <div className="logo-mark">
+                    <span className="line line-1"></span>
+                    <span className="line line-2"></span>
+                    <span className="line line-3"></span>
+                  </div>
+                  <div className="logo-text-wrapper">
+                    <span className="logo-text">MENDOZA</span>
+                    <span className="logo-subtext">PLASTIC SURGERY</span>
+                  </div>
+                </>
+              )}
             </Link>
           </div>
           <button className="icon-btn close-btn" onClick={() => setIsMenuOpen(false)}>
@@ -109,62 +137,43 @@ export default function Navbar() {
         </div>
 
         <div className="mobile-menu-content">
-          <Link href="/" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Inicio</Link>
-          
-          <div className="mobile-accordion">
-            <button className="mobile-accordion-header" onClick={() => toggleMenu('nosotros')}>
-              Nosotros 
-              <span className="arrow-icon">
-                {expandedMenu === 'nosotros' ? '▲' : '▼'}
-              </span>
-            </button>
-            <div className={`mobile-accordion-body ${expandedMenu === 'nosotros' ? 'open' : ''}`}>
-              <div className="accordion-inner">
-                <Link href="#centro" onClick={() => setIsMenuOpen(false)}>Centro médico</Link>
-                <Link href="#cirujano" onClick={() => setIsMenuOpen(false)}>Cirujano</Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="mobile-accordion">
-            <div 
-              className="mobile-accordion-header"
-              onClick={() => toggleMenu('procedimientos')}
-            >
-              <Link href="/procedimientos" className="mobile-link has-dropdown" onClick={(e) => e.stopPropagation()}>
-                Procedimientos <span className={`arrow ${expandedMenu === 'procedimientos' ? 'open' : ''}`}>▼</span>
-              </Link>
-            </div>
-            <div className={`mobile-accordion-body ${expandedMenu === 'procedimientos' ? 'open' : ''}`}>
-              <div className="accordion-inner">
-                <Link href="/procedimientos" onClick={() => setIsMenuOpen(false)}>Cuerpo</Link>
-                <Link href="/procedimientos" onClick={() => setIsMenuOpen(false)}>Senos</Link>
-                <Link href="/procedimientos" onClick={() => setIsMenuOpen(false)}>Rostro</Link>
-                <Link href="/procedimientos" onClick={() => setIsMenuOpen(false)}>Inyectables</Link>
-                <Link href="/procedimientos" onClick={() => setIsMenuOpen(false)}>Tratamientos</Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="mobile-accordion">
-            <button className="mobile-accordion-header" onClick={() => toggleMenu('pacientes')}>
-              Pacientes 
-              <span className="arrow-icon">
-                {expandedMenu === 'pacientes' ? '▲' : '▼'}
-              </span>
-            </button>
-            <div className={`mobile-accordion-body ${expandedMenu === 'pacientes' ? 'open' : ''}`}>
-              <div className="accordion-inner">
-                <Link href="/pacientes" onClick={() => setIsMenuOpen(false)}>Financiación</Link>
-                <Link href="#epionce" onClick={() => setIsMenuOpen(false)}>Compra Epionce</Link>
-              </div>
-            </div>
-          </div>
-
-          <Link href="/nosotros" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Nosotros</Link>
-          <Link href="/antes-despues" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Antes y después</Link>
-          <Link href="/blog" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Blog</Link>
-          <Link href="/contacto" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Contacto</Link>
+          {menuItems && menuItems.length > 0 ? (
+            menuItems.map((item, i) => (
+              item.es_desplegable && item.sub_menu ? (
+                <div className="mobile-accordion" key={i}>
+                  <div 
+                    className="mobile-accordion-header"
+                    onClick={() => toggleMenu(`menu-${i}`)}
+                  >
+                    <Link href={item.enlace || '#'} className="mobile-link has-dropdown" onClick={(e) => { e.stopPropagation(); setIsMenuOpen(false); }}>
+                      {item.titulo} <span className={`arrow ${expandedMenu === `menu-${i}` ? 'open' : ''}`}>▼</span>
+                    </Link>
+                  </div>
+                  <div className={`mobile-accordion-body ${expandedMenu === `menu-${i}` ? 'open' : ''}`}>
+                    <div className="accordion-inner">
+                      {item.sub_menu.map((sub, j) => (
+                        <Link href={sub.enlace} key={j} onClick={() => setIsMenuOpen(false)}>{sub.titulo}</Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link href={item.enlace} className="mobile-link" key={i} onClick={() => setIsMenuOpen(false)}>
+                  {item.titulo}
+                </Link>
+              )
+            ))
+          ) : (
+            // Fallback mobile menu
+            <>
+              <Link href="/" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Inicio</Link>
+              <Link href="/nosotros" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Nosotros</Link>
+              <Link href="/procedimientos" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Procedimientos</Link>
+              <Link href="/antes-despues" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Antes y Después</Link>
+              <Link href="/blog" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+              <Link href="/contacto" className="mobile-link" onClick={() => setIsMenuOpen(false)}>Contacto</Link>
+            </>
+          )}
         </div>
       </div>
 

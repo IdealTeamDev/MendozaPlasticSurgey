@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import BlogPostHero from '@/components/blog/BlogPostHero';
 import BlogRelated from '@/components/blog/BlogRelated';
 import { getPostBySlug } from '@/lib/wordpress';
@@ -26,7 +24,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <main>
-      <Navbar />
       <BlogPostHero 
         title={title}
         category={category}
@@ -51,7 +48,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </section>
 
       <BlogRelated />
-      <Footer />
-    </main>
+      </main>
   );
 }
