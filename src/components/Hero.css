@@ -55,7 +55,8 @@
 .hero-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
   max-width: 1300px;
   width: 100%;
@@ -76,6 +77,11 @@
   color: var(--white);
   animation: slideUp 0.8s ease-out forwards;
   padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 @media (min-width: 1024px) {
