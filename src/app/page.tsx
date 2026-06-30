@@ -60,6 +60,7 @@ export default async function Home() {
           tabLabel: proc.titulo_pestana || `Procedimiento ${index + 1}`,
           desc: proc.descripcion || '',
           imageUrl: imageUrl,
+          enlace: proc.enlace || proc.url || '/procedimientos',
         };
       })
     );

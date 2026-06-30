@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import './Procedures.css';
 
 export interface ProcedureItem {
@@ -9,6 +10,7 @@ export interface ProcedureItem {
   tabLabel: string;
   desc: string;
   imageUrl: string;
+  enlace?: string;
 }
 
 interface ProceduresProps {
@@ -17,9 +19,9 @@ interface ProceduresProps {
 }
 
 const DEFAULT_PROCEDURES: ProcedureItem[] = [
-  { id: 'cuerpo', tabLabel: 'CIRUGÍA DE CUERPO', desc: 'Nos enfocamos en guiar responsablemente a nuestros pacientes en sus procesos de contorno corporal.', imageUrl: '/procedures.png' },
-  { id: 'inyectables', tabLabel: 'INYECTABLES', desc: 'Tratamientos inyectables para rejuvenecimiento facial.', imageUrl: '/procedures.png' },
-  { id: 'tratamientos', tabLabel: 'TRATAMIENTOS', desc: 'Diversos tratamientos estéticos para tu bienestar.', imageUrl: '/procedures.png' },
+  { id: 'cuerpo', tabLabel: 'CIRUGÍA DE CUERPO', desc: 'Nos enfocamos en guiar responsablemente a nuestros pacientes en sus procesos de contorno corporal.', imageUrl: '/procedures.png', enlace: '/procedimientos#cuerpo' },
+  { id: 'inyectables', tabLabel: 'INYECTABLES', desc: 'Tratamientos inyectables para rejuvenecimiento facial.', imageUrl: '/procedures.png', enlace: '/procedimientos#inyectables' },
+  { id: 'tratamientos', tabLabel: 'TRATAMIENTOS', desc: 'Diversos tratamientos estéticos para tu bienestar.', imageUrl: '/procedures.png', enlace: '/procedimientos#tratamientos' },
 ];
 
 export default function Procedures({ title, procedures }: ProceduresProps) {
@@ -98,7 +100,9 @@ export default function Procedures({ title, procedures }: ProceduresProps) {
               
               {/* Removed hardcoded icons as they were incorrect/incomplete */}
               
-              <button className="btn proc-btn-white">Conoce más</button>
+              <Link href={activeProc.enlace || '/procedimientos'} className="btn proc-btn-white">
+                Conoce más
+              </Link>
             </div>
           </div>
         </div>
