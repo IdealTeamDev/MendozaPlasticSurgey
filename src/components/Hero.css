@@ -169,7 +169,8 @@
 }
 
 .hero-card-img {
-  object-fit: cover;
+  object-fit: contain;
+  height: 800px !important;
   border-radius: 12px;
 }
 
