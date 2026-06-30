@@ -1,7 +1,13 @@
 import React from 'react';
 import './MedicalCenterHero.css';
 
-export default function MedicalCenterHero() {
+interface MedicalCenterHeroProps {
+  title?: string;
+  desc?: string;
+  imageUrl?: string;
+}
+
+export default function MedicalCenterHero({ title, desc, imageUrl }: MedicalCenterHeroProps) {
   return (
     <section className="mc-hero">
       <div className="mc-hero-bg">
@@ -10,15 +16,20 @@ export default function MedicalCenterHero() {
       
       <div className="container mc-hero-container">
         <div className="mc-hero-content">
-          <h1 className="mc-hero-title">MEDICAL CENTER</h1>
+          <h1 className="mc-hero-title">{title || 'MEDICAL CENTER'}</h1>
+          {desc && <p className="mc-hero-desc" style={{ color: 'white', marginTop: '1rem', fontSize: '1.1rem' }}>{desc}</p>}
           <button className="btn mc-hero-btn">Agenda tu consulta</button>
         </div>
         
         <div className="mc-hero-image-wrapper">
           <div className="mc-hero-image-card">
-            <div className="mc-img-placeholder">
-              <span>(Placeholder Equipo Médico)</span>
-            </div>
+            {imageUrl ? (
+              <img src={imageUrl} alt="Medical Center" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
+            ) : (
+              <div className="mc-img-placeholder">
+                <span>(Placeholder Equipo Médico)</span>
+              </div>
+            )}
           </div>
         </div>
       </div>

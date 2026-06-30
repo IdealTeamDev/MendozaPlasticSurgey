@@ -1,0 +1,102 @@
+[
+  {
+    "type": "group",
+    "key": "group_opciones_globales",
+    "title": "Opciones Globales del Sitio",
+    "fields": [
+      {
+        "key": "field_global_logo_tab",
+        "label": "Logo",
+        "name": "",
+        "type": "tab"
+      },
+      {
+        "key": "field_global_logo",
+        "label": "Logo Principal",
+        "name": "logo_principal",
+        "type": "image",
+        "return_format": "url",
+        "instructions": "Este logo aparecerá en la barra de navegación superior y en el pie de página."
+      },
+      {
+        "key": "field_global_menu_tab",
+        "label": "Menú Principal",
+        "name": "",
+        "type": "tab"
+      },
+      {
+        "key": "field_global_menu",
+        "label": "Enlaces del Menú",
+        "name": "menu_principal",
+        "type": "repeater",
+        "layout": "block",
+        "sub_fields": [
+          { "key": "field_gm_titulo", "label": "Título del Enlace", "name": "titulo", "type": "text" },
+          { "key": "field_gm_enlace", "label": "URL / Enlace", "name": "enlace", "type": "text" },
+          { "key": "field_gm_es_desplegable", "label": "¿Es Desplegable?", "name": "es_desplegable", "type": "true_false", "ui": 1 },
+          {
+            "key": "field_gm_submenu",
+            "label": "Submenú",
+            "name": "sub_menu",
+            "type": "repeater",
+            "layout": "table",
+            "conditional_logic": [
+              [
+                { "field": "field_gm_es_desplegable", "operator": "==", "value": "1" }
+              ]
+            ],
+            "sub_fields": [
+              { "key": "field_gms_titulo", "label": "Título", "name": "titulo", "type": "text" },
+              { "key": "field_gms_enlace", "label": "URL", "name": "enlace", "type": "text" }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "field_global_footer_tab",
+        "label": "Pie de Página",
+        "name": "",
+        "type": "tab"
+      },
+      { "key": "field_gf_descripcion", "label": "Descripción Corta", "name": "footer_descripcion", "type": "textarea" },
+      { "key": "field_gf_telefono", "label": "Teléfono", "name": "telefono", "type": "text" },
+      { "key": "field_gf_direccion", "label": "Dirección", "name": "direccion", "type": "text" },
+      {
+        "key": "field_gf_sociales",
+        "label": "Redes Sociales",
+        "name": "redes_sociales",
+        "type": "repeater",
+        "layout": "table",
+        "sub_fields": [
+          {
+            "key": "field_gfs_red",
+            "label": "Red Social",
+            "name": "red_social",
+            "type": "select",
+            "choices": {
+              "instagram": "Instagram",
+              "facebook": "Facebook",
+              "youtube": "YouTube"
+            }
+          },
+          { "key": "field_gfs_url", "label": "URL", "name": "url", "type": "url" }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "options_page",
+          "operator": "==",
+          "value": "theme-general-settings"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  }
+]

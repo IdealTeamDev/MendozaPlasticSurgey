@@ -9,7 +9,11 @@ import MedicalCenterHero from '@/components/nosotros/MedicalCenterHero';
 import MedicalCenterDetails from '@/components/nosotros/MedicalCenterDetails';
 import MedicalCenterServices from '@/components/nosotros/MedicalCenterServices';
 
-export default function NosotrosClient() {
+interface NosotrosProps {
+  acf?: any;
+}
+
+export default function NosotrosClient({ acf }: NosotrosProps) {
   const [activeTab, setActiveTab] = useState<'surgeon' | 'medical'>('surgeon');
 
   return (
@@ -33,14 +37,23 @@ export default function NosotrosClient() {
 
       {activeTab === 'surgeon' ? (
         <div className="tab-content fade-in">
-          <SurgeonHero />
+          <SurgeonHero 
+            subtitle={acf?.surgeon_subtitle}
+            title={acf?.surgeon_title}
+            desc={acf?.surgeon_desc}
+            imageUrl={acf?.surgeon_image}
+          />
           <SurgeonBeforeAfter />
           <SurgeonDetails />
           <SurgeonFunFacts />
         </div>
       ) : (
         <div className="tab-content fade-in">
-          <MedicalCenterHero />
+          <MedicalCenterHero 
+            title={acf?.medical_title}
+            desc={acf?.medical_desc}
+            imageUrl={acf?.medical_image}
+          />
           <MedicalCenterDetails />
           <MedicalCenterServices />
         </div>

@@ -1,0 +1,32 @@
+[
+  {
+    "type": "post_type",
+    "title": "Casos Clínicos (Antes y Después)",
+    "post_type": "caso",
+    "description": "Casos clínicos de pacientes para galería de antes y después.",
+    "public": true,
+    "has_archive": true,
+    "supports": ["title", "editor", "thumbnail"],
+    "menu_icon": "dashicons-images-alt2"
+  },
+  {
+    "type": "group",
+    "key": "group_casos_cpt",
+    "title": "Detalles del Caso",
+    "fields": [
+      { "key": "field_caso_antes", "label": "Foto Antes", "name": "foto_antes", "type": "image", "return_format": "url" },
+      { "key": "field_caso_despues", "label": "Foto Después", "name": "foto_despues", "type": "image", "return_format": "url" },
+      { "key": "field_caso_procedimiento", "label": "Procedimiento Relacionado", "name": "procedimiento_relacionado", "type": "text", "instructions": "Ej. Aumento de Senos, Lipoescultura..." }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "caso"
+        }
+      ]
+    ],
+    "active": true
+  }
+]

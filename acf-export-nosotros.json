@@ -1,0 +1,38 @@
+[
+  {
+    "type": "group",
+    "key": "group_nosotros_page",
+    "title": "Configuración Página: Nosotros",
+    "fields": [
+      {
+        "key": "field_nosotros_surgeon_tab",
+        "label": "Cirujano",
+        "name": "",
+        "type": "tab"
+      },
+      { "key": "field_nos_surgeon_subtitle", "label": "Subtítulo Cirujano", "name": "surgeon_subtitle", "type": "text" },
+      { "key": "field_nos_surgeon_title", "label": "Título Cirujano", "name": "surgeon_title", "type": "text" },
+      { "key": "field_nos_surgeon_desc", "label": "Descripción Cirujano", "name": "surgeon_desc", "type": "textarea" },
+      { "key": "field_nos_surgeon_image", "label": "Imagen Cirujano", "name": "surgeon_image", "type": "image", "return_format": "url" },
+      {
+        "key": "field_nosotros_medical_tab",
+        "label": "Centro Médico",
+        "name": "",
+        "type": "tab"
+      },
+      { "key": "field_nos_medical_title", "label": "Título Centro", "name": "medical_title", "type": "text" },
+      { "key": "field_nos_medical_desc", "label": "Descripción Centro", "name": "medical_desc", "type": "textarea" },
+      { "key": "field_nos_medical_image", "label": "Imagen Centro", "name": "medical_image", "type": "image", "return_format": "url" }
+    ],
+    "location": [
+      [
+        {
+          "param": "page",
+          "operator": "==",
+          "value": "nosotros"
+        }
+      ]
+    ],
+    "active": true
+  }
+]

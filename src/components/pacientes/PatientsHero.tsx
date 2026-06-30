@@ -1,8 +1,13 @@
 import React from 'react';
 import './PatientsHero.css';
 import Image from 'next/image';
+interface PatientsHeroProps {
+  title?: string;
+  subtitle?: string;
+  imageUrl?: string;
+}
 
-export default function PatientsHero() {
+export default function PatientsHero({ title, subtitle, imageUrl }: PatientsHeroProps) {
   return (
     <section className="patients-hero">
       <div className="patients-hero-bg">
@@ -11,17 +16,19 @@ export default function PatientsHero() {
       
       <div className="container patients-hero-container">
         <div className="patients-hero-content">
-          <p className="patients-hero-subtitle">OPCIONES DE FINANCIAMIENTO</p>
-          <h1 className="patients-hero-title">PARA CIRUGÍAS Y TRATAMIENTOS ESTÉTICOS</h1>
+          <p className="patients-hero-subtitle">{subtitle || 'OPCIONES DE FINANCIAMIENTO'}</p>
+          <h1 className="patients-hero-title">{title || 'PARA CIRUGÍAS Y TRATAMIENTOS ESTÉTICOS'}</h1>
         </div>
         
         <div className="patients-hero-image-wrapper">
           <div className="patients-hero-image-card">
-            <div className="patients-img-placeholder">
-              <span>(Placeholder Imagen Chica)</span>
-            </div>
-            {/* Si tuvieras la imagen real, la usaríamos así: */}
-            {/* <Image src="/patients-hero.jpg" alt="Atención al paciente" fill className="patients-img" /> */}
+            {imageUrl ? (
+              <img src={imageUrl} alt="Atención al paciente" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            ) : (
+              <div className="patients-img-placeholder">
+                <span>(Placeholder Imagen Chica)</span>
+              </div>
+            )}
           </div>
         </div>
       </div>

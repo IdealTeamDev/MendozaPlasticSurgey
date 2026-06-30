@@ -31,6 +31,21 @@ export async function getPostBySlug(slug: string) {
   return data && data.length > 0 ? data[0] : null;
 }
 
+export async function getProcedures() {
+  const data = await fetchAPI('/procedimiento?_embed');
+  return data;
+}
+
+export async function getCasos() {
+  const data = await fetchAPI('/caso?_embed');
+  return data;
+}
+
+export async function getCasoBySlug(slug: string) {
+  const data = await fetchAPI(`/caso?slug=${slug}&_embed`);
+  return data && data.length > 0 ? data[0] : null;
+}
+
 export async function getProcedureBySlug(slug: string) {
   const data = await fetchAPI(`/procedimiento?slug=${slug}`);
   return data && data.length > 0 ? data[0] : null;

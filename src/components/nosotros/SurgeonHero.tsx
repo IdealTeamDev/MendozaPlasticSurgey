@@ -1,27 +1,37 @@
 import React from 'react';
 import './SurgeonHero.css';
 
-export default function SurgeonHero() {
+interface SurgeonHeroProps {
+  subtitle?: string;
+  title?: string;
+  desc?: string;
+  imageUrl?: string;
+}
+
+export default function SurgeonHero({ subtitle, title, desc, imageUrl }: SurgeonHeroProps) {
   return (
     <section className="surgeon-hero">
-      <div className="surgeon-hero-bg">
         <div className="surgeon-hero-overlay"></div>
       </div>
       
       <div className="container surgeon-hero-container">
         <div className="surgeon-hero-content">
-          <p className="surgeon-hero-subtitle">DR. MENDOZA</p>
-          <h1 className="surgeon-hero-title">PLASTIC SURGEON</h1>
+          <p className="surgeon-hero-subtitle">{subtitle || 'DR. MENDOZA'}</p>
+          <h1 className="surgeon-hero-title">{title || 'PLASTIC SURGEON'}</h1>
           <p className="surgeon-hero-desc">
-            Descubre quién está detrás de cada transformación y conoce el trabajo de nuestro cirujano.
+            {desc || 'Descubre quién está detrás de cada transformación y conoce el trabajo de nuestro cirujano.'}
           </p>
         </div>
         
         <div className="surgeon-hero-image-wrapper">
           <div className="surgeon-hero-image-card">
-            <div className="surgeon-img-placeholder">
-              <span>(Placeholder Dr. Mendoza)</span>
-            </div>
+            {imageUrl ? (
+              <img src={imageUrl} alt="Surgeon Hero" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            ) : (
+              <div className="surgeon-img-placeholder">
+                <span>(Placeholder Dr. Mendoza)</span>
+              </div>
+            )}
           </div>
         </div>
       </div>

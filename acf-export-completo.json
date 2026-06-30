@@ -1,0 +1,137 @@
+[
+  {
+    "key": "group_inicio_page",
+    "title": "Página: Inicio",
+    "fields": [
+      { "key": "field_hero_tab", "label": "Sección: Hero", "name": "", "type": "tab", "placement": "top" },
+      { "key": "field_hero_subtitulo", "label": "Hero Subtítulo", "name": "hero_subtitulo", "type": "text" },
+      { "key": "field_hero_titulo", "label": "Hero Título", "name": "hero_titulo", "type": "text" },
+      { "key": "field_hero_texto", "label": "Hero Texto", "name": "texto_hero", "type": "textarea" },
+      { "key": "field_hero_imagen", "label": "Hero Imagen", "name": "hero_imagen", "type": "image", "return_format": "url" },
+      { "key": "field_about_tab", "label": "Sección: Sobre Nosotros", "name": "", "type": "tab" },
+      { "key": "field_about_subtitulo", "label": "About Subtítulo", "name": "about_subtitulo", "type": "text" },
+      { "key": "field_about_titulo", "label": "About Título", "name": "about_titulo", "type": "text" },
+      { "key": "field_about_texto", "label": "About Texto", "name": "about_texto", "type": "wysiwyg" },
+      { "key": "field_about_imagen", "label": "About Imagen", "name": "about_imagen", "type": "image", "return_format": "url" },
+      { "key": "field_badges_tab", "label": "Sección: Insignias", "name": "", "type": "tab" },
+      {
+        "key": "field_badges_list",
+        "label": "Lista de Insignias",
+        "name": "badges_list",
+        "type": "repeater",
+        "layout": "table",
+        "sub_fields": [
+          { "key": "field_badge_insignia", "label": "Insignia (Imagen)", "name": "insignia", "type": "image", "return_format": "url" }
+        ]
+      },
+      { "key": "field_procedimientos_tab", "label": "Sección: Procedimientos", "name": "", "type": "tab" },
+      { "key": "field_procedimientos_titulo", "label": "Título Procedimientos", "name": "procedimientos_titulo", "type": "text" },
+      {
+        "key": "field_procedimientos_lista",
+        "label": "Lista de Procedimientos",
+        "name": "procedimientos_lista",
+        "type": "repeater",
+        "layout": "row",
+        "sub_fields": [
+          { "key": "field_proc_titulo_pestana", "label": "Título de Pestaña", "name": "titulo_pestana", "type": "text" },
+          { "key": "field_proc_descripcion", "label": "Descripción", "name": "descripcion", "type": "textarea" },
+          { "key": "field_proc_imagen", "label": "Imagen", "name": "imagen", "type": "image", "return_format": "url" }
+        ]
+      },
+      { "key": "field_financiamiento_tab", "label": "Sección: Financiamiento", "name": "", "type": "tab" },
+      { "key": "field_financiamiento_titulo", "label": "Título Financiamiento", "name": "financiamiento_titulo", "type": "text" },
+      { "key": "field_financiamiento_boton", "label": "Texto del Botón", "name": "financiamiento_boton", "type": "text" },
+      { "key": "field_contacto_tab", "label": "Sección: Contacto", "name": "", "type": "tab" },
+      { "key": "field_contacto_subtitulo", "label": "Contacto Subtítulo", "name": "contacto_subtitulo", "type": "text" },
+      { "key": "field_contacto_titulo_bold", "label": "Contacto Título (Bold)", "name": "contacto_titulo_bold", "type": "text" },
+      { "key": "field_contacto_texto", "label": "Contacto Texto", "name": "contacto_texto", "type": "textarea" }
+    ],
+    "location": [
+      [ { "param": "page", "operator": "==", "value": "10" } ],
+      [ { "param": "page_type", "operator": "==", "value": "front_page" } ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  },
+  {
+    "key": "group_contacto_page",
+    "title": "Página: Contacto",
+    "fields": [
+      { "key": "field_contact_hero_tab", "label": "Sección: Hero", "name": "", "type": "tab", "placement": "top" },
+      { "key": "field_contact_hero_subtitulo", "label": "Hero Subtítulo", "name": "hero_subtitulo", "type": "text" },
+      { "key": "field_contact_hero_titulo", "label": "Hero Título", "name": "hero_titulo", "type": "text" },
+      { "key": "field_contact_hero_texto", "label": "Hero Texto", "name": "hero_texto", "type": "textarea" },
+      { "key": "field_contact_hero_imagen", "label": "Hero Imagen", "name": "hero_imagen", "type": "image", "return_format": "url" },
+      { "key": "field_contact_details_tab", "label": "Sección: Detalles", "name": "", "type": "tab" },
+      { "key": "field_contact_ubicacion", "label": "Ubicación", "name": "ubicacion", "type": "wysiwyg" },
+      { "key": "field_contact_telefono", "label": "Teléfono", "name": "telefono", "type": "text" },
+      { "key": "field_contact_email", "label": "Email", "name": "email", "type": "email" },
+      { "key": "field_contact_horarios", "label": "Horarios", "name": "horarios", "type": "text" }
+    ],
+    "location": [
+      [ { "param": "page_template", "operator": "==", "value": "default" } ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  },
+  {
+    "key": "group_procedimientos_page",
+    "title": "Página: Procedimientos (Interna)",
+    "fields": [
+      { "key": "field_proc_hero_tab", "label": "Sección: Hero", "name": "", "type": "tab", "placement": "top" },
+      { "key": "field_proc_hero_titulo", "label": "Hero Título", "name": "hero_titulo", "type": "text" },
+      { "key": "field_proc_hero_texto", "label": "Hero Texto", "name": "hero_texto", "type": "textarea" },
+      { "key": "field_proc_hero_imagen", "label": "Hero Imagen", "name": "hero_imagen", "type": "image", "return_format": "url" },
+      { "key": "field_proc_tabs_tab", "label": "Sección: Pestañas de Procedimientos", "name": "", "type": "tab" },
+      { "key": "field_proc_tabs_titulo", "label": "Título de Pestañas", "name": "tabs_titulo", "type": "text" },
+      {
+        "key": "field_proc_tabs_lista",
+        "label": "Lista de Pestañas",
+        "name": "tabs_lista",
+        "type": "repeater",
+        "layout": "row",
+        "sub_fields": [
+          { "key": "field_ptab_titulo_pestana", "label": "Título de Pestaña", "name": "titulo_pestana", "type": "text" },
+          { "key": "field_ptab_descripcion", "label": "Descripción", "name": "descripcion", "type": "textarea" },
+          { "key": "field_ptab_imagen", "label": "Imagen", "name": "imagen", "type": "image", "return_format": "url" }
+        ]
+      }
+    ],
+    "location": [
+      [ { "param": "page_template", "operator": "==", "value": "default" } ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  },
+  {
+    "key": "group_blog_page",
+    "title": "Página: Blog",
+    "fields": [
+      { "key": "field_blog_hero_tab", "label": "Sección: Hero", "name": "", "type": "tab", "placement": "top" },
+      { "key": "field_blog_hero_titulo", "label": "Hero Título", "name": "hero_titulo", "type": "text" },
+      { "key": "field_blog_hero_texto", "label": "Hero Texto", "name": "hero_texto", "type": "textarea" },
+      { "key": "field_blog_hero_imagen", "label": "Hero Imagen", "name": "hero_imagen", "type": "image", "return_format": "url" }
+    ],
+    "location": [
+      [ { "param": "page_template", "operator": "==", "value": "default" } ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  }
+]

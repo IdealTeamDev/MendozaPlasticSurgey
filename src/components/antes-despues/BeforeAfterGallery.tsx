@@ -4,15 +4,19 @@ import React, { useState } from 'react';
 import './BeforeAfterGallery.css';
 import './BeforeAfterLinks.css';
 
-const GALLERIES = [
-  { id: 'cuerpo', title: 'CIRUGÍA DE CUERPO', imgPlaceholder: 'Img Cuerpo' },
-  { id: 'senos', title: 'CIRUGÍA DE SENOS', imgPlaceholder: 'Img Senos' },
-  { id: 'facial', title: 'CIRUGÍA FACIAL', imgPlaceholder: 'Img Facial' },
-  { id: 'tratamientos', title: 'TRATAMIENTOS', imgPlaceholder: 'Img Tratamientos' },
-  { id: 'inyectables', title: 'INYECTABLES', imgPlaceholder: 'Img Inyectables' },
-];
+interface Caso {
+  id: number;
+  slug: string;
+  title: string;
+  procedimiento?: string;
+  thumbnailUrl?: string;
+}
 
-export default function BeforeAfterGallery() {
+interface BeforeAfterGalleryProps {
+  cases?: Caso[];
+}
+
+export default function BeforeAfterGallery({ cases = [] }: BeforeAfterGalleryProps) {
   const [openId, setOpenId] = useState<string | null>(null);
 
   const toggleAccordion = (id: string) => {
@@ -31,18 +35,22 @@ export default function BeforeAfterGallery() {
         </div>
 
         <div className="ba-accordion-list">
-          {GALLERIES.map(item => (
+          {cases.map(item => (
             <div 
               key={item.id} 
-              className={`ba-accordion-item ${openId === item.id ? 'open' : ''}`}
+              className={`ba-accordion-item ${openId === item.id.toString() ? 'open' : ''}`}
             >
               <div 
                 className="ba-accordion-header" 
-                onClick={() => toggleAccordion(item.id)}
+                onClick={() => toggleAccordion(item.id.toString())}
               >
                 <div className="ba-accordion-left">
-                  <div className="ba-acc-img-wrapper">
-                    <span>({item.imgPlaceholder})</span>
+                  <div className="ba-acc-img-wrapper" style={{ overflow: 'hidden' }}>
+                    {item.thumbnailUrl ? (
+                      <img src={item.thumbnailUrl} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ) : (
+                      <span>(Img)</span>
+                    )}
                   </div>
                   <h3 className="ba-acc-title">{item.title}</h3>
                 </div>
@@ -56,9 +64,11 @@ export default function BeforeAfterGallery() {
               <div className="ba-accordion-content">
                 <div className="ba-accordion-inner">
                   <ul className="ba-accordion-links">
-                    <li><a href="/antes-despues/aumento-de-senos">Aumento de Senos</a></li>
-                    <li><a href="#">Reducción de Senos</a></li>
-                    <li><a href="#">Levantamiento de Senos</a></li>
+                    <li>
+                      <a href={`/antes-despues/${item.slug}`}>
+                        Ver Detalles del Caso {item.procedimiento && ` - ${item.procedimiento}`}
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>

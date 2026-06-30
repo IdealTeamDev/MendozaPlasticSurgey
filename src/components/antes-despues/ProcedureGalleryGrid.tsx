@@ -3,13 +3,18 @@
 import React, { useState } from 'react';
 import './ProcedureGalleryGrid.css';
 
-// Datos temporales simulados
-const CASES = Array.from({ length: 6 }).map((_, i) => ({
-  id: i + 1,
-  date: 'Abril 10, 2024',
-  caseNumber: `7255${i + 1}`,
-  description: 'Aumento de senos con Mastopexia'
-}));
+interface Caso {
+  id: number;
+  slug: string;
+  title: string;
+  procedimiento: string;
+  foto_antes?: string;
+  foto_despues?: string;
+}
+
+interface ProcedureGalleryGridProps {
+  cases?: Caso[];
+}
 
 const SIDEBAR_CATEGORIES = [
   { id: 'cuerpo', title: 'Cirugía de cuerpo' },
@@ -17,7 +22,7 @@ const SIDEBAR_CATEGORIES = [
   { id: 'facial', title: 'Cirugía facial, tratamientos e Inyectables' }
 ];
 
-export default function ProcedureGalleryGrid() {
+export default function ProcedureGalleryGrid({ cases = [] }: ProcedureGalleryGridProps) {
   const [openSidebarId, setOpenSidebarId] = useState<string | null>('senos');
 
   const toggleSidebar = (id: string) => {
@@ -40,20 +45,27 @@ export default function ProcedureGalleryGrid() {
           {/* Grilla Principal */}
           <div className="proc-main-content">
             <div className="proc-cases-grid">
-              {CASES.map(c => (
+              {cases.map((c, index) => (
                 <div key={c.id} className="proc-case-card">
                   <div className="proc-case-images">
                     <div className="proc-case-img-box">
-                      <span>(Img Antes)</span>
+                      {c.foto_antes ? (
+                        <img src={c.foto_antes} alt="Antes" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <span>(Img Antes)</span>
+                      )}
                     </div>
                     <div className="proc-case-img-box">
-                      <span>(Img Después)</span>
+                      {c.foto_despues ? (
+                        <img src={c.foto_despues} alt="Después" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <span>(Img Después)</span>
+                      )}
                     </div>
                   </div>
                   <div className="proc-case-info">
-                    <span className="proc-case-date">{c.date}</span>
-                    <h3 className="proc-case-number">CASO {c.caseNumber}</h3>
-                    <p className="proc-case-desc">{c.description}</p>
+                    <h3 className="proc-case-number">CASO {index + 1}</h3>
+                    <p className="proc-case-desc">{c.title}</p>
                     <button className="btn proc-case-btn">Ver más</button>
                   </div>
                 </div>
