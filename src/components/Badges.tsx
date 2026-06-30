@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './Badges.css';
 
 export interface BadgeItem {
@@ -35,6 +35,21 @@ export default function Badges({ badges }: BadgesProps) {
     : DEFAULT_BADGES;
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [showArrows, setShowArrows] = useState(false);
+
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (scrollRef.current) {
+        // Mostramos flechas solo si el contenido es más ancho que el contenedor visible
+        setShowArrows(scrollRef.current.scrollWidth > scrollRef.current.clientWidth);
+      }
+    };
+    
+    // Check initially and on resize
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow);
+    return () => window.removeEventListener('resize', checkOverflow);
+  }, [badgesToDisplay]);
 
   const scrollNext = () => {
     if (scrollRef.current) {
@@ -54,9 +69,11 @@ export default function Badges({ badges }: BadgesProps) {
     <section className="badges-section">
       <div className="container">
         <div className="badges-carousel">
-          <button className="carousel-arrow prev-arrow" onClick={scrollPrev} aria-label="Previous">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          </button>
+          {showArrows && (
+            <button className="carousel-arrow prev-arrow" onClick={scrollPrev} aria-label="Previous">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+          )}
 
           <div className="badges-viewport" ref={scrollRef}>
             <div className="badges-track">
@@ -79,9 +96,11 @@ export default function Badges({ badges }: BadgesProps) {
             </div>
           </div>
 
-          <button className="carousel-arrow next-arrow" onClick={scrollNext} aria-label="Next">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
+          {showArrows && (
+            <button className="carousel-arrow next-arrow" onClick={scrollNext} aria-label="Next">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          )}
         </div>
       </div>
     </section>
