@@ -3,11 +3,17 @@
 import React, { useRef } from 'react';
 import './Badges.css';
 
-export default function Badges() {
+interface BadgesProps {
+  title1?: string;
+  title2?: string;
+  title3?: string;
+}
+
+export default function Badges({ title1, title2, title3 }: BadgesProps) {
   const BADGES = [
-    { id: 1, type: 'blue', icon: 'M', title: 'Top Surgeon' },
-    { id: 2, type: 'gold', icon: '★', title: 'Excellence' },
-    { id: 3, type: 'blue', icon: '1', title: 'Certified' },
+    { id: 1, type: 'blue', icon: 'M', title: title1 || 'Top Surgeon' },
+    { id: 2, type: 'gold', icon: '★', title: title2 || 'Excellence' },
+    { id: 3, type: 'blue', icon: '1', title: title3 || 'Certified' },
     { id: 4, type: 'gold', icon: '2', title: 'Awarded' },
     { id: 5, type: 'blue', icon: '3', title: 'Trusted' },
     { id: 6, type: 'gold', icon: '4', title: 'Rated' },

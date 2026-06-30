@@ -4,13 +4,19 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import './Procedures.css';
 
+interface ProceduresProps {
+  title?: string;
+  desc?: string;
+  imageUrl?: string;
+}
+
 const TABS = [
   { id: 'cuerpo', label: 'CIRUGÍA DE CUERPO' },
   { id: 'inyectables', label: 'INYECTABLES' },
   { id: 'tratamientos', label: 'TRATAMIENTOS' },
 ];
 
-export default function Procedures() {
+export default function Procedures({ title, desc, imageUrl }: ProceduresProps) {
   const [activeTab, setActiveTab] = useState(TABS[0].id);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -19,7 +25,7 @@ export default function Procedures() {
   return (
     <section className="procedures section-padding" id="procedimientos">
       <div className="container">
-        <h2 className="text-center procedures-title">PROCEDIMIENTOS</h2>
+        <h2 className="text-center procedures-title">{title || 'PROCEDIMIENTOS'}</h2>
         
         <div className="procedures-card">
           {/* Desktop Tabs */}
@@ -67,8 +73,8 @@ export default function Procedures() {
           <div className="procedures-content" key={activeTab}>
             <div className="procedures-image">
               <Image 
-                src="/procedures.png" 
-                alt="Procedimientos" 
+                src={imageUrl || "/procedures.png"} 
+                alt={title || "Procedimientos"} 
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="proc-img" 
@@ -77,7 +83,7 @@ export default function Procedures() {
             
             <div className="procedures-info">
               <p className="procedures-desc">
-                Nos enfocamos en guiar responsablemente a nuestros pacientes en sus procesos de contorno corporal y rejuvenecimiento facial.
+                {desc || 'Nos enfocamos en guiar responsablemente a nuestros pacientes en sus procesos de contorno corporal y rejuvenecimiento facial.'}
               </p>
               
               <div className="procedures-badges">

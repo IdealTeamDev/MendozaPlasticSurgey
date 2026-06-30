@@ -28,12 +28,37 @@ export default async function Home() {
         imageUrl={acf?.hero_imagen}
       />
       
-      <About />
-      <Badges />
-      <Procedures />
-      <Financing />
+      <About 
+        subtitle={acf?.about_subtitulo}
+        title={acf?.about_titulo}
+        text={acf?.about_texto}
+        imageUrl={acf?.about_imagen}
+      />
+      
+      <Badges 
+        title1={acf?.badges_titulo_1}
+        title2={acf?.badges_titulo_2}
+        title3={acf?.badges_titulo_3}
+      />
+      
+      <Procedures 
+        title={acf?.procedimientos_titulo}
+        desc={acf?.procedimientos_desc}
+        imageUrl={acf?.procedimientos_imagen}
+      />
+      
+      <Financing 
+        title={acf?.financiamiento_titulo}
+        buttonText={acf?.financiamiento_boton}
+      />
+      
       <Testimonials />
-      <Contact />
+      
+      <Contact 
+        subtitle={acf?.contacto_subtitulo}
+        titleBold={acf?.contacto_titulo_bold}
+        text={acf?.contacto_texto}
+      />
 
       <Footer />
     </main>

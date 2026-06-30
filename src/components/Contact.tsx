@@ -3,7 +3,13 @@
 import React from 'react';
 import './Contact.css';
 
-export default function Contact() {
+interface ContactProps {
+  subtitle?: string;
+  titleBold?: string;
+  text?: string;
+}
+
+export default function Contact({ subtitle, titleBold, text }: ContactProps) {
   return (
     <section className="contact section-padding" id="contacto">
       <div className="contact-bg-shape">
@@ -15,15 +21,21 @@ export default function Contact() {
         
         <div className="contact-info">
           <h2 className="contact-title">
-            <span className="contact-subtitle">¡EL CAMBIO QUE QUIERES ES</span><br/>
-            <span className="contact-title-bold">AHORA!</span>
+            <span className="contact-subtitle">{subtitle || '¡EL CAMBIO QUE QUIERES ES'}</span><br/>
+            <span className="contact-title-bold">{titleBold || 'AHORA!'}</span>
           </h2>
-          <p className="contact-text">
-            Reserva tu consulta con el Dr. Mendoza <strong>cirujano plástico en Atlanta</strong> y conoce más sobre tu procedimiento.
-          </p>
-          <p className="contact-text">
-            Después de diligenciar el formulario, uno de nuestros asesores se pondrá en contacto contigo para fijar la fecha de tu consulta.
-          </p>
+          {text ? (
+            <div className="contact-text-wrapper" dangerouslySetInnerHTML={{ __html: text }} />
+          ) : (
+            <>
+              <p className="contact-text">
+                Reserva tu consulta con el Dr. Mendoza <strong>cirujano plástico en Atlanta</strong> y conoce más sobre tu procedimiento.
+              </p>
+              <p className="contact-text">
+                Después de diligenciar el formulario, uno de nuestros asesores se pondrá en contacto contigo para fijar la fecha de tu consulta.
+              </p>
+            </>
+          )}
         </div>
 
         <div className="contact-form-wrapper">
