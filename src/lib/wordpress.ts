@@ -2,7 +2,7 @@ const API_URL = process.env.NEXT_PUBLIC_WORDPRESS_URL || 'https://mendozaplastic
 
 export async function fetchAPI(endpoint: string, options = {}) {
   const res = await fetch(`${API_URL}/wp-json/wp/v2${endpoint}`, {
-    next: { revalidate: 60 }, // Cache for 60 seconds (ISR)
+    cache: 'no-store', // Disabled cache temporarily for development
     ...options,
   });
 
@@ -22,7 +22,7 @@ export async function getPageBySlug(slug: string) {
 
 export async function fetchAPIWithHeaders(endpoint: string, options = {}) {
   const res = await fetch(`${API_URL}/wp-json/wp/v2${endpoint}`, {
-    next: { revalidate: 60 },
+    cache: 'no-store', // Disabled cache temporarily for development
     ...options,
   });
 
