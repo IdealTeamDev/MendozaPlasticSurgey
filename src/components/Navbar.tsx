@@ -4,11 +4,19 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import './Navbar.css';
 
+interface MenuColumn {
+  titulo: string;
+  enlace?: string;
+  items: { titulo: string; enlace: string }[];
+}
+
 interface MenuItem {
   titulo: string;
   enlace: string;
   es_desplegable?: boolean;
   sub_menu?: { titulo: string; enlace: string }[];
+  es_mega_menu?: boolean;
+  mega_menu_columnas?: MenuColumn[];
 }
 
 interface NavbarProps {
@@ -77,14 +85,33 @@ const FALLBACK_MENU: MenuItem[] = [
         
         <nav className="navbar-links">
           {finalMenu.map((item, i) => (
-            item.es_desplegable && item.sub_menu ? (
-              <div className="nav-dropdown" key={i}>
+            item.es_desplegable ? (
+              <div className={`nav-dropdown ${item.es_mega_menu ? 'mega-menu-wrapper' : ''}`} key={i}>
                 <Link href={item.enlace || '#'} className="has-dropdown">{item.titulo} <span className="arrow">▼</span></Link>
-                <div className="dropdown-menu">
-                  {item.sub_menu.map((sub, j) => (
-                    <Link href={sub.enlace} key={j}>{sub.titulo}</Link>
-                  ))}
-                </div>
+                {item.es_mega_menu && item.mega_menu_columnas ? (
+                  <div className="mega-menu">
+                    <div className="mega-menu-container">
+                      {item.mega_menu_columnas.map((col, cIndex) => (
+                        <div className="mega-menu-column" key={cIndex}>
+                          <h4 className="mega-menu-title">
+                            {col.enlace ? <Link href={col.enlace}>{col.titulo}</Link> : col.titulo}
+                          </h4>
+                          <ul className="mega-menu-list">
+                            {col.items.map((sub, j) => (
+                              <li key={j}><Link href={sub.enlace}>{sub.titulo}</Link></li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : item.sub_menu ? (
+                  <div className="dropdown-menu">
+                    {item.sub_menu.map((sub, j) => (
+                      <Link href={sub.enlace} key={j}>{sub.titulo}</Link>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             ) : (
               <Link href={item.enlace} key={i}>{item.titulo}</Link>
@@ -127,7 +154,7 @@ const FALLBACK_MENU: MenuItem[] = [
 
         <div className="mobile-menu-content">
           {finalMenu.map((item, i) => (
-            item.es_desplegable && item.sub_menu ? (
+            item.es_desplegable ? (
               <div className="mobile-accordion" key={i}>
                 <div 
                   className="mobile-accordion-header"
@@ -139,9 +166,20 @@ const FALLBACK_MENU: MenuItem[] = [
                 </div>
                 <div className={`mobile-accordion-body ${expandedMenu === `menu-${i}` ? 'open' : ''}`}>
                   <div className="accordion-inner">
-                    {item.sub_menu.map((sub, j) => (
-                      <Link href={sub.enlace} key={j} onClick={() => setIsMenuOpen(false)}>{sub.titulo}</Link>
-                    ))}
+                    {item.es_mega_menu && item.mega_menu_columnas ? (
+                      item.mega_menu_columnas.map((col, cIndex) => (
+                        <div key={cIndex} className="mobile-mega-col">
+                          <h5 className="mobile-mega-title">{col.titulo}</h5>
+                          {col.items.map((sub, j) => (
+                            <Link href={sub.enlace} key={j} onClick={() => setIsMenuOpen(false)}>{sub.titulo}</Link>
+                          ))}
+                        </div>
+                      ))
+                    ) : item.sub_menu ? (
+                      item.sub_menu.map((sub, j) => (
+                        <Link href={sub.enlace} key={j} onClick={() => setIsMenuOpen(false)}>{sub.titulo}</Link>
+                      ))
+                    ) : null}
                   </div>
                 </div>
               </div>

@@ -145,10 +145,119 @@
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-.nav-dropdown:hover .dropdown-menu {
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:hover .mega-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+/* --- Mega Menu Styles --- */
+.mega-menu-wrapper {
+  position: static !important; /* Allow the mega menu to span the full width of the navbar */
+}
+
+.mega-menu {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 0;
+  width: 100%; /* Span full width of header */
+  background-color: #111;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  z-index: 200;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 2.5rem 0;
+}
+
+.mega-menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.mega-menu-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-menu-title {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 0.5rem;
+}
+.mega-menu-title a {
+  color: inherit !important;
+  padding: 0 !important;
+}
+
+.mega-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mega-menu-list li a {
+  padding: 0.3rem 0;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.mega-menu-list li a:hover {
+  color: var(--white);
+  transform: translateX(5px);
+}
+/* --- End Mega Menu --- */
+
+.accordion-inner a {
+  display: block;
+  padding: 0.8rem 2rem;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.mobile-mega-col {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-mega-title {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+  padding: 1rem 2rem 0.5rem 2rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mobile-mega-col a {
+  padding: 0.6rem 2rem 0.6rem 2.5rem;
+  font-size: 0.95rem;
+  color: #aaa;
 }
 
 .dropdown-menu a {

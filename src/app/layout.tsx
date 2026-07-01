@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 import FloatingContact from '@/components/FloatingContact';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { getGlobalOptions, getMedia } from '@/lib/wordpress';
+import { getGlobalOptions, getMedia, getProcedures, getProcedureCategories } from '@/lib/wordpress';
 
 export default async function RootLayout({
   children,
@@ -39,12 +39,47 @@ export default async function RootLayout({
       : globalOptions.logo_principal;
   }
 
+  let menuItems = globalOptions?.menu_principal ? [...globalOptions.menu_principal] : [];
+
+  // Auto-populate mega menu for Procedimientos
+  if (menuItems.length > 0) {
+    const procIndex = menuItems.findIndex((item: any) => 
+      item.enlace === '/procedimientos' || item.titulo.toLowerCase().includes('procedimientos')
+    );
+    
+    if (procIndex !== -1) {
+      const categories = await getProcedureCategories();
+      const procedures = await getProcedures();
+      
+      if (categories && categories.length > 0 && procedures && procedures.length > 0) {
+        menuItems[procIndex].es_desplegable = true;
+        menuItems[procIndex].es_mega_menu = true;
+        
+        const columnas = categories.map((cat: any) => {
+          const catProcs = procedures.filter((p: any) => 
+            p.categoria_procedimiento && p.categoria_procedimiento.includes(cat.id)
+          );
+          return {
+            titulo: cat.name,
+            enlace: `/procedimientos#${cat.slug}`,
+            items: catProcs.map((p: any) => ({
+              titulo: p.title.rendered,
+              enlace: `/procedimientos/${p.slug}`
+            }))
+          };
+        }).filter((col: any) => col.items.length > 0);
+        
+        menuItems[procIndex].mega_menu_columnas = columnas;
+      }
+    }
+  }
+
   return (
     <html lang="es">
       <body className={`${fahkwang.variable} ${montserrat.variable} antialiased`}>
         <Navbar 
           logoUrl={logoUrl} 
-          menuItems={globalOptions?.menu_principal}
+          menuItems={menuItems}
         />
         {children}
         <Footer 
