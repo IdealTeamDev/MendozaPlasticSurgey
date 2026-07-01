@@ -61,7 +61,8 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
         const dateText = formatDate(casoPost.date);
         const rawContent = casoPost?.content?.rendered || '';
         const cleanContent = rawContent.replace(/<[^>]+>/g, '').trim();
-        const descriptionText = casoAcf.descripcion_corta || cleanContent || `${titleText} con el Dr. Mendoza`;
+        const shortDescriptionText = casoAcf.descripcion_corta || `${titleText} con el Dr. Mendoza`;
+        const longDescriptionText = casoAcf.descripcion_larga || cleanContent || shortDescriptionText;
 
         // Helper function for media resolving
         const getMediaUrl = async (fieldValue: any) => {
@@ -99,7 +100,8 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
           id: id,
           title: titleText,
           date: dateText,
-          description: descriptionText,
+          shortDescription: shortDescriptionText,
+          longDescription: longDescriptionText,
           examples
         };
       })

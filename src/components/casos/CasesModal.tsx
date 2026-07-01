@@ -106,9 +106,9 @@ export default function CasesModal({ isOpen, onClose, cases, currentIndex, onNex
             </div>
           )}
 
-          {/* Description */}
-          <div className="cases-modal-desc">
-            <p>{currentCase.description}</p>
+          {/* Text Description */}
+          <div className="cases-modal-footer-text">
+            {currentCase.longDescription}
           </div>
         </div>
         

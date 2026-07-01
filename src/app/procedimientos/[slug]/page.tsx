@@ -102,12 +102,14 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
 
         const rawContent = casoPost?.content?.rendered || '';
         const cleanContent = rawContent.replace(/<[^>]+>/g, '').trim();
-        const descriptionText = casoAcf.descripcion_corta || cleanContent || `${titleText} con el Dr. Mendoza`;
+        const shortDescriptionText = casoAcf.descripcion_corta || `${titleText} con el Dr. Mendoza`;
+        const longDescriptionText = casoAcf.descripcion_larga || cleanContent || shortDescriptionText;
 
         return {
           id: id,
           title: titleText,
-          description: descriptionText,
+          shortDescription: shortDescriptionText,
+          longDescription: longDescriptionText,
           examples
         };
       })

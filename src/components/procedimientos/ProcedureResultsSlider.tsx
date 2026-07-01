@@ -81,6 +81,11 @@ export default function ProcedureResultsSlider({ cases = [] }: ProcedureResultsS
               </div>
             </div>
 
+            {/* Clinical Note */}
+            <p className="proc-results-clinical-note" style={{ color: '#555', fontSize: '0.9rem', fontStyle: 'italic', marginTop: '2rem' }}>
+              * Los resultados pueden variar. {currentCase.shortDescription}
+            </p>
+
             {/* Sub-slider controls for multiple examples in the SAME case */}
             {currentCase.examples.length > 1 && (
               <div className="proc-results-example-controls" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
