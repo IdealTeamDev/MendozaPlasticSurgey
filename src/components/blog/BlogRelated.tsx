@@ -29,7 +29,7 @@ export default function BlogRelated({ relatedPosts = [] }: BlogRelatedProps) {
         </div>
 
         <div className="related-grid">
-          {posts.map(post => (
+          {relatedPosts.map(post => (
             <div key={post.id} className="blog-post-card">
               <Link href={`/blog/${post.slug}`} className="blog-post-img-wrapper" style={{display: 'block', textDecoration: 'none'}}>
                 <span className="blog-post-tag">{post.tag}</span>
