@@ -85,8 +85,9 @@ export async function getCasoBySlug(slug: string) {
 
 export async function getCasoById(id: number) {
   if (!id) return null;
-  const data = await fetchAPI(`/caso/${id}?_embed`);
-  return data;
+  // Use plural endpoint with include to bypass ACF REST API bug where single endpoint returns acf: []
+  const data = await fetchAPI(`/caso?include=${id}&_embed`);
+  return data && data.length > 0 ? data[0] : null;
 }
 
 export async function getProcedureBySlug(slug: string) {
