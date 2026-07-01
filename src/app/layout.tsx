@@ -39,7 +39,17 @@ export default async function RootLayout({
       : globalOptions.logo_principal;
   }
 
-  let menuItems = globalOptions?.menu_principal ? [...globalOptions.menu_principal] : [];
+  let menuItems = globalOptions?.menu_principal && globalOptions.menu_principal.length > 0 
+    ? [...globalOptions.menu_principal] 
+    : [
+        { titulo: 'Inicio', enlace: '/' },
+        { titulo: 'Nosotros', enlace: '/nosotros' },
+        { titulo: 'Procedimientos', enlace: '/procedimientos' },
+        { titulo: 'Antes y Después', enlace: '/antes-despues' },
+        { titulo: 'Pacientes', enlace: '/pacientes' },
+        { titulo: 'Blog', enlace: '/blog' },
+        { titulo: 'Contacto', enlace: '/contacto' }
+      ];
 
   // Auto-populate mega menu for Procedimientos
   if (menuItems.length > 0) {
