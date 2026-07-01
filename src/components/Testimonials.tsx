@@ -76,21 +76,21 @@ export default function Testimonials() {
               </p>
               <a href="#" className="read-more">Leer más</a>
             </div>
-          </div>
-          
-          <div className="carousel-nav">
-            <button className="nav-btn prev" onClick={scrollPrev} aria-label="Anterior">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
-            <button className="nav-btn next" onClick={scrollNext} aria-label="Siguiente">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
-          </div>
         </div>
         
       </div>
-      <div className="testimonials-action" style={{ textAlign: 'center', marginTop: '3rem' }}>
-        <Link href="/contacto" className="btn btn-primary">
+      
+      <div className="testimonials-action">
+        <div className="carousel-nav centered-nav">
+          <button className="nav-btn prev" onClick={scrollPrev} aria-label="Anterior">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button className="nav-btn next" onClick={scrollNext} aria-label="Siguiente">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+        
+        <Link href="/contacto" className="btn btn-primary testimonials-cta-btn">
           Agenda tu consulta
         </Link>
       </div>
