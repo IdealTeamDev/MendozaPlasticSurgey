@@ -84,11 +84,11 @@ export default function ProcedureResultsSlider({ cases = [] }: ProcedureResultsS
             {/* Sub-slider controls for multiple examples in the SAME case */}
             {currentCase.examples.length > 1 && (
               <div className="proc-results-example-controls" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
-                <button className="slider-btn" onClick={prevExample} style={{ transform: 'scale(0.8)', padding: '0.5rem 1rem' }}>&lt; Anterior Ejemplo</button>
+                <button className="example-nav-btn" onClick={prevExample}>&lt; Anterior Ejemplo</button>
                 <span style={{ alignSelf: 'center', fontFamily: 'var(--font-subtitle)', fontSize: '0.9rem' }}>
                   {currentExampleIndex + 1} / {currentCase.examples.length}
                 </span>
-                <button className="slider-btn" onClick={nextExample} style={{ transform: 'scale(0.8)', padding: '0.5rem 1rem' }}>Siguiente Ejemplo &gt;</button>
+                <button className="example-nav-btn" onClick={nextExample}>Siguiente Ejemplo &gt;</button>
               </div>
             )}
 
