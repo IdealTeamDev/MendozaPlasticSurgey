@@ -90,31 +90,36 @@
   }
 }
 
-.treatment-desc {
-  font-size: 1.05rem;
-  line-height: 1.8;
+/* Dynamic WYSIWYG Content */
+.treatment-dynamic-content {
+  font-family: var(--font-subtitle);
   color: #444;
-  margin: 0;
 }
 
-.treatment-includes-title {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--black);
+.treatment-dynamic-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
   margin-bottom: 1.5rem;
 }
 
-.treatment-includes-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+.treatment-dynamic-content h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--black);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
-.treatment-includes-list li {
+.treatment-dynamic-content ul,
+.treatment-dynamic-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.treatment-dynamic-content li {
   font-size: 1rem;
   color: #555;
-  padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
 }

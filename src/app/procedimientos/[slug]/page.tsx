@@ -132,7 +132,7 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
       {/* Conditional Block based on Template */}
       {isOption2 ? (
         // OPTION 2
-        <ProcedureTreatmentTypes />
+        <ProcedureTreatmentTypes treatments={acf?.tipos_de_tratamiento || []} />
       ) : (
         // OPTION 1
         <>
