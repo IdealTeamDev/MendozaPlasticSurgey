@@ -27,6 +27,7 @@
 }
 
 .treatments-label {
+  font-family: var(--font-subtitle);
   font-size: 0.9rem;
   font-weight: 500;
   color: #888;
@@ -36,6 +37,7 @@
 }
 
 .treatments-title {
+  font-family: var(--font-title);
   font-size: 2rem;
   font-weight: 400;
   margin-bottom: 2rem;
