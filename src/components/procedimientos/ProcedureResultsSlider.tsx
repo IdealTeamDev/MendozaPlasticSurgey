@@ -84,19 +84,20 @@ export default function ProcedureResultsSlider({ cases = [] }: ProcedureResultsS
             {/* Sub-slider controls for multiple examples in the SAME case */}
             {currentCase.examples.length > 1 && (
               <div className="proc-results-example-controls" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
-                <button className="example-nav-btn" onClick={prevExample}>&lt; Anterior Ejemplo</button>
+                <button className="slider-btn" onClick={prevExample} aria-label="Anterior Ejemplo">&lt;</button>
                 <span style={{ alignSelf: 'center', fontFamily: 'var(--font-subtitle)', fontSize: '0.9rem' }}>
                   {currentExampleIndex + 1} / {currentCase.examples.length}
                 </span>
-                <button className="example-nav-btn" onClick={nextExample}>Siguiente Ejemplo &gt;</button>
+                <button className="slider-btn" onClick={nextExample} aria-label="Siguiente Ejemplo">&gt;</button>
               </div>
             )}
 
             {/* Main slider controls for Cases */}
             {cases.length > 1 && (
-              <div className="proc-results-controls">
-                <button className="slider-btn" onClick={prevCase}>&lt; Caso</button>
-                <button className="slider-btn" onClick={nextCase}>Caso &gt;</button>
+              <div className="proc-results-controls" style={{ marginTop: '2rem' }}>
+                <span style={{ alignSelf: 'center', marginRight: '1rem', fontSize: '0.9rem', color: '#888' }}>Siguiente Caso:</span>
+                <button className="slider-btn" onClick={prevCase} aria-label="Caso Anterior">&lt;</button>
+                <button className="slider-btn" onClick={nextCase} aria-label="Caso Siguiente">&gt;</button>
               </div>
             )}
             
