@@ -16,11 +16,9 @@ interface BlogRelatedProps {
 }
 
 export default function BlogRelated({ relatedPosts = [] }: BlogRelatedProps) {
-  // Mock fallback if empty
-  const posts = relatedPosts.length > 0 ? relatedPosts : [
-    { id: 1, slug: 'lipo-360', tag: 'CUERPO', date: 'Abril 10, 2024', title: '¿QUÉ ES UNA LIPO 360? GUÍA BÁSICA' },
-    { id: 2, slug: 'implantes-senos-naturales', tag: 'CUERPO', date: 'Abril 10, 2024', title: '¿CÓMO ESCOGER LOS IMPLANTES DE SENOS NATURALES?' },
-  ];
+  if (!relatedPosts || relatedPosts.length === 0) {
+    return null;
+  }
 
   return (
     <section className="blog-related-section">

@@ -10,11 +10,6 @@ interface PopularPost {
 }
 
 export default function BlogSidebar({ popularPosts = [] }: { popularPosts?: PopularPost[] }) {
-  // If popular posts are not passed, mock them for preview
-  const posts = popularPosts.length > 0 ? popularPosts : [
-    { id: 1, slug: 'lipo-360', date: 'Apr 23, 2026', title: 'What is a Lipo 360...', imageUrl: '/procedures.png' },
-    { id: 2, slug: 'recuperar-figura', date: 'Abr 15, 2026', title: '¿Cómo recuperar l...', imageUrl: '/procedures.png' },
-  ];
 
   return (
     <aside className="blog-sidebar-col" style={{ flex: '1', minWidth: '300px' }}>
@@ -58,23 +53,25 @@ export default function BlogSidebar({ popularPosts = [] }: { popularPosts?: Popu
       <hr style={{ margin: '2.5rem 0', borderColor: '#eee' }} />
 
       {/* BLOG POPULARES */}
-      <div className="blog-popular-widget">
-        <h3 className="widget-title" style={{ fontSize: '1.2rem', marginBottom: '1.5rem', textTransform: 'uppercase', fontWeight: 400 }}>BLOG POPULARES</h3>
-        <div className="popular-posts-list sidebar-mini-cards">
-          {posts.map((post, index) => (
-            <Link href={`/blog/${post.slug}`} key={post.id} className={`popular-post-card ${index === 0 ? 'active' : ''}`}>
-              <div 
-                className="popular-post-thumb" 
-                style={{ backgroundImage: `url(${post.imageUrl || '/procedures.png'})` }}
-              ></div>
-              <div className="popular-post-info">
-                <span className="popular-post-date">{post.date}</span>
-                <h4 className="popular-post-title">{post.title}</h4>
-              </div>
-            </Link>
-          ))}
+      {popularPosts && popularPosts.length > 0 && (
+        <div className="blog-popular-widget">
+          <h3 className="widget-title" style={{ fontSize: '1.2rem', marginBottom: '1.5rem', textTransform: 'uppercase', fontWeight: 400 }}>BLOG POPULARES</h3>
+          <div className="popular-posts-list sidebar-mini-cards">
+            {popularPosts.map((post, index) => (
+              <Link href={`/blog/${post.slug}`} key={post.id} className={`popular-post-card ${index === 0 ? 'active' : ''}`}>
+                <div 
+                  className="popular-post-thumb" 
+                  style={{ backgroundImage: `url(${post.imageUrl || '/procedures.png'})` }}
+                ></div>
+                <div className="popular-post-info">
+                  <span className="popular-post-date">{post.date}</span>
+                  <h4 className="popular-post-title">{post.title}</h4>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* CSS for sidebar elements */}
       <style dangerouslySetInnerHTML={{__html: `
