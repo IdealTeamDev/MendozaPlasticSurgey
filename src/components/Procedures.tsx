@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import './Procedures.css';
@@ -38,6 +38,30 @@ export default function Procedures({ title, procedures }: ProceduresProps) {
 
   const activeProc = activeProcedures.find(p => p.id === activeTab) || activeProcedures[0];
 
+  // Drag to scroll logic
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!tabsRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - tabsRef.current.offsetLeft);
+    setScrollLeft(tabsRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => setIsDragging(false);
+  const handleMouseUp = () => setIsDragging(false);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !tabsRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - tabsRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    tabsRef.current.scrollLeft = scrollLeft - walk;
+  };
+
   return (
     <section className="procedures section-padding" id="procedimientos">
       <div className="container">
@@ -48,7 +72,15 @@ export default function Procedures({ title, procedures }: ProceduresProps) {
           style={{ backgroundImage: `url(${activeProc.imageUrl})` }}
         >
           {/* Desktop Tabs */}
-          <div className="procedures-tabs desktop-tabs">
+          <div 
+            className="procedures-tabs desktop-tabs"
+            ref={tabsRef}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+          >
             {activeProcedures.map(proc => (
               <button 
                 key={proc.id}
