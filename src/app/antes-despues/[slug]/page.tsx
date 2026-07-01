@@ -1,5 +1,3 @@
-"use client";
-
 import React, { use } from 'react';
 import ProcedureGalleryHero from '@/components/antes-despues/ProcedureGalleryHero';
 import ProcedureGalleryGrid from '@/components/antes-despues/ProcedureGalleryGrid';
