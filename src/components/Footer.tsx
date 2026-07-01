@@ -77,6 +77,9 @@ export default function Footer({ logoUrl, description, phone, address, socialLin
                     {social.red_social === 'youtube' && (
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96C1 8.16 1 12 1 12s0 3.84.46 5.58a2.78 2.78 0 0 0 1.94 1.96c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96C23 15.84 23 12 23 12s0-3.84-.46-5.58zM9.54 15.56V8.44L15.81 12l-6.27 3.56z"/></svg>
                     )}
+                    {social.red_social === 'pinterest' && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c5.5 0 10-4.5 10-10S17.5 2 12 2z"></path></svg>
+                    )}
                   </a>
                 ))
               ) : (
