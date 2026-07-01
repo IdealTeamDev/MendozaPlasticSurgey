@@ -28,7 +28,7 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
   const title = formatTitle(slug);
 
   // Template Routing Logic
-  const isOption2 = slug === 'sueroterapia';
+  const isOption2 = acf?.tipo_de_plantilla === 'tratamiento';
 
   // Resolve images
   const heroImage = typeof acf?.hero_imagen === 'number' 
