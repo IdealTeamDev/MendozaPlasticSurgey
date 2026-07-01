@@ -8,22 +8,32 @@ acf_group = {
     "title": "Campos: Casos Cl\u00ednicos",
     "fields": [
         {
-            "key": "field_foto_antes",
-            "label": "Foto Antes",
-            "name": "foto_antes",
-            "type": "image",
-            "return_format": "url",
-            "preview_size": "medium",
-            "library": "all"
-        },
-        {
-            "key": "field_foto_despues",
-            "label": "Foto Despu\u00e9s",
-            "name": "foto_despues",
-            "type": "image",
-            "return_format": "url",
-            "preview_size": "medium",
-            "library": "all"
+            "key": "field_galeria_casos",
+            "label": "Ejemplos (Galería de Antes y Después)",
+            "name": "galeria_casos",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Añadir Ejemplo",
+            "sub_fields": [
+                {
+                    "key": "field_galeria_foto_antes",
+                    "label": "Foto Antes",
+                    "name": "foto_antes",
+                    "type": "image",
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_galeria_foto_despues",
+                    "label": "Foto Después",
+                    "name": "foto_despues",
+                    "type": "image",
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all"
+                }
+            ]
         }
     ],
     "location": [

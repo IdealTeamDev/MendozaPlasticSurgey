@@ -48,7 +48,7 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
   // 3. Resolve Casos Relacionados
   let casesData: any[] = [];
   if (Array.isArray(acf.casos_relacionados)) {
-    casesData = await Promise.all(
+    const casesNested = await Promise.all(
       acf.casos_relacionados.map(async (casoRef: any) => {
         const id = typeof casoRef === 'number' ? casoRef : (casoRef.ID || casoRef.id);
         if (!id) return null;
@@ -57,32 +57,52 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
         if (!casoPost) return null;
 
         const casoAcf = casoPost.acf || {};
-        
-        let beforeImg = '';
-        if (typeof casoAcf.foto_antes === 'number') {
-          beforeImg = (await getMedia(casoAcf.foto_antes))?.source_url || '';
-        } else {
-          beforeImg = casoAcf.foto_antes || '';
+        const titleText = casoRef.post_title || casoPost.title?.rendered;
+        const dateText = formatDate(casoPost.date);
+        const descriptionText = casoAcf.descripcion_corta || `${title} con el Dr. Mendoza`;
+
+        // Helper function for media resolving
+        const getMediaUrl = async (fieldValue: any) => {
+          if (typeof fieldValue === 'number') {
+            return (await getMedia(fieldValue))?.source_url || '';
+          }
+          return fieldValue || '';
+        };
+
+        const examples: {beforeImg: string, afterImg: string}[] = [];
+
+        // Primary fields (backward compatibility)
+        const beforeImg = await getMediaUrl(casoAcf.foto_antes);
+        const afterImg = await getMediaUrl(casoAcf.foto_despues);
+        if (beforeImg || afterImg) {
+          examples.push({ beforeImg, afterImg });
         }
-        
-        let afterImg = '';
-        if (typeof casoAcf.foto_despues === 'number') {
-          afterImg = (await getMedia(casoAcf.foto_despues))?.source_url || '';
-        } else {
-          afterImg = casoAcf.foto_despues || '';
+
+        // Repeater fields
+        if (Array.isArray(casoAcf.galeria_casos) && casoAcf.galeria_casos.length > 0) {
+          const repeaterCases = await Promise.all(
+            casoAcf.galeria_casos.map(async (item: any) => {
+              const bImg = await getMediaUrl(item.foto_antes);
+              const aImg = await getMediaUrl(item.foto_despues);
+              return { beforeImg: bImg, afterImg: aImg };
+            })
+          );
+          
+          examples.push(...repeaterCases.filter(c => c.beforeImg || c.afterImg));
         }
+
+        if (examples.length === 0) return null;
 
         return {
           id: id,
-          title: casoRef.post_title || casoPost.title?.rendered,
-          date: formatDate(casoPost.date),
-          description: casoAcf.descripcion_corta || `${title} con el Dr. Mendoza`, // Fallback description
-          beforeImg,
-          afterImg
+          title: titleText,
+          date: dateText,
+          description: descriptionText,
+          examples
         };
       })
     );
-    casesData = casesData.filter(c => c !== null);
+    casesData = casesNested.filter(c => c !== null);
   }
 
   // 4. Resolve Sidebar Categories

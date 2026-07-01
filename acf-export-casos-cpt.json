@@ -41,9 +41,19 @@
     "key": "group_casos_cpt",
     "title": "Detalles del Caso",
     "fields": [
-      { "key": "field_caso_antes", "label": "Foto Antes", "name": "foto_antes", "type": "image", "return_format": "url" },
-      { "key": "field_caso_despues", "label": "Foto Después", "name": "foto_despues", "type": "image", "return_format": "url" },
-      { "key": "field_caso_procedimiento", "label": "Procedimiento Relacionado", "name": "procedimiento_relacionado", "type": "text", "instructions": "Ej. Aumento de Senos, Lipoescultura..." }
+      { "key": "field_caso_procedimiento", "label": "Procedimiento Relacionado", "name": "procedimiento_relacionado", "type": "text", "instructions": "Ej. Aumento de Senos, Lipoescultura..." },
+      {
+        "key": "field_galeria_casos",
+        "label": "Ejemplos (Galería de Antes y Después)",
+        "name": "galeria_casos",
+        "type": "repeater",
+        "layout": "block",
+        "button_label": "Añadir Ejemplo",
+        "sub_fields": [
+          { "key": "field_galeria_foto_antes", "label": "Foto Antes", "name": "foto_antes", "type": "image", "return_format": "url" },
+          { "key": "field_galeria_foto_despues", "label": "Foto Después", "name": "foto_despues", "type": "image", "return_format": "url" }
+        ]
+      }
     ],
     "location": [
       [

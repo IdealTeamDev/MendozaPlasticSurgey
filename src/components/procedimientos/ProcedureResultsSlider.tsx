@@ -3,11 +3,15 @@
 import React, { useState } from 'react';
 import './ProcedureResultsSlider.css';
 
+interface CaseExample {
+  before: string;
+  after: string;
+}
+
 interface CaseData {
   id: number | string;
   title: string;
-  before: string;
-  after: string;
+  examples: CaseExample[];
 }
 
 interface ProcedureResultsSliderProps {
@@ -16,20 +20,33 @@ interface ProcedureResultsSliderProps {
 
 export default function ProcedureResultsSlider({ cases = [] }: ProcedureResultsSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentExampleIndex, setCurrentExampleIndex] = useState(0);
 
   if (!cases || cases.length === 0) {
     return null; // Don't render if there are no cases
   }
 
-  const nextSlide = () => {
+  const nextCase = () => {
     setCurrentIndex((prev) => (prev === cases.length - 1 ? 0 : prev + 1));
+    setCurrentExampleIndex(0); // Reset example index when changing case
   };
 
-  const prevSlide = () => {
+  const prevCase = () => {
     setCurrentIndex((prev) => (prev === 0 ? cases.length - 1 : prev - 1));
+    setCurrentExampleIndex(0); // Reset example index when changing case
   };
 
   const currentCase = cases[currentIndex];
+  
+  const nextExample = () => {
+    setCurrentExampleIndex((prev) => (prev === currentCase.examples.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevExample = () => {
+    setCurrentExampleIndex((prev) => (prev === 0 ? currentCase.examples.length - 1 : prev - 1));
+  };
+
+  const currentExample = currentCase.examples[currentExampleIndex] || { before: '', after: '' };
 
   return (
     <section className="proc-results-section">
@@ -48,26 +65,40 @@ export default function ProcedureResultsSlider({ cases = [] }: ProcedureResultsS
             <div className="proc-results-images">
               <div className="proc-result-img-box">
                 <span className="proc-result-tag">ANTES</span>
-                {currentCase.before ? (
-                  <img src={currentCase.before} alt={`Antes - ${currentCase.title}`} className="proc-result-img" />
+                {currentExample.before ? (
+                  <img src={currentExample.before} alt={`Antes - ${currentCase.title}`} className="proc-result-img" />
                 ) : (
                   <div className="proc-result-img-placeholder">(Sin Imagen)</div>
                 )}
               </div>
               <div className="proc-result-img-box">
                 <span className="proc-result-tag">DESPUÉS</span>
-                {currentCase.after ? (
-                  <img src={currentCase.after} alt={`Después - ${currentCase.title}`} className="proc-result-img" />
+                {currentExample.after ? (
+                  <img src={currentExample.after} alt={`Después - ${currentCase.title}`} className="proc-result-img" />
                 ) : (
                   <div className="proc-result-img-placeholder">(Sin Imagen)</div>
                 )}
               </div>
             </div>
 
+            {/* Sub-slider controls for multiple examples in the SAME case */}
+            {currentCase.examples.length > 1 && (
+              <div className="proc-results-example-controls" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
+                <button className="slider-btn" onClick={prevExample} style={{ transform: 'scale(0.8)', padding: '0.5rem 1rem' }}>&lt; Anterior Ejemplo</button>
+                <span style={{ alignSelf: 'center', fontFamily: 'var(--font-subtitle)', fontSize: '0.9rem' }}>
+                  {currentExampleIndex + 1} / {currentCase.examples.length}
+                </span>
+                <button className="slider-btn" onClick={nextExample} style={{ transform: 'scale(0.8)', padding: '0.5rem 1rem' }}>Siguiente Ejemplo &gt;</button>
+              </div>
+            )}
+            </div>
+
             {cases.length > 1 && (
               <div className="proc-results-controls">
-                <button className="slider-btn" onClick={prevSlide}>&lt;</button>
-                <button className="slider-btn" onClick={nextSlide}>&gt;</button>
+              <div className="proc-results-controls">
+                <button className="slider-btn" onClick={prevCase}>&lt; Caso</button>
+                <button className="slider-btn" onClick={nextCase}>Caso &gt;</button>
+              </div>
               </div>
             )}
             

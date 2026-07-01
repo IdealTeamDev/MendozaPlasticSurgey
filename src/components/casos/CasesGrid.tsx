@@ -4,13 +4,17 @@ import React, { useState } from 'react';
 import './CasesGrid.css';
 import CasesModal from './CasesModal';
 
+interface CaseExample {
+  beforeImg: string;
+  afterImg: string;
+}
+
 export interface CaseCardData {
-  id: number;
+  id: number | string;
   title: string;
   date: string;
   description: string;
-  beforeImg: string;
-  afterImg: string;
+  examples: CaseExample[];
 }
 
 interface CasesGridProps {
@@ -51,17 +55,17 @@ export default function CasesGrid({ cases = [] }: CasesGridProps) {
           <div key={c.id} className="cases-card">
             <div className="cases-card-images">
               <div className="cases-card-img-half">
-                {c.beforeImg ? (
-                  <img src={c.beforeImg} alt={`Antes ${c.title}`} />
+                {c.examples[0]?.beforeImg ? (
+                  <img src={c.examples[0].beforeImg} alt={`Antes ${c.title}`} />
                 ) : (
                   <div className="cases-card-placeholder">Antes</div>
                 )}
               </div>
               <div className="cases-card-img-half">
-                {c.afterImg ? (
-                  <img src={c.afterImg} alt={`Despu\u00e9s ${c.title}`} />
+                {c.examples[0]?.afterImg ? (
+                  <img src={c.examples[0].afterImg} alt={`Después ${c.title}`} />
                 ) : (
-                  <div className="cases-card-placeholder">Despu\u00e9s</div>
+                  <div className="cases-card-placeholder">Después</div>
                 )}
               </div>
             </div>

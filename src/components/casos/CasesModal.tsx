@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CasesModal.css';
 import { CaseCardData } from './CasesGrid';
 
@@ -12,6 +12,12 @@ interface CasesModalProps {
 }
 
 export default function CasesModal({ isOpen, onClose, cases, currentIndex, onNext, onPrev }: CasesModalProps) {
+  const [currentExampleIndex, setCurrentExampleIndex] = useState(0);
+
+  // Reset example index when case changes
+  useEffect(() => {
+    setCurrentExampleIndex(0);
+  }, [currentIndex]);
   
   // Close on Escape key
   useEffect(() => {
@@ -27,6 +33,15 @@ export default function CasesModal({ isOpen, onClose, cases, currentIndex, onNex
   if (!isOpen || cases.length === 0) return null;
 
   const currentCase = cases[currentIndex];
+  const currentExample = currentCase.examples[currentExampleIndex] || { beforeImg: '', afterImg: '' };
+
+  const nextExample = () => {
+    setCurrentExampleIndex(prev => prev === currentCase.examples.length - 1 ? 0 : prev + 1);
+  };
+
+  const prevExample = () => {
+    setCurrentExampleIndex(prev => prev === 0 ? currentCase.examples.length - 1 : prev - 1);
+  };
 
   return (
     <div className="cases-modal-overlay" onClick={onClose}>
@@ -49,20 +64,31 @@ export default function CasesModal({ isOpen, onClose, cases, currentIndex, onNex
           {/* Images side-by-side */}
           <div className="cases-modal-images">
             <div className="cases-modal-img-wrapper">
-              {currentCase.beforeImg ? (
-                <img src={currentCase.beforeImg} alt={`Antes - ${currentCase.title}`} />
+              {currentExample.beforeImg ? (
+                <img src={currentExample.beforeImg} alt={`Antes - ${currentCase.title}`} />
               ) : (
                 <div className="cases-modal-img-placeholder">Antes</div>
               )}
             </div>
             <div className="cases-modal-img-wrapper">
-              {currentCase.afterImg ? (
-                <img src={currentCase.afterImg} alt={`Despu\u00e9s - ${currentCase.title}`} />
+              {currentExample.afterImg ? (
+                <img src={currentExample.afterImg} alt={`Después - ${currentCase.title}`} />
               ) : (
-                <div className="cases-modal-img-placeholder">Despu\u00e9s</div>
+                <div className="cases-modal-img-placeholder">Después</div>
               )}
             </div>
           </div>
+
+          {/* Controls for Examples */}
+          {currentCase.examples.length > 1 && (
+            <div className="cases-modal-example-controls" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', margin: '1rem 0', color: '#666' }}>
+              <button onClick={prevExample} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1rem' }}>&lt; Anterior Ejemplo</button>
+              <span style={{ fontSize: '0.9rem', alignSelf: 'center' }}>
+                {currentExampleIndex + 1} / {currentCase.examples.length}
+              </span>
+              <button onClick={nextExample} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1rem' }}>Siguiente Ejemplo &gt;</button>
+            </div>
+          )}
 
           {/* Controls */}
           {cases.length > 1 && (

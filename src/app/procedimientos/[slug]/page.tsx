@@ -57,38 +57,57 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
   // Resolve Casos Relacionados
   let resolvedCases: any[] = [];
   if (Array.isArray(acf?.casos_relacionados)) {
-    resolvedCases = await Promise.all(
+    const casesNested = await Promise.all(
       acf.casos_relacionados.map(async (casoRef: any) => {
         // ACF might return just the ID number or a post object depending on settings
         const id = typeof casoRef === 'number' ? casoRef : (casoRef.ID || casoRef.id);
         if (!id) return null;
         
         const casoPost = await getCasoById(id);
+        if (!casoPost) return null;
+        
         const casoAcf = casoPost?.acf || {};
+        const titleText = casoRef.post_title || casoPost?.title?.rendered;
         
-        let beforeImg = '';
-        if (typeof casoAcf.foto_antes === 'number') {
-          beforeImg = (await getMedia(casoAcf.foto_antes))?.source_url || '';
-        } else {
-          beforeImg = casoAcf.foto_antes || '';
+        const getMediaUrl = async (fieldValue: any) => {
+          if (typeof fieldValue === 'number') {
+            return (await getMedia(fieldValue))?.source_url || '';
+          }
+          return fieldValue || '';
+        };
+
+        const examples: {before: string, after: string}[] = [];
+
+        // Primary fields (backward compatibility)
+        const beforeImg = await getMediaUrl(casoAcf.foto_antes);
+        const afterImg = await getMediaUrl(casoAcf.foto_despues);
+        if (beforeImg || afterImg) {
+          examples.push({ before: beforeImg, after: afterImg });
         }
         
-        let afterImg = '';
-        if (typeof casoAcf.foto_despues === 'number') {
-          afterImg = (await getMedia(casoAcf.foto_despues))?.source_url || '';
-        } else {
-          afterImg = casoAcf.foto_despues || '';
+        // Repeater fields
+        if (Array.isArray(casoAcf.galeria_casos) && casoAcf.galeria_casos.length > 0) {
+          const repeaterCases = await Promise.all(
+            casoAcf.galeria_casos.map(async (item: any) => {
+              const bImg = await getMediaUrl(item.foto_antes);
+              const aImg = await getMediaUrl(item.foto_despues);
+              return { before: bImg, after: aImg };
+            })
+          );
+          
+          examples.push(...repeaterCases.filter(c => c.before || c.after));
         }
+
+        if (examples.length === 0) return null;
 
         return {
           id: id,
-          title: casoRef.post_title || casoPost?.title?.rendered,
-          before: beforeImg,
-          after: afterImg
+          title: titleText,
+          examples
         };
       })
     );
-    resolvedCases = resolvedCases.filter(c => c !== null);
+    resolvedCases = casesNested.filter(c => c !== null);
   }
 
   // FAQs

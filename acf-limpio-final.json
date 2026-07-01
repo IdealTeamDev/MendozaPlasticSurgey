@@ -1704,56 +1704,6 @@
         "title": "Detalles del Caso",
         "fields": [
             {
-                "key": "field_caso_antes",
-                "label": "Foto Antes",
-                "name": "foto_antes",
-                "aria-label": "",
-                "type": "image",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "url",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
-            },
-            {
-                "key": "field_caso_despues",
-                "label": "Foto Despu\u00e9s",
-                "name": "foto_despues",
-                "aria-label": "",
-                "type": "image",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "url",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
-            },
-            {
                 "key": "field_caso_procedimiento",
                 "label": "Procedimiento Relacionado",
                 "name": "procedimiento_relacionado",
@@ -1772,6 +1722,30 @@
                 "placeholder": "",
                 "prepend": "",
                 "append": ""
+            },
+            {
+                "key": "field_galeria_casos",
+                "label": "Ejemplos (Galería de Antes y Después)",
+                "name": "galeria_casos",
+                "type": "repeater",
+                "layout": "block",
+                "button_label": "Añadir Ejemplo",
+                "sub_fields": [
+                    {
+                        "key": "field_galeria_foto_antes",
+                        "label": "Foto Antes",
+                        "name": "foto_antes",
+                        "type": "image",
+                        "return_format": "url"
+                    },
+                    {
+                        "key": "field_galeria_foto_despues",
+                        "label": "Foto Después",
+                        "name": "foto_despues",
+                        "type": "image",
+                        "return_format": "url"
+                    }
+                ]
             }
         ],
         "location": [
