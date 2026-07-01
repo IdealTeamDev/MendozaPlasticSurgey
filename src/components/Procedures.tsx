@@ -71,25 +71,35 @@ export default function Procedures({ title, procedures }: ProceduresProps) {
           className="procedures-card" 
           style={{ backgroundImage: `url(${activeProc.imageUrl})` }}
         >
-          {/* Desktop Tabs */}
-          <div 
-            className="procedures-tabs desktop-tabs"
-            ref={tabsRef}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
-          >
-            {activeProcedures.map(proc => (
-              <button 
-                key={proc.id}
-                className={`tab-btn ${activeTab === proc.id ? 'active' : ''}`}
-                onClick={() => setActiveTab(proc.id)}
-              >
-                {proc.tabLabel}
-              </button>
-            ))}
+          {/* Desktop Tabs Wrapper */}
+          <div className="desktop-tabs-wrapper">
+            <div 
+              className="procedures-tabs desktop-tabs"
+              ref={tabsRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+            >
+              {activeProcedures.map(proc => (
+                <button 
+                  key={proc.id}
+                  className={`tab-btn ${activeTab === proc.id ? 'active' : ''}`}
+                  onClick={() => setActiveTab(proc.id)}
+                >
+                  {proc.tabLabel}
+                </button>
+              ))}
+            </div>
+            
+            {/* Scroll Hint Arrow */}
+            <div className="scroll-hint-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </div>
           </div>
 
           {/* Mobile Dropdown Tab */}
