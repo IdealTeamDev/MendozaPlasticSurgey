@@ -100,9 +100,14 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
 
         if (examples.length === 0) return null;
 
+        const rawContent = casoPost?.content?.rendered || '';
+        const cleanContent = rawContent.replace(/<[^>]+>/g, '').trim();
+        const descriptionText = casoAcf.descripcion_corta || cleanContent || `${titleText} con el Dr. Mendoza`;
+
         return {
           id: id,
           title: titleText,
+          description: descriptionText,
           examples
         };
       })

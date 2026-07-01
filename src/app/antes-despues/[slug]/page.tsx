@@ -59,7 +59,9 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
         const casoAcf = casoPost.acf || {};
         const titleText = casoRef.post_title || casoPost.title?.rendered;
         const dateText = formatDate(casoPost.date);
-        const descriptionText = casoAcf.descripcion_corta || `${title} con el Dr. Mendoza`;
+        const rawContent = casoPost?.content?.rendered || '';
+        const cleanContent = rawContent.replace(/<[^>]+>/g, '').trim();
+        const descriptionText = casoAcf.descripcion_corta || cleanContent || `${titleText} con el Dr. Mendoza`;
 
         // Helper function for media resolving
         const getMediaUrl = async (fieldValue: any) => {
