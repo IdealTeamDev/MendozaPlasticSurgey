@@ -95,7 +95,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
   return (
     <main>
       <BlogHero 
-        title={acf?.hero_titulo} 
+        title={acf?.hero_titulo || 'GENERAL'} 
         desc={acf?.hero_descripcion} 
         imageUrl={heroImage}
       />

@@ -1,5 +1,5 @@
 import React from 'react';
-import BlogCategoryHero from '@/components/blog/BlogCategoryHero';
+import BlogHero from '@/components/blog/BlogHero';
 import BlogFeed from '@/components/blog/BlogFeed';
 import BlogSubscription from '@/components/blog/BlogSubscription';
 import BlogCategories from '@/components/blog/BlogCategories';
@@ -105,9 +105,11 @@ export default async function BlogCategoryPage({ params, searchParams }: { param
     }
   }
 
+  const categoryImageUrl = catImageMap[categoryName.toLowerCase()] || undefined;
+
   return (
     <main>
-      <BlogCategoryHero categoryTitle={categoryName} />
+      <BlogHero title={categoryName} imageUrl={categoryImageUrl} />
       
       {posts && posts.length > 0 ? (
         <BlogFeed 
