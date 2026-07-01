@@ -164,6 +164,8 @@
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
+  color: #111; /* Fix for white text on white background */
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
