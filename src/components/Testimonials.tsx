@@ -77,7 +77,7 @@ export default function Testimonials() {
               <a href="#" className="read-more">Leer más</a>
             </div>
         </div>
-        
+        </div>
       </div>
       
       <div className="testimonials-action">
