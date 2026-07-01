@@ -42,25 +42,39 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     imageUrl = media?.source_url || null;
   }
 
-  // Fetch popular posts for sidebar
-  let popularPosts = [];
+  // Fetch popular and related posts
+  let popularPosts: any[] = [];
+  let relatedPosts: any[] = [];
   try {
-    const recentPosts = await fetchAPI('/posts?per_page=3&orderby=date');
+    const recentPosts = await fetchAPI(`/posts?_embed=1&per_page=5&exclude=${post.id}&orderby=date`);
     if (recentPosts && recentPosts.length > 0) {
-      popularPosts = await Promise.all(recentPosts.map(async (p: any) => {
-        let img = '/procedures.png';
+      const formattedPosts = await Promise.all(recentPosts.map(async (p: any) => {
+        let img = undefined; // Undefined so fallback triggers if needed
         if (p.featured_media) {
           const m = await getMedia(p.featured_media);
           if (m && m.source_url) img = m.source_url;
         }
+        
+        let categoryName = 'BLOG';
+        if (p._embedded && p._embedded['wp:term']) {
+          const terms = p._embedded['wp:term'][0] || [];
+          if (terms.length > 0) {
+            categoryName = terms[0].name.toUpperCase();
+          }
+        }
+
         return {
           id: p.id,
           slug: p.slug,
           title: p.title.rendered,
+          tag: categoryName,
           date: new Date(p.date).toLocaleDateString('es-ES', { month: 'short', day: 'numeric', year: 'numeric' }),
           imageUrl: img
         };
       }));
+
+      popularPosts = formattedPosts.slice(0, 3);
+      relatedPosts = formattedPosts.slice(3, 5);
     }
   } catch (e) {
     console.error(e);
@@ -96,7 +110,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      <BlogRelated />
+      <BlogRelated relatedPosts={relatedPosts} />
       
       {/* Global Gutenberg Styles for this internal page */}
       <style dangerouslySetInnerHTML={{__html: `
