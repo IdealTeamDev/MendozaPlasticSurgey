@@ -9,6 +9,7 @@ export interface ProcedureTabItem {
   tabLabel: string;
   desc: string;
   imageUrl: string;
+  procedures?: any[];
 }
 
 interface ProcedureTabsProps {
@@ -80,6 +81,15 @@ export default function ProcedureTabs({ title, tabs }: ProcedureTabsProps) {
             <p className="proc-tab-desc">
               {currentData.desc}
             </p>
+            {currentData.procedures && currentData.procedures.length > 0 && (
+              <div className="proc-pill-links">
+                {currentData.procedures.map((proc: any) => (
+                  <Link href={`/procedimientos/${proc.slug}`} key={proc.id} className="proc-pill-link">
+                    {proc.title}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 

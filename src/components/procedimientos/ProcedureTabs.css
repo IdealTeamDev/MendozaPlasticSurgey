@@ -1,5 +1,5 @@
 .proc-tabs-section {
-  background-color: #050505;
+  background-color: #fafafa;
   padding: 2rem 0 5rem;
 }
 
@@ -11,12 +11,11 @@
 
 .proc-tabs-title {
   font-size: 1.2rem;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.5;
-  letter-spacing: 2px;
-  color: #ddd;
+  letter-spacing: 1px;
+  color: var(--black);
   text-transform: uppercase;
-  font-family: serif;
 }
 
 @media (min-width: 768px) {
@@ -35,29 +34,28 @@
 .proc-tabs-nav {
   display: flex;
   gap: 3rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid #ddd;
 }
 
 .proc-tab-btn {
   background: none;
   border: none;
   font-size: 1.1rem;
-  font-weight: 300;
+  font-weight: 400;
   color: #666;
   padding: 1rem 0;
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease;
   white-space: nowrap;
-  letter-spacing: 2px;
 }
 
 .proc-tab-btn:hover {
-  color: var(--white);
+  color: var(--black);
 }
 
 .proc-tab-btn.active {
-  color: var(--white);
+  color: var(--black);
   font-weight: 500;
 }
 
@@ -68,7 +66,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--white);
+  background-color: var(--black);
 }
 
 /* Tab Content */
@@ -96,11 +94,12 @@
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  aspect-ratio: 4/5;
-  background-color: #111;
-  /* Stylish clip path similar to design */
-  clip-path: polygon(10% 0, 100% 5%, 95% 100%, 0 95%);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  aspect-ratio: 4/3; /* Taller in Figma, let's adjust */
+  background-color: #eee;
+  /* Figma shape: top left angle, bottom right curve/angle */
+  clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border-radius: 12px;
 }
 
 .proc-tab-img-placeholder {
@@ -109,7 +108,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #222;
+  background-color: #ddd;
   color: #888;
   font-size: 1rem;
 }
@@ -120,11 +119,10 @@
 }
 
 .proc-tab-desc {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   line-height: 1.8;
-  color: #aaa;
+  color: #444;
   margin-bottom: 2.5rem;
-  font-weight: 300;
 }
 
 .proc-pill-links {
@@ -136,16 +134,16 @@
 .proc-pill-link {
   display: inline-block;
   padding: 0.6rem 1.5rem;
-  border: 1px solid var(--white);
+  border: 1px solid #333;
   border-radius: 30px;
-  color: var(--white);
+  color: #333;
   text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 300;
+  font-weight: 400;
   transition: all 0.3s ease;
 }
 
 .proc-pill-link:hover {
-  background-color: var(--white);
-  color: var(--black);
+  background-color: #333;
+  color: #fff;
 }

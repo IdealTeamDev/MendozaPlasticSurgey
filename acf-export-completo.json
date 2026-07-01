@@ -101,7 +101,8 @@
         "sub_fields": [
           { "key": "field_ptab_titulo_pestana", "label": "Título de Pestaña", "name": "titulo_pestana", "type": "text" },
           { "key": "field_ptab_descripcion", "label": "Descripción", "name": "descripcion", "type": "textarea" },
-          { "key": "field_ptab_imagen", "label": "Imagen", "name": "imagen", "type": "image", "return_format": "url" }
+          { "key": "field_ptab_imagen", "label": "Imagen", "name": "imagen", "type": "image", "return_format": "url" },
+          { "key": "field_ptab_procedimientos", "label": "Procedimientos Asociados", "name": "procedimientos_relacionados", "type": "relationship", "post_type": ["procedimiento"], "filters": ["search"], "elements": ["featured_image"], "return_format": "object" }
         ]
       }
     ],

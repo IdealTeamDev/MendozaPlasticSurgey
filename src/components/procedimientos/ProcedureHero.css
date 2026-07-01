@@ -6,7 +6,7 @@
   padding-top: 150px;
   padding-bottom: 6rem;
   overflow: hidden;
-  background-color: #050505; /* Deep black to match blog */
+  background-color: #050505;
 }
 
 .proc-hero-bg {
@@ -19,7 +19,9 @@
   background-color: #050505;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Parallax effect */
+  background-attachment: fixed;
+  filter: blur(4px); /* Add blur to background image as per Figma */
+  transform: scale(1.05); /* Prevent blur edges from showing */
 }
 
 .proc-hero-overlay {
@@ -28,7 +30,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,0.4) 100%);
+  background: rgba(0,0,0,0.6);
 }
 
 .proc-hero-container {
@@ -56,23 +58,22 @@
 
 .proc-hero-title {
   font-size: 3rem;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.1;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   margin-bottom: 1.5rem;
-  font-family: serif;
   text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
-  .proc-hero-title { font-size: 4.5rem; }
+  .proc-hero-title { font-size: 4.2rem; }
 }
 
 .proc-hero-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #aaa;
-  max-width: 500px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #ddd;
+  max-width: 450px;
   font-weight: 300;
 }
 
@@ -93,17 +94,18 @@
 .proc-hero-image-card {
   width: 100%;
   max-width: 550px;
-  aspect-ratio: 4/5;
+  aspect-ratio: 16/9;
   background-color: #111;
   position: relative;
-  clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
+  /* Figma shape: top left angle, bottom right angle */
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
   box-shadow: 0 30px 60px rgba(0,0,0,0.8);
   overflow: hidden;
   transition: transform 0.5s ease;
 }
 
 .proc-hero-image-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 }
 
 .proc-img {
@@ -129,15 +131,24 @@
   font-weight: 300;
 }
 
-/* We remove the curve and replace with a sleek gradient fade */
+/* White wavy curve from Figma */
 .proc-hero-curve {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   width: 100%;
-  height: 150px;
+  height: 100px;
   z-index: 2;
-  background: linear-gradient(to top, #050505, transparent);
-  pointer-events: none;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .proc-hero-curve { height: 160px; }
+}
+
+.proc-hero-curve svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
