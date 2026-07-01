@@ -91,14 +91,12 @@ export default function ProcedureResultsSlider({ cases = [] }: ProcedureResultsS
                 <button className="slider-btn" onClick={nextExample} style={{ transform: 'scale(0.8)', padding: '0.5rem 1rem' }}>Siguiente Ejemplo &gt;</button>
               </div>
             )}
-            </div>
 
+            {/* Main slider controls for Cases */}
             {cases.length > 1 && (
-              <div className="proc-results-controls">
               <div className="proc-results-controls">
                 <button className="slider-btn" onClick={prevCase}>&lt; Caso</button>
                 <button className="slider-btn" onClick={nextCase}>Caso &gt;</button>
-              </div>
               </div>
             )}
             
