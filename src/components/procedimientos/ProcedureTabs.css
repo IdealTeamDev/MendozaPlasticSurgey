@@ -1,6 +1,6 @@
 .proc-tabs-section {
-  background-color: #fafafa;
-  padding: 5rem 0 8rem;
+  background-color: #050505;
+  padding: 2rem 0 5rem;
 }
 
 .proc-tabs-header {
@@ -11,11 +11,12 @@
 
 .proc-tabs-title {
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 1.5;
-  letter-spacing: 1px;
-  color: var(--black);
+  letter-spacing: 2px;
+  color: #ddd;
   text-transform: uppercase;
+  font-family: serif;
 }
 
 @media (min-width: 768px) {
@@ -33,29 +34,30 @@
 
 .proc-tabs-nav {
   display: flex;
-  gap: 2rem;
-  border-bottom: 1px solid #ddd;
+  gap: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .proc-tab-btn {
   background: none;
   border: none;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 1.1rem;
+  font-weight: 300;
   color: #666;
   padding: 1rem 0;
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease;
   white-space: nowrap;
+  letter-spacing: 2px;
 }
 
 .proc-tab-btn:hover {
-  color: var(--black);
+  color: var(--white);
 }
 
 .proc-tab-btn.active {
-  color: var(--black);
+  color: var(--white);
   font-weight: 500;
 }
 
@@ -66,7 +68,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--black);
+  background-color: var(--white);
 }
 
 /* Tab Content */
@@ -95,10 +97,10 @@
   max-width: 500px;
   margin: 0 auto;
   aspect-ratio: 4/5;
-  background-color: #eee;
+  background-color: #111;
   /* Stylish clip path similar to design */
   clip-path: polygon(10% 0, 100% 5%, 95% 100%, 0 95%);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 .proc-tab-img-placeholder {
@@ -107,7 +109,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ddd;
+  background-color: #222;
   color: #888;
   font-size: 1rem;
 }
@@ -118,10 +120,11 @@
 }
 
 .proc-tab-desc {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.8;
-  color: #444;
+  color: #aaa;
   margin-bottom: 2.5rem;
+  font-weight: 300;
 }
 
 .proc-pill-links {
@@ -133,16 +136,16 @@
 .proc-pill-link {
   display: inline-block;
   padding: 0.6rem 1.5rem;
-  border: 1px solid var(--black);
+  border: 1px solid var(--white);
   border-radius: 30px;
-  color: var(--black);
+  color: var(--white);
   text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: 300;
   transition: all 0.3s ease;
 }
 
 .proc-pill-link:hover {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--black);
 }

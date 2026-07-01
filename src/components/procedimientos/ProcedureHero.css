@@ -1,12 +1,12 @@
 .proc-hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
-  padding-top: 120px;
-  padding-bottom: 8rem;
+  padding-top: 150px;
+  padding-bottom: 6rem;
   overflow: hidden;
-  background-color: #111;
+  background-color: #050505; /* Deep black to match blog */
 }
 
 .proc-hero-bg {
@@ -16,10 +16,10 @@
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-color: #222;
-  /* background-image: url('...'); */
+  background-color: #050505;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed; /* Parallax effect */
 }
 
 .proc-hero-overlay {
@@ -28,8 +28,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
-  backdrop-filter: blur(6px);
+  background: linear-gradient(90deg, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,0.4) 100%);
 }
 
 .proc-hero-container {
@@ -56,26 +55,29 @@
 }
 
 .proc-hero-title {
-  font-size: 2.5rem;
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: 2px;
+  font-size: 3rem;
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: 4px;
   margin-bottom: 1.5rem;
+  font-family: serif;
+  text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
-  .proc-hero-title { font-size: 4rem; }
+  .proc-hero-title { font-size: 4.5rem; }
 }
 
 .proc-hero-text {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #ddd;
-  max-width: 450px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #aaa;
+  max-width: 500px;
+  font-weight: 300;
 }
 
 .proc-hero-image-wrapper {
-  flex: 1.5;
+  flex: 1;
   display: flex;
   justify-content: center;
   position: relative;
@@ -90,14 +92,29 @@
 
 .proc-hero-image-card {
   width: 100%;
-  max-width: 600px;
-  aspect-ratio: 16/9;
-  background-color: #eee;
-  border-radius: 12px;
+  max-width: 550px;
+  aspect-ratio: 4/5;
+  background-color: #111;
   position: relative;
-  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
   overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.proc-hero-image-card:hover {
+  transform: translateY(-10px);
+}
+
+.proc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.proc-hero-image-card:hover .proc-img {
+  transform: scale(1.05);
 }
 
 .proc-img-placeholder {
@@ -106,27 +123,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #555;
-  color: #fff;
+  background-color: #222;
+  color: #666;
   font-size: 0.9rem;
+  font-weight: 300;
 }
 
+/* We remove the curve and replace with a sleek gradient fade */
 .proc-hero-curve {
   position: absolute;
-  bottom: -1px;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: 150px;
   z-index: 2;
-  overflow: hidden;
+  background: linear-gradient(to top, #050505, transparent);
+  pointer-events: none;
 }
 
-@media (min-width: 768px) {
-  .proc-hero-curve { height: 150px; }
-}
-
-.proc-hero-curve svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}

@@ -1,0 +1,133 @@
+.proc-grid-section {
+  background-color: #000;
+  padding: 6rem 0;
+}
+
+.proc-grid-header {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.proc-grid-title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.proc-grid-line {
+  width: 60px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.proc-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .proc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .proc-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.proc-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.proc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.proc-card-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.proc-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.proc-card:hover .proc-card-img {
+  transform: scale(1.05);
+}
+
+.proc-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.proc-card:hover .proc-card-overlay {
+  opacity: 1;
+}
+
+.proc-card-btn {
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease;
+}
+
+.proc-card-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.proc-card-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.proc-card-title {
+  color: var(--white);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.proc-card-desc {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}

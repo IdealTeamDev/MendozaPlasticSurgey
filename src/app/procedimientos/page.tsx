@@ -1,7 +1,8 @@
 import React from 'react';
 import ProcedureHero from '@/components/procedimientos/ProcedureHero';
 import ProcedureTabs from '@/components/procedimientos/ProcedureTabs';
-import { getPageBySlug, getMedia } from '@/lib/wordpress';
+import ProcedureGrid, { Procedure } from '@/components/procedimientos/ProcedureGrid';
+import { getPageBySlug, getMedia, getProcedures } from '@/lib/wordpress';
 
 export default async function ProcedimientosPage() {
   const wpPage = await getPageBySlug('procedimientos');
@@ -32,18 +33,35 @@ export default async function ProcedimientosPage() {
     );
   }
 
+  // Fetch all procedures from CPT
+  const rawProcedures = await getProcedures();
+  const procedures: Procedure[] = rawProcedures?.map((p: any) => {
+    // Attempt to get featured image
+    const featuredMedia = p._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+    
+    return {
+      id: p.id,
+      slug: p.slug,
+      title: p.title?.rendered,
+      imageUrl: featuredMedia,
+      excerpt: p.acf?.intro_titulo || p.acf?.hero_subtitulo || ''
+    };
+  }) || [];
+
   return (
-    <main>
+    <main style={{ backgroundColor: '#000' }}>
       <ProcedureHero 
         title={acf?.hero_titulo}
         desc={acf?.hero_texto}
         imageUrl={heroImage}
       />
+      
       <ProcedureTabs 
         title={acf?.tabs_titulo}
         tabs={resolvedTabs}
       />
 
-      </main>
+      <ProcedureGrid procedures={procedures} />
+    </main>
   );
 }
