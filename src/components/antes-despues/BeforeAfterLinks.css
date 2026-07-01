@@ -18,7 +18,7 @@
 }
 
 .ba-accordion-links li a::before {
-  content: "→";
+  content: "â†’";
   color: #999;
   font-size: 1.2rem;
 }
@@ -26,3 +26,4 @@
 .ba-accordion-links li a:hover {
   color: #555;
 }
+

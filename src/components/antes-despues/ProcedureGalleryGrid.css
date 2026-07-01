@@ -127,7 +127,7 @@
   opacity: 0.8;
 }
 
-/* Paginación */
+/* PaginaciÃ³n */
 .proc-pagination {
   display: flex;
   justify-content: center;
@@ -260,3 +260,4 @@
 .sidebar-acc-content ul li a:hover {
   color: var(--black);
 }
+
