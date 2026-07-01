@@ -10,7 +10,10 @@ interface MedicalCenterHeroProps {
 export default function MedicalCenterHero({ title, desc, imageUrl }: MedicalCenterHeroProps) {
   return (
     <section className="mc-hero">
-      <div className="mc-hero-bg">
+      <div 
+        className="mc-hero-bg"
+        style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}
+      >
         <div className="mc-hero-overlay"></div>
       </div>
       
@@ -24,7 +27,7 @@ export default function MedicalCenterHero({ title, desc, imageUrl }: MedicalCent
         <div className="mc-hero-image-wrapper">
           <div className="mc-hero-image-card">
             {imageUrl ? (
-              <img src={imageUrl} alt="Medical Center" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
+              <img src={imageUrl} alt="Medical Center" style={{ width: '100%', height: 'auto', objectFit: 'contain', display: 'block' }} />
             ) : (
               <div className="mc-img-placeholder">
                 <span>(Placeholder Equipo Médico)</span>

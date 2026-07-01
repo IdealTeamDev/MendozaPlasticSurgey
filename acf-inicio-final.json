@@ -1,0 +1,240 @@
+[
+  {
+    "key": "group_inicio_page",
+    "title": "Página: Inicio (Actualizado)",
+    "fields": [
+      {
+        "key": "field_hero_tab",
+        "label": "Sección: Hero",
+        "name": "",
+        "type": "tab",
+        "placement": "top"
+      },
+      {
+        "key": "field_hero_subtitulo",
+        "label": "Hero Subtítulo",
+        "name": "hero_subtitulo",
+        "type": "text"
+      },
+      {
+        "key": "field_hero_titulo",
+        "label": "Hero Título",
+        "name": "hero_titulo",
+        "type": "text"
+      },
+      {
+        "key": "field_hero_texto",
+        "label": "Hero Texto",
+        "name": "texto_hero",
+        "type": "textarea"
+      },
+      {
+        "key": "field_hero_imagen",
+        "label": "Hero Imagen",
+        "name": "hero_imagen",
+        "type": "image",
+        "return_format": "id"
+      },
+      {
+        "key": "field_intro_tab",
+        "label": "Sección: Texto Introductorio",
+        "name": "",
+        "type": "tab"
+      },
+      {
+        "key": "field_intro_subtitulo",
+        "label": "Subtítulo Introductorio",
+        "name": "home_intro_subtitulo",
+        "type": "text"
+      },
+      {
+        "key": "field_intro_texto",
+        "label": "Texto Introductorio",
+        "name": "home_intro_text",
+        "type": "wysiwyg"
+      },
+      {
+        "key": "field_about_tab",
+        "label": "Sección: Sobre Nosotros",
+        "name": "",
+        "type": "tab"
+      },
+      {
+        "key": "field_about_subtitulo",
+        "label": "About Subtítulo",
+        "name": "about_subtitulo",
+        "type": "text"
+      },
+      {
+        "key": "field_about_titulo",
+        "label": "About Título",
+        "name": "about_titulo",
+        "type": "text"
+      },
+      {
+        "key": "field_about_texto",
+        "label": "About Texto",
+        "name": "about_texto",
+        "type": "wysiwyg"
+      },
+      {
+        "key": "field_about_imagen",
+        "label": "About Imagen",
+        "name": "about_imagen",
+        "type": "image",
+        "return_format": "id"
+      },
+      {
+        "key": "field_badges_tab",
+        "label": "Sección: Insignias",
+        "name": "",
+        "type": "tab"
+      },
+      {
+        "key": "field_badges_list",
+        "label": "Lista de Insignias",
+        "name": "badges_list",
+        "type": "repeater",
+        "layout": "table",
+        "sub_fields": [
+          {
+            "key": "field_badge_insignia",
+            "label": "Insignia (Imagen)",
+            "name": "insignia",
+            "type": "image",
+            "return_format": "id"
+          }
+        ]
+      },
+      {
+        "key": "field_procedimientos_tab",
+        "label": "Sección: Procedimientos",
+        "name": "",
+        "type": "tab"
+      },
+      {
+        "key": "field_procedimientos_titulo",
+        "label": "Título Procedimientos",
+        "name": "procedimientos_titulo",
+        "type": "text"
+      },
+      {
+        "key": "field_procedimientos_lista",
+        "label": "Lista de Procedimientos",
+        "name": "procedimientos_lista",
+        "type": "repeater",
+        "layout": "row",
+        "sub_fields": [
+          {
+            "key": "field_proc_titulo_pestana",
+            "label": "Título de Pestaña",
+            "name": "titulo_pestana",
+            "type": "text"
+          },
+          {
+            "key": "field_proc_descripcion",
+            "label": "Descripción",
+            "name": "descripcion",
+            "type": "textarea"
+          },
+          {
+            "key": "field_proc_imagen",
+            "label": "Imagen de Fondo",
+            "name": "imagen",
+            "type": "image",
+            "return_format": "id"
+          },
+          {
+            "key": "field_proc_subcategorias",
+            "label": "Subcategorías (Iconos)",
+            "name": "subcategorias",
+            "type": "repeater",
+            "layout": "table",
+            "sub_fields": [
+              {
+                "key": "field_subcat_nombre",
+                "label": "Nombre",
+                "name": "nombre",
+                "type": "text"
+              },
+              {
+                "key": "field_subcat_enlace",
+                "label": "Enlace URL",
+                "name": "enlace",
+                "type": "text"
+              },
+              {
+                "key": "field_subcat_icono",
+                "label": "Icono",
+                "name": "icono",
+                "type": "image",
+                "return_format": "id"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "field_financiamiento_tab",
+        "label": "Sección: Financiamiento",
+        "name": "",
+        "type": "tab"
+      },
+      {
+        "key": "field_financiamiento_titulo",
+        "label": "Título Financiamiento",
+        "name": "financiamiento_titulo",
+        "type": "text"
+      },
+      {
+        "key": "field_financiamiento_boton",
+        "label": "Texto del Botón",
+        "name": "financiamiento_boton",
+        "type": "text"
+      },
+      {
+        "key": "field_contacto_tab",
+        "label": "Sección: Contacto",
+        "name": "",
+        "type": "tab"
+      },
+      {
+        "key": "field_contacto_subtitulo",
+        "label": "Contacto Subtítulo",
+        "name": "contacto_subtitulo",
+        "type": "text"
+      },
+      {
+        "key": "field_contacto_titulo_bold",
+        "label": "Contacto Título (Bold)",
+        "name": "contacto_titulo_bold",
+        "type": "text"
+      },
+      {
+        "key": "field_contacto_texto",
+        "label": "Contacto Texto",
+        "name": "contacto_texto",
+        "type": "textarea"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_type",
+          "operator": "==",
+          "value": "front_page"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+      "the_content"
+    ],
+    "active": true,
+    "description": ""
+  }
+]

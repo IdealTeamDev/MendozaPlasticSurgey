@@ -11,7 +11,10 @@ interface SurgeonHeroProps {
 export default function SurgeonHero({ subtitle, title, desc, imageUrl }: SurgeonHeroProps) {
   return (
     <section className="surgeon-hero">
-      <div className="surgeon-hero-bg">
+      <div 
+        className="surgeon-hero-bg"
+        style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}
+      >
         <div className="surgeon-hero-overlay"></div>
       </div>
       
@@ -27,7 +30,7 @@ export default function SurgeonHero({ subtitle, title, desc, imageUrl }: Surgeon
         <div className="surgeon-hero-image-wrapper">
           <div className="surgeon-hero-image-card">
             {imageUrl ? (
-              <img src={imageUrl} alt="Surgeon Hero" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={imageUrl} alt="Surgeon Hero" style={{ width: '100%', height: 'auto', objectFit: 'contain', display: 'block' }} />
             ) : (
               <div className="surgeon-img-placeholder">
                 <span>(Placeholder Dr. Mendoza)</span>
