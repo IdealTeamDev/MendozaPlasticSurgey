@@ -45,10 +45,17 @@
 
 .desktop-tabs {
   display: none;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
   margin: 3rem 0;
-  padding: 0 4rem;
+  padding: 0 2rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.desktop-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -59,8 +66,8 @@
   content: '';
   position: absolute;
   bottom: 0;
-  left: 5%;
-  right: 5%;
+  left: 0;
+  right: 0;
   height: 1px;
   background-color: rgba(255,255,255,0.2);
   z-index: 1;
@@ -71,13 +78,15 @@
   color: #999;
   border: none;
   font-size: 1.1rem;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   cursor: pointer;
   position: relative;
   z-index: 2;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: color 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .tab-btn:hover { color: #fff; }
