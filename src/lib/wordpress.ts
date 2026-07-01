@@ -59,7 +59,17 @@ export async function getPostBySlug(slug: string) {
 }
 
 export async function getProcedures() {
-  const data = await fetchAPI('/procedimiento?_embed');
+  const data = await fetchAPI('/procedimiento?_embed&per_page=100');
+  return data;
+}
+
+export async function getProcedureCategories() {
+  const data = await fetchAPI('/categoria_procedimiento?per_page=100');
+  return data;
+}
+
+export async function getProceduresByCategory(categoryId: number) {
+  const data = await fetchAPI(`/procedimiento?categoria_procedimiento=${categoryId}&_embed&per_page=100`);
   return data;
 }
 

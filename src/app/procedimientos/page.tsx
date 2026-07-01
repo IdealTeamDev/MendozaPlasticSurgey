@@ -1,7 +1,7 @@
 import React from 'react';
 import ProcedureHero from '@/components/procedimientos/ProcedureHero';
 import ProcedureTabs from '@/components/procedimientos/ProcedureTabs';
-import { getPageBySlug, getMedia, getProcedures } from '@/lib/wordpress';
+import { getPageBySlug, getMedia, getProcedureCategories, getProceduresByCategory } from '@/lib/wordpress';
 
 export default async function ProcedimientosPage() {
   const wpPage = await getPageBySlug('procedimientos');
@@ -11,8 +11,8 @@ export default async function ProcedimientosPage() {
     ? (await getMedia(acf.hero_imagen))?.source_url 
     : acf?.hero_imagen;
 
-  // Fetch ALL procedures to auto-feed the tabs based on categories
-  const allProcedures = await getProcedures() || [];
+  // Fetch ALL categories first to map names to IDs
+  const allCategories = await getProcedureCategories() || [];
 
   let resolvedTabs: any[] = [];
   if (Array.isArray(acf?.tabs_lista)) {
@@ -29,21 +29,22 @@ export default async function ProcedimientosPage() {
         const tabLabel = tab.titulo_pestana || `Tab ${index + 1}`;
         const normalizedTabLabel = tabLabel.toLowerCase().trim();
         
-        // Auto-feed procedures: Find all procedures that have a category matching this tab's name
-        const relatedProcedures = allProcedures.filter((p: any) => {
-          if (!p._embedded || !p._embedded['wp:term']) return false;
-          
-          // Flatten all taxonomy terms into a single array
-          const terms = p._embedded['wp:term'].flat();
-          return terms.some((term: any) => 
-            term.taxonomy === 'categoria_procedimiento' && 
-            term.name.toLowerCase().trim() === normalizedTabLabel
-          );
-        }).map((p: any) => ({
-          id: p.id,
-          title: p.title?.rendered,
-          slug: p.slug
-        }));
+        // Find category ID that matches tab label
+        const matchedCat = allCategories.find((cat: any) => 
+          cat.name.toLowerCase().trim() === normalizedTabLabel
+        );
+
+        let relatedProcedures = [];
+        
+        if (matchedCat) {
+          // Fetch procedures that belong to this category ID
+          const catProcedures = await getProceduresByCategory(matchedCat.id) || [];
+          relatedProcedures = catProcedures.map((p: any) => ({
+            id: p.id,
+            title: p.title?.rendered,
+            slug: p.slug
+          }));
+        }
 
         return {
           id: `tab-${index}`,
