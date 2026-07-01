@@ -1,6 +1,6 @@
 const API_URL = process.env.NEXT_PUBLIC_WORDPRESS_URL || 'https://mendozaplastic.wpenginepowered.com';
 
-async function fetchAPI(endpoint: string, options = {}) {
+export async function fetchAPI(endpoint: string, options = {}) {
   const res = await fetch(`${API_URL}/wp-json/wp/v2${endpoint}`, {
     next: { revalidate: 60 }, // Cache for 60 seconds (ISR)
     ...options,
