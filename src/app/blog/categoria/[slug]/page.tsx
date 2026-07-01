@@ -101,6 +101,12 @@ export default async function BlogCategoryPage({ params, searchParams }: { param
           imgUrl = (await getMedia(imgUrl))?.source_url;
         }
         catImageMap[catName] = imgUrl || '';
+        // Also map singular/plural variants for robustness
+        if (catName.endsWith('s')) {
+          catImageMap[catName.slice(0, -1)] = imgUrl || '';
+        } else {
+          catImageMap[catName + 's'] = imgUrl || '';
+        }
       }
     }
   }
