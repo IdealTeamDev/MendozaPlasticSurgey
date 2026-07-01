@@ -20,6 +20,33 @@ export async function getPageBySlug(slug: string) {
   return data && data.length > 0 ? data[0] : null;
 }
 
+export async function fetchAPIWithHeaders(endpoint: string, options = {}) {
+  const res = await fetch(`${API_URL}/wp-json/wp/v2${endpoint}`, {
+    next: { revalidate: 60 },
+    ...options,
+  });
+
+  if (!res.ok) {
+    console.error(`Failed to fetch API with headers: ${endpoint}`);
+    return { data: null, totalPages: 0, totalItems: 0 };
+  }
+
+  const data = await res.json();
+  return {
+    data,
+    totalPages: parseInt(res.headers.get('x-wp-totalpages') || '1', 10),
+    totalItems: parseInt(res.headers.get('x-wp-total') || '0', 10),
+  };
+}
+
+export async function getPaginatedPosts(page: number = 1, perPage: number = 6, categoryId?: number) {
+  let endpoint = `/posts?_embed=1&page=${page}&per_page=${perPage}`;
+  if (categoryId) {
+    endpoint += `&categories=${categoryId}`;
+  }
+  return await fetchAPIWithHeaders(endpoint);
+}
+
 export async function getPosts(categoryId?: number) {
   const endpoint = categoryId ? `/posts?categories=${categoryId}` : '/posts';
   const data = await fetchAPI(endpoint);

@@ -8,21 +8,26 @@ interface Post {
   date: string;
   title: { rendered: string };
   excerpt: { rendered: string };
+  categoryName?: string;
   imageUrl?: string | null;
-  _embedded?: any;
+}
+
+interface PopularPost {
+  id: number;
+  slug: string;
+  date: string;
+  title: { rendered: string };
+  imageUrl?: string | null;
 }
 
 interface BlogFeedProps {
   posts: Post[];
+  totalPages: number;
+  currentPage: number;
+  popularPosts: PopularPost[];
 }
 
-const POPULAR_POSTS = [
-  { id: 1, slug: 'lipo-360', date: 'Abril 10, 2024', title: 'What Is a Lipo 360?' },
-  { id: 2, slug: 'recuperar-figura', date: 'Julio 20, 2024', title: '¿Cómo recuperar tu figura?' },
-  { id: 3, slug: 'implantes-senos-naturales', date: 'Junio 05, 2024', title: '¿Cómo escoger los implantes?' },
-];
-
-export default function BlogFeed({ posts }: BlogFeedProps) {
+export default function BlogFeed({ posts, totalPages, currentPage, popularPosts }: BlogFeedProps) {
   return (
     <section className="blog-feed-section section-padding">
       <div className="container">
@@ -42,7 +47,7 @@ export default function BlogFeed({ posts }: BlogFeedProps) {
               {posts.map(post => (
                 <div key={post.id} className="blog-post-card">
                   <Link href={`/blog/${post.slug}`} className="blog-post-img-wrapper" style={{display: 'block', textDecoration: 'none'}}>
-                    <span className="blog-post-tag">BLOG</span>
+                    <span className="blog-post-tag">{post.categoryName || 'BLOG'}</span>
                     <div className="blog-post-img-placeholder" style={{ overflow: 'hidden' }}>
                       {post.imageUrl ? (
                         <img src={post.imageUrl} alt={post.title.rendered} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -52,7 +57,7 @@ export default function BlogFeed({ posts }: BlogFeedProps) {
                     </div>
                   </Link>
                   <div className="blog-post-content">
-                    <span className="blog-post-date">{new Date(post.date).toLocaleDateString()}</span>
+                    <span className="blog-post-date">{new Date(post.date).toLocaleDateString('es-ES', { month: 'short', day: '2-digit', year: 'numeric' }).replace('.', '')}</span>
                     <Link href={`/blog/${post.slug}`} style={{textDecoration: 'none'}}>
                       <h3 className="blog-post-card-title" dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h3>
                     </Link>
@@ -65,15 +70,37 @@ export default function BlogFeed({ posts }: BlogFeedProps) {
             </div>
 
             {/* Pagination */}
-            <div className="blog-pagination">
-              <button className="pag-btn prev">&lt;</button>
-              <button className="pag-btn active">1</button>
-              <button className="pag-btn">2</button>
-              <button className="pag-btn">3</button>
-              <span className="pag-dots">...</span>
-              <button className="pag-btn">10</button>
-              <button className="pag-btn next">&gt;</button>
-            </div>
+            {totalPages > 1 && (
+              <div className="blog-pagination">
+                {currentPage > 1 && (
+                  <Link href={`/blog?page=${currentPage - 1}`} className="pag-btn prev">&lt;</Link>
+                )}
+                
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => {
+                  // Muestra la primera, la última, la actual, y las adyacentes a la actual
+                  if (page === 1 || page === totalPages || (page >= currentPage - 1 && page <= currentPage + 1)) {
+                    return (
+                      <Link 
+                        key={page} 
+                        href={`/blog?page=${page}`} 
+                        className={`pag-btn ${currentPage === page ? 'active' : ''}`}
+                      >
+                        {page}
+                      </Link>
+                    );
+                  }
+                  // Si no mostramos la página y es adyacente a un bloque mostrado, mostramos puntos
+                  if (page === 2 && currentPage > 3) return <span key={page} className="pag-dots">...</span>;
+                  if (page === totalPages - 1 && currentPage < totalPages - 2) return <span key={page} className="pag-dots">...</span>;
+                  
+                  return null;
+                })}
+
+                {currentPage < totalPages && (
+                  <Link href={`/blog?page=${currentPage + 1}`} className="pag-btn next">&gt;</Link>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Sidebar Column */}
@@ -81,14 +108,18 @@ export default function BlogFeed({ posts }: BlogFeedProps) {
             <div className="blog-popular-widget">
               <h3 className="widget-title">BLOGS POPULARES</h3>
               <div className="popular-posts-list">
-                {POPULAR_POSTS.map(post => (
+                {popularPosts.map(post => (
                   <Link href={`/blog/${post.slug}`} key={post.id} className="popular-post-item" style={{textDecoration: 'none'}}>
-                    <div className="popular-post-thumb">
-                      (Img)
+                    <div className="popular-post-thumb" style={{ overflow: 'hidden' }}>
+                      {post.imageUrl ? (
+                        <img src={post.imageUrl} alt={post.title.rendered} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <span>(Img)</span>
+                      )}
                     </div>
                     <div className="popular-post-info">
-                      <span className="popular-post-date">{post.date}</span>
-                      <h4 className="popular-post-title">{post.title}</h4>
+                      <span className="popular-post-date">{new Date(post.date).toLocaleDateString('es-ES', { month: 'short', day: '2-digit', year: 'numeric' }).replace('.', '')}</span>
+                      <h4 className="popular-post-title" dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h4>
                     </div>
                   </Link>
                 ))}
