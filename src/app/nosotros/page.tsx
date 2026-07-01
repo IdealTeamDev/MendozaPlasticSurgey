@@ -1,5 +1,5 @@
 import React from 'react';
-import { getPageBySlug, getMedia, getCasos, getProcedureCategories, getProceduresByCategory } from '@/lib/wordpress';
+import { getPageBySlug, getMedia, getCasos, getCasoById, getProcedureCategories } from '@/lib/wordpress';
 import NosotrosClient from './NosotrosClient'; // Extracted client logic
 
 import './nosotros.css';
@@ -31,7 +31,7 @@ export default async function NosotrosPage() {
   }
 
   // Fetch cases for SurgeonBeforeAfter (ProcedureResultsSlider)
-  const casosData = await getCasos() || [];
+  const casosDataRaw = await getCasos() || [];
   
   // Helper to get media safely
   const getMediaUrl = async (imgData: any) => {
@@ -43,7 +43,9 @@ export default async function NosotrosPage() {
     return imgData;
   };
 
-  const cases = await Promise.all(casosData.map(async (c: any) => {
+  const cases = await Promise.all(casosDataRaw.map(async (rawCase: any) => {
+    // Re-fetch individual case to bypass ACF REST API bug (acf returning [])
+    const c = await getCasoById(rawCase.id) || rawCase;
     const examples = [];
     
     // Check if ACF has before/after images in the gallery repeater
