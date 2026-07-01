@@ -19,6 +19,7 @@
   /* background-image: url('...'); */
   background-size: cover;
   background-position: center;
+  background-attachment: fixed; /* Fixes zoom issue by creating a parallax effect */
   z-index: 0;
 }
 

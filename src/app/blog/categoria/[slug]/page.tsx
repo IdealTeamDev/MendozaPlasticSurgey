@@ -105,11 +105,11 @@ export default async function BlogCategoryPage({ params, searchParams }: { param
     }
   }
 
-  const categoryImageUrl = catImageMap[categoryName.toLowerCase()] || undefined;
-
+  // Removing custom image from the Hero banner as requested by the user.
+  // It will fall back to the main blog hero image or default.
   return (
     <main>
-      <BlogHero title={categoryName} imageUrl={categoryImageUrl} />
+      <BlogHero title={categoryName} />
       
       {posts && posts.length > 0 ? (
         <BlogFeed 
