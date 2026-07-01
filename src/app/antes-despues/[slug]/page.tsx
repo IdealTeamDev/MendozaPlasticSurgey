@@ -153,7 +153,7 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
             RESULTADOS CIRUGÍA PLÁSTICA
           </h2>
           <p style={{ fontSize: '1rem', color: '#666', fontFamily: 'var(--font-subtitle)' }}>
-            Explora la galer\u00eda de antes y despu\u00e9s, y descubre transformaciones reales.
+            Explora la galería de antes y después, y descubre transformaciones reales.
           </p>
         </div>
 
@@ -189,40 +189,40 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
         <div className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem', alignItems: 'center' }}>
           <div style={{ flex: '1 1 40%', minWidth: '300px' }}>
             <h2 style={{ fontSize: '2.5rem', fontWeight: 400, fontFamily: 'var(--font-title)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
-              \u00a1EL CAMBIO QUE QUIERES ES AHORA!
+              ¡EL CAMBIO QUE QUIERES ES AHORA!
             </h2>
             <p style={{ fontFamily: 'var(--font-subtitle)', color: '#555', marginBottom: '1.5rem' }}>
-              Reserva tu consulta con el Dr. Mendoza <strong>cirujano pl\u00e1stico en Atlanta</strong> y conoce m\u00e1s sobre tu procedimiento.
+              Reserva tu consulta con el Dr. Mendoza <strong>cirujano plástico en Atlanta</strong> y conoce más sobre tu procedimiento.
             </p>
             <p style={{ fontFamily: 'var(--font-subtitle)', color: '#555' }}>
-              Despu\u00e9s de diligenciar el formulario, uno de nuestros asesores se pondr\u00e1 en contacto contigo para fijar la fecha de tu consulta.
+              Después de diligenciar el formulario, uno de nuestros asesores se pondrá en contacto contigo para fijar la fecha de tu consulta.
             </p>
           </div>
           <div style={{ flex: '1 1 50%', minWidth: '300px', backgroundColor: '#f9f9f9', padding: '3rem', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
             <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', fontFamily: 'var(--font-subtitle)' }}>
               <div>
                 <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#333' }}>Nombre*</label>
-                <input type="text" placeholder="Ingresa tu nombre aqu\u00ed" style={{ width: '100%', padding: '0.8rem', border: '1px solid #ddd', borderRadius: '4px' }} />
+                <input type="text" placeholder="Ingresa tu nombre aquí" style={{ width: '100%', padding: '0.8rem', border: '1px solid #ddd', borderRadius: '4px' }} />
               </div>
               <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#333' }}>Correo electr\u00f3nico*</label>
-                <input type="email" placeholder="Ingresa tu correo electr\u00f3nico aqu\u00ed" style={{ width: '100%', padding: '0.8rem', border: '1px solid #ddd', borderRadius: '4px' }} />
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#333' }}>Correo electrónico*</label>
+                <input type="email" placeholder="Ingresa tu correo electrónico aquí" style={{ width: '100%', padding: '0.8rem', border: '1px solid #ddd', borderRadius: '4px' }} />
               </div>
               <div>
                 <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#333' }}>Celular*</label>
-                <input type="tel" placeholder="Ingresa tu n\u00famero de celular aqu\u00ed" style={{ width: '100%', padding: '0.8rem', border: '1px solid #ddd', borderRadius: '4px' }} />
+                <input type="tel" placeholder="Ingresa tu número de celular aquí" style={{ width: '100%', padding: '0.8rem', border: '1px solid #ddd', borderRadius: '4px' }} />
               </div>
               <div>
                 <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#333' }}>Procedimiento deseado*</label>
                 <select style={{ width: '100%', padding: '0.8rem', border: '1px solid #ddd', borderRadius: '4px', backgroundColor: '#fff', color: '#888' }}>
                   <option>Selecciona un procedimiento</option>
                   <option>Aumento de senos</option>
-                  <option>Liposucci\u00f3n</option>
+                  <option>Liposucción</option>
                 </select>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.5rem' }}>
                 <input type="checkbox" id="policy" />
-                <label htmlFor="policy" style={{ fontSize: '0.8rem', color: '#666' }}>Acepto pol\u00edtica de tratamiento de datos</label>
+                <label htmlFor="policy" style={{ fontSize: '0.8rem', color: '#666' }}>Acepto política de tratamiento de datos</label>
               </div>
               <button type="button" style={{ backgroundColor: '#000', color: '#fff', padding: '1rem', border: 'none', borderRadius: '4px', fontWeight: 500, marginTop: '1rem', cursor: 'pointer' }}>
                 Agenda tu consulta

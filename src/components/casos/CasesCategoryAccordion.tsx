@@ -74,7 +74,7 @@ export default function CasesCategoryAccordion({ categories = [] }: CasesCategor
                     ))}
                   </div>
                 ) : (
-                  <p className="cases-no-procedures">No hay procedimientos asignados a esta categor\u00eda a\u00fan.</p>
+                  <p className="cases-no-procedures">No hay procedimientos asignados a esta categoría aún.</p>
                 )}
               </div>
             </div>

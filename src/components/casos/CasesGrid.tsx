@@ -76,7 +76,7 @@ export default function CasesGrid({ cases = [] }: CasesGridProps) {
               {c.description && <p className="cases-card-desc">{c.description}</p>}
               
               <button className="cases-card-btn" onClick={() => openModal(index)}>
-                Ver m\u00e1s
+                Ver más
               </button>
             </div>
           </div>

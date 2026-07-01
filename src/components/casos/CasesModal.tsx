@@ -58,7 +58,7 @@ export default function CasesModal({ isOpen, onClose, cases, currentIndex, onNex
           {/* Labels */}
           <div className="cases-modal-labels">
             <span className="cases-modal-pill">ANTES</span>
-            <span className="cases-modal-pill">DESPU\u00c9S</span>
+            <span className="cases-modal-pill">DESPUÉS</span>
           </div>
 
           {/* Images side-by-side */}
