@@ -35,6 +35,13 @@ export default function ProcedureDetailsTabs({ tabs }: ProcedureDetailsTabsProps
   const activeTabs = tabs && tabs.length > 0 ? tabs : DEFAULT_TABS;
   const [activeTab, setActiveTab] = useState(activeTabs[0].id);
 
+  // Sync state if tabs prop changes and the activeTab is no longer valid
+  React.useEffect(() => {
+    if (activeTabs.length > 0 && !activeTabs.find(t => t.id === activeTab)) {
+      setActiveTab(activeTabs[0].id);
+    }
+  }, [activeTabs, activeTab]);
+
   const currentData = activeTabs.find(t => t.id === activeTab) || activeTabs[0];
 
   return (
