@@ -8,7 +8,7 @@ export default async function CasosDirectoryPage() {
   const categoriesRaw = await getProcedureCategories() || [];
   
   // Resolve data for each category
-  const categories = await Promise.all(categoriesRaw.map(async (cat: any) => {
+  const categoriesRawData = await Promise.all(categoriesRaw.map(async (cat: any) => {
     // Determine image from ACF
     let imageUrl = '';
     const acfImage = cat.acf?.imagen_categoria;
@@ -29,10 +29,25 @@ export default async function CasosDirectoryPage() {
     return {
       id: cat.id,
       name: cat.name,
+      slug: cat.slug || '',
       image: imageUrl,
       procedures: procedures
     };
   }));
+
+  const orderMap: { [key: string]: number } = {
+    'cirugia-de-cuerpo': 1,
+    'cirugia-de-senos': 2,
+    'cirugia-facial': 3,
+    'tratamientos': 4,
+    'inyectables': 5
+  };
+
+  const categories = categoriesRawData.sort((a, b) => {
+    const aOrder = orderMap[a.slug?.toLowerCase()] || 99;
+    const bOrder = orderMap[b.slug?.toLowerCase()] || 99;
+    return aOrder - bOrder;
+  });
 
   // Render Page
   return (
