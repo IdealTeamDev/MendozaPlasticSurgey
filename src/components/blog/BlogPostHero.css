@@ -69,10 +69,12 @@
 .blog-post-hero-box-meta {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   gap: 0.5rem 1rem;
   font-size: 0.95rem;
   color: #ddd;
+  overflow-x: auto; /* In case it's too long on mobile */
 }
 
 .blog-meta-sep {
@@ -90,7 +92,7 @@
 .meta-icon-img {
   width: 20px;
   height: 20px;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 
