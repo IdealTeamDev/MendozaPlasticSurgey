@@ -99,7 +99,10 @@ export default async function Home() {
       />
       
       {/* Nueva seccion WYSIWYG justo despues del hero (2da seccion) */}
-      <HomeIntroText content={acf?.home_intro_text} />
+      <HomeIntroText 
+        subtitle={acf?.home_intro_subtitulo} 
+        content={acf?.home_intro_text} 
+      />
       
       {/* Testimonios despues del nuevo texto */}
       <Testimonials />

@@ -4,6 +4,15 @@
   text-align: center;
 }
 
+.home-intro-subtitle {
+  font-family: var(--font-subtitle);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+
 .home-intro-content {
   max-width: 800px;
   margin: 0 auto;
