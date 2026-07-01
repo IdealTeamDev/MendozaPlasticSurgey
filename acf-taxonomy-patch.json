@@ -1,0 +1,65 @@
+[
+    {
+        "key": "taxonomy_categoria_procedimiento",
+        "title": "Categor\u00edas de Procedimientos",
+        "menu_order": 0,
+        "active": true,
+        "taxonomy": "categoria_procedimiento",
+        "post_types": [
+            "procedimiento"
+        ],
+        "advanced_configuration": false,
+        "import_source": "",
+        "import_date": "",
+        "allow_ai_access": false,
+        "ai_description": "",
+        "labels": {
+            "name": "Categor\u00edas de Procedimientos",
+            "singular_name": "Categor\u00eda de Procedimiento",
+            "menu_name": "Categor\u00edas",
+            "all_items": "Todas las Categor\u00edas",
+            "edit_item": "Editar Categor\u00eda",
+            "view_item": "Ver Categor\u00eda",
+            "update_item": "Actualizar Categor\u00eda",
+            "add_new_item": "A\u00f1adir Nueva Categor\u00eda",
+            "new_item_name": "Nuevo Nombre de Categor\u00eda",
+            "search_items": "Buscar Categor\u00edas",
+            "popular_items": "Categor\u00edas Populares",
+            "separate_items_with_commas": "Separar categor\u00edas con comas",
+            "add_or_remove_items": "A\u00f1adir o eliminar categor\u00edas",
+            "choose_from_most_used": "Elegir entre las m\u00e1s usadas",
+            "not_found": "No se encontraron categor\u00edas",
+            "no_terms": "No hay categor\u00edas",
+            "items_list_navigation": "Navegaci\u00f3n de la lista de categor\u00edas",
+            "items_list": "Lista de categor\u00edas",
+            "back_to_items": "\u2190 Ir a categor\u00edas"
+        },
+        "description": "",
+        "public": true,
+        "publicly_queryable": true,
+        "hierarchical": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "show_in_nav_menus": true,
+        "show_admin_column": true,
+        "show_in_rest": true,
+        "rest_base": "",
+        "rest_namespace": "wp/v2",
+        "rest_controller_class": "WP_REST_Terms_Controller",
+        "rewrite": {
+            "permalink_structure": true,
+            "slug": "categoria-procedimiento",
+            "with_front": true,
+            "hierarchical": false
+        },
+        "capabilities": {
+            "manage_terms": "manage_categories",
+            "edit_terms": "manage_categories",
+            "delete_terms": "manage_categories",
+            "assign_terms": "edit_posts"
+        },
+        "sort": null,
+        "meta_box": "custom",
+        "meta_box_custom": "categoria_procedimiento"
+    }
+]
