@@ -60,7 +60,9 @@ export default async function NosotrosPage() {
       examples.push(...repeaterCases.filter(c => c.before && c.after));
     }
 
-    if (examples.length === 0) return null;
+    if (examples.length === 0) {
+      examples.push({ before: null, after: null });
+    }
 
     return {
       id: c.id,
@@ -68,8 +70,6 @@ export default async function NosotrosPage() {
       examples
     };
   }));
-
-  const validCases = cases.filter(c => c !== null);
 
   // Fetch categories for Medical Center "Conoce Más Aquí"
   const categoriesRaw = await getProcedureCategories() || [];
@@ -92,7 +92,7 @@ export default async function NosotrosPage() {
 
   return (
     <main className="nosotros-page">
-      <NosotrosClient acf={acf} cases={validCases} procedureCategories={procedureCategories} />
+      <NosotrosClient acf={acf} cases={cases} procedureCategories={procedureCategories} />
     </main>
   );
 }

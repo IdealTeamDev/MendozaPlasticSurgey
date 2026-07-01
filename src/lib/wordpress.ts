@@ -76,7 +76,7 @@ export async function getProceduresByCategory(categoryId: number) {
 }
 
 export async function getCasos() {
-  const data = await fetchAPI('/caso?_embed');
+  const data = await fetchAPI('/caso?_embed&per_page=100');
   return data;
 }
 
