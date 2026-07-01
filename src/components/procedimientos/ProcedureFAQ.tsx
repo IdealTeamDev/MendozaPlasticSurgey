@@ -3,60 +3,51 @@
 import React, { useState } from 'react';
 import './ProcedureFAQ.css';
 
-const FAQ_DATA = [
-  {
-    id: 1,
-    question: "¿LA LIPOSUCCIÓN ELIMINA LA CELULITIS?",
-    answer: "No, la liposucción no elimina la celulitis. De hecho, puede hacer que la celulitis sea más evidente si la piel no tiene buena elasticidad. Existen otros tratamientos específicos para mejorar la apariencia de la celulitis."
-  },
-  {
-    id: 2,
-    question: "¿LA LIPOSUCCIÓN ES UN MÉTODO EFECTIVO PARA PERDER PESO?",
-    answer: "La liposucción no es un tratamiento para la pérdida de peso ni una alternativa a la dieta y el ejercicio. Es un procedimiento de contorno corporal para eliminar áreas específicas de grasa rebelde."
-  },
-  {
-    id: 3,
-    question: "¿LAS CÉLULAS GRASAS ELIMINADAS DURANTE LA LIPOSUCCIÓN VOLVERÁN A APARECER?",
-    answer: "Las células de grasa que se eliminan mediante la liposucción no vuelven a crecer. Sin embargo, si aumentas de peso después de la cirugía, las células de grasa restantes pueden aumentar de tamaño."
-  },
-  {
-    id: 4,
-    question: "¿ES DOLOROSA LA RECUPERACIÓN DE UNA LIPOSUCCIÓN?",
-    answer: "Es normal experimentar dolor, hinchazón y moretones después de la liposucción. Tu cirujano te recetará analgésicos para mantenerte cómodo durante los primeros días."
-  }
-];
+interface FAQItem {
+  pregunta: string;
+  respuesta: string;
+}
 
-export default function ProcedureFAQ() {
+interface ProcedureFAQProps {
+  faqs?: FAQItem[];
+  title?: string;
+}
+
+export default function ProcedureFAQ({ faqs = [], title = "" }: ProcedureFAQProps) {
   const [openId, setOpenId] = useState<number | null>(null);
+
+  if (!faqs || faqs.length === 0) {
+    return null; // Do not render section if there are no FAQs
+  }
 
   const toggleAccordion = (id: number) => {
     setOpenId(openId === id ? null : id);
   };
 
   return (
-    <section className="proc-faq-section">
-      <div className="container">
+    <section className="proc-faq-section section-padding">
+      <div className="container" style={{ maxWidth: '800px' }}>
         
-        <div className="proc-faq-header">
-          <span className="proc-faq-subtitle">PREGUNTAS FRECUENTES</span>
-          <h2 className="proc-faq-title">SOBRE LIPOSUCCIÓN</h2>
+        <div className="proc-faq-header" style={{ marginBottom: '3rem' }}>
+          <span className="proc-faq-subtitle" style={{ display: 'block', marginBottom: '0.5rem', color: '#666', letterSpacing: '2px', fontSize: '1rem' }}>PREGUNTAS FRECUENTES</span>
+          {title && <h2 className="proc-faq-title" style={{ fontSize: '2.5rem', fontWeight: 300, color: 'var(--black)', textTransform: 'uppercase' }}>SOBRE {title}</h2>}
         </div>
 
         <div className="proc-faq-accordion">
-          {FAQ_DATA.map((item) => (
+          {faqs.map((item, index) => (
             <div 
-              key={item.id} 
-              className={`proc-faq-item ${openId === item.id ? 'open' : ''}`}
+              key={index} 
+              className={`proc-faq-item ${openId === index ? 'open' : ''}`}
             >
               <div 
                 className="proc-faq-question"
-                onClick={() => toggleAccordion(item.id)}
+                onClick={() => toggleAccordion(index)}
               >
-                <h3>{item.question}</h3>
-                <span className="proc-faq-icon">{openId === item.id ? '−' : '+'}</span>
+                <h3>{item.pregunta}</h3>
+                <span className="proc-faq-icon">{openId === index ? '−' : '+'}</span>
               </div>
               <div className="proc-faq-answer">
-                <p>{item.answer}</p>
+                <div dangerouslySetInnerHTML={{ __html: item.respuesta }} />
               </div>
             </div>
           ))}

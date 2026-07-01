@@ -1,5 +1,5 @@
 import React from 'react';
-import { getProcedureBySlug, getMedia } from '@/lib/wordpress';
+import { getProcedureBySlug, getMedia, getCasoById, getProceduresByCategory } from '@/lib/wordpress';
 
 // Common Components
 import ProcedureDetailHero from '@/components/procedimientos/ProcedureDetailHero';
@@ -54,6 +54,59 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
   // Quick Facts
   const quickFacts = Array.isArray(acf?.quick_facts) ? acf.quick_facts : undefined;
 
+  // Resolve Casos Relacionados
+  let resolvedCases: any[] = [];
+  if (Array.isArray(acf?.casos_relacionados)) {
+    resolvedCases = await Promise.all(
+      acf.casos_relacionados.map(async (casoRef: any) => {
+        const id = casoRef.ID || casoRef.id;
+        if (!id) return null;
+        
+        const casoPost = await getCasoById(id);
+        const casoAcf = casoPost?.acf || {};
+        
+        let beforeImg = '';
+        if (typeof casoAcf.foto_antes === 'number') {
+          beforeImg = (await getMedia(casoAcf.foto_antes))?.source_url || '';
+        } else {
+          beforeImg = casoAcf.foto_antes || '';
+        }
+        
+        let afterImg = '';
+        if (typeof casoAcf.foto_despues === 'number') {
+          afterImg = (await getMedia(casoAcf.foto_despues))?.source_url || '';
+        } else {
+          afterImg = casoAcf.foto_despues || '';
+        }
+
+        return {
+          id: id,
+          title: casoRef.post_title || casoPost?.title?.rendered,
+          before: beforeImg,
+          after: afterImg
+        };
+      })
+    );
+    resolvedCases = resolvedCases.filter(c => c !== null);
+  }
+
+  // FAQs
+  const faqs = Array.isArray(acf?.faqs) ? acf.faqs : [];
+
+  // Sibling Procedures
+  const categoryIds = wpProc?.categoria_procedimiento || [];
+  let otherProcedures: any[] = [];
+  if (categoryIds.length > 0) {
+    const siblings = await getProceduresByCategory(categoryIds[0]) || [];
+    otherProcedures = siblings
+      .filter((p: any) => p.id !== wpProc?.id)
+      .map((p: any) => ({
+        id: p.id,
+        title: p.title?.rendered,
+        slug: p.slug
+      }));
+  }
+
   return (
     <main>
       {/* Hero Header */}
@@ -82,13 +135,13 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
       ) : (
         // OPTION 1
         <>
-          <ProcedureResultsSlider />
-          <ProcedureFAQ />
+          <ProcedureResultsSlider cases={resolvedCases} />
+          <ProcedureFAQ faqs={faqs} title={acf?.hero_titulo || title} />
         </>
       )}
 
       {/* Shared Bottom Sections */}
-      <ProcedureOthers />
+      <ProcedureOthers procedures={otherProcedures} />
       <ProcedureTestimonials />
       
       </main>

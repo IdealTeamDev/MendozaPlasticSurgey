@@ -83,6 +83,12 @@ export async function getCasoBySlug(slug: string) {
   return data && data.length > 0 ? data[0] : null;
 }
 
+export async function getCasoById(id: number) {
+  if (!id) return null;
+  const data = await fetchAPI(`/caso/${id}?_embed`);
+  return data;
+}
+
 export async function getProcedureBySlug(slug: string) {
   const data = await fetchAPI(`/procedimiento?slug=${slug}`);
   return data && data.length > 0 ? data[0] : null;

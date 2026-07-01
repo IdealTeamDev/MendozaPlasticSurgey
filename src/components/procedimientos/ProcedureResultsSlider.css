@@ -81,17 +81,25 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.proc-result-img-placeholder {
+.proc-result-img-placeholder,
+.proc-result-img {
   width: 100%;
   aspect-ratio: 3/4;
-  background-color: #333;
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+.proc-result-img {
+  object-fit: cover;
+}
+
+.proc-result-img-placeholder {
+  background-color: #333;
   color: #fff;
   font-size: 0.9rem;
-  overflow: hidden;
 }
 
 .proc-results-controls {

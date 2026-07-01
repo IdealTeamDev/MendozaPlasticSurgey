@@ -2,22 +2,24 @@ import React from 'react';
 import Link from 'next/link';
 import './ProcedureOthers.css';
 
-const OTHERS_DATA = [
-  { label: 'Ginecomastia', href: '/procedimientos/ginecomastia' },
-  { label: 'Lifting de Muslos', href: '/procedimientos/lifting-muslos' },
-  { label: 'BBL', href: '/procedimientos/bbl' }
-];
+interface ProcedureOthersProps {
+  procedures?: { id: number; title: string; slug: string }[];
+}
 
-export default function ProcedureOthers() {
+export default function ProcedureOthers({ procedures = [] }: ProcedureOthersProps) {
+  if (!procedures || procedures.length === 0) {
+    return null;
+  }
+
   return (
-    <section className="proc-others-section">
+    <section className="proc-others-section section-padding">
       <div className="container">
-        <h2 className="proc-others-title text-center">OTROS PROCEDIMIENTOS</h2>
+        <h2 className="proc-others-title text-center" style={{ fontSize: '2rem', fontWeight: 400, letterSpacing: '1px', marginBottom: '3rem' }}>OTROS PROCEDIMIENTOS</h2>
         
-        <div className="proc-others-pills">
-          {OTHERS_DATA.map((item, idx) => (
-            <Link key={idx} href={item.href} className="proc-other-pill">
-              {item.label}
+        <div className="proc-others-pills" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          {procedures.map((item, idx) => (
+            <Link key={idx} href={`/procedimientos/${item.slug}`} className="proc-other-pill">
+              {item.title}
             </Link>
           ))}
         </div>

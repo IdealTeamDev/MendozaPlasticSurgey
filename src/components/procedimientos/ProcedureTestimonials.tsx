@@ -6,10 +6,10 @@ import './ProcedureTestimonials.css';
 const TESTIMONIALS_DATA = [
   {
     id: 1,
-    name: 'Marisa Fernandez',
-    date: '15 Enero 2024',
+    name: 'Marzia Fernández',
+    date: '15 Enero 2026',
     rating: 5,
-    text: 'Operarme con el Dr. Mendoza fue mi mejor decisión, realmente agradecida con él y su equipo de trabajo, todos ellos siempre muy pendientes de mi. Los mejores ❤️'
+    text: 'Operarme con el Dr. Mendoza fue mi mejor decisión. Totalmente agradecida con él y su equipo de trabajo, estuvieron siempre muy pendientes de mí. Los mejores❤️'
   },
   {
     id: 2,

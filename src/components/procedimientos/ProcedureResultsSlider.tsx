@@ -3,23 +3,33 @@
 import React, { useState } from 'react';
 import './ProcedureResultsSlider.css';
 
-const RESULTS_DATA = [
-  { id: 1, before: 'Img Antes 1', after: 'Img Después 1' },
-  { id: 2, before: 'Img Antes 2', after: 'Img Después 2' },
-];
+interface CaseData {
+  id: number | string;
+  title: string;
+  before: string;
+  after: string;
+}
 
-export default function ProcedureResultsSlider() {
+interface ProcedureResultsSliderProps {
+  cases?: CaseData[];
+}
+
+export default function ProcedureResultsSlider({ cases = [] }: ProcedureResultsSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  if (!cases || cases.length === 0) {
+    return null; // Don't render if there are no cases
+  }
+
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === RESULTS_DATA.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === cases.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? RESULTS_DATA.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? cases.length - 1 : prev - 1));
   };
 
-  const currentPair = RESULTS_DATA[currentIndex];
+  const currentCase = cases[currentIndex];
 
   return (
     <section className="proc-results-section">
@@ -38,22 +48,28 @@ export default function ProcedureResultsSlider() {
             <div className="proc-results-images">
               <div className="proc-result-img-box">
                 <span className="proc-result-tag">ANTES</span>
-                <div className="proc-result-img-placeholder">
-                  ({currentPair.before})
-                </div>
+                {currentCase.before ? (
+                  <img src={currentCase.before} alt={`Antes - ${currentCase.title}`} className="proc-result-img" />
+                ) : (
+                  <div className="proc-result-img-placeholder">(Sin Imagen)</div>
+                )}
               </div>
               <div className="proc-result-img-box">
                 <span className="proc-result-tag">DESPUÉS</span>
-                <div className="proc-result-img-placeholder">
-                  ({currentPair.after})
-                </div>
+                {currentCase.after ? (
+                  <img src={currentCase.after} alt={`Después - ${currentCase.title}`} className="proc-result-img" />
+                ) : (
+                  <div className="proc-result-img-placeholder">(Sin Imagen)</div>
+                )}
               </div>
             </div>
 
-            <div className="proc-results-controls">
-              <button className="slider-btn" onClick={prevSlide}>&lt;</button>
-              <button className="slider-btn" onClick={nextSlide}>&gt;</button>
-            </div>
+            {cases.length > 1 && (
+              <div className="proc-results-controls">
+                <button className="slider-btn" onClick={prevSlide}>&lt;</button>
+                <button className="slider-btn" onClick={nextSlide}>&gt;</button>
+              </div>
+            )}
             
           </div>
           

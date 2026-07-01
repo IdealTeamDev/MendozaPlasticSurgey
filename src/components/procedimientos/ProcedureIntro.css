@@ -107,6 +107,7 @@
 /* Image Column */
 .proc-intro-img-col {
   flex: 1;
+  position: relative;
 }
 
 .proc-intro-img-wrapper {
@@ -115,9 +116,11 @@
   margin: 0 auto;
   aspect-ratio: 4/5;
   background-color: #eee;
-  /* Matching the ProcedureTabs clip path shape */
-  clip-path: polygon(10% 0, 100% 5%, 95% 100%, 0 95%);
+  /* Figma shape: top right and bottom left curves */
+  border-radius: 0 40px 0 40px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  overflow: hidden;
+  position: relative;
 }
 
 .proc-intro-img-placeholder {
@@ -128,4 +131,21 @@
   align-items: center;
   background-color: #ddd;
   color: #888;
+}
+
+/* 360 Icon Overlay (optional, matching Figma) */
+.proc-intro-icon-overlay {
+  position: absolute;
+  top: 50%;
+  right: -25px; /* Half outside */
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  z-index: 2;
 }
