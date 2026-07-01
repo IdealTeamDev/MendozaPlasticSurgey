@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import './Testimonials.css';
 
 export default function Testimonials() {
@@ -87,6 +88,11 @@ export default function Testimonials() {
           </div>
         </div>
         
+      </div>
+      <div className="testimonials-action" style={{ textAlign: 'center', marginTop: '3rem' }}>
+        <Link href="/contacto" className="btn btn-primary">
+          Agenda tu consulta
+        </Link>
       </div>
     </section>
   );
