@@ -12,86 +12,72 @@
 .blog-post-hero-bg {
   position: absolute;
   top: 0;
+.blog-post-hero-internal {
+  padding: 2rem 0;
+}
+
+.blog-post-hero-box {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end; /* Text at bottom */
+}
+
+.blog-post-hero-box-overlay {
+  position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  background-color: #333;
-  background-size: cover;
-  background-position: center;
-}
-
-/* Gradient from bottom (dark) to top (transparent) */
-.blog-post-hero-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 80%;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-}
-
-.blog-post-hero-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
   z-index: 1;
-  width: 100%;
-  padding-bottom: 2rem;
 }
 
-.blog-post-hero-content {
+.blog-post-hero-box-content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem;
   color: var(--white);
-  animation: slideUp 0.8s ease-out forwards;
+  width: 100%;
   max-width: 900px;
 }
 
-.blog-post-hero-title {
-  font-size: 2.2rem;
-  font-weight: 500;
-  line-height: 1.2;
+.blog-post-hero-box-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  letter-spacing: 1px;
 }
 
 @media (min-width: 768px) {
-  .blog-post-hero-title { font-size: 3.2rem; }
+  .blog-post-hero-box-title {
+    font-size: 2.5rem;
+  }
 }
 
-.blog-post-hero-meta {
+.blog-post-hero-box-meta {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.8rem;
-  font-size: 0.9rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.95rem;
   color: #ddd;
 }
 
-@media (min-width: 768px) {
-  .blog-post-hero-meta { font-size: 1rem; }
+.blog-meta-sep {
+  color: #888;
 }
 
-.blog-meta-category {
-  color: var(--white);
-  font-weight: 600;
-}
-
-.blog-meta-dot {
-  color: #aaa;
-}
-
-.blog-post-hero-curve {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  z-index: 2;
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .blog-post-hero-curve { height: 120px; }
+.meta-icon {
+  font-size: 1.1rem;
+  opacity: 0.9;
 }
 
 .blog-post-hero-curve svg {

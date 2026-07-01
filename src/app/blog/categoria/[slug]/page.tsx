@@ -14,7 +14,7 @@ const CATEGORY_NAMES: Record<string, string> = {
 };
 
 // @ts-ignore - Ignoring searchParams type for simplicity
-export default async function BlogCategoryPage({ params, searchParams }: { params: Promise<{ slug: string }>, searchParams?: any }) {
+export default async function BlogCategoryPage({ params, searchParams }: { params: Promise<{ slug: string }>, searchParams?: Promise<any> }) {
   const { slug } = await params;
   const categoryName = CATEGORY_NAMES[slug] || slug.toUpperCase();
   

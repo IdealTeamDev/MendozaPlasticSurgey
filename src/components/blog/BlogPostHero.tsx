@@ -10,35 +10,32 @@ interface BlogPostHeroProps {
   imageUrl?: string;
 }
 
-export default function BlogPostHero({ title, category, date, readTime, author, imageUrl }: BlogPostHeroProps) {
+export default function BlogPostHero({ title, category, date, readTime, author, imageUrl, vistas, compartidos }: BlogPostHeroProps) {
+  // If no image is provided, use a clean fallback
+  const bgImage = imageUrl || '/procedures.png';
+
   return (
-    <section className="blog-post-hero">
-      <div 
-        className="blog-post-hero-bg" 
-        style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}}
-      >
-        <div className="blog-post-hero-overlay"></div>
-      </div>
-      
-      <div className="container blog-post-hero-container">
-        <div className="blog-post-hero-content">
-          <h1 className="blog-post-hero-title">{title}</h1>
-          <div className="blog-post-hero-meta">
-            <span className="blog-meta-category">{category}</span>
-            <span className="blog-meta-dot">•</span>
-            <span>{date}</span>
-            <span className="blog-meta-dot">•</span>
-            <span>{readTime} MINUTOS</span>
-            <span className="blog-meta-dot">•</span>
-            <span>POR {author.toUpperCase()}</span>
+    <section className="blog-post-hero-internal section-padding">
+      <div className="container">
+        <div 
+          className="blog-post-hero-box" 
+          style={{ backgroundImage: `url(${bgImage})` }}
+        >
+          <div className="blog-post-hero-box-overlay"></div>
+          
+          <div className="blog-post-hero-box-content">
+            <h1 className="blog-post-hero-box-title">{title}</h1>
+            <div className="blog-post-hero-box-meta">
+              <span>Por {author}</span>
+              <span className="blog-meta-sep">—</span>
+              <span className="meta-icon">⏱️</span> <span>{readTime} minutos de lectura</span>
+              <span className="blog-meta-sep">—</span>
+              <span className="meta-icon">📊</span> <span>{vistas || '1K vistas'}</span>
+              <span className="blog-meta-sep">—</span>
+              <span className="meta-icon">🔄</span> <span>{compartidos || '1K compartido'}</span>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="blog-post-hero-curve">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-          <path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff" />
-        </svg>
       </div>
     </section>
   );

@@ -2,11 +2,16 @@ import React from 'react';
 import BlogPostHero from '@/components/blog/BlogPostHero';
 import BlogRelated from '@/components/blog/BlogRelated';
 import BlogSidebar from '@/components/blog/BlogSidebar';
-import { getPostBySlug, getMedia } from '@/lib/wordpress';
+import { getPostBySlug, getMedia, fetchAPI } from '@/lib/wordpress';
 import { notFound } from 'next/navigation';
 
-// Import BlogFeed CSS to inherit post card and popular widget styles
+// Import BlogFeed CSS to inherit post card styles
 import '@/components/blog/BlogFeed.css';
+
+// Helper to strip HTML tags for word count
+function stripHtml(html: string) {
+  return html.replace(/<[^>]*>?/gm, '');
+}
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -16,11 +21,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  // Calculate read time
+  const wordCount = stripHtml(post.content.rendered).split(/\s+/).length;
+  const readTime = Math.max(1, Math.ceil(wordCount / 200)).toString();
+
+  // Extract ACF Stats
+  const acf = post.acf || {};
+  const vistas = acf.vistas || '1.6K vistas';
+  const compartidos = acf.compartidos || '1.2K compartido';
+
   // Extract necessary fields
   const title = post.title.rendered;
-  const category = 'BLOG'; // Or fetch category dynamically if needed
-  const date = new Date(post.date).toLocaleDateString();
-  const readTime = '2'; // Estimate from word count if possible, or static
+  const category = 'BLOG'; 
+  const date = new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
   const author = 'Mendoza Plastic Surgery';
 
   let imageUrl = null;
@@ -29,8 +42,32 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     imageUrl = media?.source_url || null;
   }
 
+  // Fetch popular posts for sidebar
+  let popularPosts = [];
+  try {
+    const recentPosts = await fetchAPI('/posts?per_page=3&orderby=date');
+    if (recentPosts && recentPosts.length > 0) {
+      popularPosts = await Promise.all(recentPosts.map(async (p: any) => {
+        let img = '/procedures.png';
+        if (p.featured_media) {
+          const m = await getMedia(p.featured_media);
+          if (m && m.source_url) img = m.source_url;
+        }
+        return {
+          id: p.id,
+          slug: p.slug,
+          title: p.title.rendered,
+          date: new Date(p.date).toLocaleDateString('es-ES', { month: 'short', day: 'numeric', year: 'numeric' }),
+          imageUrl: img
+        };
+      }));
+    }
+  } catch (e) {
+    console.error(e);
+  }
+
   return (
-    <main style={{ backgroundColor: '#ffffff' }}>
+    <main style={{ backgroundColor: '#fafafa' }}>
       <BlogPostHero 
         title={title}
         category={category}
@@ -38,27 +75,55 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         readTime={readTime}
         author={author}
         imageUrl={imageUrl || undefined}
+        vistas={vistas}
+        compartidos={compartidos}
       />
       
-      <section className="blog-post-content-section section-padding" style={{ backgroundColor: '#ffffff', color: '#333' }}>
+      <section className="blog-post-content-section" style={{ backgroundColor: '#fafafa', color: '#333', paddingBottom: '5rem' }}>
         <div className="container">
-          <div className="blog-post-layout" style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
+          <div className="blog-post-layout" style={{ display: 'flex', gap: '4rem', flexWrap: 'wrap' }}>
             
             <div className="blog-post-main" style={{ flex: '2', minWidth: '300px' }}>
               <div 
                 className="wp-content-container" 
-                style={{ color: '#333', fontSize: '1.05rem', lineHeight: '1.7' }}
                 dangerouslySetInnerHTML={{ __html: post.content.rendered }} 
               />
             </div>
 
-            <BlogSidebar />
+            <BlogSidebar popularPosts={popularPosts} />
 
           </div>
         </div>
       </section>
 
       <BlogRelated />
-      </main>
+      
+      {/* Global Gutenberg Styles for this internal page */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .wp-content-container {
+          color: #333;
+          font-size: 1.05rem;
+          line-height: 1.8;
+        }
+        .wp-content-container p {
+          margin-bottom: 1.5rem;
+        }
+        .wp-content-container h2, .wp-content-container h3 {
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+          font-weight: 400;
+          line-height: 1.3;
+          text-transform: uppercase;
+        }
+        /* Custom styled box (e.g. blockquote or specific group block) */
+        .wp-content-container blockquote, .wp-content-container .is-style-light-blue, .wp-content-container .wp-block-group {
+          background-color: #f0f8fa;
+          padding: 2rem;
+          border-radius: 8px;
+          margin: 2rem 0;
+          border: none;
+        }
+      `}} />
+    </main>
   );
 }
