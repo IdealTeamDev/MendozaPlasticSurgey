@@ -35,10 +35,10 @@ export default async function NosotrosPage() {
   
   // Helper to get media safely
   const getMediaUrl = async (imgData: any) => {
-    if (!imgData) return '/images/placeholder-hero.jpg';
+    if (!imgData) return null;
     if (typeof imgData === 'number') {
       const media = await getMedia(imgData);
-      return media?.source_url || '/images/placeholder-hero.jpg';
+      return media?.source_url || null;
     }
     return imgData;
   };
@@ -57,13 +57,10 @@ export default async function NosotrosPage() {
           return { before: bImg, after: aImg };
         })
       );
-      examples.push(...repeaterCases.filter(c => c.before || c.after));
+      examples.push(...repeaterCases.filter(c => c.before && c.after));
     }
 
-    // If no examples, add a placeholder
-    if (examples.length === 0) {
-      examples.push({ before: '/images/placeholder-hero.jpg', after: '/images/placeholder-hero.jpg' });
-    }
+    if (examples.length === 0) return null;
 
     return {
       id: c.id,
@@ -71,6 +68,8 @@ export default async function NosotrosPage() {
       examples
     };
   }));
+
+  const validCases = cases.filter(c => c !== null);
 
   // Fetch categories for Medical Center "Conoce Más Aquí"
   const categoriesRaw = await getProcedureCategories() || [];
@@ -93,7 +92,7 @@ export default async function NosotrosPage() {
 
   return (
     <main className="nosotros-page">
-      <NosotrosClient acf={acf} cases={cases} procedureCategories={procedureCategories} />
+      <NosotrosClient acf={acf} cases={validCases} procedureCategories={procedureCategories} />
     </main>
   );
 }
