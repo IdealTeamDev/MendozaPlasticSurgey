@@ -6,8 +6,8 @@ import ProcedureGalleryGrid from '@/components/antes-despues/ProcedureGalleryGri
 import ProcedureContactSection from '@/components/antes-despues/ProcedureContactSection';
 import { getCasoBySlug, getMedia } from '@/lib/wordpress';
 
-export default async function ProcedurePage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function ProcedurePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   
   const casoData = await getCasoBySlug(slug);
   let caso = null;

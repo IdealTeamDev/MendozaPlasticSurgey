@@ -14,11 +14,12 @@ const CATEGORY_NAMES: Record<string, string> = {
 };
 
 // @ts-ignore - Ignoring searchParams type for simplicity
-export default async function BlogCategoryPage({ params, searchParams }: { params: { slug: string }, searchParams?: any }) {
-  const { slug } = params;
+export default async function BlogCategoryPage({ params, searchParams }: { params: Promise<{ slug: string }>, searchParams?: Promise<any> }) {
+  const { slug } = await params;
   const categoryName = CATEGORY_NAMES[slug] || slug.toUpperCase();
   
-  const currentPage = parseInt(searchParams?.page || '1', 10);
+  const sp = searchParams ? await searchParams : {};
+  const currentPage = parseInt(sp.page || '1', 10);
 
   // Fetch category to get its ID
   const wpCategory = await getCategoryBySlug(slug);
