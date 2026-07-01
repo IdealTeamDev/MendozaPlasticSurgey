@@ -1,4 +1,4 @@
-.proc-tabs-section {
+﻿.proc-tabs-section {
   background-color: #fafafa;
   padding: 2rem 0 5rem;
 }
@@ -98,7 +98,7 @@
   aspect-ratio: 4/3; /* Taller in Figma, let's adjust */
   background-color: #eee;
   /* Figma shape: top left angle, bottom right curve/angle */
-  clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+/*   clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%); */
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   border-radius: 12px;
 }

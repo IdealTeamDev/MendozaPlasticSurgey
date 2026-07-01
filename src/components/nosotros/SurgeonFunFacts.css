@@ -1,4 +1,4 @@
-.surgeon-funfacts-section {
+﻿.surgeon-funfacts-section {
   background-color: #fafafa;
   padding: 4rem 0;
   position: relative;
@@ -72,7 +72,7 @@
   background-color: #eee;
   border-radius: 12px;
   position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+/*   clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%); */
   box-shadow: 0 15px 30px rgba(0,0,0,0.1);
   overflow: hidden;
 }

@@ -1,4 +1,4 @@
-.about {
+﻿.about {
   background-color: var(--white);
   background-image: url('/quotes-bg.jpg');
   background-position: left center;
@@ -41,7 +41,7 @@
   width: 100%;
   max-width: 500px;
   aspect-ratio: 4/5;
-  clip-path: polygon(80% 0, 82% 79%, 100% 100%, 0 100%, 0 0);
+/*   clip-path: polygon(80% 0, 82% 79%, 100% 100%, 0 100%, 0 0); */
   border-radius: 12px 12px 12px 0;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -50,7 +50,7 @@
 @media (min-width: 768px) {
   .about-image-mask {
     aspect-ratio: 3/4;
-    clip-path: polygon(80% 0, 82% 79%, 100% 100%, 0 100%, 0 0);
+/*     clip-path: polygon(80% 0, 82% 79%, 100% 100%, 0 100%, 0 0); */
   }
 }
 

@@ -1,4 +1,4 @@
-.patients-hero {
+﻿.patients-hero {
   position: relative;
   min-height: 80vh;
   display: flex;
@@ -95,7 +95,7 @@
   background-color: #eee;
   border-radius: 12px;
   position: relative;
-  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
+/*   clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 25%); */
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   overflow: hidden;
 }
