@@ -1,7 +1,12 @@
 import React from 'react';
 import './SurgeonFunFacts.css';
 
-export default function SurgeonFunFacts() {
+interface SurgeonFunFactsProps {
+  funfactsText?: string;
+  funfactsImage?: string;
+}
+
+export default function SurgeonFunFacts({ funfactsText, funfactsImage }: SurgeonFunFactsProps) {
   return (
     <section className="surgeon-funfacts-section section-padding">
       <div className="container surgeon-funfacts-container">
@@ -9,16 +14,24 @@ export default function SurgeonFunFacts() {
         <div className="funfacts-left">
           <h3 className="funfacts-subtitle">DATOS CURIOSOS DEL</h3>
           <h2 className="funfacts-title">DOCTOR MENDOZA</h2>
-          <p className="funfacts-text">
-            En sus momentos de descanso, el Dr. Mendoza disfruta de la compañía de su esposa y sus dos hijas. Amante de su familia, de igual, de todo tipo de música, meditar, el ejercicio y el velero.
-          </p>
+          {funfactsText ? (
+            <div className="funfacts-text" dangerouslySetInnerHTML={{ __html: funfactsText }} />
+          ) : (
+            <p className="funfacts-text">
+              En sus momentos de descanso, el Dr. Mendoza disfruta de la compañía de su esposa y sus dos hijas. Amante de su familia, de igual, de todo tipo de música, meditar, el ejercicio y el velero.
+            </p>
+          )}
         </div>
 
         <div className="funfacts-right">
           <div className="funfacts-image-card">
-            <div className="funfacts-img-placeholder">
-              <span>(Placeholder Familia)</span>
-            </div>
+            {funfactsImage ? (
+              <img src={funfactsImage} alt="Datos Curiosos" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            ) : (
+              <div className="funfacts-img-placeholder">
+                <span>(Imagen Datos Curiosos)</span>
+              </div>
+            )}
           </div>
         </div>
 
