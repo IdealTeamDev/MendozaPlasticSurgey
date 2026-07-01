@@ -64,7 +64,15 @@ export default function ProcedureResultsSlider({ cases = [] }: ProcedureResultsS
 
           <div className="proc-results-carousel">
             
-            <div className="proc-results-images">
+            <div className="proc-results-images" style={{ position: 'relative' }}>
+              
+              {/* Internal Slider Controls (Floating) */}
+              {currentCase.examples.length > 1 && (
+                <button className="example-nav-btn prev" onClick={prevExample} aria-label="Anterior Ejemplo">&#10094;</button>
+              )}
+              {currentCase.examples.length > 1 && (
+                <button className="example-nav-btn next" onClick={nextExample} aria-label="Siguiente Ejemplo">&#10095;</button>
+              )}
               <div className="proc-result-img-box">
                 <span className="proc-result-tag">ANTES</span>
                 {currentExample.before ? (
@@ -90,12 +98,8 @@ export default function ProcedureResultsSlider({ cases = [] }: ProcedureResultsS
 
             {/* Sub-slider controls for multiple examples in the SAME case */}
             {currentCase.examples.length > 1 && (
-              <div className="proc-results-example-controls" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
-                <button className="slider-btn" onClick={prevExample} aria-label="Anterior Ejemplo">&lt;</button>
-                <span style={{ alignSelf: 'center', fontFamily: 'var(--font-subtitle)', fontSize: '0.9rem' }}>
-                  {currentExampleIndex + 1} / {currentCase.examples.length}
-                </span>
-                <button className="slider-btn" onClick={nextExample} aria-label="Siguiente Ejemplo">&gt;</button>
+              <div style={{ textAlign: 'center', marginTop: '1rem', fontFamily: 'var(--font-subtitle)', fontSize: '0.9rem', color: '#888' }}>
+                Foto {currentExampleIndex + 1} de {currentCase.examples.length}
               </div>
             )}
 

@@ -49,7 +49,6 @@ export default function NosotrosClient({ acf, cases, procedureCategories }: Noso
             <div className="container" style={{ textAlign: 'left', marginBottom: '2rem' }}>
               <p style={{ fontSize: '0.9rem', color: '#666', letterSpacing: '2px', textTransform: 'uppercase' }}>ANTES Y DESPUÉS</p>
               <h2 style={{ fontSize: '2.5rem', fontWeight: '300', color: 'var(--black)' }}>CIRUGÍA PLÁSTICA</h2>
-              <button className="btn btn-black" style={{ marginTop: '1rem', backgroundColor: '#000', color: '#fff', padding: '0.8rem 1.5rem', border: 'none', borderRadius: '4px' }}>Ver más resultados</button>
             </div>
             <ProcedureResultsSlider cases={cases} />
           </section>
