@@ -6,11 +6,12 @@
 
 .home-intro-subtitle {
   font-family: var(--font-subtitle);
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .home-intro-content {
@@ -46,6 +47,11 @@
 @media (min-width: 768px) {
   .home-intro-section {
     padding: 6rem 0 3rem;
+  }
+  
+  .home-intro-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
   }
   
   .home-intro-content {
