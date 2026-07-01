@@ -13,7 +13,8 @@ export interface CaseCardData {
   id: number | string;
   title: string;
   date: string;
-  description: string;
+  shortDescription?: string;
+  longDescription?: string;
   examples: CaseExample[];
 }
 
@@ -73,7 +74,7 @@ export default function CasesGrid({ cases = [] }: CasesGridProps) {
             <div className="cases-card-content">
               <span className="cases-card-date">{c.date}</span>
               <h4 className="cases-card-title">{c.title.toUpperCase()}</h4>
-              {c.description && <p className="cases-card-desc">{c.description}</p>}
+              {c.shortDescription && <p className="cases-card-desc">{c.shortDescription}</p>}
               
               <button className="cases-card-btn" onClick={() => openModal(index)}>
                 Ver más

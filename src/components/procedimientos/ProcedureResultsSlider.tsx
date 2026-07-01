@@ -11,6 +11,8 @@ interface CaseExample {
 interface CaseData {
   id: number | string;
   title: string;
+  shortDescription?: string;
+  longDescription?: string;
   examples: CaseExample[];
 }
 
