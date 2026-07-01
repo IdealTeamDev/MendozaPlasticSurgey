@@ -8,6 +8,8 @@ interface BlogPostHeroProps {
   readTime: string;
   author: string;
   imageUrl?: string;
+  vistas?: string;
+  compartidos?: string;
 }
 
 export default function BlogPostHero({ title, category, date, readTime, author, imageUrl, vistas, compartidos }: BlogPostHeroProps) {
