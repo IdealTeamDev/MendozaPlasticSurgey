@@ -52,7 +52,7 @@ export default function CasesCategoryAccordion({ categories = [] }: CasesCategor
                 {cat.image ? (
                   <img src={cat.image} alt={cat.name} className="cases-accordion-img" />
                 ) : (
-                  <div className="cases-accordion-img-placeholder"></div>
+                  <img src="/procedures.png" alt={cat.name} className="cases-accordion-img" />
                 )}
                 <h3 className="cases-accordion-title">{cat.name.toUpperCase()}</h3>
               </div>

@@ -11,6 +11,7 @@ import {
 import ProcedureDetailHero from '@/components/procedimientos/ProcedureDetailHero';
 import CasesGrid from '@/components/casos/CasesGrid';
 import CasesSidebar from '@/components/casos/CasesSidebar';
+import Contact from '@/components/Contact';
 import ProcedureIntro from '@/components/procedimientos/ProcedureIntro';
 
 // Helper to format date
@@ -189,52 +190,7 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
       </section>
 
       {/* Contact Form Section (Pre-Footer) */}
-      <section style={{ backgroundColor: '#fff', padding: '5rem 1rem' }}>
-        <div className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem', alignItems: 'center' }}>
-          <div style={{ flex: '1 1 40%', minWidth: '300px' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 400, fontFamily: 'var(--font-title)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
-              ¡EL CAMBIO QUE QUIERES ES AHORA!
-            </h2>
-            <p style={{ fontFamily: 'var(--font-subtitle)', color: '#555', marginBottom: '1.5rem' }}>
-              Reserva tu consulta con el Dr. Mendoza <strong>cirujano plástico en Atlanta</strong> y conoce más sobre tu procedimiento.
-            </p>
-            <p style={{ fontFamily: 'var(--font-subtitle)', color: '#555' }}>
-              Después de diligenciar el formulario, uno de nuestros asesores se pondrá en contacto contigo para fijar la fecha de tu consulta.
-            </p>
-          </div>
-          <div style={{ flex: '1 1 50%', minWidth: '300px', backgroundColor: '#f9f9f9', padding: '3rem', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-            <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', fontFamily: 'var(--font-subtitle)' }}>
-              <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#333' }}>Nombre*</label>
-                <input type="text" placeholder="Ingresa tu nombre aquí" style={{ width: '100%', padding: '0.8rem', border: '1px solid #ddd', borderRadius: '4px' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#333' }}>Correo electrónico*</label>
-                <input type="email" placeholder="Ingresa tu correo electrónico aquí" style={{ width: '100%', padding: '0.8rem', border: '1px solid #ddd', borderRadius: '4px' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#333' }}>Celular*</label>
-                <input type="tel" placeholder="Ingresa tu número de celular aquí" style={{ width: '100%', padding: '0.8rem', border: '1px solid #ddd', borderRadius: '4px' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#333' }}>Procedimiento deseado*</label>
-                <select style={{ width: '100%', padding: '0.8rem', border: '1px solid #ddd', borderRadius: '4px', backgroundColor: '#fff', color: '#888' }}>
-                  <option>Selecciona un procedimiento</option>
-                  <option>Aumento de senos</option>
-                  <option>Liposucción</option>
-                </select>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.5rem' }}>
-                <input type="checkbox" id="policy" />
-                <label htmlFor="policy" style={{ fontSize: '0.8rem', color: '#666' }}>Acepto política de tratamiento de datos</label>
-              </div>
-              <button type="button" style={{ backgroundColor: '#000', color: '#fff', padding: '1rem', border: 'none', borderRadius: '4px', fontWeight: 500, marginTop: '1rem', cursor: 'pointer' }}>
-                Agenda tu consulta
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
+      <Contact />
 
     </main>
   );
