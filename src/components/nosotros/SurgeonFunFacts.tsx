@@ -26,7 +26,7 @@ export default function SurgeonFunFacts({ funfactsText, funfactsImage }: Surgeon
         <div className="funfacts-right">
           <div className="funfacts-image-card">
             {funfactsImage ? (
-              <img src={funfactsImage} alt="Datos Curiosos" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={funfactsImage} alt="Datos Curiosos" style={{ width: '100%', height: 'auto', objectFit: 'contain', display: 'block' }} />
             ) : (
               <div className="funfacts-img-placeholder">
                 <span>(Imagen Datos Curiosos)</span>
