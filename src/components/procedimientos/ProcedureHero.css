@@ -1,12 +1,12 @@
 .proc-hero {
   position: relative;
-  min-height: 70vh;
+  min-height: 550px;
   display: flex;
   align-items: center;
-  padding-top: 150px;
-  padding-bottom: 6rem;
+  padding-top: 120px;
+  padding-bottom: 8rem;
   overflow: hidden;
-  background-color: #050505;
+  background-color: #111;
 }
 
 .proc-hero-bg {
@@ -16,12 +16,10 @@
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-color: #050505;
+  background-color: #222;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  filter: blur(4px); /* Add blur to background image as per Figma */
-  transform: scale(1.05); /* Prevent blur edges from showing */
+  filter: grayscale(100%);
 }
 
 .proc-hero-overlay {
@@ -30,24 +28,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
 }
 
 .proc-hero-container {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
   width: 100%;
   position: relative;
   z-index: 1;
-}
-
-@media (min-width: 992px) {
-  .proc-hero-container {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
 }
 
 .proc-hero-content {
@@ -57,77 +47,24 @@
 }
 
 .proc-hero-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.2;
   letter-spacing: 2px;
+  margin: 0;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
-  .proc-hero-title { font-size: 4.2rem; }
+  .proc-hero-title { font-size: 4.5rem; }
 }
 
 .proc-hero-text {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   line-height: 1.6;
-  color: #ddd;
-  max-width: 450px;
-  font-weight: 300;
-}
-
-.proc-hero-image-wrapper {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-}
-
-@media (min-width: 992px) {
-  .proc-hero-image-wrapper {
-    justify-content: flex-end;
-  }
-}
-
-.proc-hero-image-card {
-  width: 100%;
-  max-width: 550px;
-  aspect-ratio: 16/9;
-  background-color: #111;
-  position: relative;
-  /* Figma shape: top left angle, bottom right angle */
-  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-  overflow: hidden;
-  transition: transform 0.5s ease;
-}
-
-.proc-hero-image-card:hover {
-  transform: translateY(-5px);
-}
-
-.proc-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s ease;
-}
-
-.proc-hero-image-card:hover .proc-img {
-  transform: scale(1.05);
-}
-
-.proc-img-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #222;
-  color: #666;
-  font-size: 0.9rem;
+  color: #f1f1f1;
+  max-width: 600px;
   font-weight: 300;
 }
 
