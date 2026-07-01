@@ -14,14 +14,6 @@
   --font-subtitle: 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* If dark mode is supported, we keep mostly the same palette for this specific design, 
-       but you could invert here if desired */
-    --background: #111111;
-    --foreground: #ffffff;
-  }
-}
 
 * {
   box-sizing: border-box;

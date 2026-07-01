@@ -59,7 +59,8 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
   if (Array.isArray(acf?.casos_relacionados)) {
     resolvedCases = await Promise.all(
       acf.casos_relacionados.map(async (casoRef: any) => {
-        const id = casoRef.ID || casoRef.id;
+        // ACF might return just the ID number or a post object depending on settings
+        const id = typeof casoRef === 'number' ? casoRef : (casoRef.ID || casoRef.id);
         if (!id) return null;
         
         const casoPost = await getCasoById(id);
