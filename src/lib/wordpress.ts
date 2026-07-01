@@ -90,6 +90,12 @@ export async function getCategoryBySlug(slug: string) {
   return data && data.length > 0 ? data[0] : null;
 }
 
+export async function getCategories() {
+  const data = await fetchAPI('/categories?per_page=100');
+  // Exclude 'Uncategorized' which usually has id 1, or filter by count if needed
+  return data ? data.filter((c: any) => c.slug !== 'uncategorized' && c.slug !== 'sin-categoria') : [];
+}
+
 export async function getMedia(id: number) {
   if (!id) return null;
   const data = await fetchAPI(`/media/${id}`);

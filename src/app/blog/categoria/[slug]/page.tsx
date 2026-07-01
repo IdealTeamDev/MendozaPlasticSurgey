@@ -76,6 +76,35 @@ export default async function BlogCategoryPage({ params, searchParams }: { param
     };
   }) : [];
 
+  // Fetch ACF from the main 'blog' page to keep Subscription and Categories sections identical
+  const { getPageBySlug, getMedia, getCategories } = await import('@/lib/wordpress');
+  const blogPage = await getPageBySlug('blog');
+  const acf = blogPage?.acf || {};
+
+  const allCategories = await getCategories();
+
+  const subTitle = acf.titulo_suscripcion || 'SUSCRÍBETE A NUESTRO BLOG';
+  const subDesc = acf.texto_suscripcion || 'Mantente al día con lo último en tendencias sobre la Plastic Surgery con nuestro boletín mensual.';
+  const subBgImage = typeof acf.imagen_suscripcion === 'number'
+    ? (await getMedia(acf.imagen_suscripcion))?.source_url
+    : (acf.imagen_suscripcion || null);
+
+  const catImagesList = acf.categorias_destacadas || [];
+  const catImageMap: Record<string, string> = {};
+  
+  if (Array.isArray(catImagesList)) {
+    for (const item of catImagesList) {
+      if (item.nombre_categoria) {
+        const catName = item.nombre_categoria.toLowerCase().trim();
+        let imgUrl = item.imagen;
+        if (typeof imgUrl === 'number') {
+          imgUrl = (await getMedia(imgUrl))?.source_url;
+        }
+        catImageMap[catName] = imgUrl || '';
+      }
+    }
+  }
+
   return (
     <main>
       <BlogCategoryHero categoryTitle={categoryName} />
@@ -93,8 +122,15 @@ export default async function BlogCategoryPage({ params, searchParams }: { param
         </div>
       )}
       
-      <BlogSubscription />
-      <BlogCategories />
-      </main>
+      <BlogSubscription 
+        title={subTitle}
+        desc={subDesc}
+        bgImage={subBgImage}
+      />
+      <BlogCategories 
+        categories={allCategories}
+        categoryImages={catImageMap}
+      />
+    </main>
   );
 }

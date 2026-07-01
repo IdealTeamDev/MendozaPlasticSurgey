@@ -10,7 +10,16 @@ const CATEGORIES = [
   { id: 'faciales', title: 'FACIALES', imgClass: 'cat-bg-faciales' },
 ];
 
-export default function BlogCategories() {
+interface BlogCategoriesProps {
+  categories?: any[];
+  categoryImages?: Record<string, string>;
+}
+
+export default function BlogCategories({ categories = [], categoryImages = {} }: BlogCategoriesProps) {
+  // If no dynamic categories are passed (e.g. before API is ready), use fallbacks or just render nothing
+  if (!categories || categories.length === 0) return null;
+
+  // Render a clean grid of categories
   return (
     <section className="blog-cat-section section-padding">
       <div className="container">
@@ -22,25 +31,20 @@ export default function BlogCategories() {
         </div>
 
         <div className="blog-cat-grid">
-          {/* Top row: 3 items */}
-          <div className="blog-cat-row top-row">
-            {CATEGORIES.slice(0, 3).map(cat => (
-              <Link href={`/blog/categoria/${cat.id}`} key={cat.id} className={`blog-cat-card ${cat.imgClass}`}>
+          {categories.map((cat, index) => {
+            const catNameLower = cat.name.toLowerCase().trim();
+            const customImg = categoryImages[catNameLower];
+            const bgStyle = customImg ? { backgroundImage: `url(${customImg})` } : {};
+            
+            // To mimic the masonry-like 3-top, 2-bottom design roughly
+            // You can also just rely on flex-wrap in CSS instead of splitting arrays manually.
+            return (
+              <Link href={`/blog/categoria/${cat.slug}`} key={cat.id} className="blog-cat-card" style={bgStyle}>
                 <div className="blog-cat-overlay"></div>
-                <span className="blog-cat-name">{cat.title}</span>
+                <span className="blog-cat-name">{cat.name}</span>
               </Link>
-            ))}
-          </div>
-
-          {/* Bottom row: 2 items centered */}
-          <div className="blog-cat-row bottom-row">
-            {CATEGORIES.slice(3, 5).map(cat => (
-              <Link href={`/blog/categoria/${cat.id}`} key={cat.id} className={`blog-cat-card ${cat.imgClass}`}>
-                <div className="blog-cat-overlay"></div>
-                <span className="blog-cat-name">{cat.title}</span>
-              </Link>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
       </div>

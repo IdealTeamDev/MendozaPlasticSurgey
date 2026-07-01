@@ -63,11 +63,40 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
     ? (await getMedia(acf.hero_imagen))?.source_url 
     : acf?.hero_imagen;
 
+  // Fetch all categories
+  const { getCategories } = await import('@/lib/wordpress');
+  const allCategories = await getCategories();
+
+  // ACF Subscription data
+  const subTitle = acf.titulo_suscripcion || 'SUSCRÍBETE A NUESTRO BLOG';
+  const subDesc = acf.texto_suscripcion || 'Mantente al día con lo último en tendencias sobre la Plastic Surgery con nuestro boletín mensual.';
+  const subBgImage = typeof acf.imagen_suscripcion === 'number'
+    ? (await getMedia(acf.imagen_suscripcion))?.source_url
+    : (acf.imagen_suscripcion || null);
+
+  // ACF Categories Images (Repeater)
+  const catImagesList = acf.categorias_destacadas || []; // [{ nombre_categoria: '...', imagen: 'url/id' }]
+  // Create a map for easy lookup: { "cuerpo": "image_url" }
+  const catImageMap: Record<string, string> = {};
+  
+  if (Array.isArray(catImagesList)) {
+    for (const item of catImagesList) {
+      if (item.nombre_categoria) {
+        const catName = item.nombre_categoria.toLowerCase().trim();
+        let imgUrl = item.imagen;
+        if (typeof imgUrl === 'number') {
+          imgUrl = (await getMedia(imgUrl))?.source_url;
+        }
+        catImageMap[catName] = imgUrl || '';
+      }
+    }
+  }
+
   return (
     <main>
       <BlogHero 
-        title={acf?.hero_titulo}
-        desc={acf?.hero_texto}
+        title={acf?.hero_titulo} 
+        desc={acf?.hero_descripcion} 
         imageUrl={heroImage}
       />
       {posts && posts.length > 0 ? (
@@ -82,8 +111,15 @@ export default async function BlogPage({ searchParams }: { searchParams: { page?
           <h2>No hay publicaciones disponibles en este momento.</h2>
         </div>
       )}
-      <BlogSubscription />
-      <BlogCategories />
-      </main>
+      <BlogSubscription 
+        title={subTitle}
+        desc={subDesc}
+        bgImage={subBgImage}
+      />
+      <BlogCategories 
+        categories={allCategories}
+        categoryImages={catImageMap}
+      />
+    </main>
   );
 }
