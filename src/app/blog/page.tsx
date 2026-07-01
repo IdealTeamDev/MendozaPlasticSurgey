@@ -5,9 +5,8 @@ import BlogSubscription from '@/components/blog/BlogSubscription';
 import BlogCategories from '@/components/blog/BlogCategories';
 import { getPaginatedPosts, getPageBySlug, getMedia } from '@/lib/wordpress';
 
-export default async function BlogPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
-  const sp = await searchParams;
-  const currentPage = parseInt(sp.page || '1', 10);
+export default async function BlogPage({ searchParams }: { searchParams: { page?: string } }) {
+  const currentPage = parseInt(searchParams.page || '1', 10);
   
   // Fetch paginated posts (6 per page)
   const { data: postsData, totalPages } = await getPaginatedPosts(currentPage, 6);

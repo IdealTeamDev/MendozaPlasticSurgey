@@ -15,9 +15,8 @@ import ProcedureFAQ from '@/components/procedimientos/ProcedureFAQ';
 // Option 2 Specific Components
 import ProcedureTreatmentTypes from '@/components/procedimientos/ProcedureTreatmentTypes';
 
-export default async function ProcedureDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params;
-  const slug = resolvedParams.slug;
+export default async function ProcedureDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   
   const wpProc = await getProcedureBySlug(slug);
   const acf = wpProc?.acf || {};
