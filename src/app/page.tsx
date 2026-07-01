@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '@/components/Hero';
+import HomeIntroText from '@/components/HomeIntroText';
 import About from '@/components/About';
 import Badges from '@/components/Badges';
 import Procedures from '@/components/Procedures';
@@ -97,6 +98,12 @@ export default async function Home() {
         imageUrl={heroImage}
       />
       
+      {/* Nueva seccion WYSIWYG justo despues del hero (2da seccion) */}
+      <HomeIntroText content={acf?.home_intro_text} />
+      
+      {/* Testimonios despues del nuevo texto */}
+      <Testimonials />
+      
       <About 
         subtitle={acf?.about_subtitulo}
         title={acf?.about_titulo}
@@ -105,8 +112,6 @@ export default async function Home() {
       />
       
       <Badges badges={resolvedBadges} />
-      
-      <Testimonials />
 
       <Procedures 
         title={acf?.procedimientos_titulo}

@@ -9,9 +9,9 @@
   --gray-dark: #333333;
   --text-muted: #666666;
   
-  --font-text: var(--font-text, 'Fahkwang', sans-serif);
-  --font-title: var(--font-title, 'Montserrat', sans-serif);
-  --font-subtitle: 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-text: var(--font-text, 'Montserrat', sans-serif);
+  --font-title: var(--font-title, 'Fahkwang', sans-serif);
+  --font-subtitle: 'Avenir', 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 
