@@ -68,7 +68,7 @@ export default function CasesCategoryAccordion({ categories = [] }: CasesCategor
                 {cat.procedures && cat.procedures.length > 0 ? (
                   <div className="cases-procedures-list">
                     {cat.procedures.map((proc) => (
-                      <Link href={`/casos/${proc.slug}`} key={proc.id} className="cases-procedure-pill">
+                      <Link href={`/antes-despues/${proc.slug}`} key={proc.id} className="cases-procedure-pill">
                         {proc.title}
                       </Link>
                     ))}

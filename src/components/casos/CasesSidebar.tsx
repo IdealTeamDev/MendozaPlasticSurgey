@@ -61,7 +61,7 @@ export default function CasesSidebar({ categories = [] }: CasesSidebarProps) {
                     <ul className="cases-sidebar-procs-list">
                       {cat.procedures.map((proc) => (
                         <li key={proc.id}>
-                          <Link href={`/casos/${proc.slug}`} className="cases-sidebar-proc-link">
+                          <Link href={`/antes-despues/${proc.slug}`} className="cases-sidebar-proc-link">
                             {proc.title}
                           </Link>
                         </li>
