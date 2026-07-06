@@ -26,8 +26,6 @@
   height: 450px;
   border-radius: 16px;
   overflow: hidden;
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: flex-end; /* Text at bottom */
 }

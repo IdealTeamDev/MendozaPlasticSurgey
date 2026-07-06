@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import './BlogPostHero.css';
 
 interface BlogPostHeroProps {
@@ -19,10 +20,15 @@ export default function BlogPostHero({ title, category, date, readTime, author, 
   return (
     <section className="blog-post-hero-internal section-padding">
       <div className="container">
-        <div 
-          className="blog-post-hero-box" 
-          style={{ backgroundImage: `url(${bgImage})` }}
-        >
+        <div className="blog-post-hero-box">
+          <Image 
+            src={bgImage} 
+            alt={title} 
+            fill 
+            priority
+            sizes="(max-width: 1200px) 100vw, 1200px" 
+            style={{ objectFit: 'cover', zIndex: 0 }} 
+          />
           <div className="blog-post-hero-box-overlay"></div>
           
           <div className="blog-post-hero-box-content">
