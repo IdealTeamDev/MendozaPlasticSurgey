@@ -13,10 +13,16 @@ export default function Hero({ subtitle, title, text, imageUrl }: HeroProps) {
   return (
     <section className="hero">
       <div className="hero-bg">
-        <div 
-          className="hero-bg-img" 
-          style={{ backgroundImage: `url('${imageUrl || "/team.png"}')` }}
-        ></div>
+        <div className="hero-bg-img">
+          <Image 
+            src={imageUrl || "/team.png"} 
+            alt="Hero Background" 
+            fill 
+            priority
+            sizes="100vw"
+            style={{ objectFit: 'cover' }} 
+          />
+        </div>
         <div className="hero-overlay"></div>
       </div>
       

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import './Navbar.css';
 
 interface MenuColumn {
@@ -76,9 +77,9 @@ const FALLBACK_MENU: MenuItem[] = [
         <div className="navbar-logo">
           <Link href="/">
             {logoUrl ? (
-              <img src={logoUrl} alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain' }} />
+              <Image src={logoUrl} alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
             ) : (
-              <img src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain' }} />
+              <Image src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
             )}
           </Link>
         </div>
@@ -141,9 +142,9 @@ const FALLBACK_MENU: MenuItem[] = [
           <div className="navbar-logo">
             <Link href="/" onClick={() => setIsMenuOpen(false)}>
               {logoUrl ? (
-                <img src={logoUrl} alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain' }} />
+                <Image src={logoUrl} alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
               ) : (
-                <img src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain' }} />
+                <Image src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
               )}
             </Link>
           </div>

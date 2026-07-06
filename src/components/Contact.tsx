@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import './Contact.css';
 
 interface ContactProps {
@@ -12,6 +13,13 @@ interface ContactProps {
 export default function Contact({ subtitle, titleBold, text }: ContactProps) {
   return (
     <section className="contact section-padding" id="contacto">
+      <Image 
+        src="/hero_bg.png" 
+        alt="Contact background"
+        fill
+        sizes="100vw"
+        style={{ objectFit: 'cover', zIndex: 0, filter: 'grayscale(100%) blur(4px)', opacity: 0.8 }}
+      />
       <div className="contact-bg-shape">
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%">
           <path fill="var(--white)" d="M 0 0 L 100 0 L 100 35 L 60 35 C 45 35, 45 95, 30 95 L 0 95 Z" />
