@@ -20,11 +20,13 @@ export default async function CasosDirectoryPage() {
 
     // Fetch procedures for this category
     const procsRaw = await getProceduresByCategory(cat.id) || [];
-    const procedures = procsRaw.map((p: any) => ({
-      id: p.id,
-      title: p.title?.rendered || '',
-      slug: p.slug
-    }));
+    const procedures = procsRaw
+      .filter((p: any) => Array.isArray(p.acf?.casos_relacionados) && p.acf.casos_relacionados.length > 0)
+      .map((p: any) => ({
+        id: p.id,
+        title: p.title?.rendered || '',
+        slug: p.slug
+      }));
 
     return {
       id: cat.id,
@@ -35,6 +37,9 @@ export default async function CasosDirectoryPage() {
     };
   }));
 
+  // Filter out categories that have no procedures with cases
+  const filteredCategoriesRawData = categoriesRawData.filter(cat => cat.procedures && cat.procedures.length > 0);
+
   const orderMap: { [key: string]: number } = {
     'cirugia-de-cuerpo': 1,
     'cirugia-de-senos': 2,
@@ -43,7 +48,7 @@ export default async function CasosDirectoryPage() {
     'inyectables': 5
   };
 
-  const categories = categoriesRawData.sort((a, b) => {
+  const categories = filteredCategoriesRawData.sort((a, b) => {
     const aOrder = orderMap[a.slug?.toLowerCase()] || 99;
     const bOrder = orderMap[b.slug?.toLowerCase()] || 99;
     return aOrder - bOrder;

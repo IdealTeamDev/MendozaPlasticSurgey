@@ -125,20 +125,22 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
     return aOrder - bOrder;
   });
 
-  const sidebarCategories = await Promise.all(sortedCategories.map(async (cat: any) => {
+  const sidebarCategories = (await Promise.all(sortedCategories.map(async (cat: any) => {
     const procsRaw = await getProceduresByCategory(cat.id) || [];
-    const procedures = procsRaw.map((p: any) => ({
-      id: p.id,
-      title: p.title?.rendered || '',
-      slug: p.slug
-    }));
+    const procedures = procsRaw
+      .filter((p: any) => Array.isArray(p.acf?.casos_relacionados) && p.acf.casos_relacionados.length > 0)
+      .map((p: any) => ({
+        id: p.id,
+        title: p.title?.rendered || '',
+        slug: p.slug
+      }));
 
     return {
       id: cat.id,
       name: cat.name,
       procedures: procedures
     };
-  }));
+  }))).filter(cat => cat.procedures && cat.procedures.length > 0);
 
   return (
     <main style={{ backgroundColor: '#fafafa', paddingBottom: '4rem' }}>
