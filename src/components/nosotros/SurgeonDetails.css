@@ -97,6 +97,24 @@
   margin-bottom: 0;
 }
 
+.surgeon-pane-right-two-cols {
+  flex: 1.2;
+}
+
+.surgeon-pane-right-two-cols p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .surgeon-pane-right-two-cols > div {
+    column-count: 2;
+    column-gap: 2.5rem;
+  }
+}
+
 .surgeon-pane-full {
   width: 100%;
   text-align: center;
