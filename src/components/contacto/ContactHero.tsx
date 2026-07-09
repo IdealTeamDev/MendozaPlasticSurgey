@@ -28,7 +28,7 @@ export default function ContactHero({ subtitle, title, desc, imageUrl }: Contact
         <div className="contact-hero-image-wrapper">
           <div className="contact-hero-image-card">
             {imageUrl ? (
-              <img src={imageUrl} alt={title || 'Contacto'} className="contact-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={imageUrl} alt={title || 'Contacto'} className="contact-img" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             ) : (
               <div className="contact-img-placeholder">
                 <span>(Placeholder Imagen Asesora)</span>
