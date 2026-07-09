@@ -30,9 +30,10 @@ export default function MedicalCenterGallery({ images = [] }: MedicalCenterGalle
         <div className="mc-gallery-wrapper">
           <div className="mc-gallery-image-container">
             <img 
+              key={currentIndex}
               src={displayImages[currentIndex]} 
               alt="Medical Center Facility" 
-              className="mc-gallery-img"
+              className="mc-gallery-img fade-anim"
             />
           </div>
           
