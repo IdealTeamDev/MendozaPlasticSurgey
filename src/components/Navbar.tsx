@@ -52,8 +52,15 @@ export default function Navbar({ logoUrl, menuItems }: NavbarProps) {
 
 const FALLBACK_MENU: MenuItem[] = [
   { titulo: 'Inicio', enlace: '/' },
-  { titulo: 'Dr. Mendoza', enlace: '/surgeon' },
-  { titulo: 'Medical Center', enlace: '/medical-center' },
+  { 
+    titulo: 'Nosotros', 
+    enlace: '#',
+    es_desplegable: true,
+    sub_menu: [
+      { titulo: 'Dr. Mendoza', enlace: '/surgeon' },
+      { titulo: 'Medical Center', enlace: '/medical-center' }
+    ]
+  },
   { 
     titulo: 'Procedimientos', 
     enlace: '/procedimientos',
