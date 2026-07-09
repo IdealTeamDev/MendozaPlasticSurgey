@@ -8,16 +8,27 @@
   overflow: hidden;
 }
 
-.contact-hero-bg {
+.contact-hero-bg-wrapper {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-color: #222;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.contact-hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
+  filter: blur(25px) grayscale(100%);
+  transform: scale(1.15) translateZ(0);
 }
 
 .contact-hero-overlay {
@@ -26,9 +37,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-  backdrop-filter: blur(25px) grayscale(100%);
-  -webkit-backdrop-filter: blur(25px) grayscale(100%);
+  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
 }
 
 .contact-hero-container {
@@ -55,36 +64,36 @@
 }
 
 .contact-hero-subtitle {
-  font-size: 0.9rem;
-  letter-spacing: 1px;
+  font-size: 1rem;
+  letter-spacing: 2px;
   margin-bottom: 0.5rem;
-  font-weight: 300;
-  color: #ccc;
+  font-weight: 500;
+  color: #ddd;
   text-transform: uppercase;
 }
 
 .contact-hero-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: 1px;
   margin-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
-  .contact-hero-title { font-size: 3rem; }
-  .contact-hero-subtitle { font-size: 1rem; }
+  .contact-hero-title { font-size: 4rem; }
+  .contact-hero-subtitle { font-size: 1.2rem; }
 }
 
 .contact-hero-desc {
   font-size: 1rem;
   line-height: 1.6;
-  color: rgba(255,255,255,0.9);
+  color: #ddd;
   max-width: 500px;
 }
 
 @media (min-width: 768px) {
-  .contact-hero-desc { font-size: 1.1rem; }
+  .contact-hero-desc { font-size: 1.2rem; max-width: 600px; }
 }
 
 .contact-hero-image-wrapper {
@@ -104,9 +113,9 @@
 
 .contact-hero-image-card {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   aspect-ratio: 16/10;
-  border-radius: 8px; /* Slightly softer radius */
+  border-radius: 12px;
   position: relative;
   clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 35%);
   overflow: hidden;

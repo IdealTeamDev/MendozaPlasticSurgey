@@ -11,7 +11,8 @@ interface ContactHeroProps {
 export default function ContactHero({ subtitle, title, desc, imageUrl }: ContactHeroProps) {
   return (
     <section className="contact-hero">
-      <div className="contact-hero-bg" style={{ backgroundImage: `url('${imageUrl || '/hero_bg.png?v=2'}')` }}>
+      <div className="contact-hero-bg-wrapper">
+        <div className="contact-hero-bg-img" style={{ backgroundImage: `url('${imageUrl || '/hero_bg.png?v=2'}')` }}></div>
         <div className="contact-hero-overlay"></div>
       </div>
       
