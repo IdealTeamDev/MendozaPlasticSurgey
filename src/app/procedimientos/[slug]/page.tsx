@@ -165,9 +165,13 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
         <>
           <ProcedureResultsSlider cases={resolvedCases} />
           <ProcedureFinancing 
-            subtitle={acf?.financiamiento_subtitulo}
-            title={acf?.financiamiento_titulo}
-            text={acf?.financiamiento_texto}
+            subtitle={acf?.financiamiento_subtitulo || 'FINANCIAMIENTO PARA'}
+            title={acf?.financiamiento_titulo || `CIRUGÍA DE ${title.toUpperCase()}`}
+            text={acf?.financiamiento_texto || `
+              <p>En Mendoza Plastic Surgery contamos con diferentes opciones de financiamiento que te permiten acceder a tu procedimiento de manera flexible y segura.</p>
+              <p>Trabajamos con aliados como Cherry, CareCredit y PatientFi, plataformas diseñadas para ofrecer planes de pago adaptados a tus necesidades, con procesos rápidos y opciones que facilitan iniciar tu tratamiento sin tener que realizar el pago total de inmediato.</p>
+              <p>El costo de cada procedimiento puede variar según las necesidades de cada paciente, ya que todos nuestros tratamientos son personalizados.</p>
+            `}
           />
           <ProcedureFAQ faqs={faqs} title={acf?.hero_titulo || title} />
         </>
