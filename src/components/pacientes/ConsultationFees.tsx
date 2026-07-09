@@ -1,7 +1,11 @@
 import React from 'react';
 import './ConsultationFees.css';
 
-export default function ConsultationFees() {
+interface ConsultationFeesProps {
+  title?: string;
+}
+
+export default function ConsultationFees({ title }: ConsultationFeesProps) {
   return (
     <section className="consultation-fees-section section-padding">
       {/* Decorative background shapes */}
@@ -11,7 +15,7 @@ export default function ConsultationFees() {
       <div className="container consultation-fees-container">
         <div className="consultation-header">
           <span className="consultation-subtitle">INFORMACIÓN SOBRE</span>
-          <h2 className="consultation-title">CONSULTAS Y HONORARIOS QUIRÚRGICOS</h2>
+          <h2 className="consultation-title">{title || 'CONSULTAS Y HONORARIOS QUIRÚRGICOS'}</h2>
         </div>
 
         <div className="fees-cards-wrapper">
