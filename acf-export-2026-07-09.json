@@ -1,463 +1,84 @@
 [
     {
-        "key": "group_nosotros_page",
-        "title": "Campos de Página: Nosotros",
+        "key": "group_surgeon_page",
+        "title": "Campos de Página: Surgeon (Dr. Mendoza)",
         "fields": [
-            {
-                "key": "field_surgeon_tab",
-                "label": "--- SECCIÓN SURGEON ---",
-                "name": "",
-                "aria-label": "",
-                "type": "tab",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "placement": "top",
-                "endpoint": 0,
-                "selected": 0
-            },
             {
                 "key": "field_surgeon_subtitle",
                 "label": "Subtítulo Hero",
                 "name": "surgeon_subtitle",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
+                "type": "text"
             },
             {
                 "key": "field_surgeon_title",
                 "label": "Título Hero",
                 "name": "surgeon_title",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
+                "type": "text"
             },
             {
                 "key": "field_surgeon_desc",
                 "label": "Descripción Hero",
                 "name": "surgeon_desc",
-                "aria-label": "",
-                "type": "textarea",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "new_lines": "",
-                "maxlength": "",
-                "placeholder": "",
-                "rows": ""
+                "type": "textarea"
             },
             {
                 "key": "field_surgeon_image",
                 "label": "Imagen Hero",
                 "name": "surgeon_image",
-                "aria-label": "",
                 "type": "image",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "id",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
+                "return_format": "id"
             },
             {
                 "key": "field_surgeon_estudios_text",
                 "label": "Texto Estudios",
                 "name": "surgeon_estudios_text",
-                "aria-label": "",
-                "type": "wysiwyg",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "default_value": "",
-                "delay": 0
+                "type": "wysiwyg"
             },
             {
                 "key": "field_surgeon_estudios_image",
                 "label": "Imagen Estudios",
                 "name": "surgeon_estudios_image",
-                "aria-label": "",
                 "type": "image",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "id",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
+                "return_format": "id"
             },
             {
                 "key": "field_surgeon_certificaciones_text",
                 "label": "Texto Certificaciones",
                 "name": "surgeon_certificaciones_text",
-                "aria-label": "",
-                "type": "wysiwyg",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "default_value": "",
-                "delay": 0
+                "type": "wysiwyg"
             },
             {
                 "key": "field_surgeon_certificaciones_image",
                 "label": "Imagen Certificaciones",
                 "name": "surgeon_certificaciones_image",
-                "aria-label": "",
                 "type": "image",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "id",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
+                "return_format": "id"
             },
             {
                 "key": "field_surgeon_clinica_text",
                 "label": "Texto Clínica",
                 "name": "surgeon_clinica_text",
-                "aria-label": "",
-                "type": "wysiwyg",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "default_value": "",
-                "delay": 0
+                "type": "wysiwyg"
             },
             {
                 "key": "field_surgeon_clinica_image",
                 "label": "Imagen Clínica",
                 "name": "surgeon_clinica_image",
-                "aria-label": "",
                 "type": "image",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "id",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
+                "return_format": "id"
             },
             {
                 "key": "field_surgeon_funfacts_text",
                 "label": "Texto Datos Curiosos",
                 "name": "surgeon_funfacts_text",
-                "aria-label": "",
-                "type": "wysiwyg",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "default_value": "",
-                "delay": 0
+                "type": "wysiwyg"
             },
             {
                 "key": "field_surgeon_funfacts_image",
                 "label": "Imagen Datos Curiosos",
                 "name": "surgeon_funfacts_image",
-                "aria-label": "",
                 "type": "image",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "id",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
-            },
-            {
-                "key": "field_medical_tab",
-                "label": "--- SECCIÓN MEDICAL CENTER ---",
-                "name": "",
-                "aria-label": "",
-                "type": "tab",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "placement": "top",
-                "endpoint": 0,
-                "selected": 0
-            },
-            {
-                "key": "field_medical_title",
-                "label": "Título Medical Center",
-                "name": "medical_title",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "key": "field_medical_desc",
-                "label": "Descripción Medical Center",
-                "name": "medical_desc",
-                "aria-label": "",
-                "type": "textarea",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "new_lines": "",
-                "maxlength": "",
-                "placeholder": "",
-                "rows": ""
-            },
-            {
-                "key": "field_medical_image",
-                "label": "Imagen Equipo Médico",
-                "name": "medical_image",
-                "aria-label": "",
-                "type": "image",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "id",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
-            },
-            {
-                "key": "field_medical_acerca_text",
-                "label": "Texto Acerca de la Consulta",
-                "name": "medical_acerca_text",
-                "aria-label": "",
-                "type": "wysiwyg",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "default_value": "",
-                "delay": 0
-            },
-            {
-                "key": "field_medical_acerca_image",
-                "label": "Imagen Acerca de la Consulta",
-                "name": "medical_acerca_image",
-                "aria-label": "",
-                "type": "image",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "id",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
-            },
-            {
-                "key": "field_medical_porque_text",
-                "label": "Texto Por Qué Escogernos",
-                "name": "medical_porque_text",
-                "aria-label": "",
-                "type": "wysiwyg",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "default_value": "",
-                "delay": 0
-            },
-            {
-                "key": "field_medical_porque_image",
-                "label": "Imagen Por Qué Escogernos",
-                "name": "medical_porque_image",
-                "aria-label": "",
-                "type": "image",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "id",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
+                "return_format": "id"
             }
         ],
         "location": [
@@ -465,7 +86,7 @@
                 {
                     "param": "page",
                     "operator": "==",
-                    "value": "13507"
+                    "value": "surgeon"
                 }
             ]
         ],
@@ -474,12 +95,106 @@
         "style": "seamless",
         "label_placement": "top",
         "instruction_placement": "label",
-        "hide_on_screen": "",
         "active": true,
-        "description": "Campos para las dos secciones de la página de Nosotros",
-        "show_in_rest": 1,
-        "display_title": "",
-        "allow_ai_access": false,
-        "ai_description": ""
+        "show_in_rest": 1
+    },
+    {
+        "key": "group_medical_center_page",
+        "title": "Campos de Página: Medical Center",
+        "fields": [
+            {
+                "key": "field_medical_intro_title",
+                "label": "Título Introducción",
+                "name": "medical_intro_title",
+                "type": "text"
+            },
+            {
+                "key": "field_medical_intro_text",
+                "label": "Texto Introducción",
+                "name": "medical_intro_text",
+                "type": "wysiwyg"
+            },
+            {
+                "key": "field_medical_tab1_title",
+                "label": "Título Pestaña 1",
+                "name": "medical_tab1_title",
+                "type": "text"
+            },
+            {
+                "key": "field_medical_tab1_image",
+                "label": "Imagen Pestaña 1",
+                "name": "medical_tab1_image",
+                "type": "image",
+                "return_format": "id"
+            },
+            {
+                "key": "field_medical_tab1_text_left",
+                "label": "Texto Pestaña 1 (Izquierda)",
+                "name": "medical_tab1_text_left",
+                "type": "wysiwyg"
+            },
+            {
+                "key": "field_medical_tab1_text_right",
+                "label": "Texto Pestaña 1 (Derecha)",
+                "name": "medical_tab1_text_right",
+                "type": "wysiwyg"
+            },
+            {
+                "key": "field_medical_tab2_title",
+                "label": "Título Pestaña 2",
+                "name": "medical_tab2_title",
+                "type": "text"
+            },
+            {
+                "key": "field_medical_tab2_image",
+                "label": "Imagen Pestaña 2",
+                "name": "medical_tab2_image",
+                "type": "image",
+                "return_format": "id"
+            },
+            {
+                "key": "field_medical_tab2_text_left",
+                "label": "Texto Pestaña 2 (Izquierda)",
+                "name": "medical_tab2_text_left",
+                "type": "wysiwyg"
+            },
+            {
+                "key": "field_medical_tab2_text_right",
+                "label": "Texto Pestaña 2 (Derecha)",
+                "name": "medical_tab2_text_right",
+                "type": "wysiwyg"
+            },
+            {
+                "key": "field_medical_gallery",
+                "label": "Galería de Clínica",
+                "name": "medical_gallery",
+                "type": "repeater",
+                "sub_fields": [
+                    {
+                        "key": "field_medical_gallery_image",
+                        "label": "Imagen",
+                        "name": "image",
+                        "type": "image",
+                        "return_format": "id"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page",
+                    "operator": "==",
+                    "value": "medical-center"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "active": true,
+        "show_in_rest": 1
     }
 ]

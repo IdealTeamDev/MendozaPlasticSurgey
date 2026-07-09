@@ -49,7 +49,7 @@ export default function Hero({ subtitle, title, text, imageUrl }: HeroProps) {
           {text ? (
             <div className="hero-text" dangerouslySetInnerHTML={{ __html: text }} />
           ) : null}
-          <Link href="/medical-center" className="btn hero-btn">Conoce más</Link>
+          <Link href="/centro-medico" className="btn hero-btn">Conoce más</Link>
         </div>
         
         <div className="hero-card-wrapper">

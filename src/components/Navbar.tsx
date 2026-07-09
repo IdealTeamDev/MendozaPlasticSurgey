@@ -57,8 +57,8 @@ const FALLBACK_MENU: MenuItem[] = [
     enlace: '#',
     es_desplegable: true,
     sub_menu: [
-      { titulo: 'Dr. Mendoza', enlace: '/surgeon' },
-      { titulo: 'Medical Center', enlace: '/medical-center' }
+      { titulo: 'Dr. Mendoza', enlace: '/cirujano' },
+      { titulo: 'Medical Center', enlace: '/centro-medico' }
     ]
   },
   { 

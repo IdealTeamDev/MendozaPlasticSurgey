@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 export const revalidate = 0;
 
 export default async function MedicalCenterPage() {
-  // Tomamos los datos de la página 'medical-center'
-  const wpPage = await getPageBySlug('medical-center'); 
+  // Tomamos los datos de la página 'centro-medico'
+  const wpPage = await getPageBySlug('centro-medico'); 
   
   const acf = wpPage?.acf || {};
 

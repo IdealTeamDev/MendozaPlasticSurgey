@@ -39,8 +39,21 @@ export default async function RootLayout({
       : globalOptions.logo_principal;
   }
 
+  const fixMenuUrls = (items: any[]) => {
+    return items.map(item => {
+      const newItem = { ...item };
+      if (newItem.enlace === '/surgeon') newItem.enlace = '/cirujano';
+      if (newItem.enlace === '/medical-center') newItem.enlace = '/centro-medico';
+      
+      if (newItem.sub_menu && newItem.sub_menu.length > 0) {
+        newItem.sub_menu = fixMenuUrls(newItem.sub_menu);
+      }
+      return newItem;
+    });
+  };
+
   let menuItems = globalOptions?.menu_principal && globalOptions.menu_principal.length > 0 
-    ? [...globalOptions.menu_principal] 
+    ? fixMenuUrls([...globalOptions.menu_principal])
     : [
         { titulo: 'Inicio', enlace: '/' },
         { 
@@ -48,8 +61,8 @@ export default async function RootLayout({
           enlace: '#',
           es_desplegable: true,
           sub_menu: [
-            { titulo: 'Dr. Mendoza', enlace: '/surgeon' },
-            { titulo: 'Medical Center', enlace: '/medical-center' }
+            { titulo: 'Dr. Mendoza', enlace: '/cirujano' },
+            { titulo: 'Medical Center', enlace: '/centro-medico' }
           ]
         },
         { titulo: 'Procedimientos', enlace: '/procedimientos' },
