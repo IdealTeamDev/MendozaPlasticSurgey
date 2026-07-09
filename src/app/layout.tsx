@@ -43,7 +43,8 @@ export default async function RootLayout({
     ? [...globalOptions.menu_principal] 
     : [
         { titulo: 'Inicio', enlace: '/' },
-        { titulo: 'Nosotros', enlace: '/nosotros' },
+        { titulo: 'Dr. Mendoza', enlace: '/surgeon' },
+        { titulo: 'Medical Center', enlace: '/medical-center' },
         { titulo: 'Procedimientos', enlace: '/procedimientos' },
         { titulo: 'Antes y Después', enlace: '/antes-despues' },
         { titulo: 'Pacientes', enlace: '/pacientes' },

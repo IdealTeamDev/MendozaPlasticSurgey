@@ -38,7 +38,8 @@ export default function Footer({ logoUrl, description, phone, address, socialLin
 
           <div className="footer-col-middle">
             <div className="footer-nav">
-              <Link href="/nosotros">ABOUT US</Link>
+              <Link href="/surgeon">DR. MENDOZA</Link>
+              <Link href="/medical-center">MEDICAL CENTER</Link>
               <Link href="/procedimientos">PROCEDURES</Link>
               <Link href="/contacto">CONTACT</Link>
             </div>
