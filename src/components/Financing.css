@@ -1,7 +1,7 @@
 .financing-section {
   position: relative;
   padding: 4rem 0;
-  background-image: url('/hero_bg.png');
+  background-image: url('/hero_bg.png?v=2');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
