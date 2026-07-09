@@ -98,6 +98,17 @@
   color: var(--black);
 }
 
+.contact-text-wrapper p {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.contact-text-wrapper p:last-child {
+  margin-bottom: 0;
+}
+
 .contact-form-wrapper {
   flex: 1;
   display: flex;

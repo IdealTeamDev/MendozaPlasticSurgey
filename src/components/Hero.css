@@ -118,6 +118,14 @@
   color: #ddd;
 }
 
+.hero-text p {
+  margin-bottom: 1rem;
+}
+
+.hero-text p:last-child {
+  margin-bottom: 0;
+}
+
 @media (min-width: 768px) {
   .hero-text { font-size: 1.1rem; margin-bottom: 2rem; }
 }

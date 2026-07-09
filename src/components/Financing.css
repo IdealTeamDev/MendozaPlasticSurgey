@@ -74,3 +74,11 @@
   color: var(--white);
 }
 
+.financing-text p {
+  margin-bottom: 1rem;
+}
+
+.financing-text p:last-child {
+  margin-bottom: 0;
+}
+
