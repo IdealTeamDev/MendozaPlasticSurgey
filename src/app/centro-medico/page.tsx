@@ -66,11 +66,20 @@ export default async function MedicalCenterPage() {
     };
   }));
 
+  // Obtener imagen destacada para el Hero Banner
+  let heroImageUrl = acf?.medical_gallery?.[0]?.image || '/team.png';
+  if (wpPage?.featured_media) {
+    const featuredMedia = await getMedia(wpPage.featured_media);
+    if (featuredMedia?.source_url) {
+      heroImageUrl = featuredMedia.source_url;
+    }
+  }
+
   return (
     <main className="medical-center-page fade-in">
       <MedicalCenterHero 
         title="MEDICAL CENTER"
-        imageUrl={acf?.medical_gallery?.[0]?.image || '/team.png'} 
+        imageUrl={heroImageUrl} 
       />
       <MedicalCenterIntro 
         title={acf?.medical_intro_title}
