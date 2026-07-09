@@ -20,9 +20,8 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  max-width: 100%;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
 @media (min-width: 768px) {
@@ -67,17 +66,7 @@
 
 @media (min-width: 768px) {
   .badges-viewport {
-    max-width: 600px; /* 3 items */
-  }
-}
-@media (min-width: 1024px) {
-  .badges-viewport {
-    max-width: 800px; /* 4 items */
-  }
-}
-@media (min-width: 1280px) {
-  .badges-viewport {
-    max-width: 1000px; /* 5 items */
+    max-width: 600px; /* 3 items on desktop */
   }
 }
 
