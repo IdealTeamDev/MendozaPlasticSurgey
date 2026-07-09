@@ -1,6 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { getPageBySlug, getMedia, getProcedureCategories } from '@/lib/wordpress';
+import MedicalCenterHero from '@/components/nosotros/MedicalCenterHero';
 import MedicalCenterIntro from '@/components/nosotros/MedicalCenterIntro';
 import MedicalCenterDetails from '@/components/nosotros/MedicalCenterDetails';
 import MedicalCenterGallery from '@/components/nosotros/MedicalCenterGallery';
@@ -67,6 +68,10 @@ export default async function MedicalCenterPage() {
 
   return (
     <main className="medical-center-page fade-in">
+      <MedicalCenterHero 
+        title="MEDICAL CENTER"
+        imageUrl={acf?.medical_gallery?.[0]?.image || '/team.png'} 
+      />
       <MedicalCenterIntro 
         title={acf?.medical_intro_title}
         text={acf?.medical_intro_text}

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import './MedicalCenterHero.css';
 
 interface MedicalCenterHeroProps {
@@ -21,7 +22,7 @@ export default function MedicalCenterHero({ title, desc, imageUrl }: MedicalCent
         <div className="mc-hero-content">
           <h1 className="mc-hero-title">{title || 'MEDICAL CENTER'}</h1>
           {desc && <p className="mc-hero-desc" style={{ color: 'white', marginTop: '1rem', fontSize: '1.1rem' }}>{desc}</p>}
-          <button className="btn mc-hero-btn">Agenda tu consulta</button>
+          <Link href="/contacto" className="btn mc-hero-btn">Agenda tu consulta</Link>
         </div>
         
         <div className="mc-hero-image-wrapper">
