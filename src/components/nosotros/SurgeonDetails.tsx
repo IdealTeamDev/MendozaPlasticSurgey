@@ -20,7 +20,7 @@ export default function SurgeonDetails({
   clinicaText,
   clinicaImage
 }: SurgeonDetailsProps) {
-  const [activeTab, setActiveTab] = useState('estudios');
+  const [activeTab, setActiveTab] = useState('biografia');
 
   return (
     <section className="surgeon-details-section section-padding">
@@ -28,16 +28,16 @@ export default function SurgeonDetails({
         
         <div className="surgeon-tabs-header">
           <button 
+            className={`surgeon-tab-btn ${activeTab === 'biografia' ? 'active' : ''}`}
+            onClick={() => setActiveTab('biografia')}
+          >
+            BIOGRAFÍA
+          </button>
+          <button 
             className={`surgeon-tab-btn ${activeTab === 'estudios' ? 'active' : ''}`}
             onClick={() => setActiveTab('estudios')}
           >
             ESTUDIOS
-          </button>
-          <button 
-            className={`surgeon-tab-btn ${activeTab === 'certificaciones' ? 'active' : ''}`}
-            onClick={() => setActiveTab('certificaciones')}
-          >
-            CERTIFICACIONES
           </button>
           <button 
             className={`surgeon-tab-btn ${activeTab === 'clinica' ? 'active' : ''}`}
@@ -48,6 +48,29 @@ export default function SurgeonDetails({
         </div>
 
         <div className="surgeon-tabs-content">
+          {activeTab === 'biografia' && (
+            <div className="surgeon-tab-pane fade-in">
+              <div className="surgeon-pane-left">
+                <div className="surgeon-pane-image-card">
+                  {certificacionesImage ? (
+                    <img src={certificacionesImage} alt="Biografía" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  ) : (
+                    <div className="surgeon-pane-img-placeholder">
+                      <span>(Imagen Biografía)</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="surgeon-pane-right">
+                {certificacionesText ? (
+                  <div dangerouslySetInnerHTML={{ __html: certificacionesText }} />
+                ) : (
+                  <p>Información de biografía en construcción...</p>
+                )}
+              </div>
+            </div>
+          )}
+
           {activeTab === 'estudios' && (
             <div className="surgeon-tab-pane fade-in">
               <div className="surgeon-pane-left">
@@ -73,29 +96,6 @@ export default function SurgeonDetails({
                       Después de su maestría, fue aceptado en la escuela de medicina Morehouse School of Medicine en Atlanta, Georgia. Allí completó sus estudios médicos con distinción, descubrió su vocación en el área quirúrgica, se enamoró de la cirugía y terminó su residencia en cirugía general en Wellstar Atlanta Medical Center, un hospital donde se gradúan con alto nivel de preparación para tratar pacientes con casos de traumas extremadamente difíciles.
                     </p>
                   </>
-                )}
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'certificaciones' && (
-            <div className="surgeon-tab-pane fade-in">
-              <div className="surgeon-pane-left">
-                <div className="surgeon-pane-image-card">
-                  {certificacionesImage ? (
-                    <img src={certificacionesImage} alt="Certificaciones" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  ) : (
-                    <div className="surgeon-pane-img-placeholder">
-                      <span>(Imagen Certificaciones)</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className="surgeon-pane-right">
-                {certificacionesText ? (
-                  <div dangerouslySetInnerHTML={{ __html: certificacionesText }} />
-                ) : (
-                  <p>Información de certificaciones en construcción...</p>
                 )}
               </div>
             </div>

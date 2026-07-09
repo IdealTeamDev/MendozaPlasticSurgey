@@ -84,14 +84,6 @@ export default async function SurgeonPage() {
         imageUrl={acf?.surgeon_image}
       />
       
-      <section style={{ backgroundColor: '#f9f9f9', paddingTop: '4rem' }}>
-        <div className="container" style={{ textAlign: 'left', marginBottom: '2rem' }}>
-          <p style={{ fontSize: '0.9rem', color: '#666', letterSpacing: '2px', textTransform: 'uppercase' }}>ANTES Y DESPUÉS</p>
-          <h2 style={{ fontSize: '2.5rem', fontWeight: 300, color: 'var(--black)' }}>CIRUGÍA PLÁSTICA</h2>
-        </div>
-        <ProcedureResultsSlider cases={cases} />
-      </section>
-      
       <SurgeonDetails 
         estudiosText={acf?.surgeon_estudios_text}
         estudiosImage={acf?.surgeon_estudios_image}
@@ -105,6 +97,14 @@ export default async function SurgeonPage() {
         funfactsText={acf?.surgeon_funfacts_text}
         funfactsImage={acf?.surgeon_funfacts_image}
       />
+
+      <section style={{ backgroundColor: '#f9f9f9', paddingTop: '4rem' }}>
+        <div className="container" style={{ textAlign: 'left', marginBottom: '2rem' }}>
+          <p style={{ fontSize: '0.9rem', color: '#666', letterSpacing: '2px', textTransform: 'uppercase' }}>ANTES Y DESPUÉS</p>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: 300, color: 'var(--black)' }}>CIRUGÍA PLÁSTICA</h2>
+        </div>
+        <ProcedureResultsSlider cases={cases} />
+      </section>
     </main>
   );
 }
