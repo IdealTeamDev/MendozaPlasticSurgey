@@ -82,7 +82,7 @@ const FALLBACK_MENU: MenuItem[] = [
   return (
     <header className="navbar">
       <div className="navbar-container">
-        <div className="navbar-logo">
+        <div className="navbar-logo" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <Link href="/">
             {logoUrl ? (
               <Image src={logoUrl} alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
@@ -90,6 +90,16 @@ const FALLBACK_MENU: MenuItem[] = [
               <Image src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
             )}
           </Link>
+
+          <div className="lang-dropdown-wrapper desktop-only">
+            <button className="lang-switcher">
+              Idioma <span className="arrow">▼</span>
+            </button>
+            <div className="lang-dropdown-menu">
+              <a href="#">Español</a>
+              <a href="#">English</a>
+            </div>
+          </div>
         </div>
         
         <nav className="navbar-links">
@@ -129,12 +139,9 @@ const FALLBACK_MENU: MenuItem[] = [
         </nav>
 
         <div className="navbar-actions">
-          <button className="lang-switcher desktop-only">
-            Idioma <span className="arrow">▼</span>
-          </button>
-          <button className="icon-btn search-icon" onClick={() => setIsSearchOpen(true)}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          </button>
+          <Link href="/contacto" className="book-consultation-btn desktop-only">
+            BOOK YOUR CONSULTATION
+          </Link>
           <button className="icon-btn mobile-menu-icon mobile-only" onClick={() => setIsMenuOpen(true)}>
              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
           </button>

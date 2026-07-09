@@ -40,8 +40,8 @@ export default function Footer({ logoUrl, description, phone, address, socialLin
             <div className="footer-nav">
               <Link href="/cirujano">DR. MENDOZA</Link>
               <Link href="/centro-medico">MEDICAL CENTER</Link>
-              <Link href="/procedimientos">PROCEDURES</Link>
-              <Link href="/contacto">CONTACT</Link>
+              <Link href="/procedimientos">PROCEDIMIENTOS</Link>
+              <Link href="/contacto">CONTACTO</Link>
             </div>
             <div className="footer-contact-info">
               <div className="contact-item">
@@ -63,7 +63,7 @@ export default function Footer({ logoUrl, description, phone, address, socialLin
             <h4 className="newsletter-title">Suscríbete a nuestro boletín</h4>
             <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
               <input type="email" placeholder="Ingresa tu correo electrónico acá" />
-              <button type="submit">Submit →</button>
+              <button type="submit">Enviar →</button>
             </form>
             <div className="social-icons">
               {socialLinks && socialLinks.length > 0 ? (
@@ -102,7 +102,7 @@ export default function Footer({ logoUrl, description, phone, address, socialLin
         </div>
         
         <div className="footer-bottom">
-          <p>Copyright © 2024 Mendoza Plastic Surgery . All Rights Reserved.</p>
+          <p>Copyright © 2026 Mendoza Plastic Surgery. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

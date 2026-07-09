@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import './ProcedureIntro.css';
 
 interface ProcedureIntroProps {
@@ -34,8 +35,8 @@ export default function ProcedureIntro({
             <div className="proc-intro-desc" dangerouslySetInnerHTML={{ __html: description }}></div>
 
             <div className="proc-intro-actions">
-              <button className="btn proc-btn-black">Agenda tu consulta</button>
-              <button className="btn proc-btn-black">Financia aquí</button>
+              <Link href="/contacto" className="btn proc-btn-black">Agenda tu consulta</Link>
+              <Link href="/contacto" className="btn proc-btn-black">Financia aquí</Link>
             </div>
 
             {showQuickFacts && quickFacts && quickFacts.length > 0 && (

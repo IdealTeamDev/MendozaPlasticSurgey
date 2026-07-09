@@ -36,11 +36,9 @@ export default function BlogPostHero({ title, category, date, readTime, author, 
             <div className="blog-post-hero-box-meta">
               <span>Por {author}</span>
               <span className="blog-meta-sep">—</span>
+              <span>{date}</span>
+              <span className="blog-meta-sep">—</span>
               <span className="meta-icon"><img src="/icon-time.svg" alt="time" className="meta-icon-img" /></span> <span>{readTime} minutos de lectura</span>
-              <span className="blog-meta-sep">—</span>
-              <span className="meta-icon"><img src="/icon-views.svg" alt="views" className="meta-icon-img" /></span> <span>{vistas || '1K vistas'}</span>
-              <span className="blog-meta-sep">—</span>
-              <span className="meta-icon"><img src="/icon-shares.svg" alt="shares" className="meta-icon-img" /></span> <span>{compartidos || '1K compartido'}</span>
             </div>
           </div>
         </div>

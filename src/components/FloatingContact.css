@@ -36,8 +36,18 @@
 }
 
 .floating-menu-item:hover {
-  background-color: #f8f8f8;
-  transform: scale(1.02) !important;
+  background-color: #f5f5f5;
+  color: var(--black);
+}
+
+.mobile-only-flex {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .mobile-only-flex {
+    display: none !important;
+  }
 }
 
 /* Staggered animation */
