@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import './About.css';
 
 interface AboutProps {
@@ -29,28 +30,20 @@ export default function About({ subtitle, title, text, imageUrl }: AboutProps) {
         </div>
         
         <div className="about-content">
-          <p className="about-subtitle">{subtitle || 'CIRUJANO PLÁSTICO'}</p>
-          <h2 className="about-title">{title || 'DELQUIS R. MENDOZA MS MD'}</h2>
+          <h2 className="about-subtitle">{subtitle || 'Cirujano plástico en Atlanta, GA'}</h2>
+          <h2 className="about-title">{title || 'Dr. Delquis R. Mendoza, M.S., M.D.'}</h2>
           
           {text ? (
             <div className="about-text" dangerouslySetInnerHTML={{ __html: text }} />
           ) : (
             <div className="about-text">
               <p>
-                El Dr. Delquis Mendoza es un cirujano plástico que se dedica a la 
-                cirugía estética y reconstructiva. Realizó sus estudios de cirugía general y 
-                especialización en la Universidad de Texas en Galveston, uno de los programas 
-                más reconocidos de la nación.
-              </p>
-              <p>
-                Durante su entrenamiento, el Dr. Mendoza se enfocó en comprender las 
-                necesidades estéticas y funcionales de cada paciente, brindando resultados 
-                naturales y armónicos.
+                El Dr. Mendoza es un cirujano general por American Board of Surgery con especialización en cirugía plástica y reconstructiva de la Universidad de Tennessee en Chattanooga. Médico especialista de alta calidad con experiencia comprobable en cirugía reconstructiva y cosmética, se mantiene a la vanguardia de las técnicas y tecnología para brindar seguridad de cada paciente, siendo esto una prioridad.
               </p>
             </div>
           )}
           
-          <button className="btn btn-primary">Conocer más</button>
+          <Link href="/medical-center" className="btn btn-primary">Conocer más</Link>
         </div>
       </div>
     </section>

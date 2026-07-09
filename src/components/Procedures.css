@@ -68,7 +68,7 @@
   display: flex;
   justify-content: flex-start;
   position: relative;
-  padding: 0 4rem 0 2rem; /* extra padding on right for the arrow */
+  padding: 0 4rem; /* extra padding on both sides for the arrows */
   overflow-x: auto;
   white-space: nowrap;
   -ms-overflow-style: none;
@@ -80,7 +80,6 @@
 
 .scroll-hint-arrow {
   position: absolute;
-  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   width: 40px;
@@ -93,8 +92,17 @@
   color: var(--white);
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   pointer-events: none;
-  animation: scrollHintAnim 1.5s infinite ease-in-out;
   z-index: 5;
+}
+
+.scroll-hint-arrow.right {
+  right: 10px;
+  animation: scrollHintAnimRight 1.5s infinite ease-in-out;
+}
+
+.scroll-hint-arrow.left {
+  left: 10px;
+  animation: scrollHintAnimLeft 1.5s infinite ease-in-out;
 }
 
 .scroll-hint-arrow svg {
@@ -102,10 +110,16 @@
   height: 20px;
 }
 
-@keyframes scrollHintAnim {
+@keyframes scrollHintAnimRight {
   0% { transform: translate(-3px, -50%); opacity: 0.8; }
   50% { transform: translate(3px, -50%); opacity: 1; }
   100% { transform: translate(-3px, -50%); opacity: 0.8; }
+}
+
+@keyframes scrollHintAnimLeft {
+  0% { transform: translate(3px, -50%); opacity: 0.8; }
+  50% { transform: translate(-3px, -50%); opacity: 1; }
+  100% { transform: translate(3px, -50%); opacity: 0.8; }
 }
 
 .tab-btn {

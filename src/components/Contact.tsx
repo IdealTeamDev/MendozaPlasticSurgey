@@ -29,20 +29,15 @@ export default function Contact({ subtitle, titleBold, text }: ContactProps) {
         
         <div className="contact-info">
           <h2 className="contact-title">
-            <span className="contact-subtitle">{subtitle || '¡EL CAMBIO QUE QUIERES ES'}</span><br/>
-            <span className="contact-title-bold">{titleBold || 'AHORA!'}</span>
+            <span className="contact-subtitle" style={{ display: 'none' }}>{subtitle || ''}</span>
+            <span className="contact-title-bold" style={{ fontSize: '2.5rem', lineHeight: '1.2' }}>{titleBold || 'Programa una consulta en Mendoza Plastic Surgery'}</span>
           </h2>
           {text ? (
             <div className="contact-text-wrapper" dangerouslySetInnerHTML={{ __html: text }} />
           ) : (
-            <>
-              <p className="contact-text">
-                Reserva tu consulta con el Dr. Mendoza, cirujano plástico en Atlanta, y conoce más sobre tu procedimiento.
-              </p>
-              <p className="contact-text">
-                Después de diligenciar el formulario, uno de nuestros asesores se pondrá en contacto contigo para fijar la fecha de tu consulta.
-              </p>
-            </>
+            <p className="contact-text">
+              Después de diligenciar el formulario, uno de nuestros asesores se pondrá en contacto contigo para fijar la fecha de tu consulta.
+            </p>
           )}
         </div>
 

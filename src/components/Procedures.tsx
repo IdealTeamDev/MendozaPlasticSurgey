@@ -65,7 +65,10 @@ export default function Procedures({ title, procedures }: ProceduresProps) {
   return (
     <section className="procedures section-padding" id="procedimientos">
       <div className="container">
-        <h2 className="text-center procedures-title">{title || 'PROCEDIMIENTOS'}</h2>
+        <div className="text-center">
+          <h2 className="procedures-title">{title || 'PROCEDIMIENTOS'}</h2>
+          <p className="procedures-subtitle" style={{ color: 'var(--white)', marginTop: '0.5rem', marginBottom: '2rem' }}>Descubre el procedimiento ideal para ti</p>
+        </div>
         
         <div 
           className="procedures-card" 
@@ -93,8 +96,14 @@ export default function Procedures({ title, procedures }: ProceduresProps) {
               ))}
             </div>
             
-            {/* Scroll Hint Arrow */}
-            <div className="scroll-hint-arrow">
+            {/* Scroll Hint Arrows */}
+            <div className="scroll-hint-arrow left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M19 12H5"></path>
+                <path d="m12 19-7-7 7-7"></path>
+              </svg>
+            </div>
+            <div className="scroll-hint-arrow right">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14"></path>
                 <path d="m12 5 7 7-7 7"></path>
@@ -143,6 +152,7 @@ export default function Procedures({ title, procedures }: ProceduresProps) {
             </div>
             
             <div className="procedures-info">
+              <h3 className="procedures-tab-title" style={{ fontSize: '2rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--black)' }}>{activeProc.tabLabel}</h3>
               <p className="procedures-desc">
                 {activeProc.desc}
               </p>

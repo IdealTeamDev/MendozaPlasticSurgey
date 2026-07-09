@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import './Hero.css';
 
 interface HeroProps {
@@ -38,23 +39,17 @@ export default function Hero({ subtitle, title, text, imageUrl }: HeroProps) {
       
       <div className="container hero-container">
         <div className="hero-content">
-          <p className="hero-subtitle">{subtitle || 'BIENVENIDO A'}</p>
+          <h1 className="hero-subtitle">{subtitle || 'Clínica de cirugía plástica en Atlanta'}</h1>
           {title ? (
-            <h1 className="hero-title" dangerouslySetInnerHTML={{ __html: title }} />
+            <h2 className="hero-title" dangerouslySetInnerHTML={{ __html: title }} />
           ) : (
-            <h1 className="hero-title">MENDOZA PLASTIC<br/>SURGERY</h1>
+            <h2 className="hero-title">Mendoza Plastic Surgery</h2>
           )}
           
           {text ? (
             <div className="hero-text" dangerouslySetInnerHTML={{ __html: text }} />
-          ) : (
-            <p className="hero-text">
-              <strong>Te ofrecemos una atención personalizada</strong><br/>
-              y la excelencia quirúrgica para que puedas<br/>
-              sacar lo mejor de ti mismo
-            </p>
-          )}
-          <button className="btn hero-btn">Reserva tu consulta</button>
+          ) : null}
+          <Link href="/nosotros" className="btn hero-btn">Conoce más</Link>
         </div>
         
         <div className="hero-card-wrapper">

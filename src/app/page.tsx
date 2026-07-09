@@ -1,4 +1,10 @@
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Mendoza Plastic Surgery | Cirujano plástico en Atlanta, Georgia',
+  description: 'Mendoza Plastic Surgery  en Duluth, Georgia. El Dr. Mendoza, cirujano plástico,  realiza cirugías corporal, mamaria, lifting facial y más. Reserve su consulta.',
+};
 import Hero from '@/components/Hero';
 import HomeIntroText from '@/components/HomeIntroText';
 import About from '@/components/About';
