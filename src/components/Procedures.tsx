@@ -152,7 +152,7 @@ export default function Procedures({ title, procedures }: ProceduresProps) {
             </div>
             
             <div className="procedures-info">
-              <h3 className="procedures-tab-title" style={{ fontSize: '2rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--black)' }}>{activeProc.tabLabel}</h3>
+              <h3 className="procedures-tab-title" style={{ fontSize: '2rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--white)' }}>{activeProc.tabLabel}</h3>
               <p className="procedures-desc">
                 {activeProc.desc}
               </p>

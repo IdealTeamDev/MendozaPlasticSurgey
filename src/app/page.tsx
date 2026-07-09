@@ -87,7 +87,7 @@ export default async function Home() {
           tabLabel: proc.titulo_pestana || `Procedimiento ${index + 1}`,
           desc: proc.descripcion || '',
           imageUrl: imageUrl,
-          enlace: proc.enlace || proc.url || '/procedimientos',
+          enlace: proc.url_boton_procedimientos || proc.enlace || proc.url || '/procedimientos',
           subcategorias: subcategorias
         };
       })
@@ -129,6 +129,7 @@ export default async function Home() {
       
       <Financing 
         title={acf?.financiamiento_titulo}
+        text={acf?.texto_financiamiento}
         buttonText={acf?.financiamiento_boton}
       />
       
