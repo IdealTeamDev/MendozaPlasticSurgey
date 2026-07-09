@@ -46,7 +46,13 @@ export default async function SurgeonPage() {
       const media = await getMedia(imgData);
       return media?.source_url || null;
     }
-    return imgData;
+    if (typeof imgData === 'object' && imgData.url) {
+      return imgData.url;
+    }
+    if (typeof imgData === 'string') {
+      return imgData;
+    }
+    return null;
   };
 
   const cases = await Promise.all(casosDataRaw.map(async (rawCase: any) => {

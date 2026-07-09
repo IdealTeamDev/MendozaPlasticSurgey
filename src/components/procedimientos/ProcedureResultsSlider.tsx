@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import './ProcedureResultsSlider.css';
+import Link from 'next/link';
 
 interface CaseExample {
   before: string;
@@ -59,7 +60,7 @@ export default function ProcedureResultsSlider({ cases = [] }: ProcedureResultsS
           <div className="proc-results-info">
             <span className="proc-results-label">RESULTADOS</span>
             <h2 className="proc-results-title">INMEDIATOS</h2>
-            <button className="btn proc-btn-black">Conoce más</button>
+            <Link href="/antes-despues" className="btn proc-btn-black">Conoce más</Link>
           </div>
 
           <div className="proc-results-carousel">
