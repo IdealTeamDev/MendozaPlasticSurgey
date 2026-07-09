@@ -258,9 +258,9 @@
         "location": [
             [
                 {
-                    "param": "page",
+                    "param": "post_type",
                     "operator": "==",
-                    "value": "54"
+                    "value": "procedimiento"
                 }
             ]
         ],
