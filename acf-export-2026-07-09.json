@@ -1,12 +1,12 @@
 [
     {
-        "key": "group_procedimientos_page",
-        "title": "Página: Procedimientos (Interna)",
+        "key": "group_pacientes_page",
+        "title": "Configuración Página: Pacientes",
         "fields": [
             {
-                "key": "field_proc_hero_titulo",
-                "label": "Hero Título",
-                "name": "hero_titulo",
+                "key": "field_pac_hero_title",
+                "label": "Título Hero",
+                "name": "hero_title",
                 "aria-label": "",
                 "type": "text",
                 "instructions": "",
@@ -24,9 +24,9 @@
                 "append": ""
             },
             {
-                "key": "field_proc_hero_texto",
-                "label": "Hero Texto",
-                "name": "hero_texto",
+                "key": "field_pac_hero_desc",
+                "label": "Descripción Hero",
+                "name": "hero_desc",
                 "aria-label": "",
                 "type": "textarea",
                 "instructions": "",
@@ -44,9 +44,9 @@
                 "rows": ""
             },
             {
-                "key": "field_proc_hero_imagen",
-                "label": "Hero Imagen",
-                "name": "hero_imagen",
+                "key": "field_pac_hero_img",
+                "label": "Imagen Hero",
+                "name": "hero_image",
                 "aria-label": "",
                 "type": "image",
                 "instructions": "",
@@ -69,27 +69,9 @@
                 "mime_types": ""
             },
             {
-                "key": "field_proc_tabs_tab",
-                "label": "Sección: Pestañas de Procedimientos",
-                "name": "",
-                "aria-label": "",
-                "type": "tab",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "placement": "top",
-                "endpoint": 0,
-                "selected": 0
-            },
-            {
-                "key": "field_proc_tabs_titulo",
-                "label": "Título de Pestañas",
-                "name": "tabs_titulo",
+                "key": "field_pac_fin_title",
+                "label": "Título Financiación",
+                "name": "fin_title",
                 "aria-label": "",
                 "type": "text",
                 "instructions": "",
@@ -107,11 +89,11 @@
                 "append": ""
             },
             {
-                "key": "field_proc_tabs_lista",
-                "label": "Lista de Pestañas",
-                "name": "tabs_lista",
+                "key": "field_pac_fees_title",
+                "label": "Título Tarifas",
+                "name": "fees_title",
                 "aria-label": "",
-                "type": "repeater",
+                "type": "text",
                 "instructions": "",
                 "required": false,
                 "conditional_logic": false,
@@ -120,161 +102,52 @@
                     "class": "",
                     "id": ""
                 },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_pac_fin_tabs",
+                "label": "Pestañas de Financiación",
+                "name": "fin_tabs",
+                "type": "repeater",
                 "layout": "row",
-                "min": 0,
-                "max": 0,
-                "rows_per_page": 20,
-                "button_label": "Add Row",
-                "collapsed": "",
+                "button_label": "Añadir Pestaña",
                 "sub_fields": [
-                    {
-                        "key": "field_ptab_titulo_pestana",
-                        "label": "Título de Pestaña",
-                        "name": "titulo_pestana",
-                        "aria-label": "",
-                        "type": "text",
-                        "instructions": "",
-                        "required": false,
-                        "conditional_logic": false,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "maxlength": "",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "parent_repeater": "field_proc_tabs_lista"
-                    },
-                    {
-                        "key": "field_ptab_descripcion",
-                        "label": "Descripción",
-                        "name": "descripcion",
-                        "aria-label": "",
-                        "type": "textarea",
-                        "instructions": "",
-                        "required": false,
-                        "conditional_logic": false,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "new_lines": "",
-                        "maxlength": "",
-                        "placeholder": "",
-                        "rows": "",
-                        "parent_repeater": "field_proc_tabs_lista"
-                    },
-                    {
-                        "key": "field_ptab_imagen",
-                        "label": "Imagen",
-                        "name": "imagen",
-                        "aria-label": "",
-                        "type": "image",
-                        "instructions": "",
-                        "required": false,
-                        "conditional_logic": false,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "url",
-                        "preview_size": "medium",
-                        "library": "all",
-                        "min_width": 0,
-                        "min_height": 0,
-                        "min_size": 0,
-                        "max_width": 0,
-                        "max_height": 0,
-                        "max_size": 0,
-                        "mime_types": "",
-                        "parent_repeater": "field_proc_tabs_lista"
-                    },
-                    {
-                        "key": "field_ptab_procedimientos",
-                        "label": "Procedimientos Asociados",
-                        "name": "procedimientos_relacionados",
-                        "aria-label": "",
-                        "type": "relationship",
-                        "instructions": "",
-                        "required": false,
-                        "conditional_logic": false,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "post_type": [
-                            "procedimiento"
-                        ],
-                        "filters": [
-                            "search"
-                        ],
-                        "elements": [
-                            "featured_image"
-                        ],
-                        "return_format": "object",
-                        "taxonomy": [],
-                        "min": 0,
-                        "max": 0,
-                        "bidirectional_target": [],
-                        "parent_repeater": "field_proc_tabs_lista"
-                    }
+                    { "key": "field_pac_tab_name", "label": "Nombre de Pestaña", "name": "tab_name", "type": "text" },
+                    { "key": "field_pac_tab_icon", "label": "Icono de Pestaña", "name": "tab_icon", "type": "image", "return_format": "url" },
+                    { "key": "field_pac_tab_logo", "label": "Logo en Contenido", "name": "tab_logo", "type": "image", "return_format": "url" },
+                    { "key": "field_pac_tab_desc", "label": "Descripción", "name": "tab_description", "type": "textarea" },
+                    { "key": "field_pac_tab_benefits", "label": "Beneficios", "name": "tab_benefits", "type": "wysiwyg" },
+                    { "key": "field_pac_tab_interest", "label": "Intereses Diferidos", "name": "tab_interest", "type": "text" },
+                    { "key": "field_pac_tab_apr", "label": "APR Reducido/Pago Fijo", "name": "tab_apr", "type": "textarea" },
+                    { "key": "field_pac_tab_link", "label": "Enlace del Botón", "name": "tab_link", "type": "url" }
                 ]
-            },
-            {
-                "key": "field_proc_financiamiento_tab",
-                "label": "Sección: Financiamiento",
-                "name": "",
-                "type": "tab",
-                "placement": "top",
-                "endpoint": 0
-            },
-            {
-                "key": "field_proc_fin_subtitulo",
-                "label": "Subtítulo Financiamiento",
-                "name": "financiamiento_subtitulo",
-                "type": "text",
-                "default_value": "FINANCIAMIENTO PARA"
-            },
-            {
-                "key": "field_proc_fin_titulo",
-                "label": "Título Financiamiento",
-                "name": "financiamiento_titulo",
-                "type": "text"
-            },
-            {
-                "key": "field_proc_fin_texto",
-                "label": "Texto Financiamiento",
-                "name": "financiamiento_texto",
-                "type": "wysiwyg"
             }
         ],
         "location": [
             [
                 {
-                    "param": "post_type",
+                    "param": "page",
                     "operator": "==",
-                    "value": "procedimiento"
+                    "value": "pacientes"
                 }
             ]
         ],
         "menu_order": 0,
         "position": "normal",
-        "style": "seamless",
+        "style": "default",
         "label_placement": "top",
         "instruction_placement": "label",
-        "hide_on_screen": "",
+        "hide_on_screen": [],
         "active": true,
         "description": "",
-        "show_in_rest": 1,
+        "show_in_rest": false,
         "display_title": "",
         "allow_ai_access": false,
-        "ai_description": ""
+        "ai_description": "",
+        "type": "group"
     }
 ]

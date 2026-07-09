@@ -91,7 +91,7 @@
 
 .fee-card {
   background-color: var(--white);
-  border: 1px solid #eaeaea;
+  border: 1px solid #000;
   border-radius: 12px;
   padding: 2rem;
   min-width: 280px;

@@ -52,7 +52,7 @@
 
 .fin-tab-btn.active {
   color: var(--black);
-  border-bottom-color: #009688; /* Teal color for CareCredit active state */
+  border-bottom-color: var(--black);
 }
 
 .fin-tab-icon {
@@ -63,21 +63,17 @@
   height: 20px;
 }
 
-.cherry-icon {
-  background-color: #1a1a1a;
-  color: white;
-  border-radius: 50%;
+.fin-pane-logo-img {
+  max-width: 300px;
   width: 100%;
-  height: 100%;
-  font-size: 0.7rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: auto;
+  object-fit: contain;
 }
 
-.carecredit-icon svg {
-  width: 100%;
-  height: 100%;
+.fin-pane-logo-placeholder {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
 }
 
 .financing-tabs-content {
@@ -118,48 +114,7 @@
   flex: 1.5;
 }
 
-.carecredit-logo-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.cc-logo-icon {
-  font-size: 3rem;
-  font-weight: bold;
-  letter-spacing: -1px;
-}
-
-.cc-green { color: #009688; }
-.cc-teal { color: #006064; }
-
-.cc-sub {
-  font-size: 1rem;
-  color: #666;
-  font-weight: 300;
-  margin-top: -5px;
-}
-
-.cherry-logo-placeholder {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #d11947; /* Cherry red */
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.cherry-percent {
-  background-color: #d11947;
-  color: white;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-}
 
 .fin-desc {
   font-size: 0.95rem;
