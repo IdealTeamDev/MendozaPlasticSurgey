@@ -1,101 +1,139 @@
 .mc-details-section {
+  padding: 4rem 0 6rem;
   background-color: var(--white);
-  padding: 4rem 0;
-  margin-top: -80px; /* Pull up to overlap with curve if needed, but design shows it below. Let's make it standard */
 }
 
-@media (min-width: 768px) {
-  .mc-details-section { padding: 6rem 0; margin-top: 0; }
-}
-
-.mc-tabs-header {
+.mc-tabs-header-clean {
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #eee;
+  gap: 3rem;
+  border-bottom: 1px solid #eaeaea;
   margin-bottom: 4rem;
-  flex-wrap: wrap;
 }
 
-.mc-tab-btn {
-  background: transparent;
+.mc-tab-btn-clean {
+  background: none;
   border: none;
-  border-bottom: 2px solid transparent;
-  padding: 1rem 1.5rem;
-  font-size: 0.95rem;
+  font-family: var(--font-text);
+  font-size: 1rem;
   font-weight: 500;
   color: #888;
+  padding: 1rem 0;
   cursor: pointer;
+  position: relative;
   transition: all 0.3s ease;
-  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.mc-tab-btn:hover {
+.mc-tab-btn-clean:hover {
   color: var(--black);
 }
 
-.mc-tab-btn.active {
+.mc-tab-btn-clean.active {
   color: var(--black);
-  border-bottom-color: var(--black);
 }
 
-.mc-tab-pane {
+.mc-tab-btn-clean.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--black);
+}
+
+.mc-tab-pane-clean {
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  align-items: center;
+  gap: 4rem;
 }
 
-@media (min-width: 992px) {
-  .mc-tab-pane {
-    flex-direction: row;
-    align-items: center;
-    gap: 5rem;
-  }
+.mc-pane-left-img-wrapper {
+  flex: 1;
+  max-width: 50%;
 }
 
-.mc-pane-left {
+.mc-custom-shape-img {
+  width: 100%;
+  height: auto;
+  border-radius: 40px 10px 10px 10px; /* Custom shape from design */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  object-fit: cover;
+}
+
+.mc-custom-shape-img.placeholder {
+  background-color: #f0f0f0;
+  min-height: 400px;
+}
+
+.mc-pane-right-content {
   flex: 1;
 }
 
-.mc-pane-image-card {
-  width: 100%;
-  aspect-ratio: 4/3;
-
-  border-radius: 12px;
-  position: relative;
-/*   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 25%); */
-
-  overflow: hidden;
-}
-
-.mc-pane-img-placeholder {
-  width: 100%;
-  height: 100%;
+.mc-text-columns {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ddd;
-  color: #666;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
-.mc-pane-right {
-  flex: 1.2;
-}
-
-.mc-pane-right p {
+.mc-text-col {
+  flex: 1;
+  font-family: var(--font-text);
   font-size: 0.95rem;
-  line-height: 1.7;
-  color: #444;
-  margin-bottom: 1.5rem;
+  color: #555;
+  line-height: 1.6;
 }
 
-.mc-pane-right p:last-child {
-  margin-bottom: 0;
+.mc-text-col p {
+  margin-bottom: 1rem;
 }
 
-.mc-pane-full {
-  width: 100%;
-  text-align: center;
-  padding: 3rem 0;
-  color: #666;
+.mc-black-btn {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  border-radius: 5px;
+  font-family: var(--font-text);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
+.mc-black-btn:hover {
+  background-color: #333;
+}
+
+@media (max-width: 992px) {
+  .mc-tab-pane-clean {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .mc-pane-left-img-wrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mc-tabs-header-clean {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    border-bottom: none;
+  }
+  
+  .mc-tab-btn-clean.active::after {
+    display: none;
+  }
+  
+  .mc-tab-btn-clean.active {
+    text-decoration: underline;
+  }
+  
+  .mc-text-columns {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}

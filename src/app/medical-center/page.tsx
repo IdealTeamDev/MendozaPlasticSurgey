@@ -1,8 +1,9 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { getPageBySlug, getMedia, getProcedureCategories } from '@/lib/wordpress';
-import MedicalCenterHero from '@/components/nosotros/MedicalCenterHero';
+import MedicalCenterIntro from '@/components/nosotros/MedicalCenterIntro';
 import MedicalCenterDetails from '@/components/nosotros/MedicalCenterDetails';
+import MedicalCenterGallery from '@/components/nosotros/MedicalCenterGallery';
 import MedicalCenterServices from '@/components/nosotros/MedicalCenterServices';
 
 import '@/components/nosotros/nosotros.css';
@@ -15,15 +16,14 @@ export const metadata: Metadata = {
 export const revalidate = 0;
 
 export default async function MedicalCenterPage() {
-  // Tomamos los datos de la página 'nosotros' en WP para no tener que migrar nada aún
-  const wpPage = await getPageBySlug('nosotros'); 
+  // Tomamos los datos de la página 'medical-center'
+  const wpPage = await getPageBySlug('medical-center'); 
   
   const acf = wpPage?.acf || {};
 
   const acfImageFields = [
-    'medical_image',
-    'medical_acerca_image',
-    'medical_porque_image'
+    'medical_tab1_image',
+    'medical_tab2_image'
   ];
 
   for (const field of acfImageFields) {
@@ -31,6 +31,19 @@ export default async function MedicalCenterPage() {
       const media = await getMedia(acf[field]);
       acf[field] = media?.source_url || null;
     }
+  }
+
+  // Resolve gallery images
+  if (acf.medical_gallery && Array.isArray(acf.medical_gallery)) {
+    acf.medical_gallery = await Promise.all(
+      acf.medical_gallery.map(async (item: any) => {
+        if (item.image && typeof item.image === 'number') {
+          const media = await getMedia(item.image);
+          return { image: media?.source_url || null };
+        }
+        return item;
+      })
+    );
   }
 
   // Fetch categories for Medical Center "Conoce Más Aquí"
@@ -53,18 +66,22 @@ export default async function MedicalCenterPage() {
   }));
 
   return (
-    <main className="nosotros-page fade-in">
-      <MedicalCenterHero 
-        title={acf?.medical_title}
-        desc={acf?.medical_desc}
-        imageUrl={acf?.medical_image}
+    <main className="medical-center-page fade-in">
+      <MedicalCenterIntro 
+        title={acf?.medical_intro_title}
+        text={acf?.medical_intro_text}
       />
       <MedicalCenterDetails 
-        acercaText={acf?.medical_acerca_text}
-        acercaImage={acf?.medical_acerca_image}
-        porqueText={acf?.medical_porque_text}
-        porqueImage={acf?.medical_porque_image}
+        tab1Title={acf?.medical_tab1_title}
+        tab1Image={acf?.medical_tab1_image}
+        tab1TextLeft={acf?.medical_tab1_text_left}
+        tab1TextRight={acf?.medical_tab1_text_right}
+        tab2Title={acf?.medical_tab2_title}
+        tab2Image={acf?.medical_tab2_image}
+        tab2TextLeft={acf?.medical_tab2_text_left}
+        tab2TextRight={acf?.medical_tab2_text_right}
       />
+      <MedicalCenterGallery images={acf?.medical_gallery?.map((g: any) => g.image).filter(Boolean) || []} />
       <MedicalCenterServices categories={procedureCategories} />
     </main>
   );

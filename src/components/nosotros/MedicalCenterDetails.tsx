@@ -1,87 +1,120 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import './MedicalCenterDetails.css';
 
 interface MedicalCenterDetailsProps {
-  acercaText?: string;
-  acercaImage?: string;
-  porqueText?: string;
-  porqueImage?: string;
+  tab1Title?: string;
+  tab1Image?: string;
+  tab1TextLeft?: string;
+  tab1TextRight?: string;
+  tab2Title?: string;
+  tab2Image?: string;
+  tab2TextLeft?: string;
+  tab2TextRight?: string;
 }
 
-export default function MedicalCenterDetails({ acercaText, acercaImage, porqueText, porqueImage }: MedicalCenterDetailsProps) {
-  const [activeTab, setActiveTab] = useState('acerca');
+export default function MedicalCenterDetails({ 
+  tab1Title, tab1Image, tab1TextLeft, tab1TextRight,
+  tab2Title, tab2Image, tab2TextLeft, tab2TextRight
+}: MedicalCenterDetailsProps) {
+  const [activeTab, setActiveTab] = useState(1);
 
   return (
-    <section className="mc-details-section section-padding">
+    <section className="mc-details-section">
       <div className="container">
         
-        <div className="mc-tabs-header">
+        <div className="mc-tabs-header-clean">
           <button 
-            className={`mc-tab-btn ${activeTab === 'acerca' ? 'active' : ''}`}
-            onClick={() => setActiveTab('acerca')}
+            className={`mc-tab-btn-clean ${activeTab === 1 ? 'active' : ''}`}
+            onClick={() => setActiveTab(1)}
           >
-            ACERCA DE LA CONSULTA
+            {tab1Title || 'CLÍNICA DE CIRUGÍA PLÁSTICA BILINGÜE'}
           </button>
           <button 
-            className={`mc-tab-btn ${activeTab === 'por-que' ? 'active' : ''}`}
-            onClick={() => setActiveTab('por-que')}
+            className={`mc-tab-btn-clean ${activeTab === 2 ? 'active' : ''}`}
+            onClick={() => setActiveTab(2)}
           >
-            POR QUÉ ESCOGERNOS
+            {tab2Title || 'CIRUGÍA PLÁSTICA PERSONALIZADA EN ATLANTA'}
           </button>
         </div>
 
-        <div className="mc-tabs-content">
-          {activeTab === 'acerca' && (
-            <div className="mc-tab-pane fade-in">
-              <div className="mc-pane-left">
-                <div className="mc-pane-image-card">
-                  {acercaImage ? (
-                    <img src={acercaImage} alt="Acerca de la consulta" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  ) : (
-                    <div className="mc-pane-img-placeholder">
-                      <span>(Imagen Acerca de la consulta)</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className="mc-pane-right">
-                {acercaText ? (
-                  <div dangerouslySetInnerHTML={{ __html: acercaText }} />
+        <div className="mc-tabs-content-clean">
+          {activeTab === 1 && (
+            <div className="mc-tab-pane-clean fade-in">
+              <div className="mc-pane-left-img-wrapper">
+                {tab1Image ? (
+                  <img src={tab1Image} alt="Clínica Bilingüe" className="mc-custom-shape-img" />
                 ) : (
-                  <>
-                    <p>
-                      Bienvenido a Mendoza Plastic Surgery, tu clínica de cirugía plástica en Atlanta, donde un equipo de profesionales liderado por el Dr. Mendoza se dedica a las cirugías de contorno corporal y rejuvenecimiento facial, todo bajo con la excelencia, transparencia y responsabilidad que cada uno de nuestros pacientes merece.
-                    </p>
-                    <p>
-                      En Mendoza Plastic Surgery nos enfocamos en lograr los mejores resultados, comprendiendo las necesidades y objetivos de nuestros pacientes, y trabajando de cerca con ellos para crear un plan de tratamiento personalizado que se adapte a sus requerimientos específicos.
-                    </p>
-                  </>
+                  <div className="mc-custom-shape-img placeholder"></div>
                 )}
+              </div>
+              <div className="mc-pane-right-content">
+                <div className="mc-text-columns">
+                  <div className="mc-text-col">
+                    {tab1TextLeft ? (
+                      <div dangerouslySetInnerHTML={{ __html: tab1TextLeft }} />
+                    ) : (
+                      <p>
+                        En Mendoza Plastic Surgery encuentras un enfoque basado en brindar un acompañamiento integral, donde cada paciente pueda tomar decisiones informadas con la tranquilidad de estar en manos de un equipo profesional que prioriza la excelencia, la transparencia y la seguridad en cada etapa del proceso.
+                      </p>
+                    )}
+                  </div>
+                  <div className="mc-text-col">
+                    {tab1TextRight ? (
+                      <div dangerouslySetInnerHTML={{ __html: tab1TextRight }} />
+                    ) : (
+                      <p>
+                        Trabajamos con altos estándares médicos y tecnología avanzada para lograr resultados que reflejen calidad, naturalidad y satisfacción. El Dr. Mendoza, es un cirujano de alta calidad y bilingüe, esperando por ti. Aquí el idioma no es un obstáculo.
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="mc-action-btn-wrapper">
+                  <Link href="/contacto" className="btn mc-black-btn">
+                    Agenda tu consulta
+                  </Link>
+                </div>
               </div>
             </div>
           )}
 
-          {activeTab === 'por-que' && (
-            <div className="mc-tab-pane fade-in">
-              <div className="mc-pane-left">
-                <div className="mc-pane-image-card">
-                  {porqueImage ? (
-                    <img src={porqueImage} alt="Por qué escogernos" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  ) : (
-                    <div className="mc-pane-img-placeholder">
-                      <span>(Imagen Por qué escogernos)</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className="mc-pane-right">
-                {porqueText ? (
-                  <div dangerouslySetInnerHTML={{ __html: porqueText }} />
+          {activeTab === 2 && (
+            <div className="mc-tab-pane-clean fade-in">
+              <div className="mc-pane-left-img-wrapper">
+                {tab2Image ? (
+                  <img src={tab2Image} alt="Cirugía Personalizada" className="mc-custom-shape-img" />
                 ) : (
-                  <p>Información de Por qué escogernos en construcción...</p>
+                  <div className="mc-custom-shape-img placeholder"></div>
                 )}
+              </div>
+              <div className="mc-pane-right-content">
+                <div className="mc-text-columns">
+                  <div className="mc-text-col">
+                    {tab2TextLeft ? (
+                      <div dangerouslySetInnerHTML={{ __html: tab2TextLeft }} />
+                    ) : (
+                      <p>
+                        Nuestro objetivo principal es la seguridad y satisfacción de nuestros pacientes, es por eso que hemos diseñado protocolos y procesos de atención médica de vanguardia.
+                      </p>
+                    )}
+                  </div>
+                  <div className="mc-text-col">
+                    {tab2TextRight ? (
+                      <div dangerouslySetInnerHTML={{ __html: tab2TextRight }} />
+                    ) : (
+                      <p>
+                        En cada procedimiento quirúrgico y no quirúrgico, te acompañaremos para garantizar una experiencia cómoda y resultados a la altura de tus expectativas.
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="mc-action-btn-wrapper">
+                  <Link href="/contacto" className="btn mc-black-btn">
+                    Agenda tu consulta
+                  </Link>
+                </div>
               </div>
             </div>
           )}
