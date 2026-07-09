@@ -10,9 +10,9 @@
 .map-wrapper {
   width: 100%;
   height: 400px;
-  border-radius: 20px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
   position: relative;
   background-color: #e5e3df; /* Typical maps background color */
   /* Placeholder image of a map */
