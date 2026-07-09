@@ -36,10 +36,11 @@
 }
 
 .financing-title {
-  font-size: 0.95rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-  line-height: 1.5;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  margin-bottom: 1rem;
 }
 
 .financing-title span {
@@ -50,7 +51,7 @@
 }
 
 @media (min-width: 768px) {
-  .financing-title { font-size: 1.2rem; }
+  .financing-title { font-size: 3rem; }
   .financing-title span { font-size: 2.5rem; }
 }
 

@@ -28,9 +28,12 @@ export default function Contact({ subtitle, titleBold, text }: ContactProps) {
       <div className="container contact-container">
         
         <div className="contact-info">
-          <h2 className="contact-title">
-            <span className="contact-subtitle" style={{ display: 'none' }}>{subtitle || ''}</span>
-            <span className="contact-title-bold" style={{ fontSize: '2.5rem', lineHeight: '1.2' }}>{titleBold || 'Programa una consulta en Mendoza Plastic Surgery'}</span>
+          <h2 className="contact-title" style={{ color: 'var(--black)' }}>
+            {titleBold ? (
+              <span className="contact-title-bold" style={{ fontSize: '2.5rem', lineHeight: '1.2', color: 'var(--black)' }} dangerouslySetInnerHTML={{ __html: titleBold }} />
+            ) : (
+              <span className="contact-title-bold" style={{ fontSize: '2.5rem', lineHeight: '1.2', color: 'var(--black)' }}>Programa una consulta en Mendoza Plastic Surgery</span>
+            )}
           </h2>
           {text ? (
             <div className="contact-text-wrapper" dangerouslySetInnerHTML={{ __html: text }} />
