@@ -1,0 +1,41 @@
+.proc-financing-section {
+  padding: 5rem 0 3rem;
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.proc-financing-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.proc-financing-subtitle {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #555;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.proc-financing-title {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.proc-financing-text {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.proc-financing-text p {
+  margin-bottom: 1.2rem;
+}

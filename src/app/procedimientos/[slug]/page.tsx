@@ -10,6 +10,7 @@ import ProcedureTestimonials from '@/components/procedimientos/ProcedureTestimon
 
 // Option 1 Specific Components
 import ProcedureResultsSlider from '@/components/procedimientos/ProcedureResultsSlider';
+import ProcedureFinancing from '@/components/procedimientos/ProcedureFinancing';
 import ProcedureFAQ from '@/components/procedimientos/ProcedureFAQ';
 
 // Option 2 Specific Components
@@ -163,6 +164,11 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
         // OPTION 1
         <>
           <ProcedureResultsSlider cases={resolvedCases} />
+          <ProcedureFinancing 
+            subtitle={acf?.financiamiento_subtitulo}
+            title={acf?.financiamiento_titulo}
+            text={acf?.financiamiento_texto}
+          />
           <ProcedureFAQ faqs={faqs} title={acf?.hero_titulo || title} />
         </>
       )}

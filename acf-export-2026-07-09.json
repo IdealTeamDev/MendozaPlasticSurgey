@@ -1,183 +1,258 @@
 [
     {
-        "key": "group_surgeon_page",
-        "title": "Campos de Página: Surgeon (Dr. Mendoza)",
+        "key": "group_procedimientos_page",
+        "title": "Página: Procedimientos (Interna)",
         "fields": [
             {
-                "key": "field_surgeon_subtitle",
-                "label": "Subtítulo Hero",
-                "name": "surgeon_subtitle",
-                "type": "text"
+                "key": "field_proc_hero_titulo",
+                "label": "Hero Título",
+                "name": "hero_titulo",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
             },
             {
-                "key": "field_surgeon_title",
-                "label": "Título Hero",
-                "name": "surgeon_title",
-                "type": "text"
+                "key": "field_proc_hero_texto",
+                "label": "Hero Texto",
+                "name": "hero_texto",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "new_lines": "",
+                "maxlength": "",
+                "placeholder": "",
+                "rows": ""
             },
             {
-                "key": "field_surgeon_desc",
-                "label": "Descripción Hero",
-                "name": "surgeon_desc",
-                "type": "textarea"
-            },
-            {
-                "key": "field_surgeon_image",
-                "label": "Imagen Hero",
-                "name": "surgeon_image",
+                "key": "field_proc_hero_imagen",
+                "label": "Hero Imagen",
+                "name": "hero_imagen",
+                "aria-label": "",
                 "type": "image",
-                "return_format": "id"
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
             },
             {
-                "key": "field_surgeon_estudios_text",
-                "label": "Texto Estudios",
-                "name": "surgeon_estudios_text",
-                "type": "wysiwyg"
+                "key": "field_proc_tabs_tab",
+                "label": "Sección: Pestañas de Procedimientos",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
             },
             {
-                "key": "field_surgeon_estudios_image",
-                "label": "Imagen Estudios",
-                "name": "surgeon_estudios_image",
-                "type": "image",
-                "return_format": "id"
+                "key": "field_proc_tabs_titulo",
+                "label": "Título de Pestañas",
+                "name": "tabs_titulo",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
             },
             {
-                "key": "field_surgeon_certificaciones_text",
-                "label": "Texto Certificaciones",
-                "name": "surgeon_certificaciones_text",
-                "type": "wysiwyg"
-            },
-            {
-                "key": "field_surgeon_certificaciones_image",
-                "label": "Imagen Certificaciones",
-                "name": "surgeon_certificaciones_image",
-                "type": "image",
-                "return_format": "id"
-            },
-            {
-                "key": "field_surgeon_clinica_text",
-                "label": "Texto Clínica",
-                "name": "surgeon_clinica_text",
-                "type": "wysiwyg"
-            },
-            {
-                "key": "field_surgeon_clinica_image",
-                "label": "Imagen Clínica",
-                "name": "surgeon_clinica_image",
-                "type": "image",
-                "return_format": "id"
-            },
-            {
-                "key": "field_surgeon_funfacts_text",
-                "label": "Texto Datos Curiosos",
-                "name": "surgeon_funfacts_text",
-                "type": "wysiwyg"
-            },
-            {
-                "key": "field_surgeon_funfacts_image",
-                "label": "Imagen Datos Curiosos",
-                "name": "surgeon_funfacts_image",
-                "type": "image",
-                "return_format": "id"
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "page",
-                    "operator": "==",
-                    "value": "surgeon"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "seamless",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "active": true,
-        "show_in_rest": 1
-    },
-    {
-        "key": "group_medical_center_page",
-        "title": "Campos de Página: Medical Center",
-        "fields": [
-            {
-                "key": "field_medical_intro_title",
-                "label": "Título Introducción",
-                "name": "medical_intro_title",
-                "type": "text"
-            },
-            {
-                "key": "field_medical_intro_text",
-                "label": "Texto Introducción",
-                "name": "medical_intro_text",
-                "type": "wysiwyg"
-            },
-            {
-                "key": "field_medical_tab1_title",
-                "label": "Título Pestaña 1",
-                "name": "medical_tab1_title",
-                "type": "text"
-            },
-            {
-                "key": "field_medical_tab1_image",
-                "label": "Imagen Pestaña 1",
-                "name": "medical_tab1_image",
-                "type": "image",
-                "return_format": "id"
-            },
-            {
-                "key": "field_medical_tab1_text_left",
-                "label": "Texto Pestaña 1 (Izquierda)",
-                "name": "medical_tab1_text_left",
-                "type": "wysiwyg"
-            },
-            {
-                "key": "field_medical_tab1_text_right",
-                "label": "Texto Pestaña 1 (Derecha)",
-                "name": "medical_tab1_text_right",
-                "type": "wysiwyg"
-            },
-            {
-                "key": "field_medical_tab2_title",
-                "label": "Título Pestaña 2",
-                "name": "medical_tab2_title",
-                "type": "text"
-            },
-            {
-                "key": "field_medical_tab2_image",
-                "label": "Imagen Pestaña 2",
-                "name": "medical_tab2_image",
-                "type": "image",
-                "return_format": "id"
-            },
-            {
-                "key": "field_medical_tab2_text_left",
-                "label": "Texto Pestaña 2 (Izquierda)",
-                "name": "medical_tab2_text_left",
-                "type": "wysiwyg"
-            },
-            {
-                "key": "field_medical_tab2_text_right",
-                "label": "Texto Pestaña 2 (Derecha)",
-                "name": "medical_tab2_text_right",
-                "type": "wysiwyg"
-            },
-            {
-                "key": "field_medical_gallery",
-                "label": "Galería de Clínica",
-                "name": "medical_gallery",
+                "key": "field_proc_tabs_lista",
+                "label": "Lista de Pestañas",
+                "name": "tabs_lista",
+                "aria-label": "",
                 "type": "repeater",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "row",
+                "min": 0,
+                "max": 0,
+                "rows_per_page": 20,
+                "button_label": "Add Row",
+                "collapsed": "",
                 "sub_fields": [
                     {
-                        "key": "field_medical_gallery_image",
+                        "key": "field_ptab_titulo_pestana",
+                        "label": "Título de Pestaña",
+                        "name": "titulo_pestana",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_proc_tabs_lista"
+                    },
+                    {
+                        "key": "field_ptab_descripcion",
+                        "label": "Descripción",
+                        "name": "descripcion",
+                        "aria-label": "",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "new_lines": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "rows": "",
+                        "parent_repeater": "field_proc_tabs_lista"
+                    },
+                    {
+                        "key": "field_ptab_imagen",
                         "label": "Imagen",
-                        "name": "image",
+                        "name": "imagen",
+                        "aria-label": "",
                         "type": "image",
-                        "return_format": "id"
+                        "instructions": "",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "url",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": 0,
+                        "min_height": 0,
+                        "min_size": 0,
+                        "max_width": 0,
+                        "max_height": 0,
+                        "max_size": 0,
+                        "mime_types": "",
+                        "parent_repeater": "field_proc_tabs_lista"
+                    },
+                    {
+                        "key": "field_ptab_procedimientos",
+                        "label": "Procedimientos Asociados",
+                        "name": "procedimientos_relacionados",
+                        "aria-label": "",
+                        "type": "relationship",
+                        "instructions": "",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": [
+                            "procedimiento"
+                        ],
+                        "filters": [
+                            "search"
+                        ],
+                        "elements": [
+                            "featured_image"
+                        ],
+                        "return_format": "object",
+                        "taxonomy": [],
+                        "min": 0,
+                        "max": 0,
+                        "bidirectional_target": [],
+                        "parent_repeater": "field_proc_tabs_lista"
                     }
                 ]
+            },
+            {
+                "key": "field_proc_financiamiento_tab",
+                "label": "Sección: Financiamiento",
+                "name": "",
+                "type": "tab",
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_proc_fin_subtitulo",
+                "label": "Subtítulo Financiamiento",
+                "name": "financiamiento_subtitulo",
+                "type": "text",
+                "default_value": "FINANCIAMIENTO PARA"
+            },
+            {
+                "key": "field_proc_fin_titulo",
+                "label": "Título Financiamiento",
+                "name": "financiamiento_titulo",
+                "type": "text"
+            },
+            {
+                "key": "field_proc_fin_texto",
+                "label": "Texto Financiamiento",
+                "name": "financiamiento_texto",
+                "type": "wysiwyg"
             }
         ],
         "location": [
@@ -185,7 +260,7 @@
                 {
                     "param": "page",
                     "operator": "==",
-                    "value": "medical-center"
+                    "value": "54"
                 }
             ]
         ],
@@ -194,7 +269,12 @@
         "style": "seamless",
         "label_placement": "top",
         "instruction_placement": "label",
+        "hide_on_screen": "",
         "active": true,
-        "show_in_rest": 1
+        "description": "",
+        "show_in_rest": 1,
+        "display_title": "",
+        "allow_ai_access": false,
+        "ai_description": ""
     }
 ]
