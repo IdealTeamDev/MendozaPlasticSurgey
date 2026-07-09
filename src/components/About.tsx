@@ -23,9 +23,6 @@ export default function About({ subtitle, title, text, imageUrl }: AboutProps) {
               sizes="(max-width: 768px) 100vw, 50vw"
               className="about-img" 
             />
-            <div className="about-image-logo">
-              <span>MENDOZA</span>
-            </div>
           </div>
         </div>
         
