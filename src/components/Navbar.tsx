@@ -30,6 +30,7 @@ export default function Navbar({ logoUrl, menuItems }: NavbarProps) {
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const [expandedSubMenu, setExpandedSubMenu] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [forceCloseDesktop, setForceCloseDesktop] = useState(false);
 
   const toggleMenu = (menu: string) => {
     if (expandedMenu === menu) {
@@ -116,7 +117,11 @@ const FALLBACK_MENU: MenuItem[] = [
         <nav className="navbar-links">
           {finalMenu.map((item, i) => (
             item.es_desplegable ? (
-              <div className={`nav-dropdown ${item.es_mega_menu ? 'mega-menu-wrapper' : ''}`} key={i}>
+              <div 
+                className={`nav-dropdown ${item.es_mega_menu ? 'mega-menu-wrapper' : ''} ${forceCloseDesktop ? 'force-close' : ''}`} 
+                key={i}
+                onMouseLeave={() => setForceCloseDesktop(false)}
+              >
                 <Link href={item.enlace || '#'} className="has-dropdown">{item.titulo} <span className="arrow">▼</span></Link>
                 {item.es_mega_menu && item.mega_menu_columnas ? (
                   <div className="mega-menu">
@@ -124,11 +129,11 @@ const FALLBACK_MENU: MenuItem[] = [
                       {item.mega_menu_columnas.map((col, cIndex) => (
                         <div className="mega-menu-column" key={cIndex}>
                           <h4 className="mega-menu-title">
-                            {col.enlace ? <Link href={col.enlace}>{col.titulo}</Link> : col.titulo}
+                            {col.enlace ? <Link href={col.enlace} onClick={() => setForceCloseDesktop(true)}>{col.titulo}</Link> : col.titulo}
                           </h4>
                           <ul className="mega-menu-list">
                             {col.items.map((sub, j) => (
-                              <li key={j}><Link href={sub.enlace}>{sub.titulo}</Link></li>
+                              <li key={j}><Link href={sub.enlace} onClick={() => setForceCloseDesktop(true)}>{sub.titulo}</Link></li>
                             ))}
                           </ul>
                         </div>
@@ -138,7 +143,7 @@ const FALLBACK_MENU: MenuItem[] = [
                 ) : item.sub_menu ? (
                   <div className="dropdown-menu">
                     {item.sub_menu.map((sub, j) => (
-                      <Link href={sub.enlace} key={j}>{sub.titulo}</Link>
+                      <Link href={sub.enlace} key={j} onClick={() => setForceCloseDesktop(true)}>{sub.titulo}</Link>
                     ))}
                   </div>
                 ) : null}

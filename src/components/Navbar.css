@@ -142,6 +142,14 @@
   transform: translateY(0);
 }
 
+.nav-dropdown.force-close .dropdown-menu,
+.nav-dropdown.force-close .mega-menu {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(10px) !important;
+  pointer-events: none !important;
+}
+
 /* --- Mega Menu Styles --- */
 .mega-menu-wrapper {
   position: static !important; /* Allow the mega menu to span the full width of the navbar */
