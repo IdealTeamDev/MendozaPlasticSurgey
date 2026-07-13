@@ -85,9 +85,9 @@ const FALLBACK_MENU: MenuItem[] = [
         <div className="navbar-logo" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <Link href="/">
             {logoUrl ? (
-              <Image className="navbar-logo-img" src={logoUrl} alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
+              <Image src={logoUrl} alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
             ) : (
-              <Image className="navbar-logo-img" src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
+              <Image src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
             )}
           </Link>
 
@@ -139,7 +139,7 @@ const FALLBACK_MENU: MenuItem[] = [
         </nav>
 
         <div className="navbar-actions">
-          <Link href="/contacto" className="book-consultation-btn">
+          <Link href="/contacto" className="book-consultation-btn desktop-only">
             Agendar Consulta
           </Link>
           <button className="icon-btn mobile-menu-icon mobile-only" onClick={() => setIsMenuOpen(true)}>
