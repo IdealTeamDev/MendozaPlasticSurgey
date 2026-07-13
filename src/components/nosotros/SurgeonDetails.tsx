@@ -63,11 +63,11 @@ export default function SurgeonDetails({
               </div>
               <div className="surgeon-pane-right surgeon-pane-right-two-cols">
                 {certificacionesText ? (
-                  <div dangerouslySetInnerHTML={{ __html: certificacionesText }} />
+                  <div dangerouslySetInnerHTML={{ __html: certificacionesText.replace(/universidad\.\s+Después/, "universidad.</p><p>Después") }} />
                 ) : (
                   <div>
                     <p>
-                      El Dr. Mendoza es originario de Barranquilla, Colombia. A los 8 años de edad emigró a los Estados Unidos. Desde muy joven descubrió su vocación por la medicina, heredada de sus padres, ambos profesionales de la salud. Empezó sus estudios en pre-medicina completando con honores una Licenciatura en Ciencias y posteriormente entró a completar una Maestría en Biología Molecular en la misma universidad.
+                      El Dr. Mendoza es originario de Barranquilla, Colombia. A la edad de 16 años emigró a los Estados Unidos, donde gracias a su vocación por la medicina heredada de sus padres, también profesionales de la salud, completó sus estudios en pre medicina becado con la Hope Scholarship. Al finalizar, consiguió entrar y completar una maestría en Biología Molecular en la misma universidad.
                     </p>
                     <p>
                       Después de su maestría, fue aceptado en la escuela de medicina Morehouse School of Medicine en Atlanta, Georgia. Allí completó sus estudios médicos con distinción Cum Laude donde se dio cuenta de su pasión por la cirugía y terminó su residencia en cirugía general en Wellstar Atlanta Medical Center, un hospital comunitario de trauma nivel 1 donde aprendió a tratar pacientes en sus momentos más difíciles.
