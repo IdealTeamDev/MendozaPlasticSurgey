@@ -32,7 +32,7 @@ export default function Footer({ logoUrl, description, phone, address, socialLin
               )}
             </div>
             <p className="footer-desc">
-              {description || 'Buscamos construir relaciones duraderas, basadas en la confianza y el cuidado personalizado. Nos adaptamos a las necesidades de cada paciente con el fin de lograr resultados naturales. Nuestra prioridad es tu satisfacción y bienestar.'}
+              {description || 'Buscamos construir relaciones duraderas, basadas en la confianza y el cuidado personalizado. Nos adaptamos a las necesidades de cada paciente con el fin de cumplir tus expectativas. Nuestra prioridad es tu satisfacción y bienestar.'}
             </p>
           </div>
 
