@@ -11,7 +11,7 @@ export default function MedicalCenterGallery({ images = [] }: MedicalCenterGalle
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const displayImages = images.length > 0 ? images : [
-    '/hero_bg.png' // Fallback just to show something
+    '/hero_bg.png?v=3' // Fallback just to show something
   ];
 
   const nextImage = () => {

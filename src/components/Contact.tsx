@@ -14,7 +14,7 @@ export default function Contact({ subtitle, titleBold, text }: ContactProps) {
   return (
     <section className="contact section-padding" id="contacto">
       <Image 
-        src="/hero_bg.png?v=2" 
+        src="/hero_bg.png?v=3" 
         alt="Contact background"
         fill
         sizes="100vw"
