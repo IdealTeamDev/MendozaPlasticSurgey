@@ -97,8 +97,8 @@
 }
 
 .proc-result-img-placeholder {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--negro-50);
+  color: var(--blanco-100);
   font-size: 0.9rem;
 }
 

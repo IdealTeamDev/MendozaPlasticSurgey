@@ -98,7 +98,7 @@
   clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%, 0 35%);
   overflow: hidden;
   background-color: transparent;
-  border-left: 4px solid #fff;
+  border-left: 4px solid var(--blanco-100);
 }
 
 .patients-img-placeholder {
@@ -108,7 +108,7 @@
   justify-content: center;
   align-items: center;
   background-color: #555;
-  color: #fff;
+  color: var(--blanco-100);
   font-size: 0.9rem;
 }
 

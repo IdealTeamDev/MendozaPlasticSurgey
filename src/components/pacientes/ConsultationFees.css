@@ -43,7 +43,7 @@
   display: block;
   font-size: 0.8rem;
   font-weight: 400;
-  color: #666;
+  color: var(--blanco-50);
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
 }
@@ -91,7 +91,7 @@
 
 .fee-card {
   background-color: var(--white);
-  border: 1px solid #000;
+  border: 1px solid var(--negro-100);
   border-radius: 12px;
   padding: 2rem;
   min-width: 280px;
@@ -151,7 +151,7 @@
 }
 
 .policy-link:hover {
-  color: #666;
+  color: var(--blanco-50);
 }
 
 .fees-nav-btn {

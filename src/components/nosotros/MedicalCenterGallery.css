@@ -63,7 +63,7 @@
 }
 
 .mc-gallery-btn:hover {
-  background-color: #333;
+  background-color: var(--negro-50);
   transform: scale(1.1);
 }
 

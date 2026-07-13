@@ -41,13 +41,13 @@ export default async function BlogSidebar({ popularPosts = [] }: { popularPosts?
           </div>
         </div>
         
-        <p style={{ fontSize: '1rem', fontWeight: 600, color: '#111', marginBottom: '1.5rem', lineHeight: '1.4' }}>
+        <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--negro-80)', marginBottom: '1.5rem', lineHeight: '1.4' }}>
           Suscríbete a nuestro boletín y recibe una selección de artículos interesantes cada mes
         </p>
         
         <form className="sidebar-subscribe-form" style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
           <input type="email" placeholder="Ingresa tu email" style={{ padding: '0.8rem 1rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.9rem' }} />
-          <button type="submit" className="btn btn-primary" style={{ padding: '0.8rem', backgroundColor: '#000', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>Suscríbete</button>
+          <button type="submit" className="btn btn-primary" style={{ padding: '0.8rem', backgroundColor: 'var(--negro-100)', color: 'var(--blanco-100)', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>Suscríbete</button>
           
           <label style={{ display: 'flex', gap: '0.5rem', fontSize: '0.7rem', color: '#999', marginTop: '0.5rem', alignItems: 'flex-start', lineHeight: '1.3' }}>
             <input type="checkbox" required style={{ marginTop: '0.2rem' }} />
@@ -87,8 +87,8 @@ export default async function BlogSidebar({ popularPosts = [] }: { popularPosts?
           justify-content: center;
           width: 32px;
           height: 32px;
-          background-color: #000;
-          color: #fff;
+          background-color: var(--negro-100);
+          color: var(--blanco-100);
           border-radius: 50%;
           text-decoration: none;
         }
@@ -97,7 +97,7 @@ export default async function BlogSidebar({ popularPosts = [] }: { popularPosts?
           gap: 1rem;
           margin-bottom: 1rem;
           text-decoration: none;
-          background: #fff;
+          background: var(--blanco-100);
           padding: 0.5rem;
           border-radius: 4px;
           transition: all 0.2s ease;
@@ -109,7 +109,7 @@ export default async function BlogSidebar({ popularPosts = [] }: { popularPosts?
         .popular-post-thumb {
           width: 110px;
           height: 70px;
-          background-color: #f5f5f5;
+          background-color: var(--caja);
           border-radius: 4px;
           background-size: cover;
           background-position: center;
@@ -128,7 +128,7 @@ export default async function BlogSidebar({ popularPosts = [] }: { popularPosts?
         }
         .popular-post-title {
           font-size: 0.95rem;
-          color: #111;
+          color: var(--negro-80);
           margin: 0;
           font-weight: 600;
           line-height: 1.3;

@@ -106,7 +106,7 @@ export default async function SurgeonPage() {
 
       <section style={{ backgroundColor: '#f9f9f9', paddingTop: '4rem' }}>
         <div className="container" style={{ textAlign: 'left', marginBottom: '2rem' }}>
-          <p style={{ fontSize: '0.9rem', color: '#666', letterSpacing: '2px', textTransform: 'uppercase' }}>ANTES Y DESPUÉS</p>
+          <p style={{ fontSize: '0.9rem', color: 'var(--blanco-50)', letterSpacing: '2px', textTransform: 'uppercase' }}>ANTES Y DESPUÉS</p>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 300, color: 'var(--black)' }}>CIRUGÍA PLÁSTICA</h2>
         </div>
         <ProcedureResultsSlider cases={cases} />

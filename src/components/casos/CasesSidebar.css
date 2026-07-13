@@ -1,5 +1,5 @@
 .cases-sidebar-widget {
-  background-color: #fff;
+  background-color: var(--blanco-100);
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
@@ -10,7 +10,7 @@
   font-family: var(--font-subtitle);
   font-size: 0.9rem;
   font-weight: 500;
-  color: #333;
+  color: var(--negro-50);
   margin-top: 0;
   margin-bottom: 1.5rem;
   letter-spacing: 1px;
@@ -96,7 +96,7 @@
 }
 
 .cases-sidebar-proc-link:hover {
-  color: #000;
+  color: var(--negro-100);
   text-decoration: underline;
 }
 

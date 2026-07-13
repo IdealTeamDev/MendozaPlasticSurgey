@@ -120,7 +120,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #111;
+  background-color: var(--negro-80);
   min-width: 200px;
   display: flex;
   flex-direction: column;
@@ -152,7 +152,7 @@
   top: 100%;
   left: 0;
   width: 100%; /* Span full width of header */
-  background-color: #111;
+  background-color: var(--negro-80);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -301,7 +301,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #111;
+  background-color: var(--negro-80);
   min-width: 120px;
   display: flex;
   flex-direction: column;
@@ -444,7 +444,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
-  background-color: #1a1a1a; /* Dark grey for expanded accordion */
+  background-color: var(--negro-80); /* Dark grey for expanded accordion */
 }
 
 .mobile-accordion-body.open {
@@ -507,7 +507,7 @@
 }
 
 .search-input-icon {
-  color: #333;
+  color: var(--negro-50);
   display: flex;
   align-items: center;
   margin-right: 0.5rem;
@@ -518,7 +518,7 @@
   background: transparent;
   border: none;
   font-size: 1rem;
-  color: #333;
+  color: var(--negro-50);
   font-family: inherit;
   padding: 0.2rem 0;
 }
@@ -534,7 +534,7 @@
 .search-close-btn {
   background: transparent;
   border: none;
-  color: #333;
+  color: var(--negro-50);
   display: flex;
   align-items: center;
   cursor: pointer;

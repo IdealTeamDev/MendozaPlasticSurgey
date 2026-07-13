@@ -2,7 +2,7 @@
   position: relative;
   padding: 4rem 0 8rem 0;
   overflow: hidden;
-  background-color: #000; /* Fallback */
+  background-color: var(--negro-100); /* Fallback */
 }
 
 @media (min-width: 768px) {
@@ -67,7 +67,7 @@
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #333;
+  color: var(--negro-50);
 }
 
 .contact-title-bold {
@@ -137,7 +137,7 @@
   display: block;
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: var(--negro-50);
   font-weight: 500;
 }
 
@@ -145,12 +145,12 @@
 .form-group select {
   width: 100%;
   padding: 0.8rem 1rem;
-  border: 1px solid #fff;
+  border: 1px solid var(--blanco-100);
   border-radius: 6px;
   font-family: inherit;
   font-size: 0.95rem;
-  background-color: #fff;
-  color: #333;
+  background-color: var(--blanco-100);
+  color: var(--negro-50);
   transition: border-color 0.3s ease;
 }
 
@@ -198,8 +198,8 @@
 }
 
 .submit-btn-black {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--negro-100);
+  color: var(--blanco-100);
   border-radius: 6px;
   padding: 1.2rem;
   font-size: 1rem;
@@ -211,6 +211,6 @@
 }
 
 .submit-btn-black:hover {
-  background-color: #333;
+  background-color: var(--negro-50);
 }
 

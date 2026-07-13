@@ -93,7 +93,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         compartidos={compartidos}
       />
       
-      <section className="blog-post-content-section" style={{ backgroundColor: '#fafafa', color: '#333', paddingBottom: '5rem' }}>
+      <section className="blog-post-content-section" style={{ backgroundColor: '#fafafa', color: 'var(--negro-50)', paddingBottom: '5rem' }}>
         <div className="container">
           <div className="blog-post-layout" style={{ display: 'flex', gap: '4rem', flexWrap: 'wrap' }}>
             
@@ -115,7 +115,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Global Gutenberg Styles for this internal page */}
       <style dangerouslySetInnerHTML={{__html: `
         .wp-content-container {
-          color: #333;
+          color: var(--negro-50);
           font-size: 1.05rem;
           line-height: 1.8;
         }

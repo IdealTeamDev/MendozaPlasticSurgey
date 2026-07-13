@@ -81,12 +81,12 @@ export default function CasesModal({ isOpen, onClose, cases, currentIndex, onNex
 
           {/* Controls for Examples */}
           {currentCase.examples.length > 1 && (
-            <div className="cases-modal-example-controls" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', margin: '1rem 0', color: '#666', alignItems: 'center' }}>
-              <button onClick={prevExample} style={{ background: '#333', color: '#fff', border: 'none', borderRadius: '50%', width: '32px', height: '32px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem' }}>&lt;</button>
+            <div className="cases-modal-example-controls" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', margin: '1rem 0', color: 'var(--blanco-50)', alignItems: 'center' }}>
+              <button onClick={prevExample} style={{ background: 'var(--negro-50)', color: 'var(--blanco-100)', border: 'none', borderRadius: '50%', width: '32px', height: '32px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem' }}>&lt;</button>
               <span style={{ fontSize: '0.9rem' }}>
                 {currentExampleIndex + 1} / {currentCase.examples.length}
               </span>
-              <button onClick={nextExample} style={{ background: '#333', color: '#fff', border: 'none', borderRadius: '50%', width: '32px', height: '32px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem' }}>&gt;</button>
+              <button onClick={nextExample} style={{ background: 'var(--negro-50)', color: 'var(--blanco-100)', border: 'none', borderRadius: '50%', width: '32px', height: '32px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem' }}>&gt;</button>
             </div>
           )}
 

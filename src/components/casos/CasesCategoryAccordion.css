@@ -56,7 +56,7 @@
   font-family: var(--font-subtitle);
   font-size: 1.1rem;
   font-weight: 500;
-  color: #333;
+  color: var(--negro-50);
   margin: 0;
   letter-spacing: 1px;
 }
@@ -71,7 +71,7 @@
 }
 
 .arrow {
-  border: solid #333;
+  border: solid var(--negro-50);
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 5px;
@@ -93,7 +93,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
-  background-color: #ffffff;
+  background-color: var(--blanco-100);
 }
 
 .cases-accordion-item.open .cases-accordion-content {
@@ -114,10 +114,10 @@
 .cases-procedure-pill {
   display: inline-block;
   padding: 0.6rem 1.5rem;
-  border: 1px solid #333;
+  border: 1px solid var(--negro-50);
   border-radius: 30px;
   background-color: transparent;
-  color: #333;
+  color: var(--negro-50);
   font-family: var(--font-subtitle);
   font-size: 0.95rem;
   font-weight: 400;
@@ -126,8 +126,8 @@
 }
 
 .cases-procedure-pill:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--negro-50);
+  color: var(--blanco-100);
 }
 
 .cases-no-procedures {
