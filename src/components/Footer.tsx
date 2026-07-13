@@ -26,9 +26,9 @@ export default function Footer({ logoUrl, description, phone, address, socialLin
           <div className="footer-col-left">
             <div className="footer-logo">
               {logoUrl ? (
-                <img src={logoUrl} alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain', marginBottom: '15px' }} />
+                <img src={`${logoUrl}?v=2`} alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain', marginBottom: '15px' }} />
               ) : (
-                <img src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain', marginBottom: '15px' }} />
+                <img src="/default-logo.png?v=2" alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain', marginBottom: '15px' }} />
               )}
             </div>
             <p className="footer-desc">

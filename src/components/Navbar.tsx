@@ -96,9 +96,9 @@ const FALLBACK_MENU: MenuItem[] = [
         <div className="navbar-logo" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <Link href="/">
             {logoUrl ? (
-              <Image className="navbar-logo-img" src={logoUrl} alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
+              <Image className="navbar-logo-img" src={`${logoUrl}?v=2`} alt="Mendoza Plastic Surgery Logo" width={400} height={80} style={{ objectFit: 'contain', width: 'auto', height: '40px' }} priority unoptimized={true} />
             ) : (
-              <Image className="navbar-logo-img" src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
+              <Image className="navbar-logo-img" src="/default-logo.png?v=2" alt="Mendoza Plastic Surgery Logo" width={400} height={80} style={{ objectFit: 'contain', width: 'auto', height: '40px' }} priority unoptimized={true} />
             )}
           </Link>
 
@@ -165,9 +165,9 @@ const FALLBACK_MENU: MenuItem[] = [
           <div className="navbar-logo">
             <Link href="/" onClick={() => setIsMenuOpen(false)}>
               {logoUrl ? (
-                <Image src={logoUrl} alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
+                <Image src={`${logoUrl}?v=2`} alt="Mendoza Plastic Surgery Logo" width={400} height={80} style={{ objectFit: 'contain', width: 'auto', height: '40px' }} priority unoptimized={true} />
               ) : (
-                <Image src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
+                <Image src="/default-logo.png?v=2" alt="Mendoza Plastic Surgery Logo" width={400} height={80} style={{ objectFit: 'contain', width: 'auto', height: '40px' }} priority unoptimized={true} />
               )}
             </Link>
           </div>
