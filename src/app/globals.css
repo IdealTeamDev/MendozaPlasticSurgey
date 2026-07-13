@@ -36,6 +36,12 @@ body {
   scroll-behavior: smooth;
 }
 
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 70px; /* Space for mobile CTA bar */
+  }
+}
+
 h1, h2, h3, h4, h5, h6, .title {
   font-family: var(--font-title);
 }

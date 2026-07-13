@@ -85,9 +85,9 @@ const FALLBACK_MENU: MenuItem[] = [
         <div className="navbar-logo" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <Link href="/">
             {logoUrl ? (
-              <Image src={logoUrl} alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
+              <Image className="navbar-logo-img" src={logoUrl} alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
             ) : (
-              <Image src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
+              <Image className="navbar-logo-img" src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
             )}
           </Link>
 
@@ -139,8 +139,8 @@ const FALLBACK_MENU: MenuItem[] = [
         </nav>
 
         <div className="navbar-actions">
-          <Link href="/contacto" className="book-consultation-btn desktop-only">
-            BOOK YOUR CONSULTATION
+          <Link href="/contacto" className="book-consultation-btn">
+            Agendar Consulta
           </Link>
           <button className="icon-btn mobile-menu-icon mobile-only" onClick={() => setIsMenuOpen(true)}>
              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
