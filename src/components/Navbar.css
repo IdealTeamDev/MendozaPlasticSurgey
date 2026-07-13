@@ -576,7 +576,7 @@
   padding: 0;
   border: none;
   font-size: 0.95rem;
-  color: var(--gold, #d4af37);
+  color: var(--white, #ffffff);
 }
 
 .mobile-subaccordion-header .arrow {
