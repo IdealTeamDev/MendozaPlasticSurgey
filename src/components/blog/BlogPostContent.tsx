@@ -85,8 +85,9 @@ export default function BlogPostContent() {
             {/* Subscribe Widget */}
             <div className="sidebar-widget subscribe-widget text-center">
               <h3 className="subs-title">Suscríbete a nuestro boletín y mantente al día con lo último</h3>
-              <form className="sidebar-subs-form">
-                <input type="email" placeholder="Ingresa tu email" required />
+              <form className="sidebar-subs-form" action="https://formsubmit.co/manuel@idealteamcolombia.com" method="POST">
+                <input type="hidden" name="_subject" value="Suscripción al boletín (Blog) - Mendoza Plastic Surgery" />
+                <input type="email" name="email" placeholder="Ingresa tu email" required />
                 <button type="submit" className="btn btn-black w-100">Suscribirse</button>
               </form>
             </div>

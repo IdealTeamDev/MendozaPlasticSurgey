@@ -118,11 +118,10 @@ export default async function RootLayout({
           description={globalOptions?.footer_descripcion}
           phone={globalOptions?.telefono}
           address={globalOptions?.direccion}
-          socialLinks={globalOptions?.redes_sociales || [
-            ...(globalOptions?.facebook ? [{ red_social: 'facebook', url: globalOptions.facebook }] : []),
-            ...(globalOptions?.instagram ? [{ red_social: 'instagram', url: globalOptions.instagram }] : []),
-            ...(globalOptions?.youtube ? [{ red_social: 'youtube', url: globalOptions.youtube }] : []),
-            ...(globalOptions?.pinterest ? [{ red_social: 'pinterest', url: globalOptions.pinterest }] : [])
+          socialLinks={[
+            { red_social: 'facebook', url: 'https://www.facebook.com/mendozaplasticsurgery' },
+            { red_social: 'instagram', url: 'https://www.instagram.com/mendozaplasticsurgery/' },
+            { red_social: 'tiktok', url: 'https://www.tiktok.com/@mendozaplasticsurgery' }
           ]}
         />
         <FloatingContact />

@@ -24,8 +24,9 @@ export default function BlogSubscription({ title, desc, bgImage }: BlogSubscript
             {desc || 'Mantente al día con lo último en tendencias sobre la Plastic Surgery con nuestro boletín mensual.'}
           </p>
           
-          <form className="blog-sub-form" onSubmit={e => e.preventDefault()}>
-            <input type="email" placeholder="Ingresa tu correo electrónico" className="blog-sub-input" required />
+          <form className="blog-sub-form" action="https://formsubmit.co/manuel@idealteamcolombia.com" method="POST">
+            <input type="hidden" name="_subject" value="Suscripción al blog - Mendoza Plastic Surgery" />
+            <input type="email" name="email" placeholder="Ingresa tu correo electrónico" className="blog-sub-input" required />
             <button type="submit" className="btn submit-btn">SUBMIT &rarr;</button>
           </form>
         </div>

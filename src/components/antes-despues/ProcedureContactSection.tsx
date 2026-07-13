@@ -23,23 +23,23 @@ export default function ProcedureContactSection() {
 
         <div className="proc-contact-right">
           <div className="proc-form-card">
-            <form className="proc-form">
+            <form className="proc-form" action="https://formsubmit.co/manuel@idealteamcolombia.com" method="POST">
+              <input type="hidden" name="_subject" value="Nuevo contacto desde Procedimientos - Mendoza Plastic Surgery" />
               <div className="form-group">
                 <label>Nombre*</label>
-                <input type="text" placeholder="Ingresa tu nombre" required />
+                <input type="text" name="nombre" placeholder="Ingresa tu nombre" required />
               </div>
               <div className="form-group">
                 <label>Correo electrónico*</label>
-                <input type="email" placeholder="Ingresa tu correo electrónico" required />
+                <input type="email" name="email" placeholder="Ingresa tu correo electrónico" required />
               </div>
               <div className="form-group">
                 <label>Celular*</label>
-                <input type="tel" placeholder="Ingresa tu número de celular" required />
-                <span className="error-text">Este campo es requerido</span>
+                <input type="tel" name="celular" placeholder="Ingresa tu número de celular" required />
               </div>
               <div className="form-group">
                 <label>Procedimiento deseado*</label>
-                <select required defaultValue="">
+                <select name="procedimiento" required defaultValue="">
                   <option value="" disabled>Selecciona un procedimiento</option>
                   <option value="aumento">Aumento de senos</option>
                   <option value="reduccion">Reducción de senos</option>
@@ -47,7 +47,7 @@ export default function ProcedureContactSection() {
                 </select>
               </div>
               <div className="form-checkbox">
-                <input type="checkbox" id="proc-terms" required />
+                <input type="checkbox" id="proc-terms" name="terminos" required />
                 <label htmlFor="proc-terms">Acepto política de tratamiento de datos</label>
               </div>
               <button type="submit" className="btn submit-btn">Agenda tu consulta</button>

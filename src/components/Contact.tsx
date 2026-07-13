@@ -45,23 +45,23 @@ export default function Contact({ subtitle, titleBold, text }: ContactProps) {
         </div>
 
         <div className="contact-form-wrapper">
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+          <form className="contact-form" action="https://formsubmit.co/manuel@idealteamcolombia.com" method="POST">
+            <input type="hidden" name="_subject" value="Nueva consulta - Mendoza Plastic Surgery" />
             <div className="form-group">
               <label>Nombre*</label>
-              <input type="text" placeholder="Ingresa tu nombre acá" />
+              <input type="text" name="nombre" placeholder="Ingresa tu nombre acá" required />
             </div>
             <div className="form-group">
               <label>Correo electrónico*</label>
-              <input type="email" placeholder="Ingresa tu correo electrónico acá" />
+              <input type="email" name="email" placeholder="Ingresa tu correo electrónico acá" required />
             </div>
-            <div className="form-group error-state">
+            <div className="form-group">
               <label>Celular*</label>
-              <input type="tel" placeholder="Ingresa tu número de celular acá" className="input-error" />
-              <span className="error-msg">Campo requerido</span>
+              <input type="tel" name="celular" placeholder="Ingresa tu número de celular acá" required />
             </div>
             <div className="form-group">
               <label>Procedimiento deseado*</label>
-              <select defaultValue="">
+              <select name="procedimiento" defaultValue="" required>
                 <option value="" disabled>Selecciona un procedimiento</option>
                 <option value="cuerpo">Cirugía de cuerpo</option>
                 <option value="rostro">Cirugía de rostro</option>
@@ -70,7 +70,7 @@ export default function Contact({ subtitle, titleBold, text }: ContactProps) {
               </select>
             </div>
             <div className="form-checkbox">
-              <input type="checkbox" id="policy" />
+              <input type="checkbox" id="policy" name="terminos" required />
               <label htmlFor="policy">Acepto política de tratamiento de datos</label>
             </div>
             <button type="submit" className="btn submit-btn-black">Agenda tu consulta</button>
