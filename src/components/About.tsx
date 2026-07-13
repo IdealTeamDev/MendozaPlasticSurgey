@@ -27,7 +27,7 @@ export default function About({ subtitle, title, text, imageUrl }: AboutProps) {
         </div>
         
         <div className="about-content">
-          <h2 className="about-subtitle">{subtitle || 'Cirujano plástico en Atlanta, GA'}</h2>
+          <span className="about-subtitle" style={{ display: 'block' }}>{subtitle || 'Cirujano plástico en Atlanta, GA'}</span>
           <h2 className="about-title">{title || 'Dr. Delquis R. Mendoza, M.S., M.D.'}</h2>
           
           {text ? (

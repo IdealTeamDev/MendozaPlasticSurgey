@@ -39,11 +39,11 @@ export default function Hero({ subtitle, title, text, imageUrl }: HeroProps) {
       
       <div className="container hero-container">
         <div className="hero-content">
-          <h1 className="hero-subtitle">{subtitle || 'Clínica de cirugía plástica en Atlanta'}</h1>
+          <span className="hero-subtitle" style={{ display: 'block' }}>{subtitle || 'Clínica de cirugía plástica en Atlanta'}</span>
           {title ? (
-            <h2 className="hero-title" dangerouslySetInnerHTML={{ __html: title }} />
+            <h1 className="hero-title" dangerouslySetInnerHTML={{ __html: title }} />
           ) : (
-            <h2 className="hero-title">Mendoza Plastic Surgery</h2>
+            <h1 className="hero-title">Mendoza Plastic Surgery</h1>
           )}
           
           {text ? (

@@ -15,7 +15,7 @@ export default function HomeIntroText({ subtitle, content }: HomeIntroTextProps)
     <section className="home-intro-section">
       <div className="container">
         {subtitle && (
-          <h3 className="home-intro-subtitle">{subtitle}</h3>
+          <h2 className="home-intro-subtitle">{subtitle}</h2>
         )}
         <div 
           className="home-intro-content"

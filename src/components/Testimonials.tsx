@@ -49,7 +49,7 @@ export default function Testimonials() {
               <div className="review-header">
                 <div className="reviewer-avatar m-initial">M</div>
                 <div className="reviewer-info">
-                  <h4>Marzia Fernández</h4>
+                  <span style={{ fontWeight: 'bold', fontSize: '1.1rem', display: 'block', color: 'var(--black)' }}>Marzia Fernández</span>
                   <span>15 Enero 2026</span>
                 </div>
                 <div className="google-icon">
@@ -66,7 +66,7 @@ export default function Testimonials() {
               <div className="review-header">
                 <div className="reviewer-avatar l-initial">L</div>
                 <div className="reviewer-info">
-                  <h4>Lexis Nuñez</h4>
+                  <span style={{ fontWeight: 'bold', fontSize: '1.1rem', display: 'block', color: 'var(--black)' }}>Lexis Nuñez</span>
                   <span>3 Abril 2026</span>
                 </div>
               </div>
