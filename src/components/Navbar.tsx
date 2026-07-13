@@ -85,9 +85,9 @@ const FALLBACK_MENU: MenuItem[] = [
         <div className="navbar-logo" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <Link href="/">
             {logoUrl ? (
-              <Image src={logoUrl} alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
+              <Image className="navbar-logo-img" src={logoUrl} alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
             ) : (
-              <Image src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
+              <Image className="navbar-logo-img" src="/default-logo.png" alt="Mendoza Plastic Surgery Logo" width={200} height={40} style={{ objectFit: 'contain', width: 'auto' }} priority />
             )}
           </Link>
 
@@ -139,7 +139,7 @@ const FALLBACK_MENU: MenuItem[] = [
         </nav>
 
         <div className="navbar-actions">
-          <Link href="/contacto" className="book-consultation-btn desktop-only">
+          <Link href="/contacto" className="book-consultation-btn">
             Agendar Consulta
           </Link>
           <button className="icon-btn mobile-menu-icon mobile-only" onClick={() => setIsMenuOpen(true)}>
@@ -171,11 +171,11 @@ const FALLBACK_MENU: MenuItem[] = [
               <div className="mobile-accordion" key={i}>
                 <div 
                   className="mobile-accordion-header"
-                  onClick={() => toggleMenu(`menu-${i}`)}
+                  onClick={(e) => { e.preventDefault(); toggleMenu(`menu-${i}`); }}
                 >
-                  <Link href={item.enlace || '#'} className="mobile-link has-dropdown" onClick={(e) => { e.stopPropagation(); setIsMenuOpen(false); }}>
+                  <div className="mobile-link has-dropdown" style={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between' }}>
                     {item.titulo} <span className={`arrow ${expandedMenu === `menu-${i}` ? 'open' : ''}`}>▼</span>
-                  </Link>
+                  </div>
                 </div>
                 <div className={`mobile-accordion-body ${expandedMenu === `menu-${i}` ? 'open' : ''}`}>
                   <div className="accordion-inner">
