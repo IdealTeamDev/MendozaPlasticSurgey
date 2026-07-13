@@ -467,7 +467,7 @@
 }
 
 .mobile-accordion-body.open {
-  max-height: 400px; /* Arbitrary large enough height */
+  max-height: 1000px; /* Increased to fit sub-accordions */
 }
 
 .accordion-inner {
@@ -561,3 +561,53 @@
   margin-left: 0.5rem;
 }
 
+/* Mobile Sub-Accordion Styles */
+.mobile-subaccordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.mobile-subaccordion-header .mobile-mega-title {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 0.95rem;
+  color: var(--gold, #d4af37);
+}
+
+.mobile-subaccordion-header .arrow {
+  font-size: 0.6rem;
+  color: #888;
+  transition: transform 0.3s;
+}
+
+.mobile-subaccordion-header .arrow.open {
+  transform: rotate(180deg);
+}
+
+.mobile-subaccordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-subaccordion-body.open {
+  max-height: 600px;
+}
+
+.mobile-subaccordion-body a {
+  padding: 0.8rem 1rem !important;
+  font-size: 0.9rem;
+  color: #ddd;
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.mobile-mega-col {
+  margin-bottom: 0.5rem;
+}

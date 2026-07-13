@@ -28,13 +28,24 @@ interface NavbarProps {
 export default function Navbar({ logoUrl, menuItems }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+  const [expandedSubMenu, setExpandedSubMenu] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const toggleMenu = (menu: string) => {
     if (expandedMenu === menu) {
       setExpandedMenu(null);
+      setExpandedSubMenu(null);
     } else {
       setExpandedMenu(menu);
+      setExpandedSubMenu(null);
+    }
+  };
+
+  const toggleSubMenu = (menu: string) => {
+    if (expandedSubMenu === menu) {
+      setExpandedSubMenu(null);
+    } else {
+      setExpandedSubMenu(menu);
     }
   };
 
@@ -173,7 +184,7 @@ const FALLBACK_MENU: MenuItem[] = [
                   className="mobile-accordion-header"
                   onClick={(e) => { e.preventDefault(); toggleMenu(`menu-${i}`); }}
                 >
-                  <div className="mobile-link has-dropdown" style={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between' }}>
+                  <div style={{ width: '100%', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     {item.titulo} <span className={`arrow ${expandedMenu === `menu-${i}` ? 'open' : ''}`}>▼</span>
                   </div>
                 </div>
@@ -182,10 +193,18 @@ const FALLBACK_MENU: MenuItem[] = [
                     {item.es_mega_menu && item.mega_menu_columnas ? (
                       item.mega_menu_columnas.map((col, cIndex) => (
                         <div key={cIndex} className="mobile-mega-col">
-                          <h5 className="mobile-mega-title">{col.titulo}</h5>
-                          {col.items.map((sub, j) => (
-                            <Link href={sub.enlace} key={j} onClick={() => setIsMenuOpen(false)}>{sub.titulo}</Link>
-                          ))}
+                          <div 
+                            className="mobile-subaccordion-header"
+                            onClick={(e) => { e.preventDefault(); toggleSubMenu(`submenu-${i}-${cIndex}`); }}
+                          >
+                            <h5 className="mobile-mega-title">{col.titulo}</h5>
+                            <span className={`arrow ${expandedSubMenu === `submenu-${i}-${cIndex}` ? 'open' : ''}`}>▼</span>
+                          </div>
+                          <div className={`mobile-subaccordion-body ${expandedSubMenu === `submenu-${i}-${cIndex}` ? 'open' : ''}`}>
+                            {col.items.map((sub, j) => (
+                              <Link href={sub.enlace} key={j} onClick={() => setIsMenuOpen(false)}>{sub.titulo}</Link>
+                            ))}
+                          </div>
                         </div>
                       ))
                     ) : item.sub_menu ? (
