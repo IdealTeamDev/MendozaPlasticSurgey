@@ -3,7 +3,7 @@
   text-align: center;
   background-image: url('/hero_bg.png?v=3');
   background-position: center center;
-  background-size: contain;
+  background-size: cover;
   /* background-attachment: fixed; */
   padding: 4rem 0;
   position: relative;

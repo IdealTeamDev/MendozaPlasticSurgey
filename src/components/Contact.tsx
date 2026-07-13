@@ -18,7 +18,7 @@ export default function Contact({ subtitle, titleBold, text }: ContactProps) {
         alt="Contact background"
         fill
         sizes="100vw"
-        style={{ objectFit: 'cover', zIndex: 0, filter: 'grayscale(100%) blur(4px)', opacity: 0.8 }}
+        style={{ objectFit: 'cover', zIndex: 0, opacity: 0.8 }}
       />
       <div className="contact-bg-shape">
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%">

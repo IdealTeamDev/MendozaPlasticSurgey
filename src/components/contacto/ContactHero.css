@@ -27,8 +27,6 @@
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: blur(25px) grayscale(100%);
-  transform: scale(1.15) translateZ(0);
 }
 
 .contact-hero-overlay {
