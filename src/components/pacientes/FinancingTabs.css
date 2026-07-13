@@ -38,7 +38,7 @@
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 500;
-  color: var(--blanco-50);
+  color: #666;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -73,7 +73,7 @@
 .fin-pane-logo-placeholder {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--negro-50);
+  color: #333;
 }
 
 .financing-tabs-content {
@@ -166,6 +166,6 @@
 }
 
 .fin-btn:hover {
-  background-color: var(--negro-50);
+  background-color: #333;
 }
 

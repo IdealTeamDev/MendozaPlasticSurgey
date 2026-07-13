@@ -141,12 +141,12 @@
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background-color: var(--negro-100);
+  background-color: #000;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--blanco-100);
+  color: #fff;
   z-index: 2;
 }
 

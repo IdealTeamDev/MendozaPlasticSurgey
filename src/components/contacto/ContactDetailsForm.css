@@ -146,7 +146,7 @@
   transform: translateY(-50%);
   pointer-events: none;
   font-size: 0.7rem;
-  color: var(--blanco-50);
+  color: #666;
 }
 
 .error-state .error-input {
@@ -179,7 +179,7 @@
 
 .form-checkbox label {
   font-size: 0.85rem;
-  color: var(--blanco-50);
+  color: #666;
   cursor: pointer;
 }
 

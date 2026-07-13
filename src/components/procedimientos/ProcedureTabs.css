@@ -43,7 +43,7 @@
   border: none;
   font-size: 1.1rem;
   font-weight: 400;
-  color: var(--blanco-50);
+  color: #666;
   padding: 1rem 0;
   cursor: pointer;
   position: relative;
@@ -135,9 +135,9 @@
 .proc-pill-link {
   display: inline-block;
   padding: 0.6rem 1.5rem;
-  border: 1px solid var(--negro-50);
+  border: 1px solid #333;
   border-radius: 30px;
-  color: var(--negro-50);
+  color: #333;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 400;
@@ -145,7 +145,7 @@
 }
 
 .proc-pill-link:hover {
-  background-color: var(--negro-50);
-  color: var(--blanco-100);
+  background-color: #333;
+  color: #fff;
 }
 

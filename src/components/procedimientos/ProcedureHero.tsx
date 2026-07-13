@@ -37,7 +37,7 @@ export default function ProcedureHero({ title, desc, imageUrl }: ProcedureHeroPr
 
       <div className="proc-hero-curve">
         <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-          <path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="var(--blanco-100)" />
+          <path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#fff" />
         </svg>
       </div>
     </section>

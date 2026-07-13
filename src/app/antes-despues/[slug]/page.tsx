@@ -159,7 +159,7 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
           <h2 style={{ fontSize: '2rem', fontWeight: 400, color: 'var(--black)', marginBottom: '0.5rem', fontFamily: 'var(--font-title)' }}>
             RESULTADOS CIRUGÍA PLÁSTICA
           </h2>
-          <p style={{ fontSize: '1rem', color: 'var(--blanco-50)', fontFamily: 'var(--font-subtitle)' }}>
+          <p style={{ fontSize: '1rem', color: '#666', fontFamily: 'var(--font-subtitle)' }}>
             Explora la galería de antes y después, y descubre transformaciones reales.
           </p>
         </div>
@@ -174,7 +174,7 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
             {/* Pagination Placeholder (Static for now) */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '3rem', fontFamily: 'var(--font-subtitle)', fontSize: '0.9rem', color: '#888' }}>
               <span>&lt;</span>
-              <span style={{ border: '1px solid var(--negro-50)', padding: '2px 8px', borderRadius: '4px', color: 'var(--negro-50)' }}>1</span>
+              <span style={{ border: '1px solid #333', padding: '2px 8px', borderRadius: '4px', color: '#333' }}>1</span>
               <span>2</span>
               <span>3</span>
               <span>..</span>

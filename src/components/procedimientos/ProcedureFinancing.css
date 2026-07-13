@@ -32,7 +32,7 @@
 .proc-financing-text {
   font-family: var(--font-text);
   font-size: 1rem;
-  color: var(--negro-50);
+  color: #333;
   line-height: 1.6;
 }
 

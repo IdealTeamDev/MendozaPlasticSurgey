@@ -70,7 +70,7 @@
   font-family: var(--font-subtitle);
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--negro-50);
+  color: #333;
   margin: 0 0 0.25rem 0;
   letter-spacing: 0.5px;
 }
@@ -78,15 +78,15 @@
 .cases-card-desc {
   font-family: var(--font-subtitle);
   font-size: 0.85rem;
-  color: var(--blanco-50);
+  color: #666;
   margin: 0 0 1.5rem 0;
   line-height: 1.4;
   flex-grow: 1;
 }
 
 .cases-card-btn {
-  background-color: var(--negro-100);
-  color: var(--blanco-100);
+  background-color: #000;
+  color: #fff;
   border: none;
   border-radius: 30px;
   padding: 0.5rem 1.5rem;
@@ -98,6 +98,6 @@
 }
 
 .cases-card-btn:hover {
-  background-color: var(--negro-50);
+  background-color: #333;
 }
 

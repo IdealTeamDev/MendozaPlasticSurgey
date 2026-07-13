@@ -21,8 +21,8 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: var(--white, var(--blanco-100));
-  color: var(--black, var(--negro-100));
+  background-color: var(--white, #fff);
+  color: var(--black, #000);
   padding: 0.75rem 1.25rem;
   border-radius: 4px;
   text-decoration: none;
@@ -36,7 +36,7 @@
 }
 
 .floating-menu-item:hover {
-  background-color: var(--caja);
+  background-color: #f5f5f5;
   color: var(--black);
 }
 
@@ -70,8 +70,8 @@
   width: 65px;
   height: 65px;
   border-radius: 50%;
-  background-color: var(--black, var(--negro-80));
-  color: var(--white, var(--blanco-100));
+  background-color: var(--black, #1a1a1a);
+  color: var(--white, #fff);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,8 +82,8 @@
 }
 
 .floating-bubble.open {
-  background-color: var(--white, var(--blanco-100));
-  color: var(--black, var(--negro-80));
+  background-color: var(--white, #fff);
+  color: var(--black, #1a1a1a);
   transform: rotate(90deg);
 }
 

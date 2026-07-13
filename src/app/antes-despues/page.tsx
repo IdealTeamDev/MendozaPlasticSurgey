@@ -66,12 +66,12 @@ export default async function CasosDirectoryPage() {
         imageUrl="/hero_bg.png" /* Optionally fetch from a global options page later */
       />
       
-      <section className="casos-intro-section" style={{ textAlign: 'center', padding: '4rem 1rem', backgroundColor: 'var(--blanco-100)' }}>
+      <section className="casos-intro-section" style={{ textAlign: 'center', padding: '4rem 1rem', backgroundColor: '#fff' }}>
         <div className="container">
           <h2 style={{ fontSize: '2rem', fontWeight: 400, color: 'var(--black)', marginBottom: '0.5rem', fontFamily: 'var(--font-title)' }}>
             RESULTADOS CIRUGÍA PLÁSTICA
           </h2>
-          <p style={{ fontSize: '1rem', color: 'var(--blanco-50)', fontFamily: 'var(--font-subtitle)', marginBottom: '3rem' }}>
+          <p style={{ fontSize: '1rem', color: '#666', fontFamily: 'var(--font-subtitle)', marginBottom: '3rem' }}>
             Explora la galería de antes y después, y descubre transformaciones reales.
           </p>
 

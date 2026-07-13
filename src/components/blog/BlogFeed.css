@@ -164,7 +164,7 @@
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
-  color: var(--negro-80); /* Fix for white text on white background */
+  color: #111; /* Fix for white text on white background */
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -208,6 +208,6 @@
   font-size: 0.85rem;
   font-weight: 500;
   line-height: 1.3;
-  color: var(--negro-80); /* Explicitly set to dark color */
+  color: #111; /* Explicitly set to dark color */
 }
 

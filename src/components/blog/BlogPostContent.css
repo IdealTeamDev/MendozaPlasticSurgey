@@ -19,7 +19,7 @@
 /* Main Content Area */
 .blog-post-main {
   flex: 1;
-  color: var(--negro-50);
+  color: #333;
 }
 
 .blog-paragraph {
@@ -98,7 +98,7 @@
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1rem;
-  color: var(--negro-50);
+  color: #333;
 }
 
 .blog-info-box p:last-child {

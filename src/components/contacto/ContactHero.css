@@ -16,7 +16,7 @@
   height: 100%;
   z-index: 0;
   overflow: hidden;
-  background-color: var(--negro-80);
+  background-color: #111;
 }
 
 .contact-hero-bg-img {
@@ -128,7 +128,7 @@
   justify-content: center;
   align-items: center;
   background-color: #555;
-  color: var(--blanco-100);
+  color: #fff;
   font-size: 0.9rem;
 }
 

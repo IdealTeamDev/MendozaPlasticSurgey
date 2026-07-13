@@ -1,7 +1,7 @@
 .proc-contact-section {
   position: relative;
   padding: 6rem 0;
-  background-color: var(--negro-50); /* Fallback */
+  background-color: #333; /* Fallback */
   overflow: hidden;
 }
 
@@ -103,7 +103,7 @@
 
 .form-group label {
   font-size: 0.85rem;
-  color: var(--blanco-50);
+  color: #666;
 }
 
 .form-group input,
@@ -115,7 +115,7 @@
   background-color: var(--white);
   font-size: 0.9rem;
   font-family: inherit;
-  color: var(--negro-50);
+  color: #333;
 }
 
 .form-group input:focus,
@@ -143,7 +143,7 @@
 
 .form-checkbox label {
   font-size: 0.8rem;
-  color: var(--blanco-50);
+  color: #666;
   line-height: 1.4;
 }
 

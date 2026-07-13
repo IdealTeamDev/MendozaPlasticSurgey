@@ -29,7 +29,7 @@
   position: absolute;
   top: -40px;
   right: 0;
-  background: var(--blanco-100);
+  background: #fff;
   border: none;
   width: 36px;
   height: 36px;
@@ -38,7 +38,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: var(--negro-50);
+  color: #333;
   transition: transform 0.2s ease;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .cases-modal-pill {
-  border: 1px solid var(--negro-100);
+  border: 1px solid #000;
   border-radius: 30px;
   padding: 0.5rem 2rem;
   font-family: var(--font-subtitle);
@@ -92,7 +92,7 @@
   overflow: hidden;
   position: relative;
   aspect-ratio: 4 / 5;
-  background-color: var(--negro-100);
+  background-color: #000;
 }
 
 .cases-modal-img-wrapper img {
@@ -109,7 +109,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--blanco-100);
+  color: #fff;
   font-family: var(--font-subtitle);
   text-transform: uppercase;
 }
@@ -121,8 +121,8 @@
 }
 
 .cases-modal-nav-btn {
-  background-color: var(--negro-100);
-  color: var(--blanco-100);
+  background-color: #000;
+  color: #fff;
   border: none;
   width: 40px;
   height: 40px;
@@ -146,7 +146,7 @@
 .cases-modal-desc p {
   font-family: var(--font-subtitle);
   font-size: 1.1rem;
-  color: var(--negro-50);
+  color: #333;
   line-height: 1.5;
   margin: 0;
 }

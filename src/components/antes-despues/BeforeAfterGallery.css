@@ -77,7 +77,7 @@
   justify-content: center;
   align-items: center;
   font-size: 0.6rem;
-  color: var(--blanco-50);
+  color: #666;
   text-align: center;
   overflow: hidden;
 }

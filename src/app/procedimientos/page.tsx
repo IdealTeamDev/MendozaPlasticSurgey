@@ -58,7 +58,7 @@ export default async function ProcedimientosPage() {
   }
 
   return (
-    <main style={{ backgroundColor: 'var(--blanco-100)' }}>
+    <main style={{ backgroundColor: '#fff' }}>
       <ProcedureHero 
         title={acf?.hero_titulo}
         desc={acf?.hero_texto}

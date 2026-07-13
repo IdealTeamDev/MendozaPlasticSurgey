@@ -24,7 +24,7 @@
 
 .proc-grid-desc {
   font-size: 0.95rem;
-  color: var(--blanco-50);
+  color: #666;
 }
 
 .proc-layout {
@@ -81,7 +81,7 @@
   align-items: center;
   color: #888;
   font-size: 0.8rem;
-  border-right: 1px solid var(--blanco-100);
+  border-right: 1px solid #fff;
 }
 
 .proc-case-img-box:last-child {
@@ -145,7 +145,7 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   cursor: pointer;
-  color: var(--blanco-50);
+  color: #666;
   font-size: 0.9rem;
   transition: all 0.2s ease;
 }

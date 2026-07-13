@@ -29,7 +29,7 @@ export default function ProcedureFAQ({ faqs = [], title = "" }: ProcedureFAQProp
       <div className="container" style={{ maxWidth: '800px' }}>
         
         <div className="proc-faq-header" style={{ marginBottom: '3rem' }}>
-          <span className="proc-faq-subtitle" style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--blanco-50)', letterSpacing: '2px', fontSize: '1rem' }}>PREGUNTAS FRECUENTES</span>
+          <span className="proc-faq-subtitle" style={{ display: 'block', marginBottom: '0.5rem', color: '#666', letterSpacing: '2px', fontSize: '1rem' }}>PREGUNTAS FRECUENTES</span>
           {title && <h2 className="proc-faq-title" style={{ fontSize: '2.5rem', fontWeight: 300, color: 'var(--black)', textTransform: 'uppercase' }}>SOBRE {title}</h2>}
         </div>
 

@@ -1,6 +1,6 @@
 .footer {
-  background-color: var(--black, var(--negro-100));
-  color: var(--white, var(--blanco-100));
+  background-color: var(--black, #000);
+  color: var(--white, #fff);
   padding: 4rem 0 2rem;
   font-family: inherit;
 }
@@ -76,7 +76,7 @@
 }
 
 .footer-nav a {
-  color: var(--white, var(--blanco-100));
+  color: var(--white, #fff);
   font-size: 0.85rem;
   letter-spacing: 1.5px;
   text-decoration: none;
@@ -103,7 +103,7 @@
 }
 
 .contact-item .icon {
-  color: var(--blanco-100);
+  color: #fff;
   display: flex;
 }
 
@@ -129,8 +129,8 @@
   flex: 1;
   padding: 0 1rem;
   border: none;
-  background-color: var(--blanco-100);
-  color: var(--negro-50);
+  background-color: #fff;
+  color: #333;
   font-size: 0.85rem;
   border-radius: 4px 0 0 4px;
   font-family: inherit;
@@ -144,7 +144,7 @@
 .newsletter-form button {
   padding: 0 1.5rem;
   background-color: #a0a0a0;
-  color: var(--blanco-100);
+  color: #fff;
   border: none;
   font-size: 0.85rem;
   font-weight: 500;
@@ -167,8 +167,8 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: var(--blanco-100);
-  color: var(--negro-100);
+  background-color: #fff;
+  color: #000;
   display: flex;
   justify-content: center;
   align-items: center;

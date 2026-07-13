@@ -12,7 +12,7 @@
   font-weight: 400;
   letter-spacing: 2px;
   margin-bottom: 2rem;
-  color: var(--black, var(--negro-100));
+  color: var(--black, #000);
   text-align: center;
   text-transform: uppercase;
 }
@@ -22,7 +22,7 @@
 }
 
 .procedures-card {
-  background-color: var(--negro-80);
+  background-color: #1a1a1a;
   background-size: cover;
   background-position: center;
   border-radius: 12px;
@@ -138,10 +138,10 @@
   flex-shrink: 0;
 }
 
-.tab-btn:hover { color: var(--blanco-100); }
+.tab-btn:hover { color: #fff; }
 
 .tab-btn.active {
-  color: var(--blanco-100);
+  color: #fff;
 }
 
 .tab-btn.active::after {
@@ -151,7 +151,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background-color: var(--blanco-100);
+  background-color: #fff;
   z-index: 3;
 }
 
@@ -195,13 +195,13 @@
   background: transparent;
   color: #ccc;
   border: none;
-  border-bottom: 1px solid var(--negro-50);
+  border-bottom: 1px solid #333;
 }
 
 .dropdown-item.active,
 .dropdown-item:hover {
   color: var(--white);
-  background-color: var(--negro-50);
+  background-color: #333;
 }
 
 .procedures-content {

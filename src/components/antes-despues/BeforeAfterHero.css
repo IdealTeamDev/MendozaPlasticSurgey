@@ -6,7 +6,7 @@
   padding-top: 120px;
   padding-bottom: 8rem;
   overflow: hidden;
-  background-color: var(--negro-80);
+  background-color: #111;
 }
 
 .ba-hero-bg {
@@ -115,7 +115,7 @@
   justify-content: center;
   align-items: center;
   background-color: #555;
-  color: var(--blanco-100);
+  color: #fff;
   font-size: 0.9rem;
 }
 
