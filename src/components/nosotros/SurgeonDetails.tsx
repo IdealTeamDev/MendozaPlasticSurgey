@@ -63,7 +63,7 @@ export default function SurgeonDetails({
               </div>
               <div className="surgeon-pane-right surgeon-pane-right-two-cols">
                 {certificacionesText ? (
-                  <div dangerouslySetInnerHTML={{ __html: certificacionesText.replace(/universidad\.\s+Después/, "universidad.</p><p>Después") }} />
+                  <div dangerouslySetInnerHTML={{ __html: certificacionesText.replace(/universidad\.[\s\S]*?Después/g, "universidad.</p><p style=\"break-before: column;\">Después") }} />
                 ) : (
                   <div>
                     <p>

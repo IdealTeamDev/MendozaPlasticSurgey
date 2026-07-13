@@ -113,6 +113,12 @@
     column-count: 2;
     column-gap: 2.5rem;
   }
+  .surgeon-pane-right-two-cols > div > p {
+    break-inside: avoid-column;
+  }
+  .surgeon-pane-right-two-cols > div > p:nth-of-type(2) {
+    break-before: column;
+  }
 }
 
 .surgeon-pane-full {
