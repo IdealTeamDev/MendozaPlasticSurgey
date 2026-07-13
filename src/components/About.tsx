@@ -40,7 +40,7 @@ export default function About({ subtitle, title, text, imageUrl }: AboutProps) {
             </div>
           )}
           
-          <Link href="/centro-medico" className="btn btn-primary">Conocer más</Link>
+          <Link href="/centro-medico" className="btn btn-primary">Conoce más</Link>
         </div>
       </div>
     </section>
