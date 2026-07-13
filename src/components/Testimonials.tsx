@@ -37,7 +37,7 @@ export default function Testimonials() {
               <span className="stat-label">Estrellas</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">+180</span>
+              <span className="stat-number">+105</span>
               <span className="stat-label">Reviews</span>
             </div>
           </div>
