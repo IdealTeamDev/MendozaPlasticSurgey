@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { getPageBySlug, getMedia, getCasos, getCasoById } from '@/lib/wordpress';
 import SurgeonHero from '@/components/nosotros/SurgeonHero';
+import ProcedureResultsSlider from '@/components/procedimientos/ProcedureResultsSlider';
 import SurgeonDetails from '@/components/nosotros/SurgeonDetails';
 import SurgeonFunFacts from '@/components/nosotros/SurgeonFunFacts';
 
@@ -36,6 +37,47 @@ export default async function SurgeonPage() {
     }
   }
 
+  // Fetch cases for SurgeonBeforeAfter (ProcedureResultsSlider)
+  const casosDataRaw = await getCasos() || [];
+  
+  const getMediaUrl = async (imgData: any) => {
+    if (!imgData) return null;
+    if (typeof imgData === 'number') {
+      const media = await getMedia(imgData);
+      return media?.source_url || null;
+    }
+    if (typeof imgData === 'object' && imgData.url) {
+      return imgData.url;
+    }
+    if (typeof imgData === 'string') {
+      return imgData;
+    }
+    return null;
+  };
+
+  const cases = await Promise.all(casosDataRaw.map(async (rawCase: any) => {
+    const c = await getCasoById(rawCase.id) || rawCase;
+    const examples = [];
+    
+    if (c.acf?.galeria_casos && Array.isArray(c.acf.galeria_casos)) {
+      const repeaterCases = await Promise.all(
+        c.acf.galeria_casos.map(async (item: any) => {
+          const bImg = await getMediaUrl(item.foto_antes);
+          const aImg = await getMediaUrl(item.foto_despues);
+          return { before: bImg, after: aImg };
+        })
+      );
+      examples.push(...repeaterCases.filter((c: any) => c.before && c.after));
+    }
+
+    return {
+      id: c.id,
+      title: c.title?.rendered || 'Caso',
+      examples
+    };
+  }));
+
+  const validCases = cases.filter(c => c.examples.length > 0);
 
   return (
     <main className="nosotros-page fade-in">
@@ -60,7 +102,15 @@ export default async function SurgeonPage() {
         funfactsImage={acf?.surgeon_funfacts_image}
       />
 
-
+      {validCases.length > 0 && (
+        <section style={{ backgroundColor: '#f9f9f9', paddingTop: '4rem' }}>
+          <div className="container" style={{ textAlign: 'left', marginBottom: '2rem' }}>
+            <p style={{ fontSize: '0.9rem', color: '#666', letterSpacing: '2px', textTransform: 'uppercase' }}>ANTES Y DESPUÉS</p>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 300, color: 'var(--black)' }}>CIRUGÍA PLÁSTICA</h2>
+          </div>
+          <ProcedureResultsSlider cases={validCases} />
+        </section>
+      )}
     </main>
   );
 }
