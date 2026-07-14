@@ -6,8 +6,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const wpPage = await getPageBySlug('procedimientos');
   return generateYoastMetadata(
     wpPage?.yoast_head_json,
-    'Procedimientos | Mendoza Plastic Surgery',
-    'Conozca nuestros procedimientos de cirugía plástica.'
+    'Procedimientos en Atlanta y cirugía plástica | cirujano con experiencia',
+    'Conoce los procedimientos en Atlanta que están a la vanguardia de la cirugía plástica en Atlanta. Mendoza Plastic Surgery cuenta con profesionales de alta calidad.'
   );
 }
 import PageHero from '@/components/PageHero';

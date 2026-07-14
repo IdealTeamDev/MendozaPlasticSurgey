@@ -62,6 +62,7 @@ export default function SurgeonDetails({
                 </div>
               </div>
               <div className="surgeon-pane-right surgeon-pane-right-two-cols">
+                <h2 className="sr-only" style={{ display: 'none' }}>Biografía</h2>
                 {certificacionesText ? (
                   <div dangerouslySetInnerHTML={{ __html: certificacionesText.replace(/universidad\.[\s\S]*?Después/g, "universidad.</p><p style=\"break-before: column;\">Después") }} />
                 ) : (
@@ -92,6 +93,7 @@ export default function SurgeonDetails({
                 </div>
               </div>
               <div className="surgeon-pane-right">
+                <h3 className="sr-only" style={{ display: 'none' }}>Estudios</h3>
                 {estudiosText ? (
                   <div dangerouslySetInnerHTML={{ __html: estudiosText }} />
                 ) : (
@@ -115,6 +117,7 @@ export default function SurgeonDetails({
                 </div>
               </div>
               <div className="surgeon-pane-right">
+                <h3 className="sr-only" style={{ display: 'none' }}>Clínica</h3>
                 {clinicaText ? (
                   <div dangerouslySetInnerHTML={{ __html: clinicaText }} />
                 ) : (

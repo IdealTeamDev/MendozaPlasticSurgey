@@ -15,8 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const wpPage = await getPageBySlug('centro-medico');
   return generateYoastMetadata(
     wpPage?.yoast_head_json,
-    'Medical Center | Mendoza Plastic Surgery',
-    'Conoce nuestras modernas instalaciones en Atlanta. El Medical Center de Mendoza Plastic Surgery está equipado con tecnología de vanguardia para tu seguridad.'
+    'Clínica de cirugía Mendoza Plastic Surgery | Cirujano plástico en Atlanta, GA',
+    'Conoce el Centro de cirugía plástica en Atlanta especializado en cirugía plástica y reconstructiva en Atlanta. Cirujano Bilingüe (inglés/español).'
   );
 }
 

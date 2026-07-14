@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return generateYoastMetadata(
     wpPage?.yoast_head_json,
     'Mendoza Plastic Surgery | Cirujano plástico en Atlanta, Georgia',
-    'Mendoza Plastic Surgery en Duluth, Georgia. El Dr. Mendoza, cirujano plástico, realiza cirugías corporal, mamaria, lifting facial y más. Reserve su consulta.'
+    'Mendoza Plastic Surgery  en Duluth, Georgia. El Dr. Mendoza, cirujano plástico,  realiza cirugías corporal, mamaria, lifting facial y más. Reserve su consulta.'
   );
 }
 

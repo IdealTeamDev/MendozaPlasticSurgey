@@ -51,6 +51,7 @@ export default function MedicalCenterDetails({
                 )}
               </div>
               <div className="mc-pane-right-content">
+                <h2 className="mc-pane-title sr-only" style={{ display: 'none' }}>{tab1Title || 'CLÍNICA DE CIRUGÍA PLÁSTICA BILINGÜE'}</h2>
                 <div className="mc-text-columns">
                   <div className="mc-text-col">
                     {tab1TextLeft ? (
@@ -90,6 +91,7 @@ export default function MedicalCenterDetails({
                 )}
               </div>
               <div className="mc-pane-right-content">
+                <h2 className="mc-pane-title sr-only" style={{ display: 'none' }}>{tab2Title || 'CIRUGÍA PLÁSTICA PERSONALIZADA EN ATLANTA'}</h2>
                 <div className="mc-text-columns">
                   <div className="mc-text-col">
                     {tab2TextLeft ? (

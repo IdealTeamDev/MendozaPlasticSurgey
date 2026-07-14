@@ -15,8 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const wpPage = await getPageBySlug('cirujano');
   return generateYoastMetadata(
     wpPage?.yoast_head_json,
-    'Dr. Delquis Mendoza | Mendoza Plastic Surgery',
-    'Conoce al Dr. Delquis R. Mendoza, cirujano plástico y reconstructivo certificado en Atlanta con amplia experiencia en contorno corporal y rejuvenecimiento facial.'
+    'Cirujano plastico Atlanta, GA | Cirujano bilingue',
+    'El Dr. delquis Mendoza es un cirujano plástico ubicado en Atlanta, GA. es especialista en cirugía corporal, facial y de senos. Contáctanos.'
   );
 }
 

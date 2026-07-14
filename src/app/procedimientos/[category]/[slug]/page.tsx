@@ -3,13 +3,18 @@ import { Metadata } from 'next';
 import { getProcedureBySlug, getMedia, getCasoById, getProceduresByCategory } from '@/lib/wordpress';
 import { generateYoastMetadata } from '@/lib/seo';
 
+import { procedureSeoMap } from '@/lib/seo-map';
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string; category: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const wpProc = await getProcedureBySlug(slug);
+  
+  const seoData = procedureSeoMap[slug];
+  
   return generateYoastMetadata(
     wpProc?.yoast_head_json,
-    wpProc?.title?.rendered || 'Procedimiento',
-    'Conozca más sobre este procedimiento en Mendoza Plastic Surgery.'
+    seoData?.title || wpProc?.title?.rendered || 'Procedimiento',
+    seoData?.desc || 'Conozca más sobre este procedimiento en Mendoza Plastic Surgery.'
   );
 }
 
