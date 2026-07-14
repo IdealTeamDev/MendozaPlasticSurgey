@@ -122,7 +122,7 @@ const FALLBACK_MENU: MenuItem[] = [
                 key={i}
                 onMouseLeave={() => setForceCloseDesktop(false)}
               >
-                <Link href={item.enlace || '#'} className="has-dropdown">{item.titulo} <span className="arrow">▼</span></Link>
+                <Link href={item.enlace || '#'} className="has-dropdown" onClick={() => setForceCloseDesktop(true)}>{item.titulo} <span className="arrow">▼</span></Link>
                 {item.es_mega_menu && item.mega_menu_columnas ? (
                   <div className="mega-menu">
                     <div className="mega-menu-container">
