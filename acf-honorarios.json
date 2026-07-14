@@ -1,0 +1,76 @@
+[
+    {
+        "key": "group_honorarios_quirurgicos",
+        "title": "Honorarios Quirúrgicos (Financiamiento)",
+        "fields": [
+            {
+                "key": "field_honorarios_title",
+                "label": "Título de la Sección",
+                "name": "fees_title",
+                "type": "text",
+                "default_value": "CONSULTAS Y HONORARIOS QUIRÚRGICOS"
+            },
+            {
+                "key": "field_honorarios_cards",
+                "label": "Tarjetas de Honorarios",
+                "name": "fees_cards",
+                "type": "repeater",
+                "layout": "block",
+                "button_label": "Añadir Tarjeta",
+                "sub_fields": [
+                    {
+                        "key": "field_honorarios_card_title",
+                        "label": "Título de Tarjeta",
+                        "name": "card_title",
+                        "type": "text"
+                    },
+                    {
+                        "key": "field_honorarios_card_icon",
+                        "label": "Icono (Imagen/SVG)",
+                        "name": "card_icon",
+                        "type": "image",
+                        "return_format": "url"
+                    },
+                    {
+                        "key": "field_honorarios_card_text",
+                        "label": "Texto de la Tarjeta",
+                        "name": "card_text",
+                        "type": "wysiwyg",
+                        "media_upload": 0
+                    }
+                ]
+            },
+            {
+                "key": "field_honorarios_policy_text",
+                "label": "Texto Enlace Política",
+                "name": "fees_policy_text",
+                "type": "text",
+                "default_value": "Política de tratamiento"
+            },
+            {
+                "key": "field_honorarios_policy_url",
+                "label": "URL Enlace Política",
+                "name": "fees_policy_url",
+                "type": "url",
+                "default_value": "#politica"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page",
+                    "operator": "==",
+                    "value": "26" 
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]

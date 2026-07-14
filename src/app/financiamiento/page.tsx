@@ -36,6 +36,15 @@ export default async function PacientesPage() {
         tab_icon: await getMediaUrl(tab.tab_icon),
         tab_logo: await getMediaUrl(tab.tab_logo)
       }))
+  }
+
+  let feeCards = [];
+  if (acf.fees_cards && Array.isArray(acf.fees_cards)) {
+    feeCards = await Promise.all(
+      acf.fees_cards.map(async (card: any) => ({
+        ...card,
+        card_icon: await getMediaUrl(card.card_icon)
+      }))
     );
   }
 
@@ -48,7 +57,12 @@ export default async function PacientesPage() {
         imageUrl={acf?.hero_image}
       />
       <FinancingTabs tabs={finTabs} title={acf?.fin_title} />
-      <ConsultationFees title={acf?.fees_title} />
+      <ConsultationFees 
+        title={acf?.fees_title} 
+        cards={feeCards}
+        policyText={acf?.fees_policy_text}
+        policyUrl={acf?.fees_policy_url}
+      />
       </main>
   );
 }
