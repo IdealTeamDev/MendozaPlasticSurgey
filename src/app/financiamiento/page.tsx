@@ -1,5 +1,5 @@
 import React from 'react';
-import PatientsHero from '@/components/pacientes/PatientsHero';
+import ProcedureDetailHero from '@/components/procedimientos/ProcedureDetailHero';
 import FinancingTabs from '@/components/pacientes/FinancingTabs';
 import ConsultationFees from '@/components/pacientes/ConsultationFees';
 import { getPageBySlug, getMedia } from '@/lib/wordpress';
@@ -30,9 +30,8 @@ export default async function PacientesPage() {
 
   let finTabs = [];
   if (acf.fin_tabs && Array.isArray(acf.fin_tabs)) {
-    const validTabs = acf.fin_tabs.filter((t: any) => t.tab_name && t.tab_name.trim() !== '');
     finTabs = await Promise.all(
-      validTabs.map(async (tab: any) => ({
+      acf.fin_tabs.map(async (tab: any) => ({
         ...tab,
         tab_icon: await getMediaUrl(tab.tab_icon),
         tab_logo: await getMediaUrl(tab.tab_logo)
@@ -42,11 +41,10 @@ export default async function PacientesPage() {
 
   return (
     <main>
-      <PatientsHero 
-        title={acf?.hero_title}
-        subtitle={acf?.hero_desc}
-        imageUrl={acf?.hero_image}
-        bgImageUrl={acf?.hero_bg_image}
+      <ProcedureDetailHero 
+        title={acf?.hero_title || 'CIRUGÍA PLÁSTICA Y OPCIONES DE PAGO'}
+        subtitle={acf?.hero_desc || 'FINANCIACIÓN DE'}
+        imageUrl={acf?.hero_bg_image || acf?.hero_image}
       />
       <FinancingTabs tabs={finTabs} title={acf?.fin_title} />
       <ConsultationFees title={acf?.fees_title} />
