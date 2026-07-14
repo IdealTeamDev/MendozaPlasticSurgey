@@ -148,6 +148,7 @@
   padding: 1rem 2rem;
   font-weight: 600;
   font-size: 1rem;
+  align-self: center;
 }
 
 @media (min-width: 768px) {

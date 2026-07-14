@@ -56,7 +56,7 @@ export default function Hero({ subtitle, title, text, imageUrl }: HeroProps) {
           </div>
         </div>
         
-        <Link href="/centro-medico" className="btn hero-btn" style={{ alignSelf: 'flex-start' }}>Conoce más</Link>
+        <Link href="/centro-medico" className="btn hero-btn">Conoce más</Link>
       </div>
     </section>
   );
