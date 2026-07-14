@@ -137,9 +137,20 @@
 }
 
 .fee-card-text {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #555;
   line-height: 1.6;
+}
+
+.fee-card-text p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.fee-card-text p:last-child {
+  margin-bottom: 0;
 }
 
 .policy-link {
