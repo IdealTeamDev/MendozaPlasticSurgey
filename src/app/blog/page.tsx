@@ -106,6 +106,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
         title={acf?.hero_titulo || 'GENERAL'} 
         desc={acf?.hero_descripcion} 
         imageUrl={heroImage}
+        layout="centered"
       />
       {posts && posts.length > 0 ? (
         <BlogFeed 

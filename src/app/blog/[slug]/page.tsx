@@ -86,6 +86,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         title={title}
         subtitle={category}
         imageUrl={imageUrl || undefined}
+        layout="centered"
       >
         <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1.5rem', color: '#ccc', fontSize: '0.9rem', flexWrap: 'wrap' }}>
           <span>{date}</span>

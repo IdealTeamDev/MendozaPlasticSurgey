@@ -9,9 +9,10 @@ interface PageHeroProps {
   buttonText?: string;
   buttonHref?: string;
   children?: React.ReactNode;
+  layout?: 'default' | 'centered';
 }
 
-export default function PageHero({ subtitle, title, desc, imageUrl, buttonText, buttonHref, children }: PageHeroProps) {
+export default function PageHero({ subtitle, title, desc, imageUrl, buttonText, buttonHref, children, layout = 'default' }: PageHeroProps) {
   return (
     <section className="page-hero">
       <div 
@@ -21,7 +22,7 @@ export default function PageHero({ subtitle, title, desc, imageUrl, buttonText, 
         <div className="page-hero-overlay"></div>
       </div>
       
-      <div className="container page-hero-container">
+      <div className={`container page-hero-container ${layout === 'centered' ? 'page-hero-container--centered' : ''}`}>
         <div className="page-hero-content">
           {subtitle && <p className="page-hero-subtitle">{subtitle}</p>}
           <h1 className="page-hero-title">{title}</h1>
@@ -34,17 +35,19 @@ export default function PageHero({ subtitle, title, desc, imageUrl, buttonText, 
           {children}
         </div>
         
-        <div className="page-hero-image-wrapper">
-          <div className="page-hero-image-card">
-            {imageUrl ? (
-              <img src={imageUrl} alt={title || "Hero Image"} style={{ width: '100%', height: 'auto', objectFit: 'contain', display: 'block' }} />
-            ) : (
-              <div className="page-img-placeholder">
-                <span>(Placeholder Imagen)</span>
-              </div>
-            )}
+        {layout === 'default' && (
+          <div className="page-hero-image-wrapper">
+            <div className="page-hero-image-card">
+              {imageUrl ? (
+                <img src={imageUrl} alt={title || "Hero Image"} style={{ width: '100%', height: 'auto', objectFit: 'contain', display: 'block' }} />
+              ) : (
+                <div className="page-img-placeholder">
+                  <span>(Placeholder Imagen)</span>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
     </section>

@@ -114,7 +114,7 @@ export default async function BlogCategoryPage({ params, searchParams }: { param
 
   return (
     <main>
-      <PageHero subtitle="BLOG" title={categoryName} imageUrl={categoryImageUrl} />
+      <PageHero subtitle="BLOG" title={categoryName} imageUrl={categoryImageUrl} layout="centered" />
       
       {posts && posts.length > 0 ? (
         <BlogFeed 
