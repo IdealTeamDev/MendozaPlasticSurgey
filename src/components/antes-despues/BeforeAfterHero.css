@@ -1,4 +1,5 @@
 .ba-hero {
+  border-bottom: 1px solid #000000;
   position: relative;
   min-height: 80vh;
   display: flex;

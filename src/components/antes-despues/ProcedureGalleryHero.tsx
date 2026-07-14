@@ -20,11 +20,6 @@ export default function ProcedureGalleryHero({ categoryTitle, procedureTitle }: 
         </div>
       </div>
 
-      <div className="proc-hero-curve">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-          <path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff" />
-        </svg>
-      </div>
-    </section>
+      </section>
   );
 }

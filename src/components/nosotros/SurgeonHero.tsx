@@ -40,11 +40,6 @@ export default function SurgeonHero({ subtitle, title, desc, imageUrl }: Surgeon
         </div>
       </div>
 
-      <div className="surgeon-hero-curve">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-          <path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#f9f9f9" />
-        </svg>
-      </div>
-    </section>
+      </section>
   );
 }

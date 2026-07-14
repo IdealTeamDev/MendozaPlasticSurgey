@@ -26,12 +26,6 @@ export default function BlogHero({ title, desc, imageUrl }: BlogHeroProps) {
         </div>
       </div>
 
-      <div className="blog-hero-curve">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-          {/* Asymmetrical wave mimicking a clip-path */}
-          <path d="M0,120 L0,30 C400,120 800,80 1440,90 L1440,120 Z" fill="#fafafa" />
-        </svg>
-      </div>
-    </section>
+      </section>
   );
 }

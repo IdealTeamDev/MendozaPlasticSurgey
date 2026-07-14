@@ -1,4 +1,5 @@
 .mc-hero {
+  border-bottom: 1px solid #000000;
   position: relative;
   min-height: 75vh;
   display: flex;
