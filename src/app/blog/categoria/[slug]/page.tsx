@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHero from '@/components/PageHero';
+import BlogCategoryHero from '@/components/blog/BlogCategoryHero';
 import BlogFeed from '@/components/blog/BlogFeed';
 import BlogSubscription from '@/components/blog/BlogSubscription';
 import BlogCategories from '@/components/blog/BlogCategories';
@@ -114,11 +114,7 @@ export default async function BlogCategoryPage({ params, searchParams }: { param
 
   return (
     <main>
-      <PageHero 
-        subtitle={categoryName.toUpperCase() === 'BLOG' ? undefined : "BLOG"} 
-        title={categoryName} 
-        imageUrl={categoryImageUrl} 
-      />
+      <BlogCategoryHero categoryTitle={categoryName} />
       
       {posts && posts.length > 0 ? (
         <BlogFeed 
