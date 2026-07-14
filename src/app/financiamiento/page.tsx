@@ -10,8 +10,9 @@ export default async function PacientesPage() {
 
   const getMediaUrl = async (imgData: any) => {
     if (!imgData) return null;
-    if (typeof imgData === 'number') {
-      const media = await getMedia(imgData);
+    if (typeof imgData === 'number' || (typeof imgData === 'string' && !isNaN(Number(imgData)) && !imgData.startsWith('http'))) {
+      const id = Number(imgData);
+      const media = await getMedia(id);
       return media?.source_url || null;
     }
     if (typeof imgData === 'object' && imgData.url) {
@@ -25,11 +26,13 @@ export default async function PacientesPage() {
 
   // Resolve images
   acf.hero_image = await getMediaUrl(acf.hero_image);
+  acf.hero_bg_image = await getMediaUrl(acf.hero_bg_image);
 
   let finTabs = [];
   if (acf.fin_tabs && Array.isArray(acf.fin_tabs)) {
+    const validTabs = acf.fin_tabs.filter((t: any) => t.tab_name && t.tab_name.trim() !== '');
     finTabs = await Promise.all(
-      acf.fin_tabs.map(async (tab: any) => ({
+      validTabs.map(async (tab: any) => ({
         ...tab,
         tab_icon: await getMediaUrl(tab.tab_icon),
         tab_logo: await getMediaUrl(tab.tab_logo)
@@ -43,6 +46,7 @@ export default async function PacientesPage() {
         title={acf?.hero_title}
         subtitle={acf?.hero_desc}
         imageUrl={acf?.hero_image}
+        bgImageUrl={acf?.hero_bg_image}
       />
       <FinancingTabs tabs={finTabs} title={acf?.fin_title} />
       <ConsultationFees title={acf?.fees_title} />

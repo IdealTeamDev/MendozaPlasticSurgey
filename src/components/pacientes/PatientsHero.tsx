@@ -5,12 +5,13 @@ interface PatientsHeroProps {
   title?: string;
   subtitle?: string;
   imageUrl?: string;
+  bgImageUrl?: string;
 }
 
-export default function PatientsHero({ title, subtitle, imageUrl }: PatientsHeroProps) {
+export default function PatientsHero({ title, subtitle, imageUrl, bgImageUrl }: PatientsHeroProps) {
   return (
     <section className="patients-hero">
-      <div className="patients-hero-bg">
+      <div className="patients-hero-bg" style={bgImageUrl ? { backgroundImage: `url(${bgImageUrl})` } : {}}>
         <div className="patients-hero-overlay"></div>
       </div>
       
