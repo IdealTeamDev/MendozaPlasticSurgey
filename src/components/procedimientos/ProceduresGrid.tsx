@@ -21,9 +21,10 @@ interface ProceduresGridProps {
   procedures: ProcedureCard[];
   currentCategorySlug?: string; // 'todos' or category slug
   showTabs?: boolean;
+  showTitle?: boolean;
 }
 
-export default function ProceduresGrid({ categories, procedures, currentCategorySlug = 'todos', showTabs = true }: ProceduresGridProps) {
+export default function ProceduresGrid({ categories, procedures, currentCategorySlug = 'todos', showTabs = true, showTitle = true }: ProceduresGridProps) {
   
   // Filter procedures
   let visibleProcedures = procedures;
@@ -44,7 +45,7 @@ export default function ProceduresGrid({ categories, procedures, currentCategory
     <section className="proc-grid-section section-padding">
       <div className="container">
         
-        {showTabs && (
+        {showTitle && (
           <div className="proc-grid-header text-center">
             <h2 className="proc-grid-title">
               NUESTRO EQUIPO CUENTA CON EL CONOCIMIENTO,<br/>
