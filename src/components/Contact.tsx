@@ -28,19 +28,30 @@ export default function Contact({ subtitle, titleBold, text }: ContactProps) {
       <div className="container contact-container">
         
         <div className="contact-info">
-          <h2 className="contact-title" style={{ color: 'var(--black)' }}>
+          <h1 className="contact-title" style={{ color: 'var(--black)', fontSize: '2.5rem', lineHeight: '1.2', fontWeight: 600, marginBottom: '1rem' }}>
             {titleBold ? (
-              <span className="contact-title-bold" style={{ fontSize: '2.5rem', lineHeight: '1.2', color: 'var(--black)' }} dangerouslySetInnerHTML={{ __html: titleBold }} />
+              <span dangerouslySetInnerHTML={{ __html: titleBold }} />
             ) : (
-              <span className="contact-title-bold" style={{ fontSize: '2.5rem', lineHeight: '1.2', color: 'var(--black)' }}>Programa una consulta en Mendoza Plastic Surgery</span>
+              "Mendoza Plastic Surgery"
             )}
-          </h2>
+          </h1>
           {text ? (
             <div className="contact-text-wrapper" dangerouslySetInnerHTML={{ __html: text }} />
           ) : (
-            <p className="contact-text">
-              Después de diligenciar el formulario, uno de nuestros asesores se pondrá en contacto contigo para fijar la fecha de tu consulta.
-            </p>
+            <div className="contact-text">
+              <p style={{ fontWeight: 600, marginBottom: '1rem', fontSize: '1.1rem' }}>
+                Elegir una experiencia basada en la seguridad, la confianza y la personalización.
+              </p>
+              <ul style={{ paddingLeft: '1.5rem', marginBottom: '1rem', lineHeight: '1.6' }}>
+                <li style={{ marginBottom: '0.5rem' }}>Cirujano plástico profesional con amplia experiencia</li>
+                <li style={{ marginBottom: '0.5rem' }}>Equipo profesional bilingües</li>
+                <li style={{ marginBottom: '0.5rem' }}>Acompañamiento antes, durante y después de tu procedimiento</li>
+                <li style={{ marginBottom: '0.5rem' }}>Instalaciones modernas y tecnología de última generación.</li>
+              </ul>
+              <p style={{ lineHeight: '1.6' }}>
+                Más que realizar una cirugía, nuestro compromiso es brindarte una atención cercana, resolver todas tus dudas y acompañarte para que vivas el proceso con tranquilidad y confianza.
+              </p>
+            </div>
           )}
         </div>
 
