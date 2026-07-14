@@ -36,7 +36,7 @@ export default function ProcedureIntro({
 
             <div className="proc-intro-actions">
               <Link href="/contacto" className="btn proc-btn-black">Agenda tu consulta</Link>
-              <Link href="/contacto" className="btn proc-btn-black">Financia aquí</Link>
+              <Link href="/financiamiento" className="btn proc-btn-black">Financia aquí</Link>
             </div>
 
             {showQuickFacts && quickFacts && quickFacts.length > 0 && (
