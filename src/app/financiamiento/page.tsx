@@ -1,4 +1,15 @@
 import React from 'react';
+import { Metadata } from 'next';
+import { generateYoastMetadata } from '@/lib/seo';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const wpPage = await getPageBySlug('financiamiento');
+  return generateYoastMetadata(
+    wpPage?.yoast_head_json,
+    'Financiamiento | Mendoza Plastic Surgery',
+    'Opciones de financiamiento para sus procedimientos.'
+  );
+}
 import PageHero from '@/components/PageHero';
 import FinancingTabs from '@/components/pacientes/FinancingTabs';
 import ConsultationFees from '@/components/pacientes/ConsultationFees';

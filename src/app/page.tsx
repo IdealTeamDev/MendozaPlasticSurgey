@@ -1,10 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Mendoza Plastic Surgery | Cirujano plástico en Atlanta, Georgia',
-  description: 'Mendoza Plastic Surgery  en Duluth, Georgia. El Dr. Mendoza, cirujano plástico,  realiza cirugías corporal, mamaria, lifting facial y más. Reserve su consulta.',
-};
+import { generateYoastMetadata } from '@/lib/seo';
 import Hero from '@/components/Hero';
 import HomeIntroText from '@/components/HomeIntroText';
 import About from '@/components/About';
@@ -14,6 +11,16 @@ import Financing from '@/components/Financing';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import { getPageBySlug, getMedia } from '@/lib/wordpress';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const wpPage = await getPageBySlug('inicio');
+  return generateYoastMetadata(
+    wpPage?.yoast_head_json,
+    'Mendoza Plastic Surgery | Cirujano plástico en Atlanta, Georgia',
+    'Mendoza Plastic Surgery en Duluth, Georgia. El Dr. Mendoza, cirujano plástico, realiza cirugías corporal, mamaria, lifting facial y más. Reserve su consulta.'
+  );
+}
+
 
 export default async function Home() {
   const wpPage = await getPageBySlug('inicio'); // Ajusta 'inicio' al slug real en WP

@@ -1,4 +1,15 @@
 import React from 'react';
+import { Metadata } from 'next';
+import { generateYoastMetadata } from '@/lib/seo';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const wpPage = await getPageBySlug('procedimientos');
+  return generateYoastMetadata(
+    wpPage?.yoast_head_json,
+    'Procedimientos | Mendoza Plastic Surgery',
+    'Conozca nuestros procedimientos de cirugía plástica.'
+  );
+}
 import PageHero from '@/components/PageHero';
 import ProceduresGrid, { ProcedureCategory, ProcedureCard } from '@/components/procedimientos/ProceduresGrid';
 import { getPageBySlug, getMedia, getProcedureCategories, getProcedures } from '@/lib/wordpress';

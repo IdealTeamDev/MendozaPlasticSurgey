@@ -1,4 +1,16 @@
 import React from 'react';
+import { Metadata } from 'next';
+import { generateYoastMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const wpProc = await getProcedureBySlug(slug);
+  return generateYoastMetadata(
+    wpProc?.yoast_head_json,
+    `Casos de ${wpProc?.title?.rendered || 'Éxito'} | Mendoza Plastic Surgery`,
+    'Vea los resultados de antes y después de nuestros pacientes.'
+  );
+}
 import { 
   getProcedureBySlug, 
   getCasoById, 

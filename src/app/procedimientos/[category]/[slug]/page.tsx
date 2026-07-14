@@ -1,5 +1,17 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { getProcedureBySlug, getMedia, getCasoById, getProceduresByCategory } from '@/lib/wordpress';
+import { generateYoastMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string; category: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const wpProc = await getProcedureBySlug(slug);
+  return generateYoastMetadata(
+    wpProc?.yoast_head_json,
+    wpProc?.title?.rendered || 'Procedimiento',
+    'Conozca más sobre este procedimiento en Mendoza Plastic Surgery.'
+  );
+}
 
 // Common Components
 import PageHero from '@/components/PageHero';

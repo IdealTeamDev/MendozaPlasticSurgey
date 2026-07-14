@@ -9,10 +9,16 @@ import MedicalCenterServices from '@/components/nosotros/MedicalCenterServices';
 
 import '@/components/nosotros/nosotros.css';
 
-export const metadata: Metadata = {
-  title: 'Medical Center | Mendoza Plastic Surgery',
-  description: 'Conoce nuestras modernas instalaciones en Atlanta. El Medical Center de Mendoza Plastic Surgery está equipado con tecnología de vanguardia para tu seguridad.',
-};
+import { generateYoastMetadata } from '@/lib/seo';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const wpPage = await getPageBySlug('centro-medico');
+  return generateYoastMetadata(
+    wpPage?.yoast_head_json,
+    'Medical Center | Mendoza Plastic Surgery',
+    'Conoce nuestras modernas instalaciones en Atlanta. El Medical Center de Mendoza Plastic Surgery está equipado con tecnología de vanguardia para tu seguridad.'
+  );
+}
 
 export const revalidate = 0;
 

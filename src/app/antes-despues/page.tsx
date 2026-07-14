@@ -1,5 +1,16 @@
 import React from 'react';
-import { getProcedureCategories, getProceduresByCategory, getMedia } from '@/lib/wordpress';
+import { Metadata } from 'next';
+import { generateYoastMetadata } from '@/lib/seo';
+import { getProcedureCategories, getProceduresByCategory, getMedia, getPageBySlug } from '@/lib/wordpress';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const wpPage = await getPageBySlug('antes-y-despues'); // Ajusta slug si es diferente
+  return generateYoastMetadata(
+    wpPage?.yoast_head_json,
+    'Antes y Después | Mendoza Plastic Surgery',
+    'Explora nuestra galería de casos de éxito.'
+  );
+}
 import CasesCategoryAccordion from '@/components/casos/CasesCategoryAccordion';
 import PageHero from '@/components/PageHero';
 

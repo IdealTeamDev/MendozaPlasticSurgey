@@ -9,10 +9,16 @@ import SurgeonFunFacts from '@/components/nosotros/SurgeonFunFacts';
 // Import globals from the old nosotros.css if needed
 import '@/components/nosotros/nosotros.css';
 
-export const metadata: Metadata = {
-  title: 'Dr. Delquis Mendoza | Mendoza Plastic Surgery',
-  description: 'Conoce al Dr. Delquis R. Mendoza, cirujano plástico y reconstructivo certificado, líder de Mendoza Plastic Surgery en Atlanta, GA.',
-};
+import { generateYoastMetadata } from '@/lib/seo';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const wpPage = await getPageBySlug('dr-delquis-mendoza'); // Ajustar si el slug es diferente
+  return generateYoastMetadata(
+    wpPage?.yoast_head_json,
+    'Dr. Delquis Mendoza | Mendoza Plastic Surgery',
+    'Conoce al Dr. Delquis R. Mendoza, cirujano plástico y reconstructivo certificado.'
+  );
+}
 
 export const revalidate = 0;
 

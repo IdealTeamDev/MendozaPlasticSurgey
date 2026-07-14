@@ -1,9 +1,21 @@
 import React from 'react';
+import { Metadata } from 'next';
 import BlogPostHero from '@/components/blog/BlogPostHero';
 import BlogRelated from '@/components/blog/BlogRelated';
 import BlogSidebar from '@/components/blog/BlogSidebar';
 import { getPostBySlug, getMedia, fetchAPI } from '@/lib/wordpress';
 import { notFound } from 'next/navigation';
+import { generateYoastMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+  return generateYoastMetadata(
+    post?.yoast_head_json,
+    post?.title?.rendered || 'Blog Post',
+    'Lea este artículo de Mendoza Plastic Surgery'
+  );
+}
 
 // Import BlogFeed CSS to inherit post card styles
 import '@/components/blog/BlogFeed.css';
