@@ -88,7 +88,7 @@ export default async function ProcedimientosCategoryPage({ params }: { params: P
         categories={categories}
         procedures={procedures}
         currentCategorySlug={category}
-        showTabs={true}
+        showTabs={false}
         showTitle={false}
       />
     </main>

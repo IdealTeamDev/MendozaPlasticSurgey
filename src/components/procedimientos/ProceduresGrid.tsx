@@ -103,6 +103,14 @@ export default function ProceduresGrid({ categories, procedures, currentCategory
           )}
         </div>
 
+        {!showTabs && (
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <Link href="/procedimientos" className="proc-card-btn" style={{ padding: '0.8rem 2rem', fontSize: '1rem' }}>
+              Volver a todos los procedimientos
+            </Link>
+          </div>
+        )}
+
       </div>
     </section>
   );
