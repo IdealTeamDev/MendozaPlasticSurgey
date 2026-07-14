@@ -1,5 +1,5 @@
 import React from 'react';
-import ProcedureDetailHero from '@/components/procedimientos/ProcedureDetailHero';
+import SurgeonHero from '@/components/nosotros/SurgeonHero';
 import FinancingTabs from '@/components/pacientes/FinancingTabs';
 import ConsultationFees from '@/components/pacientes/ConsultationFees';
 import { getPageBySlug, getMedia } from '@/lib/wordpress';
@@ -41,10 +41,11 @@ export default async function PacientesPage() {
 
   return (
     <main>
-      <ProcedureDetailHero 
+      <SurgeonHero 
+        subtitle="FINANCIAMIENTO DE"
         title={acf?.hero_title || 'CIRUGÍA PLÁSTICA Y OPCIONES DE PAGO'}
-        subtitle={acf?.hero_desc || 'FINANCIACIÓN DE'}
-        imageUrl={acf?.hero_bg_image || acf?.hero_image}
+        desc={acf?.hero_desc}
+        imageUrl={acf?.hero_image}
       />
       <FinancingTabs tabs={finTabs} title={acf?.fin_title} />
       <ConsultationFees title={acf?.fees_title} />
