@@ -40,18 +40,17 @@ export default async function CasosDirectoryPage() {
   // Filter out categories that have no procedures with cases
   const filteredCategoriesRawData = categoriesRawData.filter(cat => cat.procedures && cat.procedures.length > 0);
 
-  const orderMap: { [key: string]: number } = {
-    'cirugia-de-cuerpo': 1,
-    'cirugia-de-senos': 2,
-    'cirugia-facial': 3,
-    'tratamientos': 4,
-    'inyectables': 5
+  const getOrder = (slug: string) => {
+    const s = slug.toLowerCase();
+    if (s.includes('cuerpo')) return 1;
+    if (s.includes('seno')) return 2;
+    if (s.includes('facial')) return 3;
+    if (s.includes('tratamiento')) return 4;
+    return 5;
   };
 
   const categories = filteredCategoriesRawData.sort((a, b) => {
-    const aOrder = orderMap[a.slug?.toLowerCase()] || 99;
-    const bOrder = orderMap[b.slug?.toLowerCase()] || 99;
-    return aOrder - bOrder;
+    return getOrder(a.slug) - getOrder(b.slug);
   });
 
   // Render Page
