@@ -14,6 +14,22 @@ export default function ContactDetailsForm({ location, phone, email, schedule }:
       <div className="container contact-details-container">
         
         <div className="contact-info-list" style={{ justifyContent: 'center' }}>
+          <div className="contact-text-block" style={{ marginBottom: '2rem' }}>
+            <h1 style={{ color: 'var(--black)', fontSize: '2.5rem', lineHeight: '1.2', fontWeight: 600, marginBottom: '1rem' }}>Mendoza Plastic Surgery</h1>
+            <p style={{ fontWeight: 600, marginBottom: '1rem', fontSize: '1.1rem', color: 'var(--black)' }}>
+              Elegir una experiencia basada en la seguridad, la confianza y la personalización.
+            </p>
+            <ul style={{ paddingLeft: '1.5rem', marginBottom: '1rem', lineHeight: '1.6', color: '#555' }}>
+              <li style={{ marginBottom: '0.5rem' }}>Cirujano plástico profesional con amplia experiencia</li>
+              <li style={{ marginBottom: '0.5rem' }}>Equipo profesional bilingües</li>
+              <li style={{ marginBottom: '0.5rem' }}>Acompañamiento antes, durante y después de tu procedimiento</li>
+              <li style={{ marginBottom: '0.5rem' }}>Instalaciones modernas y tecnología de última generación.</li>
+            </ul>
+            <p style={{ lineHeight: '1.6', color: '#555' }}>
+              Más que realizar una cirugía, nuestro compromiso es brindarte una atención cercana, resolver todas tus dudas y acompañarte para que vivas el proceso con tranquilidad y confianza.
+            </p>
+          </div>
+
           <div className="info-item">
             <div className="info-icon" style={{ alignSelf: 'center' }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
