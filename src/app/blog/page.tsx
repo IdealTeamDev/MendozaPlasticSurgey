@@ -1,5 +1,5 @@
 import React from 'react';
-import BlogHero from '@/components/blog/BlogHero';
+import PageHero from '@/components/PageHero';
 import BlogFeed from '@/components/blog/BlogFeed';
 import BlogSubscription from '@/components/blog/BlogSubscription';
 import BlogCategories from '@/components/blog/BlogCategories';
@@ -101,7 +101,8 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
 
   return (
     <main>
-      <BlogHero 
+      <PageHero 
+        subtitle="BLOG"
         title={acf?.hero_titulo || 'GENERAL'} 
         desc={acf?.hero_descripcion} 
         imageUrl={heroImage}

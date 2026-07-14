@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactHero from '@/components/contacto/ContactHero';
+import PageHero from '@/components/PageHero';
 import ContactDetailsForm from '@/components/contacto/ContactDetailsForm';
 import ContactMap from '@/components/contacto/ContactMap';
 import { getPageBySlug, getMedia } from '@/lib/wordpress';
@@ -14,7 +14,7 @@ export default async function ContactoPage() {
 
   return (
     <main>
-      <ContactHero 
+      <PageHero 
         subtitle={acf?.hero_subtitulo}
         title={acf?.hero_titulo}
         desc={acf?.hero_texto}

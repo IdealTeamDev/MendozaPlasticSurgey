@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { getPageBySlug, getMedia, getCasos, getCasoById } from '@/lib/wordpress';
-import SurgeonHero from '@/components/nosotros/SurgeonHero';
+import PageHero from '@/components/PageHero';
 import ProcedureResultsSlider from '@/components/procedimientos/ProcedureResultsSlider';
 import SurgeonDetails from '@/components/nosotros/SurgeonDetails';
 import SurgeonFunFacts from '@/components/nosotros/SurgeonFunFacts';
@@ -81,7 +81,7 @@ export default async function SurgeonPage() {
 
   return (
     <main className="nosotros-page fade-in">
-      <SurgeonHero 
+      <PageHero 
         subtitle={acf?.surgeon_subtitle}
         title={acf?.surgeon_title}
         desc={acf?.surgeon_desc}

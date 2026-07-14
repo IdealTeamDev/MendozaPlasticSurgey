@@ -1,7 +1,7 @@
 import React from 'react';
 import { getProcedureCategories, getProceduresByCategory, getMedia } from '@/lib/wordpress';
 import CasesCategoryAccordion from '@/components/casos/CasesCategoryAccordion';
-import ProcedureDetailHero from '@/components/procedimientos/ProcedureDetailHero';
+import PageHero from '@/components/PageHero';
 
 export default async function CasosDirectoryPage() {
   // Fetch all procedure categories
@@ -56,8 +56,8 @@ export default async function CasosDirectoryPage() {
   // Render Page
   return (
     <main>
-      {/* Re-use ProcedureDetailHero for the top section */}
-      <ProcedureDetailHero 
+      {/* Re-use PageHero for the top section */}
+      <PageHero 
         title="ANTES Y DESPUÉS" 
         subtitle=""
         buttonText="Agenda tu consulta"

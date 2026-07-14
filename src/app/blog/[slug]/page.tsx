@@ -1,5 +1,5 @@
 import React from 'react';
-import BlogPostHero from '@/components/blog/BlogPostHero';
+import PageHero from '@/components/PageHero';
 import BlogRelated from '@/components/blog/BlogRelated';
 import BlogSidebar from '@/components/blog/BlogSidebar';
 import { getPostBySlug, getMedia, fetchAPI } from '@/lib/wordpress';
@@ -82,16 +82,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <main style={{ backgroundColor: '#fafafa' }}>
-      <BlogPostHero 
+      <PageHero 
         title={title}
-        category={category}
-        date={date}
-        readTime={readTime}
-        author={author}
+        subtitle={category}
         imageUrl={imageUrl || undefined}
-        vistas={vistas}
-        compartidos={compartidos}
-      />
+      >
+        <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1.5rem', color: '#ccc', fontSize: '0.9rem', flexWrap: 'wrap' }}>
+          <span>{date}</span>
+          <span>•</span>
+          <span>{readTime} MIN LECTURA</span>
+          <span>•</span>
+          <span>{author}</span>
+        </div>
+      </PageHero>
       
       <section className="blog-post-content-section" style={{ backgroundColor: '#fafafa', color: '#333', paddingBottom: '5rem' }}>
         <div className="container">

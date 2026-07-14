@@ -8,7 +8,7 @@ import {
   getCategoryBySlug,
   fetchAPI
 } from '@/lib/wordpress';
-import ProcedureDetailHero from '@/components/procedimientos/ProcedureDetailHero';
+import PageHero from '@/components/PageHero';
 import CasesGrid from '@/components/casos/CasesGrid';
 import CasesSidebar from '@/components/casos/CasesSidebar';
 import Contact from '@/components/Contact';
@@ -145,7 +145,7 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
   return (
     <main style={{ backgroundColor: '#fafafa', paddingBottom: '4rem' }}>
       {/* Hero */}
-      <ProcedureDetailHero 
+      <PageHero 
         title={title} 
         subtitle={categoryName}
         imageUrl="/hero_bg.png?v=3" 

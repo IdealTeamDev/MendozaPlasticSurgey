@@ -2,7 +2,7 @@ import React from 'react';
 import { getProcedureBySlug, getMedia, getCasoById, getProceduresByCategory } from '@/lib/wordpress';
 
 // Common Components
-import ProcedureDetailHero from '@/components/procedimientos/ProcedureDetailHero';
+import PageHero from '@/components/PageHero';
 import ProcedureIntro from '@/components/procedimientos/ProcedureIntro';
 import ProcedureDetailsTabs from '@/components/procedimientos/ProcedureDetailsTabs';
 import ProcedureOthers from '@/components/procedimientos/ProcedureOthers';
@@ -138,7 +138,7 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
   return (
     <main>
       {/* Hero Header */}
-      <ProcedureDetailHero 
+      <PageHero 
         title={acf?.hero_titulo || title} 
         subtitle={acf?.hero_subtitulo || (isOption2 ? "TRATAMIENTOS" : "PROCEDIMIENTOS")}
         imageUrl={heroImage}

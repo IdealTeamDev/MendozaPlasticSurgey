@@ -1,5 +1,5 @@
 import React from 'react';
-import ProcedureHero from '@/components/procedimientos/ProcedureHero';
+import PageHero from '@/components/PageHero';
 import ProceduresGrid, { ProcedureCategory, ProcedureCard } from '@/components/procedimientos/ProceduresGrid';
 import { getPageBySlug, getMedia, getProcedureCategories, getProcedures } from '@/lib/wordpress';
 
@@ -51,8 +51,9 @@ export default async function ProcedimientosPage() {
 
   return (
     <main style={{ backgroundColor: '#fff' }}>
-      <ProcedureHero 
-        title={acf?.hero_titulo}
+      <PageHero 
+        subtitle="NUESTROS"
+        title={acf?.hero_titulo || 'PROCEDIMIENTOS'}
         desc={acf?.hero_texto}
         imageUrl={heroImage}
       />
