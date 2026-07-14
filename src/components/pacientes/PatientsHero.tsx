@@ -33,6 +33,12 @@ export default function PatientsHero({ title, subtitle, imageUrl }: PatientsHero
         </div>
       </div>
 
+      <div className="patients-hero-curve">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,120 L1440,120 L1440,10 C1080,100 360,-60 0,60 Z" fill="#ffffff"></path>
+        </svg>
+      </div>
+
       </section>
   );
 }
