@@ -1,7 +1,7 @@
 .financing-section {
   color: var(--white);
   text-align: center;
-  background-image: url('/hero_bg.png?v=3');
+  background-image: url('/hero_bg.png');
   background-position: center center;
   background-size: cover;
   /* background-attachment: fixed; */

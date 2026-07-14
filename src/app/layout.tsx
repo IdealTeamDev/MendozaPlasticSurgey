@@ -52,7 +52,7 @@ export default async function RootLayout({
     });
   };
 
-  let menuItems = globalOptions?.menu_principal && globalOptions.menu_principal.length > 0 
+  const menuItems = globalOptions?.menu_principal && globalOptions.menu_principal.length > 0 
     ? fixMenuUrls([...globalOptions.menu_principal])
     : [
         { titulo: 'Inicio', enlace: '/' },
