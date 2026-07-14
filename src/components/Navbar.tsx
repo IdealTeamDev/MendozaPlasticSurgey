@@ -78,9 +78,9 @@ const FALLBACK_MENU: MenuItem[] = [
     enlace: '/procedimientos',
     es_desplegable: true,
     sub_menu: [
-      { titulo: 'Cirugía de Senos', enlace: '/procedimientos#senos' },
-      { titulo: 'Cirugía de Cuerpo', enlace: '/procedimientos#cuerpo' },
-      { titulo: 'Cirugía Facial', enlace: '/procedimientos#facial' }
+      { titulo: 'Cirugía de Senos', enlace: '/procedimientos/senos' },
+      { titulo: 'Cirugía de Cuerpo', enlace: '/procedimientos/cuerpo' },
+      { titulo: 'Cirugía Facial', enlace: '/procedimientos/faciales' }
     ]
   },
   { titulo: 'Antes y Después', enlace: '/antes-despues' },

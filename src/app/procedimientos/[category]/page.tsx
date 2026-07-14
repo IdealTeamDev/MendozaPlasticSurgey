@@ -3,7 +3,8 @@ import ProcedureHero from '@/components/procedimientos/ProcedureHero';
 import ProceduresGrid, { ProcedureCategory, ProcedureCard } from '@/components/procedimientos/ProceduresGrid';
 import { getPageBySlug, getMedia, getProcedureCategories, getProcedures } from '@/lib/wordpress';
 
-export default async function ProcedimientosPage() {
+export default async function ProcedimientosCategoryPage({ params }: { params: Promise<{ category: string }> }) {
+  const { category } = await params;
   const wpPage = await getPageBySlug('procedimientos');
   const acf = wpPage?.acf || {};
 
@@ -56,7 +57,7 @@ export default async function ProcedimientosPage() {
       <ProceduresGrid 
         categories={categories}
         procedures={procedures}
-        currentCategorySlug="todos"
+        currentCategorySlug={category}
       />
     </main>
   );
