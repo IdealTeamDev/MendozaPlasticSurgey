@@ -62,7 +62,7 @@ export function generateYoastMetadata(yoastData: any, fallbackTitle?: string, fa
   }
 
   if (og_title || og_description || og_image) {
-    metadata.openGraph = {
+    const openGraph: any = {
       title: og_title || title || fallbackTitle,
       description: og_description || description || fallbackDescription,
       url: og_url,
@@ -72,29 +72,32 @@ export function generateYoastMetadata(yoastData: any, fallbackTitle?: string, fa
     };
 
     if (og_type === 'article') {
-      metadata.openGraph.publishedTime = article_published_time;
-      metadata.openGraph.modifiedTime = article_modified_time;
+      openGraph.publishedTime = article_published_time;
+      openGraph.modifiedTime = article_modified_time;
     }
 
     if (og_image && og_image.length > 0) {
-      metadata.openGraph.images = og_image.map((img: any) => ({
+      openGraph.images = og_image.map((img: any) => ({
         url: img.url,
         width: img.width,
         height: img.height,
         type: img.type,
       }));
     }
+
+    metadata.openGraph = openGraph;
   }
 
   if (twitter_card) {
-    metadata.twitter = {
+    const twitter: any = {
       card: twitter_card === 'summary_large_image' ? 'summary_large_image' : 'summary',
       title: og_title || title,
       description: og_description || description,
     };
     if (og_image && og_image.length > 0) {
-      metadata.twitter.images = [og_image[0].url];
+      twitter.images = [og_image[0].url];
     }
+    metadata.twitter = twitter;
   }
 
   return metadata;
