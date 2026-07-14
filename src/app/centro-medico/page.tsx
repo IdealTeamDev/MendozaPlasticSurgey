@@ -51,10 +51,10 @@ export default async function MedicalCenterPage() {
   const categoriesRaw = await getProcedureCategories() || [];
   const procedureCategories = await Promise.all(categoriesRaw.map(async (cat: any) => {
     let imageUrl = '/procedures.png';
-    const acfImage = cat.acf?.imagen_categoria;
+    const acfImage = cat.acf?.imagen_categoria || cat.acf?.hero_imagen;
     if (typeof acfImage === 'number') {
       imageUrl = (await getMedia(acfImage))?.source_url || imageUrl;
-    } else if (acfImage) {
+    } else if (typeof acfImage === 'string' && acfImage !== '') {
       imageUrl = acfImage;
     }
     
