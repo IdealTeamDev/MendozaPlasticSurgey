@@ -46,6 +46,7 @@
   color: #666;
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
+  font-family: var(--font-subtitle, inherit);
 }
 
 .consultation-title {
@@ -54,6 +55,7 @@
   letter-spacing: 1px;
   color: var(--black);
   line-height: 1.2;
+  font-family: var(--font-title, inherit);
 }
 
 @media (min-width: 768px) {
@@ -134,12 +136,14 @@
   font-weight: 600;
   color: var(--black);
   margin-bottom: 1rem;
+  font-family: var(--font-title, inherit);
 }
 
 .fee-card-text {
   font-size: 1rem;
   color: #555;
   line-height: 1.6;
+  font-family: var(--font-text, inherit);
 }
 
 .fee-card-text p {
@@ -147,6 +151,7 @@
   color: #555;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  font-family: var(--font-text, inherit);
 }
 
 .fee-card-text p:last-child {
