@@ -28,7 +28,7 @@ export default function Footer({ logoUrl, description, phone, address, socialLin
               {logoUrl ? (
                 <img src={`${logoUrl}?v=2`} alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain', marginBottom: '15px' }} />
               ) : (
-                <img src="/default-logo.png?v=2" alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain', marginBottom: '15px' }} />
+                <img src="/default-logo.svg?v=2" alt="Mendoza Plastic Surgery Logo" style={{ height: '40px', objectFit: 'contain', marginBottom: '15px' }} />
               )}
             </div>
             <p className="footer-desc">

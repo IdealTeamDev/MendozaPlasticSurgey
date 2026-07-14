@@ -99,7 +99,7 @@ const FALLBACK_MENU: MenuItem[] = [
             {logoUrl ? (
               <Image className="navbar-logo-img" src={`${logoUrl}?v=2`} alt="Mendoza Plastic Surgery Logo" width={400} height={80} style={{ objectFit: 'contain', width: 'auto', height: '40px' }} priority unoptimized={true} />
             ) : (
-              <Image className="navbar-logo-img" src="/default-logo.png?v=2" alt="Mendoza Plastic Surgery Logo" width={400} height={80} style={{ objectFit: 'contain', width: 'auto', height: '40px' }} priority unoptimized={true} />
+              <Image className="navbar-logo-img" src="/default-logo.svg?v=2" alt="Mendoza Plastic Surgery Logo" width={400} height={80} style={{ objectFit: 'contain', width: 'auto', height: '40px' }} priority unoptimized={true} />
             )}
           </Link>
 
@@ -172,7 +172,7 @@ const FALLBACK_MENU: MenuItem[] = [
               {logoUrl ? (
                 <Image src={`${logoUrl}?v=2`} alt="Mendoza Plastic Surgery Logo" width={400} height={80} style={{ objectFit: 'contain', width: 'auto', height: '40px' }} priority unoptimized={true} />
               ) : (
-                <Image src="/default-logo.png?v=2" alt="Mendoza Plastic Surgery Logo" width={400} height={80} style={{ objectFit: 'contain', width: 'auto', height: '40px' }} priority unoptimized={true} />
+                <Image src="/default-logo.svg?v=2" alt="Mendoza Plastic Surgery Logo" width={400} height={80} style={{ objectFit: 'contain', width: 'auto', height: '40px' }} priority unoptimized={true} />
               )}
             </Link>
           </div>
