@@ -1,5 +1,5 @@
 import React from 'react';
-import BlogHero from '@/components/blog/BlogHero';
+import PageHero from '@/components/PageHero';
 import BlogFeed from '@/components/blog/BlogFeed';
 import BlogSubscription from '@/components/blog/BlogSubscription';
 import BlogCategories from '@/components/blog/BlogCategories';
@@ -114,7 +114,7 @@ export default async function BlogCategoryPage({ params, searchParams }: { param
 
   return (
     <main>
-      <BlogHero title={categoryName} imageUrl={categoryImageUrl} />
+      <PageHero subtitle="BLOG" title={categoryName} imageUrl={categoryImageUrl} />
       
       {posts && posts.length > 0 ? (
         <BlogFeed 
