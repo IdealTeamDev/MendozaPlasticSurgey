@@ -65,8 +65,14 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
     : acf?.hero_imagen;
 
   // Fetch all categories
-  const { getCategories } = await import('@/lib/wordpress');
-  const allCategories = await getCategories();
+  const { getCategories, getProcedureCategories } = await import('@/lib/wordpress');
+  const allCategoriesRaw = await getCategories();
+  
+  // Filter out "todos" or "uncategorized"
+  const allCategories = allCategoriesRaw.filter((cat: any) => {
+    const slug = cat.slug.toLowerCase();
+    return slug !== 'todos' && slug !== 'uncategorized' && slug !== 'sin-categoria';
+  });
 
   // ACF Subscription data
   const subTitle = acf.titulo_suscripcion || 'SUSCRÍBETE A NUESTRO BLOG';
@@ -75,26 +81,27 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
     ? (await getMedia(acf.imagen_suscripcion))?.source_url
     : (acf.imagen_suscripcion || null);
 
-  // ACF Categories Images (Repeater)
-  const catImagesList = acf.categorias_destacadas || []; // [{ nombre_categoria: '...', imagen: 'url/id' }]
-  // Create a map for easy lookup: { "cuerpo": "image_url" }
+  // Inherit Images from Procedure Categories
+  const procCategories = await getProcedureCategories() || [];
   const catImageMap: Record<string, string> = {};
   
-  if (Array.isArray(catImagesList)) {
-    for (const item of catImagesList) {
-      if (item.nombre_categoria) {
-        const catName = item.nombre_categoria.toLowerCase().trim();
-        let imgUrl = item.imagen;
-        if (typeof imgUrl === 'number') {
-          imgUrl = (await getMedia(imgUrl))?.source_url;
-        }
-        catImageMap[catName] = imgUrl || '';
-        // Also map singular/plural variants for robustness
-        if (catName.endsWith('s')) {
-          catImageMap[catName.slice(0, -1)] = imgUrl || '';
-        } else {
-          catImageMap[catName + 's'] = imgUrl || '';
-        }
+  for (const pCat of procCategories) {
+    let imgUrl = '';
+    const heroAcf = pCat.acf?.hero_imagen;
+    if (typeof heroAcf === 'number') {
+      imgUrl = (await getMedia(heroAcf))?.source_url || '';
+    } else if (typeof heroAcf === 'string') {
+      imgUrl = heroAcf;
+    }
+    
+    if (imgUrl) {
+      const catName = pCat.name.toLowerCase().trim();
+      catImageMap[catName] = imgUrl;
+      // Also map singular/plural variants for robustness
+      if (catName.endsWith('s')) {
+        catImageMap[catName.slice(0, -1)] = imgUrl;
+      } else {
+        catImageMap[catName + 's'] = imgUrl;
       }
     }
   }
