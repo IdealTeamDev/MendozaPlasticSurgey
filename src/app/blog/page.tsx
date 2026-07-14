@@ -1,5 +1,5 @@
 import React from 'react';
-import BlogHero from '@/components/blog/BlogHero';
+import PageHero from '@/components/PageHero';
 import BlogFeed from '@/components/blog/BlogFeed';
 import BlogSubscription from '@/components/blog/BlogSubscription';
 import BlogCategories from '@/components/blog/BlogCategories';
@@ -101,9 +101,9 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
 
   return (
     <main>
-      <BlogHero 
-        title={acf?.hero_titulo || 'GENERAL'} 
-        desc={acf?.hero_descripcion} 
+      <PageHero 
+        title={acf?.hero_titulo || 'BLOG'} 
+        desc={acf?.hero_descripcion?.toLowerCase() === 'void' ? undefined : acf?.hero_descripcion} 
         imageUrl={heroImage}
       />
       {posts && posts.length > 0 ? (
