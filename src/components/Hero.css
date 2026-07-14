@@ -170,8 +170,8 @@
 
 .hero-card-wrapper {
   position: relative;
-  height: 400px;
-  min-height: 400px;
+  height: 280px;
+  min-height: 280px;
   width: 100%;
   animation: fadeIn 1s ease-out 0.5s forwards;
   opacity: 0;
@@ -200,7 +200,7 @@
 
 .hero-card-img {
   object-fit: contain !important;
-  object-position: bottom center;
+  object-position: center;
   height: 100% !important;
   width: 100% !important;
   border-radius: 12px;
