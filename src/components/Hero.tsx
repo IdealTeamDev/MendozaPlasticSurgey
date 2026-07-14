@@ -49,7 +49,6 @@ export default function Hero({ subtitle, title, text, imageUrl }: HeroProps) {
           {text ? (
             <div className="hero-text" dangerouslySetInnerHTML={{ __html: text }} />
           ) : null}
-          <Link href="/centro-medico" className="btn hero-btn">Conoce más</Link>
         </div>
         
         <div className="hero-card-wrapper">
@@ -64,6 +63,8 @@ export default function Hero({ subtitle, title, text, imageUrl }: HeroProps) {
             />
           </div>
         </div>
+        
+        <Link href="/centro-medico" className="btn hero-btn" style={{ alignSelf: 'flex-start' }}>Conoce más</Link>
       </div>
     </section>
   );
