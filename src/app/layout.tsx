@@ -92,10 +92,10 @@ export default async function RootLayout({
           );
           return {
             titulo: cat.name,
-            enlace: `/procedimientos#${cat.slug}`,
+            enlace: `/procedimientos/${cat.slug}`,
             items: catProcs.map((p: any) => ({
               titulo: p.title.rendered,
-              enlace: `/procedimientos/${p.slug}`
+              enlace: `/procedimientos/${cat.slug}/${p.slug}`
             }))
           };
         }).filter((col: any) => col.items.length > 0);
