@@ -27,15 +27,7 @@ export default function Hero({ subtitle, title, text, imageUrl }: HeroProps) {
         <div className="hero-overlay"></div>
       </div>
       
-      <svg width="0" height="0" style={{ position: 'absolute' }}>
-        <defs>
-          <filter id="round-corners">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur" />
-            <feColorMatrix in="blur" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 19 -9" result="goo" />
-            <feComposite in="SourceGraphic" in2="goo" operator="in" />
-          </filter>
-        </defs>
-      </svg>
+
       
       <div className="container hero-container">
         <div className="hero-content">
