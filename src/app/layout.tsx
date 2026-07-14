@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Fahkwang, Montserrat } from "next/font/google";
 import "./globals.css";
 
@@ -127,6 +128,7 @@ export default async function RootLayout({
         />
         <FloatingContact />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
