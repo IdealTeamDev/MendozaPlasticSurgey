@@ -11,7 +11,7 @@ export default async function CasosDirectoryPage() {
   const categoriesRawData = await Promise.all(categoriesRaw.map(async (cat: any) => {
     // Determine image from ACF
     let imageUrl = '';
-    const acfImage = cat.acf?.imagen_categoria;
+    const acfImage = cat.acf?.imagen_categoria || cat.acf?.hero_imagen;
     if (typeof acfImage === 'number') {
       imageUrl = (await getMedia(acfImage))?.source_url || '';
     } else {
