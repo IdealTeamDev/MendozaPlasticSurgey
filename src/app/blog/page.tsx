@@ -102,11 +102,9 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
   return (
     <main>
       <PageHero 
-        subtitle="BLOG"
-        title={acf?.hero_titulo || 'GENERAL'} 
-        desc={acf?.hero_descripcion} 
+        title={acf?.hero_titulo || 'BLOG'} 
+        desc={acf?.hero_descripcion?.toLowerCase() === 'void' ? undefined : acf?.hero_descripcion} 
         imageUrl={heroImage}
-        layout="centered"
       />
       {posts && posts.length > 0 ? (
         <BlogFeed 

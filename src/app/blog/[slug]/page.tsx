@@ -84,9 +84,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <main style={{ backgroundColor: '#fafafa' }}>
       <PageHero 
         title={title}
-        subtitle={category}
+        subtitle={category?.toUpperCase() === 'BLOG' ? undefined : category}
         imageUrl={imageUrl || undefined}
-        layout="centered"
       >
         <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1.5rem', color: '#ccc', fontSize: '0.9rem', flexWrap: 'wrap' }}>
           <span>{date}</span>
