@@ -148,7 +148,7 @@ export default async function CasosInternalPage({ params }: { params: Promise<{ 
       <PageHero 
         title={title} 
         subtitle={categoryName}
-        imageUrl="/hero_bg.png?v=3" 
+        imageUrl="/image_header_before.png" 
       />
 
       {/* Main Content Area */}

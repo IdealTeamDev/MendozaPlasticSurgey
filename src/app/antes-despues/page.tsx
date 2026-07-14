@@ -62,7 +62,7 @@ export default async function CasosDirectoryPage() {
         subtitle=""
         buttonText="Agenda tu consulta"
         buttonHref="/contacto"
-        imageUrl="/hero_bg.png?v=3" /* Optionally fetch from a global options page later */
+        imageUrl="/image_header_before.png" /* Optionally fetch from a global options page later */
       />
       
       <section className="casos-intro-section" style={{ textAlign: 'center', padding: '4rem 1rem', backgroundColor: '#fff' }}>
