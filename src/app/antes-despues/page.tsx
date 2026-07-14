@@ -1,16 +1,17 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { generateYoastMetadata } from '@/lib/seo';
-import { getProcedureCategories, getProceduresByCategory, getMedia, getPageBySlug } from '@/lib/wordpress';
+import { getProcedureCategories, getProceduresByCategory, getMedia } from '@/lib/wordpress';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const wpPage = await getPageBySlug('antes-y-despues'); // Ajusta slug si es diferente
-  return generateYoastMetadata(
-    wpPage?.yoast_head_json,
-    'Antes y Después | Mendoza Plastic Surgery',
-    'Explora nuestra galería de casos de éxito.'
-  );
-}
+export const metadata: Metadata = {
+  title: 'Resultados Cirugía Plástica | Mendoza Plastic Surgery',
+  description: 'Conoce los resultados cirugía plástica en Atlanta con el Dr. Mendoza. Una clínica que realiza procedimientos corporales, faciales y tratamientos estéticos.',
+  keywords: ['resultados cirugía Plástica'],
+  openGraph: {
+    title: 'Resultados Cirugía Plástica | Mendoza Plastic Surgery',
+    description: 'Conoce los resultados cirugía plástica en Atlanta con el Dr. Mendoza. Una clínica que realiza procedimientos corporales, faciales y tratamientos estéticos.',
+    type: 'website',
+  },
+};
 import CasesCategoryAccordion from '@/components/casos/CasesCategoryAccordion';
 import PageHero from '@/components/PageHero';
 
