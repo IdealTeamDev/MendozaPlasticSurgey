@@ -14,7 +14,9 @@ export default function BlogCategoryHero({ categoryTitle }: BlogCategoryHeroProp
       
       <div className="container blog-cat-hero-container">
         <div className="blog-cat-hero-content">
-          <p className="blog-cat-hero-subtitle">BLOG</p>
+          {(categoryTitle && categoryTitle.toUpperCase() !== 'BLOG') && (
+            <p className="blog-cat-hero-subtitle">BLOG</p>
+          )}
           <h1 className="blog-cat-hero-title">{categoryTitle}</h1>
         </div>
       </div>

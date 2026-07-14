@@ -19,7 +19,9 @@ export default function BlogHero({ title, desc, imageUrl }: BlogHeroProps) {
       
       <div className="container blog-hero-container">
         <div className="blog-hero-content">
-          <span className="blog-hero-subtitle">BLOG</span>
+          {(title && title.toUpperCase() !== 'BLOG') && (
+            <span className="blog-hero-subtitle">BLOG</span>
+          )}
           <h1 className="blog-hero-title">{title || 'BLOG'}</h1>
         </div>
       </div>
