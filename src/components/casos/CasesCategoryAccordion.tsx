@@ -58,7 +58,7 @@ export default function CasesCategoryAccordion({ categories = [] }: CasesCategor
               </div>
               <div className="cases-accordion-icon">
                 {/* Simple CSS arrow: up or down */}
-                <span className={`arrow ${isOpen ? 'up' : 'down'}`}></span>
+                <span className={`cases-category-arrow ${isOpen ? 'up' : 'down'}`}></span>
               </div>
             </div>
 

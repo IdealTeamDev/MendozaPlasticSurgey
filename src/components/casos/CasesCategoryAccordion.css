@@ -70,22 +70,21 @@
   height: 24px;
 }
 
-.arrow {
-  border: solid #333;
-  border-width: 0 3px 3px 0;
+.cases-category-arrow {
   display: inline-block;
-  padding: 5px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
   transition: transform 0.3s ease;
 }
 
-.arrow.down {
+.cases-category-arrow.down {
   transform: rotate(45deg);
-  margin-bottom: 5px;
 }
 
-.arrow.up {
+.cases-category-arrow.up {
   transform: rotate(-135deg);
-  margin-top: 5px;
 }
 
 /* Content */
