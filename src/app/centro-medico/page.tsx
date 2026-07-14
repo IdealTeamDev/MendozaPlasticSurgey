@@ -87,6 +87,7 @@ export default async function MedicalCenterPage() {
         subtitle="MENDOZA"
         title="MEDICAL CENTER"
         imageUrl={heroImageUrl} 
+        isH1={false}
       />
       <MedicalCenterIntro 
         title={acf?.medical_intro_title}

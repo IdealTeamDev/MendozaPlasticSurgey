@@ -11,9 +11,10 @@ interface PageHeroProps {
   children?: React.ReactNode;
   layout?: 'default' | 'centered';
   hideImageCard?: boolean;
+  isH1?: boolean;
 }
 
-export default function PageHero({ subtitle, title, desc, imageUrl, buttonText, buttonHref, children, layout = 'default', hideImageCard = false }: PageHeroProps) {
+export default function PageHero({ subtitle, title, desc, imageUrl, buttonText, buttonHref, children, layout = 'default', hideImageCard = false, isH1 = true }: PageHeroProps) {
   return (
     <section className="page-hero">
       <div 
@@ -26,7 +27,11 @@ export default function PageHero({ subtitle, title, desc, imageUrl, buttonText, 
       <div className={`container page-hero-container ${layout === 'centered' ? 'page-hero-container--centered' : ''}`}>
         <div className="page-hero-content">
           {subtitle && <p className="page-hero-subtitle">{subtitle}</p>}
-          <h1 className="page-hero-title">{title}</h1>
+          {isH1 ? (
+            <h1 className="page-hero-title">{title}</h1>
+          ) : (
+            <h2 className="page-hero-title">{title}</h2>
+          )}
           {desc && <p className="page-hero-desc">{desc}</p>}
           {buttonText && (
             <a href={buttonHref || "/contacto"} className="btn btn-outline" style={{ marginTop: '1.5rem', display: 'inline-block' }}>

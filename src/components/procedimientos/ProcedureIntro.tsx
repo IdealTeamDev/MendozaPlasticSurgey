@@ -30,7 +30,7 @@ export default function ProcedureIntro({
           
           {/* Left Column: Text & Facts */}
           <div className="proc-intro-text-col">
-            <h2 className="proc-intro-title">{title}</h2>
+            <h1 className="proc-intro-title">{title}</h1>
             
             <div className="proc-intro-desc" dangerouslySetInnerHTML={{ __html: description }}></div>
 

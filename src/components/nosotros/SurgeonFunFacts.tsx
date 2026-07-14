@@ -12,7 +12,7 @@ export default function SurgeonFunFacts({ funfactsText, funfactsImage }: Surgeon
       <div className="container surgeon-funfacts-container">
         
         <div className="funfacts-left">
-          <h3 className="funfacts-subtitle">DATOS CURIOSOS DEL</h3>
+          <span className="funfacts-subtitle" style={{ display: 'block' }}>DATOS CURIOSOS DEL</span>
           <h2 className="funfacts-title">DOCTOR MENDOZA</h2>
           {funfactsText ? (
             <div className="funfacts-text" dangerouslySetInnerHTML={{ __html: funfactsText }} />

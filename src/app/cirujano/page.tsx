@@ -12,11 +12,11 @@ import '@/components/nosotros/nosotros.css';
 import { generateYoastMetadata } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const wpPage = await getPageBySlug('dr-delquis-mendoza'); // Ajustar si el slug es diferente
+  const wpPage = await getPageBySlug('cirujano');
   return generateYoastMetadata(
     wpPage?.yoast_head_json,
     'Dr. Delquis Mendoza | Mendoza Plastic Surgery',
-    'Conoce al Dr. Delquis R. Mendoza, cirujano plástico y reconstructivo certificado.'
+    'Conoce al Dr. Delquis R. Mendoza, cirujano plástico y reconstructivo certificado en Atlanta con amplia experiencia en contorno corporal y rejuvenecimiento facial.'
   );
 }
 
