@@ -6,20 +6,16 @@ export default function ContactMap() {
     <section className="contact-map-section section-padding">
       <div className="container">
         <div className="map-wrapper">
-          {/* Aquí se usaría el iframe real de Google Maps. 
-              Por ahora usamos un div de fondo con una imagen o color que simula el mapa. */}
-          <div className="map-placeholder">
-            <span className="map-text">(Mapa de Google Placeholder - Duluth, GA)</span>
-          </div>
-          {/* <iframe 
-            src="https://www.google.com/maps/embed?pb=..." 
+          <iframe 
+            src="https://maps.google.com/maps?q=Mendoza%20Plastic%20Surgery,%20Duluth,%20GA&t=&z=15&ie=UTF8&iwloc=&output=embed"
             width="100%" 
             height="100%" 
-            style={{ border: 0 }} 
+            style={{ border: 0, minHeight: '400px' }} 
             allowFullScreen={false} 
             loading="lazy" 
             referrerPolicy="no-referrer-when-downgrade"
-          ></iframe> */}
+            title="Mendoza Plastic Surgery Map"
+          ></iframe>
         </div>
       </div>
     </section>
