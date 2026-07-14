@@ -36,6 +36,7 @@ export default async function PacientesPage() {
         tab_icon: await getMediaUrl(tab.tab_icon),
         tab_logo: await getMediaUrl(tab.tab_logo)
       }))
+    );
   }
 
   let feeCards = [];
