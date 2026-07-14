@@ -84,7 +84,7 @@ const FALLBACK_MENU: MenuItem[] = [
     ]
   },
   { titulo: 'Antes y Después', enlace: '/antes-despues' },
-  { titulo: 'Pacientes', enlace: '/pacientes' },
+  { titulo: 'Financiamiento', enlace: '/financiamiento' },
   { titulo: 'Blog', enlace: '/blog' },
   { titulo: 'Contacto', enlace: '/contacto' },
 ];

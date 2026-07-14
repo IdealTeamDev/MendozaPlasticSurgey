@@ -67,7 +67,7 @@ export default async function RootLayout({
         },
         { titulo: 'Procedimientos', enlace: '/procedimientos' },
         { titulo: 'Antes y Después', enlace: '/antes-despues' },
-        { titulo: 'Pacientes', enlace: '/pacientes' },
+        { titulo: 'Financiamiento', enlace: '/financiamiento' },
         { titulo: 'Blog', enlace: '/blog' },
         { titulo: 'Contacto', enlace: '/contacto' }
       ];

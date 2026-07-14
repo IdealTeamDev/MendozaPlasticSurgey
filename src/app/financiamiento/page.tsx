@@ -5,7 +5,7 @@ import ConsultationFees from '@/components/pacientes/ConsultationFees';
 import { getPageBySlug, getMedia } from '@/lib/wordpress';
 
 export default async function PacientesPage() {
-  const wpPage = await getPageBySlug('pacientes'); // Ajusta al slug real
+  const wpPage = await getPageBySlug('financiamiento'); // Ajusta al slug real
   const acf = wpPage?.acf || {};
 
   const getMediaUrl = async (imgData: any) => {
