@@ -20,9 +20,10 @@ interface ProceduresGridProps {
   categories: ProcedureCategory[];
   procedures: ProcedureCard[];
   currentCategorySlug?: string; // 'todos' or category slug
+  showTabs?: boolean;
 }
 
-export default function ProceduresGrid({ categories, procedures, currentCategorySlug = 'todos' }: ProceduresGridProps) {
+export default function ProceduresGrid({ categories, procedures, currentCategorySlug = 'todos', showTabs = true }: ProceduresGridProps) {
   
   // Filter procedures
   let visibleProcedures = procedures;
@@ -43,25 +44,29 @@ export default function ProceduresGrid({ categories, procedures, currentCategory
     <section className="proc-grid-section section-padding">
       <div className="container">
         
-        <div className="proc-grid-header text-center">
-          <h2 className="proc-grid-title">
-            NUESTRO EQUIPO CUENTA CON EL CONOCIMIENTO,<br/>
-            LA EXPERIENCIA Y LAS HABILIDADES PARA<br/>
-            BRINDARTE LOS MEJORES RESULTADOS.
-          </h2>
-        </div>
+        {showTabs && (
+          <div className="proc-grid-header text-center">
+            <h2 className="proc-grid-title">
+              NUESTRO EQUIPO CUENTA CON EL CONOCIMIENTO,<br/>
+              LA EXPERIENCIA Y LAS HABILIDADES PARA<br/>
+              BRINDARTE LOS MEJORES RESULTADOS.
+            </h2>
+          </div>
+        )}
 
-        <div className="proc-tabs">
-          {tabs.map(tab => (
-            <Link 
-              key={tab.slug} 
-              href={tab.slug === 'todos' ? '/procedimientos' : `/procedimientos/${tab.slug}`}
-              className={`proc-tab-link ${currentCategorySlug === tab.slug ? 'active' : ''}`}
-            >
-              {tab.name}
-            </Link>
-          ))}
-        </div>
+        {showTabs && (
+          <div className="proc-tabs">
+            {tabs.map(tab => (
+              <Link 
+                key={tab.slug} 
+                href={tab.slug === 'todos' ? '/procedimientos' : `/procedimientos/${tab.slug}`}
+                className={`proc-tab-link ${currentCategorySlug === tab.slug ? 'active' : ''}`}
+              >
+                {tab.name}
+              </Link>
+            ))}
+          </div>
+        )}
 
         <div className="proc-grid">
           {visibleProcedures.length > 0 ? (
