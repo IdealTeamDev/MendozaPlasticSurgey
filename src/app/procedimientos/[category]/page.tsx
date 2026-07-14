@@ -1,5 +1,5 @@
 import React from 'react';
-import ProcedureHero from '@/components/procedimientos/ProcedureHero';
+import ProcedureDetailHero from '@/components/procedimientos/ProcedureDetailHero';
 import ProceduresGrid, { ProcedureCategory, ProcedureCard } from '@/components/procedimientos/ProceduresGrid';
 import { getPageBySlug, getMedia, getProcedureCategories, getProcedures } from '@/lib/wordpress';
 
@@ -63,7 +63,7 @@ export default async function ProcedimientosCategoryPage({ params }: { params: P
 
   return (
     <main style={{ backgroundColor: '#fff' }}>
-      <ProcedureHero 
+      <ProcedureDetailHero 
         title={currentCategoryData?.name || category.toUpperCase()}
         subtitle="PROCEDIMIENTOS"
         imageUrl={catHeroImage}
