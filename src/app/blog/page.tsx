@@ -65,7 +65,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
     : acf?.hero_imagen;
 
   // Fetch all categories
-  const { getCategories, getProcedureCategories } = await import('@/lib/wordpress');
+  const { getCategories } = await import('@/lib/wordpress');
   const allCategoriesRaw = await getCategories();
   
   // Filter out "todos" or "uncategorized"
@@ -81,28 +81,21 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
     ? (await getMedia(acf.imagen_suscripcion))?.source_url
     : (acf.imagen_suscripcion || null);
 
-  // Inherit Images from Procedure Categories
-  const procCategories = await getProcedureCategories() || [];
+  // Load Images directly from Blog Categories ACF
   const catImageMap: Record<string, string> = {};
   
-  for (const pCat of procCategories) {
+  for (const bCat of allCategories) {
     let imgUrl = '';
-    const heroAcf = pCat.acf?.hero_imagen;
-    if (typeof heroAcf === 'number') {
-      imgUrl = (await getMedia(heroAcf))?.source_url || '';
-    } else if (typeof heroAcf === 'string') {
-      imgUrl = heroAcf;
+    const acfImage = bCat.acf?.imagen_categoria;
+    if (typeof acfImage === 'number') {
+      imgUrl = (await getMedia(acfImage))?.source_url || '';
+    } else if (typeof acfImage === 'string') {
+      imgUrl = acfImage;
     }
     
     if (imgUrl) {
-      const catName = pCat.name.toLowerCase().trim();
+      const catName = bCat.name.toLowerCase().trim();
       catImageMap[catName] = imgUrl;
-      // Also map singular/plural variants for robustness
-      if (catName.endsWith('s')) {
-        catImageMap[catName.slice(0, -1)] = imgUrl;
-      } else {
-        catImageMap[catName + 's'] = imgUrl;
-      }
     }
   }
 
