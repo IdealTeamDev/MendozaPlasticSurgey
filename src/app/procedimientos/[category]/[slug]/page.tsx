@@ -141,7 +141,8 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
       <PageHero 
         title={acf?.hero_titulo || title} 
         subtitle={acf?.hero_subtitulo || (isOption2 ? "TRATAMIENTOS" : "PROCEDIMIENTOS")}
-        imageUrl={heroImage}
+        imageUrl={introImage || heroImage}
+        hideImageCard={true}
       />
       
       {/* Intro Section - showQuickFacts is false for Option 2 */}

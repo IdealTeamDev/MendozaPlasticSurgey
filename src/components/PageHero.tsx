@@ -10,9 +10,10 @@ interface PageHeroProps {
   buttonHref?: string;
   children?: React.ReactNode;
   layout?: 'default' | 'centered';
+  hideImageCard?: boolean;
 }
 
-export default function PageHero({ subtitle, title, desc, imageUrl, buttonText, buttonHref, children, layout = 'default' }: PageHeroProps) {
+export default function PageHero({ subtitle, title, desc, imageUrl, buttonText, buttonHref, children, layout = 'default', hideImageCard = false }: PageHeroProps) {
   return (
     <section className="page-hero">
       <div 
@@ -35,7 +36,7 @@ export default function PageHero({ subtitle, title, desc, imageUrl, buttonText, 
           {children}
         </div>
         
-        {layout === 'default' && (
+        {layout === 'default' && !hideImageCard && (
           <div className="page-hero-image-wrapper">
             <div className="page-hero-image-card">
               {imageUrl ? (
