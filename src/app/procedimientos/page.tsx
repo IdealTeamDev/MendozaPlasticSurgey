@@ -24,15 +24,19 @@ export default async function ProcedimientosPage() {
   const procedures: ProcedureCard[] = await Promise.all(
     rawProcedures.map(async (p: any) => {
       let imageUrl = '';
+      const introImagen = p.acf?.intro_imagen;
       const featuredMedia = p._embedded?.['wp:featuredmedia']?.[0]?.source_url;
-      const acfImg = p.acf?.hero_imagen || p.acf?.intro_imagen;
       
-      if (featuredMedia) {
+      if (typeof introImagen === 'number') {
+        imageUrl = (await getMedia(introImagen))?.source_url || '';
+      } else if (typeof introImagen === 'string' && introImagen !== '') {
+        imageUrl = introImagen;
+      } else if (featuredMedia) {
         imageUrl = featuredMedia;
-      } else if (typeof acfImg === 'number') {
-        imageUrl = (await getMedia(acfImg))?.source_url || '';
-      } else if (typeof acfImg === 'string') {
-        imageUrl = acfImg;
+      } else if (typeof p.acf?.hero_imagen === 'number') {
+        imageUrl = (await getMedia(p.acf.hero_imagen))?.source_url || '';
+      } else if (typeof p.acf?.hero_imagen === 'string') {
+        imageUrl = p.acf.hero_imagen;
       }
       
       return {
