@@ -19,7 +19,7 @@ export default function Hero({ subtitle, title, text, imageUrl }: HeroProps) {
             src={imageUrl || "/team.png"} 
             alt="Hero Background" 
             fill 
-            priority
+            quality={60}
             sizes="100vw"
             style={{ objectFit: 'cover' }} 
           />
@@ -50,6 +50,7 @@ export default function Hero({ subtitle, title, text, imageUrl }: HeroProps) {
               alt="Medical Team" 
               fill
               priority
+              quality={70}
               sizes="(max-width: 768px) 100vw, 50vw"
               className="hero-card-img" 
             />
