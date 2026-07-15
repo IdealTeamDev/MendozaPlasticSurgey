@@ -65,13 +65,13 @@ export default function Contact({ subtitle, titleBold, text }: ContactProps) {
       <div className="container contact-container">
         
         <div className="contact-info">
-          <h1 className="contact-title" style={{ color: 'var(--black)', fontSize: '2.5rem', lineHeight: '1.2', fontWeight: 600, marginBottom: '1rem' }}>
+          <h2 className="contact-title" style={{ color: 'var(--black)', fontSize: '2.5rem', lineHeight: '1.2', fontWeight: 600, marginBottom: '1rem' }}>
             {titleBold ? (
               <span dangerouslySetInnerHTML={{ __html: titleBold }} />
             ) : (
               "Mendoza Plastic Surgery"
             )}
-          </h1>
+          </h2>
           {text ? (
             <div className="contact-text-wrapper" dangerouslySetInnerHTML={{ __html: text }} />
           ) : (
