@@ -42,8 +42,6 @@ export default function ProcedureDetailsTabs({ tabs }: ProcedureDetailsTabsProps
     }
   }, [activeTabs, activeTab]);
 
-  const currentData = activeTabs.find(t => t.id === activeTab) || activeTabs[0];
-
   return (
     <section className="proc-details-tabs-section">
       <div className="container">
@@ -62,16 +60,24 @@ export default function ProcedureDetailsTabs({ tabs }: ProcedureDetailsTabsProps
           </div>
         </div>
 
-        <div className="proc-details-content-box">
-          
-          <div className="proc-details-col-left">
-            <span className="proc-details-subtitle">{currentData.titleSubtitle}</span>
-            <h2 className="proc-details-title">{currentData.titleMain}</h2>
-          </div>
-          
-          <div className="proc-details-col-right" dangerouslySetInnerHTML={{ __html: currentData.content }}>
-          </div>
-
+        <div className="proc-details-content-container">
+          {activeTabs.map(tab => (
+            <div 
+              key={tab.id}
+              className="proc-details-content-box"
+              style={{ display: activeTab === tab.id ? 'flex' : 'none' }}
+            >
+              <div className="proc-details-col-left">
+                <h2 className="proc-details-title">
+                  <span className="proc-details-subtitle">{tab.titleSubtitle}</span>
+                  {tab.titleMain}
+                </h2>
+              </div>
+              
+              <div className="proc-details-col-right" dangerouslySetInnerHTML={{ __html: tab.content }}>
+              </div>
+            </div>
+          ))}
         </div>
 
       </div>
