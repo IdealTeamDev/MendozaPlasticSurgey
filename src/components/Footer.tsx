@@ -1,7 +1,8 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import './Footer.css';
 
 interface SocialLink {
@@ -18,6 +19,39 @@ interface FooterProps {
 }
 
 export default function Footer({ logoUrl, description, phone, address, socialLinks }: FooterProps) {
+  const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      email: formData.get('email'),
+      formSource: 'Suscripción al Boletín (Footer)'
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        router.push('/thank-you');
+      } else {
+        alert('Hubo un error al suscribirte. Por favor intenta nuevamente.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Hubo un error de red. Por favor intenta nuevamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="container">
@@ -61,10 +95,11 @@ export default function Footer({ logoUrl, description, phone, address, socialLin
 
           <div className="footer-col-right">
             <h4 className="newsletter-title">Suscríbete a nuestro boletín</h4>
-            <form className="newsletter-form" action="https://formsubmit.co/manuel@idealteamcolombia.com" method="POST">
-              <input type="hidden" name="_subject" value="Nuevo registro al boletín - Mendoza Plastic Surgery" />
+            <form className="newsletter-form" onSubmit={handleSubmit}>
               <input type="email" name="email" placeholder="Ingresa tu correo electrónico acá" required />
-              <button type="submit">Enviar →</button>
+              <button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? '...' : 'Enviar →'}
+              </button>
             </form>
             <div className="social-icons">
               {socialLinks && socialLinks.length > 0 ? (

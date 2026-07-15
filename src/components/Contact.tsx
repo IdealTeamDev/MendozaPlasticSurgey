@@ -1,7 +1,8 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import './Contact.css';
 
 interface ContactProps {
@@ -11,6 +12,42 @@ interface ContactProps {
 }
 
 export default function Contact({ subtitle, titleBold, text }: ContactProps) {
+  const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      nombre: formData.get('nombre'),
+      email: formData.get('email'),
+      celular: formData.get('celular'),
+      procedimiento: formData.get('procedimiento'),
+      formSource: 'Sección Principal (Contact)'
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        router.push('/thank-you');
+      } else {
+        alert('Hubo un error al enviar el mensaje. Por favor intenta nuevamente.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Hubo un error de red. Por favor intenta nuevamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="contact section-padding" id="contacto">
       <Image 
@@ -56,8 +93,7 @@ export default function Contact({ subtitle, titleBold, text }: ContactProps) {
         </div>
 
         <div className="contact-form-wrapper">
-          <form className="contact-form" action="https://formsubmit.co/manuel@idealteamcolombia.com" method="POST">
-            <input type="hidden" name="_subject" value="Nueva consulta - Mendoza Plastic Surgery" />
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Nombre*</label>
               <input type="text" name="nombre" placeholder="Ingresa tu nombre acá" required />
@@ -84,7 +120,9 @@ export default function Contact({ subtitle, titleBold, text }: ContactProps) {
               <input type="checkbox" id="policy" name="terminos" required />
               <label htmlFor="policy">Acepto política de tratamiento de datos</label>
             </div>
-            <button type="submit" className="btn submit-btn-black">Agenda tu consulta</button>
+            <button type="submit" className="btn submit-btn-black" disabled={isSubmitting}>
+              {isSubmitting ? 'Enviando...' : 'Agenda tu consulta'}
+            </button>
           </form>
         </div>
         

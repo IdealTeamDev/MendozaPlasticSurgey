@@ -44,9 +44,16 @@
   display: flex;
 }
 
+.desktop-only-flex {
+  display: none !important;
+}
+
 @media (min-width: 768px) {
   .mobile-only-flex {
     display: none !important;
+  }
+  .desktop-only-flex {
+    display: flex !important;
   }
 }
 

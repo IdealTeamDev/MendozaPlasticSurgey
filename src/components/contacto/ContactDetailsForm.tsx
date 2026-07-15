@@ -1,4 +1,7 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import './ContactDetailsForm.css';
 
 interface ContactDetailsFormProps {
@@ -9,6 +12,42 @@ interface ContactDetailsFormProps {
 }
 
 export default function ContactDetailsForm({ location, phone, email, schedule }: ContactDetailsFormProps) {
+  const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      nombre: formData.get('nombre'),
+      email: formData.get('email'),
+      celular: formData.get('celular'),
+      procedimiento: formData.get('procedimiento'),
+      formSource: 'Página de Contacto (ContactDetailsForm)'
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        router.push('/thank-you');
+      } else {
+        alert('Hubo un error al enviar el mensaje. Por favor intenta nuevamente.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Hubo un error de red. Por favor intenta nuevamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="contact-details-section section-padding">
       <div className="container contact-details-container">
@@ -42,8 +81,7 @@ export default function ContactDetailsForm({ location, phone, email, schedule }:
         </div>
 
         <div className="contact-form-wrapper">
-          <form className="contact-form" action="https://formsubmit.co/manuel@idealteamcolombia.com" method="POST">
-            <input type="hidden" name="_subject" value="Detalle de contacto - Mendoza Plastic Surgery" />
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Nombre*</label>
               <input type="text" name="nombre" placeholder="Ingresa tu nombre acá" required />
@@ -77,7 +115,9 @@ export default function ContactDetailsForm({ location, phone, email, schedule }:
               <label htmlFor="policy">Acepto política de tratamiento de datos</label>
             </div>
 
-            <button type="submit" className="submit-btn">Agenda tu consulta</button>
+            <button type="submit" className="submit-btn" disabled={isSubmitting}>
+              {isSubmitting ? 'Enviando...' : 'Agenda tu consulta'}
+            </button>
           </form>
         </div>
 
