@@ -30,6 +30,7 @@ export default async function ContactoPage() {
         title={acf?.hero_titulo}
         desc={acf?.hero_texto}
         imageUrl={heroImage}
+        isH1={false}
       />
       <ContactDetailsForm 
         location={acf?.ubicacion}
