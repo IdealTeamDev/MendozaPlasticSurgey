@@ -128,9 +128,9 @@ const FALLBACK_MENU: MenuItem[] = [
                     <div className="mega-menu-container">
                       {item.mega_menu_columnas.map((col, cIndex) => (
                         <div className="mega-menu-column" key={cIndex}>
-                          <h4 className="mega-menu-title">
+                          <div className="mega-menu-title">
                             {col.enlace ? <Link href={col.enlace} onClick={() => setForceCloseDesktop(true)}>{col.titulo}</Link> : col.titulo}
-                          </h4>
+                          </div>
                           <ul className="mega-menu-list">
                             {col.items.map((sub, j) => (
                               <li key={j}><Link href={sub.enlace} onClick={() => setForceCloseDesktop(true)}>{sub.titulo}</Link></li>
@@ -202,7 +202,7 @@ const FALLBACK_MENU: MenuItem[] = [
                             className="mobile-subaccordion-header"
                             onClick={(e) => { e.preventDefault(); toggleSubMenu(`submenu-${i}-${cIndex}`); }}
                           >
-                            <h5 className="mobile-mega-title">{col.titulo}</h5>
+                            <div className="mobile-mega-title">{col.titulo}</div>
                             <span className={`arrow ${expandedSubMenu === `submenu-${i}-${cIndex}` ? 'open' : ''}`}>▼</span>
                           </div>
                           <div className={`mobile-subaccordion-body ${expandedSubMenu === `submenu-${i}-${cIndex}` ? 'open' : ''}`}>
